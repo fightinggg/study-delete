@@ -627,7 +627,7 @@ spec:
     spec:
       containers:
       - name: elasticsearch
-        image: elasticsearch:7.10.1
+        image: elasticsearch:7.5.1
         imagePullPolicy: IfNotPresent
         env: 
         - name: "discovery.type"
@@ -649,7 +649,7 @@ spec:
        #   initialDelaySeconds: 10
        #   periodSeconds: 3
       - name: kibana
-        image: kibana:7.10.1
+        image: kibana:7.5.1
         imagePullPolicy: IfNotPresent
         env:
         - name: "ELASTICSEARCH_HOSTS"
@@ -659,7 +659,7 @@ spec:
         resources:
           limits: 
             cpu: 0.3
-            memory: 300Mi
+            memory: 1000Mi
           requests:
             cpu: 0.3
             memory: 300Mi
@@ -716,6 +716,10 @@ curl -u 'password' IP:9200
 
 
 # Linux
+
+换源
+
+https://zhuanlan.zhihu.com/p/61228593
 
 ## ele
 
@@ -1037,6 +1041,8 @@ EOF
 kubeadm init --pod-network-cidr=10.244.0.0/16
 kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 kubectl taint nodes --all node-role.kubernetes.io/master-
+vim /etc/kubernetes/manifests/kube-apiserver.yaml
+#- --service-node-port-range=1000-32000
 ```
 
 ## K8S客户端
@@ -1060,7 +1066,7 @@ curl -L https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3
 # echo "serverTLSBootstrap: true" >> /var/lib/kubelet/config.yaml
 
 systemctl daemon-reload
-systemctl restart kubelet.servic
+systemctl restart kubelet.service
 kubectl get csr
 kubectl certificate approve xxx ???
 ```
@@ -1106,9 +1112,27 @@ cd ..
 ## K8S重启失败
 
 ```sh
+systemctl status kubelet -n 1000
+
 free -m # 看看swap分区是否被打开
 swapoff -a
+
+systemctl daemon-reload
+systemctl restart kubelet
+
+hostname -f
+hostname xxxxxxx
 ```
+
+### 重装
+
+```sh
+kubeadm reset
+rm -rf /etc/kubernetes
+rm -rf /var/lib/etcd/
+```
+
+
 
 ## simple Java Project
 
@@ -2309,6 +2333,39 @@ AEAD：
 [官网](https://www.qemu.org/download/#windows)
 
 [git](git clone git://git.qemu-project.org/qemu.git)
+
+```sh
+wget https://download.qemu.org/qemu-3.0.0.tar.xz
+tar xvJf qemu-3.0.0.tar.xz
+cd qemu-3.0.0
+./configure
+make
+
+git clone git://git.qemu.org/qemu.git
+cd qemu
+git submodule init
+git submodule update --recursive
+./configure
+make
+```
+
+
+
+## xxxx
+
+### 概念解释
+
+虚拟地址： 程序员看到的地址
+
+物理地址： 硬件的内存地址
+
+段描述符表： 多个段描述符放在一起构成的表
+
+段描述符： 描述段的属性（基地址，段长，特权级，读写权限）
+
+段选择子： 用于在段描述符表中定位段描述符的索引
+
+
 
 
 
