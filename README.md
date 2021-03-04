@@ -1328,7 +1328,7 @@ cd ..
 -Dhttp.proxyPort=12639
 -Dhttp.proxyHost=127.0.0.1
 -Dhttps.proxyPort=12639
--Dhttps.proxyPort=127.0.0.1
+-Dhttps.proxyHost=127.0.0.1
 -Xmx400m # JVM最大内存
 -Xms300m # JVM初始内存
 -Xmn200m # 年轻代内存
@@ -1572,6 +1572,60 @@ git clone https://github.com/spring-projects/spring-boot.git
 
 ```sh
 git config core.longPaths true
+```
+
+### Aware
+
+#### BeanNameAware
+
+beanNameAware可以获得容器中Bean的名称，作用于每一个Bean。当bean被创建的时候设置他的名字，在基本properties填充完成以后，init调用前执行
+
+> 摘自： spring-beans:5.3.4 org.springframework.beans.factory.BeanNameAware
+>
+> Set the name of the bean in the bean factory that created this bean. <p>Invoked after population of normal bean properties but before an init callback such as {@link InitializingBean#afterPropertiesSet()} or a custom init-method.
+
+```java
+package com.example.demo;
+
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BeanNameAwareDemo implements BeanNameAware {
+    @Override
+    public void setBeanName(String name) {
+        System.out.println(name);
+    }
+}
+```
+
+输出: 
+
+```txt
+beanNameAwareDemo
+```
+
+
+
+### BeanFactoryAware
+
+ 注入beanFactory
+
+```java
+package com.example.demo;
+
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.stereotype.Component;
+
+@Component
+public class BeanFactoryAwareDemo implements BeanFactoryAware {
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println(beanFactory);
+    }
+}
 ```
 
 ### 自定义starter
