@@ -2170,13 +2170,13 @@ java -jar -agentlib:jdwp=transport=dt_socket,server=n,address=192.168.0.109:5005
 
 
 ### 势能分析简介
-&emsp;&emsp; 势能分析是一种常用的数据结构时间复杂度分析的手段，我们常常会定义一个势能函数，用于评价数据结构某个状态的势能，把每个操作的时间复杂度加上操作导致的势能变化作为摊还复杂度，如果经过了一系列操作以后，势能不减少，这一系列操作的时间复杂度之和不大于这一系列操作的摊还复杂度之和。
+ 势能分析是一种常用的数据结构时间复杂度分析的手段，我们常常会定义一个势能函数，用于评价数据结构某个状态的势能，把每个操作的时间复杂度加上操作导致的势能变化作为摊还复杂度，如果经过了一系列操作以后，势能不减少，这一系列操作的时间复杂度之和不大于这一系列操作的摊还复杂度之和。
 
 #### 势能分析更加严谨的简介
-&emsp;&emsp; 我们对一个初始数据结构$D_0$执行$n$个操作，对于每个$i=1,2,...,n$令$C_i$为第$i$个操作的实际代价,令$D_i$为在数据结构$D_{i-1}$上执行第$i$个操作后得到的结果数据结构，势能函数$\Phi$将每个数据结构$D_i$映射到一个实数$\Phi(D_i)$,此值即为关联到数据结构$D_i$的势，第$i$个操作的摊还代价$\hat{C_i}=C_i+\Phi(D_i)-\Phi(D_{i-1})$,则$n$个操作的总摊还代价为$\sum_{i=1}^n\hat{C_i}=\sum_{i=1}^n{C_i}+\Phi(D_n)-\Phi(D_0)$，如果势能函数满足$\Phi(D_n)\ge\Phi(D_0)$，则总摊还代价$\sum_{i=1}^n\hat{C_i}$是总实际代价$\sum_{i=1}^nC_i$的一个上界
+ 我们对一个初始数据结构$D_0$执行$n$个操作，对于每个$i=1,2,...,n$令$C_i$为第$i$个操作的实际代价,令$D_i$为在数据结构$D_{i-1}$上执行第$i$个操作后得到的结果数据结构，势能函数$\Phi$将每个数据结构$D_i$映射到一个实数$\Phi(D_i)$,此值即为关联到数据结构$D_i$的势，第$i$个操作的摊还代价$\hat{C_i}=C_i+\Phi(D_i)-\Phi(D_{i-1})$,则$n$个操作的总摊还代价为$\sum_{i=1}^n\hat{C_i}=\sum_{i=1}^n{C_i}+\Phi(D_n)-\Phi(D_0)$，如果势能函数满足$\Phi(D_n)\ge\Phi(D_0)$，则总摊还代价$\sum_{i=1}^n\hat{C_i}$是总实际代价$\sum_{i=1}^nC_i$的一个上界
 
 ### 后记
-&emsp;&emsp; 笔者在此不会做势能分析，能进行势能分析的东西太多了，例如splay、pairing heap、fibonacci heap、link cut tree等等,我们将其留在后边的博文中详细介绍。
+ 笔者在此不会做势能分析，能进行势能分析的东西太多了，例如splay、pairing heap、fibonacci heap、link cut tree等等,我们将其留在后边的博文中详细介绍。
 
 
 
@@ -2194,23 +2194,23 @@ java -jar -agentlib:jdwp=transport=dt_socket,server=n,address=192.168.0.109:5005
 
 
 ### hadoop 
-&emsp;&emsp; hadoop = common+hdfs+mapreduce+yarn
+ hadoop = common+hdfs+mapreduce+yarn
 
 ### common
-&emsp;&emsp; 工具、rpc通信
+ 工具、rpc通信
 
 ### hdfs
-&emsp;&emsp; 分布式文件系统，一个文件分成多个128Mb的文件，存储在多个节点，为了保证分区容错性，存有备份，默认为3。主从架构。
+ 分布式文件系统，一个文件分成多个128Mb的文件，存储在多个节点，为了保证分区容错性，存有备份，默认为3。主从架构。
 #### namenode
-&emsp;&emsp; 用来记录各个文件的block的编号、各个block的位置、抽象目录树
-&emsp;&emsp; 处理读写请求
-&emsp;&emsp; 可以有多个namenode
+ 用来记录各个文件的block的编号、各个block的位置、抽象目录树
+ 处理读写请求
+ 可以有多个namenode
 #### secondarynamenode
-&emsp;&emsp; 用来备份namenode,当namenode宕机的时候，帮助namenode恢复
+ 用来备份namenode,当namenode宕机的时候，帮助namenode恢复
 #### datanode
-&emsp;&emsp; 用来储存数据
+ 用来储存数据
 #### 副本机制
-&emsp;&emsp; 如果一个datanode挂了，就再开一个datanode，然后吧挂了的数据通过备份推出来存进去，如果之前那个挂了的又活了，则选择一个节点删掉。副本过多将导致维护成本提高
+ 如果一个datanode挂了，就再开一个datanode，然后吧挂了的数据通过备份推出来存进去，如果之前那个挂了的又活了，则选择一个节点删掉。副本过多将导致维护成本提高
 #### 优点
 - 可构建在廉价机器上
 - 高容错性 : 自动恢复
@@ -2221,12 +2221,12 @@ java -jar -agentlib:jdwp=transport=dt_socket,server=n,address=192.168.0.109:5005
 
 
 ### yarn
-&emsp;&emsp; 资源调度、管理框架
+ 资源调度、管理框架
 - resourcemanager 统筹资源
 - nodemanager 资源调度
 
 ### mapreduce
-&emsp;&emsp; 分布式计算框架
+ 分布式计算框架
 
 
 ## Zookeeper
@@ -3388,29 +3388,29 @@ map之后的数据，传给reduce，往往意味着由行储存变为列储存�
 
 
 #### Boost 与c++
-&emsp;&emsp; Boost是基于C++标准的现代库，他的源码按照Boost Software License 来发布，允许任何人自由使用、修改和分发。
+ Boost是基于C++标准的现代库，他的源码按照Boost Software License 来发布，允许任何人自由使用、修改和分发。
 
 #### Boost有哪些功能？
-&emsp;&emsp; Boost强大到拥有超过90个库，但我们暂时只学习其中一部分
+ Boost强大到拥有超过90个库，但我们暂时只学习其中一部分
 
 
 ##### Any 
-&emsp;&emsp; boost::any是一个数据类型，他可以存放任意的类型，例如说一个类型为boost::any的变量可以先存放一个int类型的值，然后替换为一个std::string的类型字符串。
+ boost::any是一个数据类型，他可以存放任意的类型，例如说一个类型为boost::any的变量可以先存放一个int类型的值，然后替换为一个std::string的类型字符串。
 
 ##### Array
-&emsp;&emsp; 好像是一个数组容器，和std::vector应该差别不大。
+ 好像是一个数组容器，和std::vector应该差别不大。
 
 ##### and more ...
 
 #### 这个系列的博客来干嘛？
-&emsp;&emsp; 这个系列的博客用来介绍Boost提供的接口，不对Boost进行源码分析，关于Boost的源码，预计会在Boost源码分析笔记系列的博客中。
+ 这个系列的博客用来介绍Boost提供的接口，不对Boost进行源码分析，关于Boost的源码，预计会在Boost源码分析笔记系列的博客中。
 
 ### Boost学习笔记2 - Boost.Any
 
 
 
 #### Boost.Any
-&emsp;&emsp;  Any在C++17被编入STL
+  Any在C++17被编入STL
 C++是强类型语言，没有办法向Python那样把一个int赋值给一个double这种骚操作，而Boost.Any库为我们模拟了这个过程，使得我们可以实现弱类型语言的东西。
 
 #### 在基本数据类型中玩弱类型
@@ -3422,7 +3422,7 @@ int main(){
   a = true;
 }
 ```
-&emsp;&emsp; 这样的代码是允许编译的，大概是因为boost::any内部储存的是指针。
+ 这样的代码是允许编译的，大概是因为boost::any内部储存的是指针。
 
 #### char数组不行了
 ```cpp
@@ -3432,7 +3432,7 @@ int main(){
   a = "hello world";
 }
 ```
-&emsp;&emsp; 上诉代码可以编译和运行，但是一定会碰到问题的，当我们把char数组弄过去的时候，就不太行了，原因是char[]不支持拷贝构造，但是我们可以通过把std::string来解决这个问题。
+ 上诉代码可以编译和运行，但是一定会碰到问题的，当我们把char数组弄过去的时候，就不太行了，原因是char[]不支持拷贝构造，但是我们可以通过把std::string来解决这个问题。
 #### 用std::string代替char数组
 ```cpp
 #### include <boost/any.hpp>
@@ -3441,9 +3441,9 @@ int main(){
   a = std::string("hello world");
 }
 ```
-&emsp;&emsp; 可以见到我们用string完美地解决了这个问题。
+ 可以见到我们用string完美地解决了这个问题。
 #### 写很容易，如何读呢？
-&emsp;&emsp; 我们已经学习了boost::any的写操作，但是应该如何读取呢？
+ 我们已经学习了boost::any的写操作，但是应该如何读取呢？
 ```cpp
 #### include <boost/any.hpp>
 #### include <iostream>
@@ -3452,9 +3452,9 @@ int main(){
   std::cout << boost::any_cast<int>(a) << std::endl;
 }
 ```
-&emsp;&emsp; boost提供了一个模版函数any_cast&lt;T&gt;来对我们的any类进行读取
+ boost提供了一个模版函数any_cast&lt;T&gt;来对我们的any类进行读取
 #### 类型不对会抛出异常
-&emsp;&emsp; 有了any&lt;T&gt;的模版，看起来我们可以对boost进行任意读取，我们试试下这个
+ 有了any&lt;T&gt;的模版，看起来我们可以对boost进行任意读取，我们试试下这个
 ```cpp
 #### include <boost/any.hpp>
 #### include <iostream>
@@ -3464,15 +3464,15 @@ int main() {
   std::cout << boost::any_cast<int>(a) << std::endl;
 }
 ```
-&emsp;&emsp; 抛出了如下异常
+ 抛出了如下异常
 ```
 libc++abi.dylib: terminating with uncaught exception of type boost::wrapexcept<boost::bad_any_cast>: boost::bad_any_cast: failed conversion using boost::any_cast
 ```
-&emsp;&emsp; 实际上上诉代码是永远无法成功的。因为你把一个char数组传了进去。
+ 实际上上诉代码是永远无法成功的。因为你把一个char数组传了进去。
 
 #### 成员函数
 
-&emsp;&emsp; boost的any是有很多成员函数的。比方说empty可以判断是否为空，type可以得到类型信息，
+ boost的any是有很多成员函数的。比方说empty可以判断是否为空，type可以得到类型信息，
 ```cpp
 #### include <boost/any.hpp>
 #### include <iostream>
@@ -3487,14 +3487,14 @@ int main() {
   }
 }
 ```
-&emsp;&emsp; 代码运行结果如下，表示首先是字符串，然后是整形。
+ 代码运行结果如下，表示首先是字符串，然后是整形。
 ```
 NSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEE
 i
 ```
 
 #### 拿到指针
-&emsp;&emsp; 当我们把一个any的地址传给any_cast的时候，我们会得到any内部数据的指针，
+ 当我们把一个any的地址传给any_cast的时候，我们会得到any内部数据的指针，
 ```cpp
 #### include <boost/any.hpp>
 #### include <iostream>
@@ -3514,25 +3514,25 @@ int main()
 
 
 #### 先挑一个简单的来分析
-&emsp;&emsp; remove_cv 这个模版类能够帮我们去掉类型的const，他的实现很简单，即使用模版元技术：
+ remove_cv 这个模版类能够帮我们去掉类型的const，他的实现很简单，即使用模版元技术：
 ```cpp
 template <class T> struct remove_cv{ typedef T type; };
 template <class T> struct remove_cv<T const>{ typedef T type;  };
 template <class T> struct remove_cv<T volatile>{ typedef T type; };
 template <class T> struct remove_cv<T const volatile>{ typedef T type; };
 ```
-&emsp;&emsp; 这个代码应该非常容易理解，remove_cv的模版是一个T,我们对他做模版偏特化，将const 和volatile分离，然后使用::value就可以得到没有const、volatile的类型了，所以这个类也叫remove_cv。
+ 这个代码应该非常容易理解，remove_cv的模版是一个T,我们对他做模版偏特化，将const 和volatile分离，然后使用::value就可以得到没有const、volatile的类型了，所以这个类也叫remove_cv。
 
 ### Boost 源码分析笔记2 - is_array
 
 
 
 #### is array 
-&emsp;&emsp; 要先看下面的笔记，才能看懂此篇。
+ 要先看下面的笔记，才能看懂此篇。
 {% post_link 'Boost-源码分析笔记3-integral-constant' 点我开始阅读 %}
 
 #### 实现
-&emsp;&emsp; is array的实现非常简单，我们先假设所有的都不是array，即如第四行所示，然后利用偏特化，特判掉所有的array即可，让他们继承true_type,这样我们在使用的时候用::value即可判断。
+ is array的实现非常简单，我们先假设所有的都不是array，即如第四行所示，然后利用偏特化，特判掉所有的array即可，让他们继承true_type,这样我们在使用的时候用::value即可判断。
 ```cpp
 #### if defined( __CODEGEARC__ )
    template <class T> struct is_array : public integral_constant<bool, __is_array(T)> {};
@@ -3559,7 +3559,7 @@ template <class T> struct remove_cv<T const volatile>{ typedef T type; };
 
 
 #### integral_consant 
-&emsp;&emsp; 这也是一个模版元技术，他储存了自己的类型，模版的类型，模版的值的类型，他的实现如下
+ 这也是一个模版元技术，他储存了自己的类型，模版的类型，模版的值的类型，他的实现如下
 ```cpp
  template <class T, T val>
    struct integral_constant
@@ -3578,15 +3578,15 @@ template <class T> struct remove_cv<T const volatile>{ typedef T type; };
       BOOST_CONSTEXPR operator T()const { return val; }
    };
 ```
-&emsp;&emsp; 这里很明显了，value是值，value_type是value的类型，type是自己的类型。
+ 这里很明显了，value是值，value_type是value的类型，type是自己的类型。
 
 #### true_type false_type
-&emsp;&emsp;这里就很有意思了，看看就懂
+这里就很有意思了，看看就懂
 ```cpp
 typedef integral_constant<bool, true> true_type;
 typedef integral_constant<bool, false> false_type;
 ```
-&emsp;&emsp; 可能有人会问这个有什么用，其实这样的，很多时候我们需要为我们的类添加一个value，表示true或者false，正常的实现方法是写两遍，一遍处理全部，另一遍特化false，这样写的话，代码复用就太low了，这时候，其实我们只需要实现一遍基类，派生的时候一个继承true，另一个继承false就OK了。
+ 可能有人会问这个有什么用，其实这样的，很多时候我们需要为我们的类添加一个value，表示true或者false，正常的实现方法是写两遍，一遍处理全部，另一遍特化false，这样写的话，代码复用就太low了，这时候，其实我们只需要实现一遍基类，派生的时候一个继承true，另一个继承false就OK了。
 
 ### Boost 源码分析笔记4 - is_function
 
@@ -3599,7 +3599,7 @@ typedef integral_constant<bool, false> false_type;
 
 
 #### remove_bounds
-&emsp;&emsp; 这个模版元我还真没猜出他的功能，话说怎么可能有人想得到这个bounds指的是数组的bounds呢？这个模版元的功能是传入一个数组，传出他的内容，即将T[]映射为T。注意： remove_bounds就是remove_extent。
+ 这个模版元我还真没猜出他的功能，话说怎么可能有人想得到这个bounds指的是数组的bounds呢？这个模版元的功能是传入一个数组，传出他的内容，即将T[]映射为T。注意： remove_bounds就是remove_extent。
 ```cpp
 template <class T> struct remove_extent{ typedef T type; };
 
@@ -3617,15 +3617,15 @@ template <typename T> struct remove_extent<T const volatile[]> { typedef T const
 #### endif
 
 ```
-&emsp;&emsp; 还是老样子，数组就特判掉，然后返回其头，否则就返回他的本身。
+ 还是老样子，数组就特判掉，然后返回其头，否则就返回他的本身。
 
 ### Boost 源码分析笔记6 - remove_reference
 
 
 
 #### remove_reference 
-&emsp;&emsp;这个名字就很棒，就是移除引用的意思。同样他也是模版元技术，他先将所有的类型映射为自己，然后通过模版偏特化的方式将那些引用映射为本身。这里有一个c++的特性即下面代码
-&emsp;&emsp; 这个代码看懂的人应该不多了。
+这个名字就很棒，就是移除引用的意思。同样他也是模版元技术，他先将所有的类型映射为自己，然后通过模版偏特化的方式将那些引用映射为本身。这里有一个c++的特性即下面代码
+ 这个代码看懂的人应该不多了。
 ```cpp
 #### include <iostream>
 
@@ -3644,7 +3644,7 @@ int main() {
   f(4);
 }
 ```
-&emsp;&emsp; 这里的&&就是右值引用的意思，所以输出是
+ 这里的&&就是右值引用的意思，所以输出是
 ```
 &
 &
@@ -3690,7 +3690,7 @@ template <class T> struct remove_reference<T&volatile>{ typedef T type; };
 template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 #### endif
 ```
-&emsp;&emsp;同样的我们使用模版元技术，将引用就消除了。
+同样的我们使用模版元技术，将引用就消除了。
 
 ### Boost 源码分析笔记7 - decay
 
@@ -3704,7 +3704,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 {% post_link 'Boost-源码分析笔记1-remove-cv' remove_cv%}
 
 #### decay 
-&emsp;&emsp; 这个模版元的意思是移除引用、移除const、移除volatile、数组移除范围、函数变成指针。
+ 这个模版元的意思是移除引用、移除const、移除volatile、数组移除范围、函数变成指针。
 ```cpp
    namespace detail
    {
@@ -3724,7 +3724,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
        typedef typename boost::detail::decay_imp<Ty, boost::is_array<Ty>::value, boost::is_function<Ty>::value>::type type;
     };
 ```
-&emsp;&emsp; 实际上做起来的时候是先移除引用，最后移除cv的。
+ 实际上做起来的时候是先移除引用，最后移除cv的。
 
 ### Boost 源码分析笔记8 - any
 
@@ -3734,7 +3734,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 {% post_link 'Boost-源码分析笔记7-decay' decay %}
 
 #### 我们来分析一个简单的any
-&emsp;&emsp; 如{% post_link 'Boost-学习笔记2-Boost-Any' Any接口学习 %}所示，any能够支持我们的c++向python一样，给一个变量瞎赋值，这也太爽了。
+ 如{% post_link 'Boost-学习笔记2-Boost-Any' Any接口学习 %}所示，any能够支持我们的c++向python一样，给一个变量瞎赋值，这也太爽了。
 #### 构造函数如下
 ```cpp
         template<typename ValueType>
@@ -3745,12 +3745,12 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
         {
         }
 ```
-&emsp;&emsp; 这里是接受任意的类型，然后对这个类型使用decay得到他的基本类型，最后让holder来替我们管理。holder保持了一个输入参数的副本，我们发现这个holder类型的值放到了一个叫content的指针中。
+ 这里是接受任意的类型，然后对这个类型使用decay得到他的基本类型，最后让holder来替我们管理。holder保持了一个输入参数的副本，我们发现这个holder类型的值放到了一个叫content的指针中。
 
 
 
 #### holder
-&emsp;&emsp; holder继承自placeholder，placeholder是一个接口，我们不去管他，holder内部的副本保存在held中。
+ holder继承自placeholder，placeholder是一个接口，我们不去管他，holder内部的副本保存在held中。
 ```cpp
 
         template<typename ValueType>
@@ -3794,7 +3794,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
         };
 ```
 #### any数据类型的读取
-&emsp;&emsp; any数据有两种读取方式，一是指针，想要读取出里面的元素，显然元素是operand->content->held, 我们要得到他的指针的话，先构造出指针来： holder&lt;remove_cv&lt;ValueType&gt;::type&gt;*, 因为operand->content是placeholer,这也就是为什么下面的代码的括号在->held之前的原因。最后用boost::addressof取出地址就可以了。
+ any数据有两种读取方式，一是指针，想要读取出里面的元素，显然元素是operand->content->held, 我们要得到他的指针的话，先构造出指针来： holder&lt;remove_cv&lt;ValueType&gt;::type&gt;*, 因为operand->content是placeholer,这也就是为什么下面的代码的括号在->held之前的原因。最后用boost::addressof取出地址就可以了。
 ```cpp
 
     template<typename ValueType>
@@ -3807,7 +3807,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
             : 0;
     }
 ```
-&emsp;&emsp; 第二种方式是读取拷贝，先移除引用，调用上面的指针读取，最后指针取内容就可以返回了。
+ 第二种方式是读取拷贝，先移除引用，调用上面的指针读取，最后指针取内容就可以返回了。
 ```cpp
     template<typename ValueType>
     ValueType any_cast(any & operand)
@@ -3841,7 +3841,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 ```
 
 #### any的成员函数
-&emsp;&emsp; 前两个就不说了，直接说第三个，如果content存在，就调用content的type
+ 前两个就不说了，直接说第三个，如果content存在，就调用content的type
 ```cpp
         bool empty() const BOOST_NOEXCEPT
         {
@@ -3858,7 +3858,7 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
             return content ? content->type() : boost::typeindex::type_id<void>().type_info();
         }
 ```
-&emsp;&emsp; type是这样实现的
+ type是这样实现的
 ```cpp
             virtual const boost::typeindex::type_info& type() const BOOST_NOEXCEPT
             {
@@ -3872,15 +3872,15 @@ template <class T> struct remove_reference<T&const volatile>{ typedef T type; };
 
 
 #### Boost::Tuple
-&emsp;&emsp; boost::tuple是一个元组。在c++11被编入STL
-&emsp;&emsp; 第六行无法通过编译，这说明tuple的长度最长只能是10
-&emsp;&emsp; 第9-12行定义了3个元组
-&emsp;&emsp; 第13行演示了如何通过make_tuple构造元组
-&emsp;&emsp; 第14行演示了如何通过get来访问元组里面的元素
-&emsp;&emsp; 第16行演示了get的返回值是引用
-&emsp;&emsp; 第19-20行演示了tuple的等号操作
-&emsp;&emsp; 第23-27行演示了tuple中可以储存引用
-&emsp;&emsp; 第28行通过tie构造了一个全引用元组
+ boost::tuple是一个元组。在c++11被编入STL
+ 第六行无法通过编译，这说明tuple的长度最长只能是10
+ 第9-12行定义了3个元组
+ 第13行演示了如何通过make_tuple构造元组
+ 第14行演示了如何通过get来访问元组里面的元素
+ 第16行演示了get的返回值是引用
+ 第19-20行演示了tuple的等号操作
+ 第23-27行演示了tuple中可以储存引用
+ 第28行通过tie构造了一个全引用元组
 ```cpp
 #### include <boost/tuple/tuple.hpp>
 #### include <boost/tuple/tuple_comparison.hpp>
@@ -3932,8 +3932,8 @@ reference2 is (10 11)
 
 
 #### Boost::Variant
-&emsp;&emsp; boost::variant和any很像，variant和any一样在C++17中被编入STL
-&emsp;&emsp; variant可以指定一部分数据类型，你可以在这一部分中随便赋值，就像下面写到的一样，另外和any的any_cast不一样的是variant使用get&lt;T&gt;来获得内容。
+ boost::variant和any很像，variant和any一样在C++17中被编入STL
+ variant可以指定一部分数据类型，你可以在这一部分中随便赋值，就像下面写到的一样，另外和any的any_cast不一样的是variant使用get&lt;T&gt;来获得内容。
 
 ```cpp
 #### include <boost/variant.hpp>
@@ -3953,7 +3953,7 @@ int main() {
 ```
 
 #### 访问者模式
-&emsp;&emsp; variant允许我们使用访问者模式来访问其内部的成员，使用函数boost::apply_visitor来实现，访问者模式使用的时候重载仿函数。仿函数记得继承static_visitor即可。
+ variant允许我们使用访问者模式来访问其内部的成员，使用函数boost::apply_visitor来实现，访问者模式使用的时候重载仿函数。仿函数记得继承static_visitor即可。
 ```cpp
 #### include <boost/variant.hpp>
 #### include <iostream>
@@ -3991,9 +3991,9 @@ string
 
 
 #### StringAlgorithms
-&emsp;&emsp; 我终于找到一个暂时没有被编入C++17的库了，听说在C++20中他也没进，哈哈哈。
+ 我终于找到一个暂时没有被编入C++17的库了，听说在C++20中他也没进，哈哈哈。
 #### 大小写转化
-&emsp;&emsp; 首先上来的肯定就是大小写转化啦，使用函数to_upper_copy(string)就可以了。
+ 首先上来的肯定就是大小写转化啦，使用函数to_upper_copy(string)就可以了。
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4007,7 +4007,7 @@ int main() {
 
 
 #### 删除子串
-&emsp;&emsp; erase_all_copy就是说先copy一份，然后再将子串全部删除，如果不带copy就是说直接操作穿进去的母串。下面的代码都可以去掉_copy,erase_first指的是删除第一次出现的，last指的是删除最后一次出现的，nth指的是删除第n次出现的，n从0开始,erase_head值的是删除前n个字符，erase_tail指的是删除后n个字符。
+ erase_all_copy就是说先copy一份，然后再将子串全部删除，如果不带copy就是说直接操作穿进去的母串。下面的代码都可以去掉_copy,erase_first指的是删除第一次出现的，last指的是删除最后一次出现的，nth指的是删除第n次出现的，n从0开始,erase_head值的是删除前n个字符，erase_tail指的是删除后n个字符。
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4028,7 +4028,7 @@ int main() {
 ```
 
 #### 查找子串
-&emsp;&emsp; find一类的函数，同上,他将返回一个iterator_range的迭代器。这个迭代器可以操作子串。注意子串和母串共享空间。
+ find一类的函数，同上,他将返回一个iterator_range的迭代器。这个迭代器可以操作子串。注意子串和母串共享空间。
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4042,7 +4042,7 @@ int main() {
   //std::cout << boost::algorithm::find_last(s, "111") << std::endl;
 }
 ```
-&emsp;&emsp; 又是一套代码下来了
+ 又是一套代码下来了
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4061,7 +4061,7 @@ int main() {
 ```
 
 #### 替换子串
-&emsp;&emsp; replace又是一套如下
+ replace又是一套如下
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4082,7 +4082,7 @@ int main() {
 ```
 
 #### 修剪字符串
-&emsp;&emsp; trim_left_copy 指的是从左边开始修建，删掉空字符等，trim_right_copy是从右边开始修建，trim_copy是两边一起修剪。
+ trim_left_copy 指的是从左边开始修建，删掉空字符等，trim_right_copy是从右边开始修建，trim_copy是两边一起修剪。
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4095,7 +4095,7 @@ int main() {
   std::cout << "|" << boost::algorithm::trim_copy(s) << "|" << std::endl;
 }
 ```
-&emsp;&emsp; 这个代码输出了
+ 这个代码输出了
 ```
 |	  ab  d d  d d d 	|
 |ab  d d  d d d 	|
@@ -4103,7 +4103,7 @@ int main() {
 |ab  d d  d d d|
 ```
 
-&emsp;&emsp; 我们还可以通过指定谓词来修剪使用trim_left_copy_if
+ 我们还可以通过指定谓词来修剪使用trim_left_copy_if
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4116,7 +4116,7 @@ int main() {
   std::cout << "|" << boost::algorithm::trim_copy_if(s,boost::algorithm::is_any_of(" 01")) << "|" << std::endl;
 }
 ```
-&emsp;&emsp; 更多的谓词,我们还有is_lower、is_upper、is_space等谓词。
+ 更多的谓词,我们还有is_lower、is_upper、is_space等谓词。
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4135,7 +4135,7 @@ int main() {
 ```
 
 #### 字符串比较
-&emsp;&emsp; starts_with(s,t)判断s是否以t开头，类似的有ends_with,contains,lexicographical_compare分别表示s是否以t结尾，s是否包含t，s与t的字典序比较。
+ starts_with(s,t)判断s是否以t开头，类似的有ends_with,contains,lexicographical_compare分别表示s是否以t结尾，s是否包含t，s与t的字典序比较。
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4150,7 +4150,7 @@ int main() {
 }
 ```
 #### 字符串分割
-&emsp;&emsp; 这个就简单多了，直接split+谓词函数就行了
+ 这个就简单多了，直接split+谓词函数就行了
 ```cpp
 #### include <boost/algorithm/string.hpp>
 #### include <iostream>
@@ -4175,8 +4175,8 @@ abc.abc.abc...abc...abc...
 
 
 #### boost::regex
-&emsp;&emsp; C++11的时候，被编入STL
-&emsp;&emsp; 明天接着整。。。
+ C++11的时候，被编入STL
+ 明天接着整。。。
 
 
 ## C++基础
@@ -4186,10 +4186,10 @@ abc.abc.abc...abc...abc...
 
 
 #### 前言
-&emsp;&emsp; 从大一上接触c++,到大一下接触ACM,到现在大三下,我自以为对c++有了很深的理解，其实不然，我不清楚的地方还特别多，准备趁此空闲时间重学c++。
+ 从大一上接触c++,到大一下接触ACM,到现在大三下,我自以为对c++有了很深的理解，其实不然，我不清楚的地方还特别多，准备趁此空闲时间重学c++。
 
 #### const 与指针
-&emsp;&emsp; 这是这篇博文的重点，常常我们会碰到多种声明
+ 这是这篇博文的重点，常常我们会碰到多种声明
 ```cpp
 const char* const a = new char[10];
 const char* a = new char[10];
@@ -4197,7 +4197,7 @@ char* const a = new char[10];
 char* a = new char[10];
 ```
 
-&emsp;&emsp; 他们有什么共性与不同呢?下面的程序演示了区别，注释的地方是非法操作会报错。
+ 他们有什么共性与不同呢?下面的程序演示了区别，注释的地方是非法操作会报错。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4226,7 +4226,7 @@ int main() {
 }
 ```
 
-&emsp;&emsp; 下面解释为啥会出现这种情况，我们注意到const关键字，指的是不可修改的意思，对于b而言，const 修饰char*,表面char*不可修改即指针指向的内容不可修改，对于c而言const修饰c，表示c这个指针本身不可修改。
+ 下面解释为啥会出现这种情况，我们注意到const关键字，指的是不可修改的意思，对于b而言，const 修饰char*,表面char*不可修改即指针指向的内容不可修改，对于c而言const修饰c，表示c这个指针本身不可修改。
 
 
 
@@ -4235,8 +4235,8 @@ int main() {
 
 
 #### enum back
-&emsp;&emsp; 这是这篇博文的重点，enum back 是一个很实用的编程技术，很多人都会用到它，更进一步，enum back技术是模版元编程的基本技术
-&emsp;&emsp;
+ 这是这篇博文的重点，enum back 是一个很实用的编程技术，很多人都会用到它，更进一步，enum back技术是模版元编程的基本技术
+
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4248,7 +4248,7 @@ class my_class {
 int main() {}
 ```
 
-&emsp;&emsp; 这里其实我们也可以用static const size = 10;来实现，但是这不影响enum是一个好方法，enum不会导致额外的内存分配。
+ 这里其实我们也可以用static const size = 10;来实现，但是这不影响enum是一个好方法，enum不会导致额外的内存分配。
 
 
 ### c++基础笔记3 - const修饰返回值
@@ -4256,7 +4256,7 @@ int main() {}
 
 
 #### const 修饰返回值
-&emsp;&emsp; 如果有必要，尽量使用const修饰返回值
+ 如果有必要，尽量使用const修饰返回值
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4267,7 +4267,7 @@ int main() { return 0; }
 ```
 
 #### 有什么好处？
-&emsp;&emsp; 如果你不小心把==写成了=，下面的代码会报错。当然也有肯定是好处多余坏处
+ 如果你不小心把==写成了=，下面的代码会报错。当然也有肯定是好处多余坏处
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4286,7 +4286,7 @@ int main() {
 
 
 #### const 能够重载成员函数
-&emsp;&emsp; 为什么要重载一遍const? 目前笔者也不太懂，只知道const能够让c++代码更加高效。下面的代码解释了如何使用const重载成员函数，大概是这样的，const对象调用成员函数的时候会调用const版，普通的对象调用普通版。
+ 为什么要重载一遍const? 目前笔者也不太懂，只知道const能够让c++代码更加高效。下面的代码解释了如何使用const重载成员函数，大概是这样的，const对象调用成员函数的时候会调用const版，普通的对象调用普通版。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4319,7 +4319,7 @@ int main() {
 
 
 #### 重载带来的代码翻倍该如何处理？
-&emsp;&emsp; 大多数情况下，我们不会写上面的代码，那个太蠢了，没人会这样做，通常const版与普通版函数得到的结果是相同的。仅仅多了一个const标记,如果我们对这样相同功能的函数写两份一样的代码，是很不值得的。我们可以这样处理。
+ 大多数情况下，我们不会写上面的代码，那个太蠢了，没人会这样做，通常const版与普通版函数得到的结果是相同的。仅仅多了一个const标记,如果我们对这样相同功能的函数写两份一样的代码，是很不值得的。我们可以这样处理。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4358,8 +4358,8 @@ int main() {
 
 
 #### 对象在使用以前一定要初始化
-&emsp;&emsp; 基本数据类型这里就不说了，直接讲类
-&emsp;&emsp; 类的对象的初始化往往使用了构造函数，但是很多人不会写构造函数，他们这样实现
+ 基本数据类型这里就不说了，直接讲类
+ 类的对象的初始化往往使用了构造函数，但是很多人不会写构造函数，他们这样实现
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4385,7 +4385,7 @@ class my_class {
 };
 int main() {}```
 
-&emsp;&emsp; 这样实现没有问题，但是效率较低，c++标准保证类的构造函数调用之前初始化先调用成员的构造函数。这样以来，my_class里面的abcd都被先初始化再赋值了，通常我们使用冒号来构造他们。
+ 这样实现没有问题，但是效率较低，c++标准保证类的构造函数调用之前初始化先调用成员的构造函数。这样以来，my_class里面的abcd都被先初始化再赋值了，通常我们使用冒号来构造他们。
 ​```cpp
 #### include <iostream>
 using namespace std;
@@ -4407,10 +4407,10 @@ class my_class {
 
 int main() {}```
 ##### 小细节
-&emsp;&emsp; c++标准规定了这里的构造顺序是与声明顺序为序的，而不是冒号后面的顺序。
+ c++标准规定了这里的构造顺序是与声明顺序为序的，而不是冒号后面的顺序。
 
 #### 不同编译单元的非局部静态变量顺序问题
-&emsp;&emsp; 先看代码，这是一个.h
+ 先看代码，这是一个.h
 ​```cpp
 #### include <iostream>
 using namespace std;
@@ -4418,7 +4418,7 @@ using namespace std;
 class my_class {};
 extern my_class mls;
 ```
-&emsp;&emsp; 注意到有一个extern my_class mls;如果我们有多个编译单元，每个都extern一些对象，这些对象初始化的顺序，c++没有规定，所以可能导致他们随机的初始化，但是如果这些对象之间有要求有顺序，怎么办？你乱序初始化可能会出错的。这时候我们可以使用单例模式来保证正确的顺序。
+ 注意到有一个extern my_class mls;如果我们有多个编译单元，每个都extern一些对象，这些对象初始化的顺序，c++没有规定，所以可能导致他们随机的初始化，但是如果这些对象之间有要求有顺序，怎么办？你乱序初始化可能会出错的。这时候我们可以使用单例模式来保证正确的顺序。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4434,7 +4434,7 @@ class my_class {
 ```
 
 #### 结语
-&emsp;&emsp; 不要乱写类的构造函数，少写非局部静态变量。
+ 不要乱写类的构造函数，少写非局部静态变量。
 
 
 
@@ -4447,10 +4447,10 @@ class my_class {
 
 
 #### 编译器默默作出的贡献
-&emsp;&emsp; 在我们写类的时候，我们可以不写构造函数、拷贝构造函数、赋值操作、析构函数，编译器就为我们作出这一切。
+ 在我们写类的时候，我们可以不写构造函数、拷贝构造函数、赋值操作、析构函数，编译器就为我们作出这一切。
 
 #### 带引用成员变量的类
-&emsp;&emsp; 我们考虑这样一个类，他有一个成员变量是一个引用类型。
+ 我们考虑这样一个类，他有一个成员变量是一个引用类型。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4461,7 +4461,7 @@ class my_class {
 
 int main() { my_class m; }
 ```
-&emsp;&emsp; 这个类会报错。因为你缺少对a的初始化，现在有两种选择，第一种方案是用一个变量给他赋值
+ 这个类会报错。因为你缺少对a的初始化，现在有两种选择，第一种方案是用一个变量给他赋值
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4473,7 +4473,7 @@ class my_class {
 
 int main() { my_class m; }
 ```
-&emsp;&emsp; 或者使用构造函数来给他赋值
+ 或者使用构造函数来给他赋值
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4492,7 +4492,7 @@ int main() {
   // m1=m2;
 }
 ```
-&emsp;&emsp; 另一方面，这里的m1=m2,这个赋值操作又不被允许了，原因是c++中没有让一个引用变成另一个引用这样的操作，所以我们必须自己实现赋值函数。
+ 另一方面，这里的m1=m2,这个赋值操作又不被允许了，原因是c++中没有让一个引用变成另一个引用这样的操作，所以我们必须自己实现赋值函数。
 
 
 
@@ -4505,7 +4505,7 @@ int main() {
 
 
 #### 不让你拷贝
-&emsp;&emsp; 在应用中我们可能会碰到不允许使用拷贝这样的操作，我们实现这个约束有两种方案。第一是声明这个函数，然后不实现他。这样的话能够实现这功能，但是报错的时候编译器不会报错
+ 在应用中我们可能会碰到不允许使用拷贝这样的操作，我们实现这个约束有两种方案。第一是声明这个函数，然后不实现他。这样的话能够实现这功能，但是报错的时候编译器不会报错
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4521,7 +4521,7 @@ int main() {
   my_class m2(m);
 }
 ```
-&emsp;&emsp;然后链接器重锤出击。
+然后链接器重锤出击。
 ```
 Undefined symbols for architecture x86_64:
   "my_class::my_class(my_class const&)", referenced from:
@@ -4529,8 +4529,8 @@ Undefined symbols for architecture x86_64:
 ld: symbol(s) not found for architecture x86_64
 collect2: error: ld returned 1 exit status
 ```
-&emsp;&emsp; 我也觉得这样有点坑爹。
-&emsp;&emsp; 正确的做法应该是将这些不希望被使用的函数显示定义为私有函数。这样的话在编译期就会被发现，然后报错。
+ 我也觉得这样有点坑爹。
+ 正确的做法应该是将这些不希望被使用的函数显示定义为私有函数。这样的话在编译期就会被发现，然后报错。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4553,16 +4553,16 @@ int main() {
 
 
 #### virtual函数
-&emsp;&emsp; 没有什么可说的，他就是为一个类添加了一个成员变量，每当你调用virtual函数的时候，会变成调用一个新的函数，在这个函数里面有一个局部的函数指针数组，根据编译器添加成员变量来决定接下来调用哪一个函数。于是就实现了多态。
+ 没有什么可说的，他就是为一个类添加了一个成员变量，每当你调用virtual函数的时候，会变成调用一个新的函数，在这个函数里面有一个局部的函数指针数组，根据编译器添加成员变量来决定接下来调用哪一个函数。于是就实现了多态。
 #### 无故添加virtual的后果
-&emsp;&emsp; 如果你对一个不需要virtual的类添加了virtual函数，那么这个类的大小将扩大32位，如果你这个类本身就只有64位大小，那么他将因为你无故添加的virtual增大50%的体积。
+ 如果你对一个不需要virtual的类添加了virtual函数，那么这个类的大小将扩大32位，如果你这个类本身就只有64位大小，那么他将因为你无故添加的virtual增大50%的体积。
 
 ### c++基础笔记9 - operator=()的陷阱
 
 
 
 #### operator=
-&emsp;&emsp; 定义赋值函数难吗？难，真的特别难，如果你能看出下面的代码中赋值函数的问题，那你就懂为什么难了。
+ 定义赋值函数难吗？难，真的特别难，如果你能看出下面的代码中赋值函数的问题，那你就懂为什么难了。
 ```cpp
 #### include <iostream>
 using namespace std;
@@ -4580,26 +4580,26 @@ class my_class {
 
 int main() {}
 ```
-&emsp;&emsp; 这里的问题其实很明显，这个赋值不支持自我赋值。解决方案可以说在最前面特判掉自我赋值，或者是先拷贝最后再delete，又或者是用拷贝构造函数拷贝一份，然后swap来实现。
+ 这里的问题其实很明显，这个赋值不支持自我赋值。解决方案可以说在最前面特判掉自我赋值，或者是先拷贝最后再delete，又或者是用拷贝构造函数拷贝一份，然后swap来实现。
 
 ### c++基础笔记10 - 智能指针与引用计数型智能指针
 
 
 
 #### 智能指针与引用计数型智能指针
-&emsp;&emsp; 这里指的分别是auto_ptr&lt;T&gt; 和shared_ptr&lt;T&gt;
+ 这里指的分别是auto_ptr&lt;T&gt; 和shared_ptr&lt;T&gt;
 
 ##### 智能指针
-&emsp;&emsp; 智能指针是一个模版类，他以一个类作为模版，当智能指针被析构的时候，他会去调用他保存的对象的析构函数。这样就达到了自动析构的效果，但是如果将一个智能指针赋值给另外一个智能指针的时候，如果不做处理就可能会导致智能指针指向的区域被多次析构函数，于是智能指针的解决方案是赋值对象会被设置为null。
+ 智能指针是一个模版类，他以一个类作为模版，当智能指针被析构的时候，他会去调用他保存的对象的析构函数。这样就达到了自动析构的效果，但是如果将一个智能指针赋值给另外一个智能指针的时候，如果不做处理就可能会导致智能指针指向的区域被多次析构函数，于是智能指针的解决方案是赋值对象会被设置为null。
 ##### 引用计数型智能指针
-&emsp;&emsp; 引用计数型智能指针采取了引用计数的方案来解决上诉问题，当引用数为0的时候才对指向的空间进行析构。
+ 引用计数型智能指针采取了引用计数的方案来解决上诉问题，当引用数为0的时候才对指向的空间进行析构。
 
 ### c++基础笔记11 - 智能指针不经意间的内存泄漏
 
 
 
 #### 代码少压行，要考虑后果
-&emsp;&emsp;
+
 ```cpp
 #### include <iostream>
 #### include <memory>
@@ -4610,15 +4610,15 @@ int g(auto_ptr<int> p, int x) { return 1; }
 
 int main() { g(auto_ptr<int>(new int(2)), f()); }
 ```
-&emsp;&emsp; 上诉代码不会发生内存泄漏，但是若f函数会抛出异常，则可能发生。
-&emsp;&emsp; c++并没有规定上诉代码的执行顺序，我们不知道f函数什么时候被调用，若它发生在了new int(2)之后，auto_ptr构造前，那就凉凉了。new 了个int,没有传给auto_ptr,这里就泄漏了。
+ 上诉代码不会发生内存泄漏，但是若f函数会抛出异常，则可能发生。
+ c++并没有规定上诉代码的执行顺序，我们不知道f函数什么时候被调用，若它发生在了new int(2)之后，auto_ptr构造前，那就凉凉了。new 了个int,没有传给auto_ptr,这里就泄漏了。
 
 ### c++基础笔记12 - 不要返回引用
 
 
 
 #### 引用
-&emsp;&emsp; 为了防止拷贝构造函数导致的额外开销，我们往往把函数的参数设为const &，我也曾一直想如果返回值也是const &,会不会更快
+ 为了防止拷贝构造函数导致的额外开销，我们往往把函数的参数设为const &，我也曾一直想如果返回值也是const &,会不会更快
 ```cpp
 #### include <iostream>
 #### include <vector>
@@ -4635,8 +4635,8 @@ int main() {
   a[0] = 1;
 }
 ```
-&emsp;&emsp; 显然是错误的做法。你怎么可以想返回一个局部变量。
-&emsp;&emsp; 然后是一个看似正确的做法。我们返回一个static内部变量。
+ 显然是错误的做法。你怎么可以想返回一个局部变量。
+ 然后是一个看似正确的做法。我们返回一个static内部变量。
 ```cpp
 #### include <iostream>
 #### include <vector>
@@ -4653,21 +4653,21 @@ int main() {
   a[0] = 1;
 }
 ```
-&emsp;&emsp; 在大多数情况下这确实是正确的做法。然而下面这个操作，
+ 在大多数情况下这确实是正确的做法。然而下面这个操作，
 ```cpp
 int main() { cout << (f(0) == f(1)); }
 ```
-&emsp;&emsp; 我不想解释为什么输出是1
-&emsp;&emsp; 反正就是尽量少用这种引用就行了，单例模式除外。不用你去想着怎么优化这里，编译器会帮我们做。
+ 我不想解释为什么输出是1
+ 反正就是尽量少用这种引用就行了，单例模式除外。不用你去想着怎么优化这里，编译器会帮我们做。
 
 ### c++基础笔记13 - 全特化与偏特化
 
 
 
 #### 全特化和偏特化
-&emsp;&emsp; 这两个东西是针对模版而言的,比方说你定义了一个模版类，但是想对其中的某一个特殊的类做一些优化，这时候就需要这两个东西了。
-&emsp;&emsp; STL的vector&lt;bool&gt;就是这样一个东西，他重新为这个类写了一套代码。语法啥的不重要看看就行，我做了一些测试,记住优先级为
-&emsp;&emsp; 全特化&gt;偏特化&gt;普通模版
+ 这两个东西是针对模版而言的,比方说你定义了一个模版类，但是想对其中的某一个特殊的类做一些优化，这时候就需要这两个东西了。
+ STL的vector&lt;bool&gt;就是这样一个东西，他重新为这个类写了一套代码。语法啥的不重要看看就行，我做了一些测试,记住优先级为
+ 全特化&gt;偏特化&gt;普通模版
 ```cpp
 #### include <iostream>
 #### include <vector>
@@ -4720,7 +4720,7 @@ int main() {
   f(1,1);
 }
 ```
-&emsp;&emsp; 这个程序的输出是
+ 这个程序的输出是
 ```
 模版
 偏特化
@@ -4735,7 +4735,7 @@ int main() {
 
 
 #### 降低编译依存关系的两种方法
-&emsp;&emsp; 很多大型c++项目如果编译的依存关系太复杂，则很有可能稍微修改一行代码就导致整个项目重新编译，这是很不友好的。
+ 很多大型c++项目如果编译的依存关系太复杂，则很有可能稍微修改一行代码就导致整个项目重新编译，这是很不友好的。
 #####  第一种方法是使用handle class
 ```cpp
 #### pragma once
@@ -4772,16 +4772,16 @@ class handle {
 
 }  // namespace data_structure
 ```
-&emsp;&emsp; 这就是一个简单的handle类，当然这个类并不能降低依存关系，因为他是一个模版类，所有的模版类都不能够被分离编译。但我们可以对专用的类构造一个专用的handle，即可实现分离编译。
+ 这就是一个简单的handle类，当然这个类并不能降低依存关系，因为他是一个模版类，所有的模版类都不能够被分离编译。但我们可以对专用的类构造一个专用的handle，即可实现分离编译。
 ##### 第二种方法是使用interface class
-&emsp;&emsp; 这里不提供代码了，简单说就是使用基类制造存虚函数作为接口，实现多态。
+ 这里不提供代码了，简单说就是使用基类制造存虚函数作为接口，实现多态。
 
 ### c++基础笔记15 - 分离模版类中的模版无关函数
 
 
 
 #### 让模版继承一个模版基类
-&emsp;&emsp; 如果你有一个矩阵模版，模版中包含了行数和列数，而里面有一个类似于矩阵求逆的操作，虽然他与行列有关，但是因为这个函数非常的长，另一方面又有客户定义了许多矩阵，1*1的、2*2的、2*3的、3*2的等等，然后你的代码就会开始膨胀，这非常不友好，我们最好的做法是，定义一个基类，让基类传入行列参数去实现这些代码。这样我们的矩阵模版就不必将求逆这种很长很长的代码放进去了，直接继承就可以。
+ 如果你有一个矩阵模版，模版中包含了行数和列数，而里面有一个类似于矩阵求逆的操作，虽然他与行列有关，但是因为这个函数非常的长，另一方面又有客户定义了许多矩阵，1*1的、2*2的、2*3的、3*2的等等，然后你的代码就会开始膨胀，这非常不友好，我们最好的做法是，定义一个基类，让基类传入行列参数去实现这些代码。这样我们的矩阵模版就不必将求逆这种很长很长的代码放进去了，直接继承就可以。
 
 
 ### c++基础笔记16 - 模版元编程入门
@@ -4789,7 +4789,7 @@ class handle {
 
 
 #### 模版元编程
-&emsp;&emsp; 这种编程方式已经被证明具有图灵完备性了，即他能完成所有的计算工作。
+ 这种编程方式已经被证明具有图灵完备性了，即他能完成所有的计算工作。
 
 ##### 模版元求阶乘
 ```cpp
@@ -4842,17 +4842,17 @@ int main() {
 
 
 ##### gcd和lcm
-&emsp;&emsp; 有兴趣的读者可以去实现这两个东西，这里我就不提供代码了。
+ 有兴趣的读者可以去实现这两个东西，这里我就不提供代码了。
 
 ### c++基础笔记17 - policies设计
 
 
 
 #### policies设计
-&emsp;&emsp; 这个设计目前对我而言，还有点深，先留个坑
-&emsp;&emsp; 假设某个对象有大量的功能需求，这时候大多数人选择的设计方案是：设计一个全功能型接口。这样做会导致接口过于庞大已经难以维护。
-&emsp;&emsp; 正确的做法是将功能正交分解，用多个类来维护这些接口，达到功能类高内聚，功能类间低耦合，然后使用多重继承来实现，并允许用户自己配置，这样的做法有一个很困难的地方，就是基类没有足够的信息知道派生类的类型。于是我们通过模版套娃，让派生类作为基类的模版参数。
-&emsp;&esp; 代码如下，笔者太菜，不敢自己写，不敢修改。
+ 这个设计目前对我而言，还有点深，先留个坑
+ 假设某个对象有大量的功能需求，这时候大多数人选择的设计方案是：设计一个全功能型接口。这样做会导致接口过于庞大已经难以维护。
+ 正确的做法是将功能正交分解，用多个类来维护这些接口，达到功能类高内聚，功能类间低耦合，然后使用多重继承来实现，并允许用户自己配置，这样的做法有一个很困难的地方，就是基类没有足够的信息知道派生类的类型。于是我们通过模版套娃，让派生类作为基类的模版参数。
+&esp; 代码如下，笔者太菜，不敢自己写，不敢修改。
 [](https://www.cnblogs.com/crazyhf/archive/2012/10/02/2710350.html)
 
 ```cpp
@@ -4928,13 +4928,13 @@ int main(int argc, char** argv) {
 ```
 
 #### policies class 的析构函数
-&emsp;&emsp; 先说结论，不要使用public继承，上诉代码是错误的，第二policies类不要使用虚析构函数，并且为虚构函数设为protect。
+ 先说结论，不要使用public继承，上诉代码是错误的，第二policies类不要使用虚析构函数，并且为虚构函数设为protect。
 
 #### policy 组合
-&emsp;&emsp; 当我们在设计一个智能指针的时候，我们能够想到有两个方向：是否支持多线程，是否进行指针检查，这两个功能是正交的，这就实现了policy的组装
+ 当我们在设计一个智能指针的时候，我们能够想到有两个方向：是否支持多线程，是否进行指针检查，这两个功能是正交的，这就实现了policy的组装
 
 #### 定制指针
-&emsp;&emsp; 当我们设计智能指针的时候，我们不一定必须是传统指针，我们可以抽象指针为迭代器，缺省设置为一个既包含指针又包含引用的类。
+ 当我们设计智能指针的时候，我们不一定必须是传统指针，我们可以抽象指针为迭代器，缺省设置为一个既包含指针又包含引用的类。
 
 #### 留个坑
 
@@ -4943,10 +4943,10 @@ int main(int argc, char** argv) {
 
 
 #### 我们来实现一个静态断言检查器
-&emsp;&emsp; 最前面给了一个基于构造长度为0的数组的断言检查，我的编译器似乎很强大，允许我这样操作了。。。。我们就忽略他吧
-&emsp;&emsp; 现在考虑到模版，我们定义一个bool型的模版，对其中的true型偏特化进行实现，false型不实现，当我们用这个类构造的时候，true会被编译通过，但是false就不行了，
-&emsp;&emsp; 第二种情况是，利用构造函数，似乎还是编译器原因，我的都能编译通过，我们也忽略吧。
-&emsp;&emsp; 第三种情况，我们考虑用宏把msg替换成一个字符串，这样就OK了,报错的时候还能看到是啥错，你只要输入msg就可以。
+ 最前面给了一个基于构造长度为0的数组的断言检查，我的编译器似乎很强大，允许我这样操作了。。。。我们就忽略他吧
+ 现在考虑到模版，我们定义一个bool型的模版，对其中的true型偏特化进行实现，false型不实现，当我们用这个类构造的时候，true会被编译通过，但是false就不行了，
+ 第二种情况是，利用构造函数，似乎还是编译器原因，我的都能编译通过，我们也忽略吧。
+ 第三种情况，我们考虑用宏把msg替换成一个字符串，这样就OK了,报错的时候还能看到是啥错，你只要输入msg就可以。
 ```cpp
 namespace program_check {
 
@@ -4994,8 +4994,8 @@ STATIC_CHECK(false,abssf );
 
 
 #### int2type
-&emsp;&emsp; int2type是一种技术，他把int映射为一个类型，从而能够让他对函数去实现重载，下面的程序就是一个很好的例子，注意我们的主函数里面用的是int2type&lt;2&gt;如果把2换成1，是无法编译的，因为int没有clone这个函数。
-&emsp;&emsp; 如果我们不使用这种技术，而是在运行期使用if else来判断，这不可能，你无法通过编译，这事只能在编译器做。
+ int2type是一种技术，他把int映射为一个类型，从而能够让他对函数去实现重载，下面的程序就是一个很好的例子，注意我们的主函数里面用的是int2type&lt;2&gt;如果把2换成1，是无法编译的，因为int没有clone这个函数。
+ 如果我们不使用这种技术，而是在运行期使用if else来判断，这不可能，你无法通过编译，这事只能在编译器做。
 ```cpp
 namespace trick {
 template <int v>
@@ -5027,7 +5027,7 @@ int main() {
 
 
 #### type2type
-&emsp;&emsp; 这种技术类似与int2type,他用来解决函数不能偏特化的问题，当然现在的编译器似乎已经支持这个功能了。
+ 这种技术类似与int2type,他用来解决函数不能偏特化的问题，当然现在的编译器似乎已经支持这个功能了。
 ```cpp
 template <class T>
 struct type2type {
@@ -5035,14 +5035,14 @@ struct type2type {
 };
 ```
 
-&emsp;&emsp; 有了这个代码,我们能模拟出偏特化，甚至函数返回值的重载，而且这个类型不占任何空间。
+ 有了这个代码,我们能模拟出偏特化，甚至函数返回值的重载，而且这个类型不占任何空间。
 
 ### c++基础笔记21 - 类型选择器
 
 
 
 #### 类型选择器
-&emsp;&emsp; 在泛型编程中，我们常常会碰到类型选择的问题，若一个类型配置有选择为是否多态，则我们可能需要通过这个bool的值来判断下一步是定义一个指针还是定义一个引用，这时候我们的类型选择器登场了
+ 在泛型编程中，我们常常会碰到类型选择的问题，若一个类型配置有选择为是否多态，则我们可能需要通过这个bool的值来判断下一步是定义一个指针还是定义一个引用，这时候我们的类型选择器登场了
 ```cpp
 namespace trick {
 template <bool c, class T, class S>
@@ -5055,14 +5055,14 @@ struct type_chose<false, T, S> {
 };
 }  // namespace trick
 ```
-&emsp;&emsp; type_choose&lt;false,int\*,int&&gt;::type就是int&,
-&emsp;&emsp; type_choose&lt;true,int\*,int&&gt;::type就是int\*,
+ type_choose&lt;false,int\*,int&&gt;::type就是int&,
+ type_choose&lt;true,int\*,int&&gt;::type就是int\*,
 
 ### c++基础笔记22 - 锁
 
 
 
-&emsp;&emsp; 互斥锁与共享锁
+ 互斥锁与共享锁
 ```cpp
 #### include <bits/stdc++.h>
 
@@ -5098,7 +5098,7 @@ int main() {
 }
 ```
 
-&emsp;&emsp; 递归锁
+ 递归锁
 ```cpp
 #### include <bits/stdc++.h>
 
@@ -5122,7 +5122,7 @@ int main() {
 }
 ```
 
-&emsp;&emsp; 超时锁，用于一定时间内获取锁，超时递归锁，同理
+ 超时锁，用于一定时间内获取锁，超时递归锁，同理
 
 
 ## STL
@@ -5132,13 +5132,13 @@ int main() {
 
 
 #### 从这开始我们进入《STL源码分析》的学习
-&emsp;&emsp; STL分为6大组件: 空间配置器、容器、迭代器、算法、仿函数、配接器
+ STL分为6大组件: 空间配置器、容器、迭代器、算法、仿函数、配接器
 
 #### 空间配置器
-&emsp;&emsp; STL的空间适配器事STL的基础，我们不能靠操作系统来为我们管理内存，那样的代价太大了，这不划算，作为一个c/c++开发人员，我们要完全控制我们程序的一切。
+ STL的空间适配器事STL的基础，我们不能靠操作系统来为我们管理内存，那样的代价太大了，这不划算，作为一个c/c++开发人员，我们要完全控制我们程序的一切。
 
 #### allocator
-&emsp;&emsp; 这是他的英文名字，我们的allocator定义了四个操作
+ 这是他的英文名字，我们的allocator定义了四个操作
 - alloc::allocate() 内存配置
 - alloc::dellocate() 内存释放
 - alloc::construct() 构造对象
@@ -5146,24 +5146,24 @@ int main() {
 
 
 #### type_traits<T>
-&emsp;&emsp; 一个模版元技术，他是一个类,能够萃取类型的相关信息，模版元详见C++笔记中的Boost源码分析
+ 一个模版元技术，他是一个类,能够萃取类型的相关信息，模版元详见C++笔记中的Boost源码分析
 
 #### destroy
-&emsp;&emsp; 对于基本数据类型，我们啥都不用干，对于用户定义的数据类型，我们显示调用析构函数即可，这个使用模版特化即可。
+ 对于基本数据类型，我们啥都不用干，对于用户定义的数据类型，我们显示调用析构函数即可，这个使用模版特化即可。
 
 #### construct
-&emsp;&emsp; 就是new，但是不用申请空间了，因为allocate已经干了
+ 就是new，但是不用申请空间了，因为allocate已经干了
 
 #### 一级配置器、二级配置器
-&emsp;&emsp; 一级配置大空间(&gt;128bytes)就是malloc和free，二级配置小空间，利用内存池。
+ 一级配置大空间(&gt;128bytes)就是malloc和free，二级配置小空间，利用内存池。
 
 ##### 一级配置器
-&emsp;&emsp; 直接new的，new失败以后调用out of memery的处理方式调用处理例程，让其释放内存，不断尝试,释放的时候直接free
+ 直接new的，new失败以后调用out of memery的处理方式调用处理例程，让其释放内存，不断尝试,释放的时候直接free
 
 ##### 二级配置器
-&emsp;&emsp;维护16个链表，每个链表维护一种类型的内存，分别为8bytes、16bytes、24bytes、一直到128bytes。更加巧妙的地方是将维护的内存和链表的指针使用联合体组装。这就不浪费空间了。当需要配置内存的时候，向8字节对齐，然后再分配，当释放内存的时候，丢到链表里面就行了
-&emsp;&emsp; 当链表空了的时候，从内存池中取出20个新的内存块填充链表。
-&emsp;&emsp; 内存池是一个大块大内存，当内存池空了以后，申请更多的内存，保证每次都比上一次申请的多就行了，要是让我实现，我才不这样做，我要用计算机网络中的自适应rtt原理来做。
+维护16个链表，每个链表维护一种类型的内存，分别为8bytes、16bytes、24bytes、一直到128bytes。更加巧妙的地方是将维护的内存和链表的指针使用联合体组装。这就不浪费空间了。当需要配置内存的时候，向8字节对齐，然后再分配，当释放内存的时候，丢到链表里面就行了
+ 当链表空了的时候，从内存池中取出20个新的内存块填充链表。
+ 内存池是一个大块大内存，当内存池空了以后，申请更多的内存，保证每次都比上一次申请的多就行了，要是让我实现，我才不这样做，我要用计算机网络中的自适应rtt原理来做。
 
 
 
@@ -5172,7 +5172,7 @@ int main() {
 
 
 #### 迭代器
-&emsp;&emsp; 说白了就是个指针，但是他比指针更强大，更灵活。
+ 说白了就是个指针，但是他比指针更强大，更灵活。
 
 #### 迭代器类型
 - input iterator 只读
@@ -5191,7 +5191,7 @@ graph TB
 
 
 ##### 类型
-&emsp;&emsp; 首先为了实现的容易，得设计iterator_category为迭代器自己的类型，value_type为迭代器维护的具体数据的类型，diference_type为两个迭代器之间的距离的类型，pointer为原生指针，reference为原生引用。
+ 首先为了实现的容易，得设计iterator_category为迭代器自己的类型，value_type为迭代器维护的具体数据的类型，diference_type为两个迭代器之间的距离的类型，pointer为原生指针，reference为原生引用。
 
 
 ### STL源码分析3-序列式容器
@@ -5199,29 +5199,29 @@ graph TB
 
 
 #### vector
-&emsp;&emsp; 不讲了，太简单了
+ 不讲了，太简单了
 
 ##### vector 的迭代器
-&emsp;&emsp; 服了，居然就是指针，我一直以为他封装了一下，这也太懒了。
+ 服了，居然就是指针，我一直以为他封装了一下，这也太懒了。
 
 #### list
-&emsp;&emsp;算了这都跳过算了，没啥意思，
+算了这都跳过算了，没啥意思，
 
 #### deque
-&emsp;&emsp; 用分段连续来制造整体连续的假象。
-&emsp;&emsp; 两个迭代器维护首尾，一个二维指针维护一个二维数组，感觉很low，每一行被称为一个缓冲区,但是列的话，他前后都预留了一些指针位置。
-&emsp;&emsp; 当我们随机访问的时候，就可以根据每一行的长度来选择正确的缓冲区了。
+ 用分段连续来制造整体连续的假象。
+ 两个迭代器维护首尾，一个二维指针维护一个二维数组，感觉很low，每一行被称为一个缓冲区,但是列的话，他前后都预留了一些指针位置。
+ 当我们随机访问的时候，就可以根据每一行的长度来选择正确的缓冲区了。
 ##### deque的迭代器
-&emsp;&emsp; 这个就厉害一些了，他包含了4个地方，当前指针、当前缓冲区首尾指针，中控器上面当前缓冲区的指针。
+ 这个就厉害一些了，他包含了4个地方，当前指针、当前缓冲区首尾指针，中控器上面当前缓冲区的指针。
 ##### 代码我感觉也一般般，我写也这样
 
 #### queue和stack
-&emsp;&emsp; 居然是deque实现的，明明有更好的实现方法，再见，看都不想看
+ 居然是deque实现的，明明有更好的实现方法，再见，看都不想看
 
 #### heap
-&emsp;&emsp; 算法都是这样写的
+ 算法都是这样写的
 ##### priority heap
-&emsp;&emsp; vector实现的，
+ vector实现的，
 
 #### slist
 我还是不适合这个东西
@@ -5231,39 +5231,39 @@ graph TB
 
 
 #### 关联式容器
-&emsp;&emsp; 这玩意就是红黑树啦，上一章的序列容器看的我难受死了，希望这个能爽一些
+ 这玩意就是红黑树啦，上一章的序列容器看的我难受死了，希望这个能爽一些
 
 #### 红黑树
-&emsp;&emsp; 翻了好几页，都是红黑树，并没有让我感到很吃惊的代码
+ 翻了好几页，都是红黑树，并没有让我感到很吃惊的代码
 
 #### set和map
-&emsp;&emsp; set就是直接红黑树，map就把用pair分别存kv，然后自己定一个仿函数，难怪map找到的都是pair
+ set就是直接红黑树，map就把用pair分别存kv，然后自己定一个仿函数，难怪map找到的都是pair
 
 #### multi
-&emsp;&emsp; 算了自己写过平衡树的都知道，和非multi没几行代码不一样。
+ 算了自己写过平衡树的都知道，和非multi没几行代码不一样。
 
 #### hashtable
-&emsp;&emsp; 下一章下一章。。。
+ 下一章下一章。。。
 
 ### STL源码分析5-算法
 
 
 
 #### 算法
-&emsp;&emsp; 分为质变算法和非质变算法，一个会改变操作对象，另一个不会。
+ 分为质变算法和非质变算法，一个会改变操作对象，另一个不会。
 
 #### accumulate
-&emsp;&emsp; 这个强，accmulate(first,last,init),将[first,last)的值累加到init上
-&emsp;&emsp; accmulate(first,last,init,binary op),将[first,last)从左到右二元操作(init,*)到init上
+ 这个强，accmulate(first,last,init),将[first,last)的值累加到init上
+ accmulate(first,last,init,binary op),将[first,last)从左到右二元操作(init,*)到init上
 
 #### adjacent_difference
-&emsp;&emsp; 666666666，adjacent_difference(first,last,result)差分都来了[first,last)差分到[result,*)
-&emsp;&emsp; 6666666,自己定义的差分adjacent_difference(first,last,result,binary_op); 这个能自定定义减法，
-&emsp;&emsp; 注意可以result设为first
+ 666666666，adjacent_difference(first,last,result)差分都来了[first,last)差分到[result,*)
+ 6666666,自己定义的差分adjacent_difference(first,last,result,binary_op); 这个能自定定义减法，
+ 注意可以result设为first
 
 #### inner_product
-&emsp;&emsp; 内积，inner_product(first1,last1,first2,init),加到init上然后返回。
-&emsp;&emsp; 参数在加上一个binary_op1和binary_op2,init=binary_op1(init,binary_op2(eme1,eme2))
+ 内积，inner_product(first1,last1,first2,init),加到init上然后返回。
+ 参数在加上一个binary_op1和binary_op2,init=binary_op1(init,binary_op2(eme1,eme2))
 
 #### 太强了，佩服的五体投地，明天继续学,看java去
 
@@ -5272,154 +5272,154 @@ graph TB
 
 
 #### partial_sum
-&emsp;&emsp; 和前面的差分一样,partial_sum 为前缀和，partial_sum(first,last,result)为前缀和输出到result中
-&emsp;&emsp; 当然你也可以定义binary_op操作，加在最后面
+ 和前面的差分一样,partial_sum 为前缀和，partial_sum(first,last,result)为前缀和输出到result中
+ 当然你也可以定义binary_op操作，加在最后面
 
 #### power
-&emsp;&emsp; 快速幂算法了解一下，power(x,n)x的n次方，n为整数，要求满足乘法结合律。
-&emsp;&emsp; power(x,n,op),这个同理
+ 快速幂算法了解一下，power(x,n)x的n次方，n为整数，要求满足乘法结合律。
+ power(x,n,op),这个同理
 
 #### itoa
-&esmp;&emsp; itoa(first,last,value);
-&emsp;&emsp;while(first!=last) *first++=value++;
+&esmp; itoa(first,last,value);
+while(first!=last) *first++=value++;
 
 
 #### equal
-&emsp;&emsp; equal(first1,last1,first2)
-&emsp;&emsp; 判断[first1,last1) 和[first2,...)是否相同
-&emsp;&emsp; 同样支持二元仿函数。
+ equal(first1,last1,first2)
+ 判断[first1,last1) 和[first2,...)是否相同
+ 同样支持二元仿函数。
 
 #### fill
-&emsp;&emsp; fill(first,last,value)
-&emsp;&emsp; 把区间的值设为value
+ fill(first,last,value)
+ 把区间的值设为value
 
 #### fill_n
-&emsp;&emsp; fill(first,n,value)
-&emsp;&emsp; 把first开始的n个元素设为value
+ fill(first,n,value)
+ 把first开始的n个元素设为value
 
 #### iter_swap
-&emsp;&emsp; iter_swap(a,b) 
-&emsp;&emsp; 交换迭代器的内容，这里就有意思了，如何获取迭代器内容的类型呢？还记得之前讲迭代器的时候，在迭代器内部定义的value_type吗？对！就是那个。
+ iter_swap(a,b) 
+ 交换迭代器的内容，这里就有意思了，如何获取迭代器内容的类型呢？还记得之前讲迭代器的时候，在迭代器内部定义的value_type吗？对！就是那个。
 
 
 #### lexicographical_compare
-&emsp;&emsp; lexicographical_compare(first1,last1,first2,last2)
-&emsp;&emsp; 字典序比大小，需要支持小于号
+ lexicographical_compare(first1,last1,first2,last2)
+ 字典序比大小，需要支持小于号
 
 #### max min
-&emsp;&emsp; 这俩也支持仿函数
+ 这俩也支持仿函数
 
 #### mismatch
-&emsp;&emsp; mismatch(first1,last1,first2)
-&emsp;&emsp; 用第一个去匹配第二个，你需要保证第二个不必第一个短，返回匹配尾部
-&emsp;&emsp; 支持仿函数==
+ mismatch(first1,last1,first2)
+ 用第一个去匹配第二个，你需要保证第二个不必第一个短，返回匹配尾部
+ 支持仿函数==
 
 #### swap
-&emsp;&emsp; 就是很普通的交换，
+ 就是很普通的交换，
 
 #### copy(first,last,result)
-&emsp;&emsp; 特化了char\*和wchar_t\*为memmove，特化了T\*和const T\*，通过萃取，若指向的数据为基本数据类型则调用memmove，否则再分为随机迭代器和非随机迭代器，随机迭代器使用last-first这个值来控制，非随机迭代器用if(last==frist)来控制。
+ 特化了char\*和wchar_t\*为memmove，特化了T\*和const T\*，通过萃取，若指向的数据为基本数据类型则调用memmove，否则再分为随机迭代器和非随机迭代器，随机迭代器使用last-first这个值来控制，非随机迭代器用if(last==frist)来控制。
 
 #### copy_backward
-&emsp;&emsp; 和上面一样，但是为逆序拷贝
+ 和上面一样，但是为逆序拷贝
 
 #### set_union
-&emsp;&emsp;set_union(first1,last1,first2,last2,result)
-&emsp;&emsp;就是遍历两个有序容器，然后赋值到result中，注意到它在碰到相同元素的时候两个迭代器都自增了，导致若第一个中有3个1，第二个中有5个1，则输出的时候只有5个1
+set_union(first1,last1,first2,last2,result)
+就是遍历两个有序容器，然后赋值到result中，注意到它在碰到相同元素的时候两个迭代器都自增了，导致若第一个中有3个1，第二个中有5个1，则输出的时候只有5个1
 
 #### set_intersection
-&emsp;&emsp; 同上
-&emsp;&emsp; 交集，得到3个1
+ 同上
+ 交集，得到3个1
 
 #### set_difference
-&emsp;&esmp; 代码越来越平庸了，这个是S1-S2，出现在S1中不出现在S2中
+&esmp; 代码越来越平庸了，这个是S1-S2，出现在S1中不出现在S2中
 
 #### set_symmetric_difference
-&emsp;&emsp; 对称差，平庸的代码
+ 对称差，平庸的代码
 
 #### adjacent_find(first,last)
-&emsp;&emsp; 找到第一个相等的相邻元素，允许自定义仿函数
+ 找到第一个相等的相邻元素，允许自定义仿函数
 
 #### count(first,last,value)
-&emsp;&emsp; 对value出现对次数计数
-&emsp;&emsp; count_if(first,last,op) 对op(*it)为真计数
+ 对value出现对次数计数
+ count_if(first,last,op) 对op(*it)为真计数
 
 越看越无聊了
 
 #### find(first,last,value)
-&emsp;&emsp; 找value出现的位置，这个函数应该挺有用的
-&emsp;&emsp; find_if(first,last,op) 同上啦
+ 找value出现的位置，这个函数应该挺有用的
+ find_if(first,last,op) 同上啦
 
 #### find_end 和find_first_of
-&emsp;&emsp; 这个函数没用，我为啥不用kmp算法
+ 这个函数没用，我为啥不用kmp算法
 
 #### for_each(first,last,op)
-&emsp;&emsp; op(\*i)
+ op(\*i)
 
 #### geterate(first,last,op)
-&emsp;&emsp; \*i=op()
-&emsp;&emsp; generate_n 同上
+ \*i=op()
+ generate_n 同上
 
 #### transform(first,last,result,op)
-&emsp;&emsp; \*result=op(\*first)
+ \*result=op(\*first)
 
 #### transform(first1,last1,first2,last2,result,op)
-&emsp;&emsp; \*result=op(\*first1,\*first2)
+ \*result=op(\*first1,\*first2)
 
 #### includes(first1,last1,first2,last2)
-&emsp;&emsp; 保证有序，然后判断2是不是1的子序列，显然On
+ 保证有序，然后判断2是不是1的子序列，显然On
 
 #### max_element(first,last) 
-&emsp;&emsp; 区间最大值
+ 区间最大值
 
 #### min_element(first,last)
-&emsp;&emsp; 同上
+ 同上
 
 #### merge(first1,last1,first2,last2,result)
-&emsp;&emsp; 归并排序的时候应该用得到吧
+ 归并排序的时候应该用得到吧
 
 #### partition(first,last,pred)
-&emsp;&emsp; pred(*)为真在前，为假在后On
+ pred(*)为真在前，为假在后On
 
 #### remove(first,last,value)
-&emsp;&emsp; 把value移到尾部
-&emsp;&emsp; remove_copu(first,last,result,value),非质变算法
+ 把value移到尾部
+ remove_copu(first,last,result,value),非质变算法
 
 #### remove_if remove_copy_if 
 同上
 
 #### replace(first,last,old_value,new_value)
-&emsp;&emsp; 看名字就知道怎么实现的
-&emsp;&emsp; replace_copy,replace_if,replace_copy_if
+ 看名字就知道怎么实现的
+ replace_copy,replace_if,replace_copy_if
 
 #### revese
-&emsp;&emsp; 秀得我头皮发麻，这个。。。。。。。
+ 秀得我头皮发麻，这个。。。。。。。
 ```cpp
 while(true)
   if(first==last||first==--last) return;
   else iter_swap(first++,last);
 ```
-&emsp;&emsp;随机迭代器的版本还好
+随机迭代器的版本还好
 ```cpp
 while(first<last) iter_swap(first++,--last);
 ```
-&emsp;&emsp; reverse_copy ，常见的代码
+ reverse_copy ，常见的代码
 
 ####  rotate
-&emsp;&emsp; 这个代码有点数学，大概率用不到，一般情况下我们写splay都用3次reverse来实现的，复杂度也不过On,他这个代码就一步到位了，使用了gcd，没啥意思，STL果然效率第一
+ 这个代码有点数学，大概率用不到，一般情况下我们写splay都用3次reverse来实现的，复杂度也不过On,他这个代码就一步到位了，使用了gcd，没啥意思，STL果然效率第一
 
 #### search
-&emsp;&emsp; 子序列首次出现的位置，
+ 子序列首次出现的位置，
 
 #### search_n
-&emsp;&emsp; 好偏，算了，没啥用的代码
+ 好偏，算了，没啥用的代码
 
 #### swap_ranges(first1,last1,first2)
-&emsp;&emsp; 区间交换，swap的增强版
+ 区间交换，swap的增强版
 
 #### unique 
-&emsp;&emsp; 移除重复元素
-&emsp;&emsp; unique_copy
+ 移除重复元素
+ unique_copy
 
 
 
@@ -5434,56 +5434,56 @@ while(first<last) iter_swap(first++,--last);
 #### 这边的算法应该爽一些了
 
 #### lower_bound upper_bound binary_search
-&emsp;&emsp; 不多说了，就是二分，
+ 不多说了，就是二分，
 
 #### next_permutation
-&emsp;&emsp; 一直想不明白这个函数怎么实现的，今天来看看，既然是下一个排列，显然是需要找到一个刚好比现在这个大大排列，简单分析......6532,如果一个后缀都是递减的，显然这个后缀不能更大了，如果一个后缀都不能变得更大，就必须调整更前的，所以我们要找到这样的非降序....16532,把最后一个放到1的位置，其他的从小到大排列好就行了。也即swap(1,2),reverse(6531)
+ 一直想不明白这个函数怎么实现的，今天来看看，既然是下一个排列，显然是需要找到一个刚好比现在这个大大排列，简单分析......6532,如果一个后缀都是递减的，显然这个后缀不能更大了，如果一个后缀都不能变得更大，就必须调整更前的，所以我们要找到这样的非降序....16532,把最后一个放到1的位置，其他的从小到大排列好就行了。也即swap(1,2),reverse(6531)
 #### prev_permutation
-&emsp;&emsp; 同理
+ 同理
 
 #### random_shuffle
-&emsp;&emsp; 洗牌算法，从first往last遍历，每次从最后面随机选一个放到当前位置即可。
+ 洗牌算法，从first往last遍历，每次从最后面随机选一个放到当前位置即可。
 
 #### partial_sort 
-&emsp;&emsp; partial_sort(first,middle,last)
-&emsp;&emsp; 保证[first,middle)有序且均小于[middle,last)直接对后面元素使用堆上浮，这样保证了小的元素均在[first,middle)中，然后使用sort_heap?????
-&emsp;&ems; 为啥第一步不用线性时间选择，第二步不用快排？
+ partial_sort(first,middle,last)
+ 保证[first,middle)有序且均小于[middle,last)直接对后面元素使用堆上浮，这样保证了小的元素均在[first,middle)中，然后使用sort_heap?????
+&ems; 为啥第一步不用线性时间选择，第二步不用快排？
 
 #### sort
-&emsp;&emsp; 大一就听说了这个的大名，现在来学习学习
+ 大一就听说了这个的大名，现在来学习学习
 
 ##### Median_of_three
-&emsp;&emsp;__median(a,b,c) 返回中间那个值
+__median(a,b,c) 返回中间那个值
 ##### Partitionining
-&emsp;&emsp; 这个大家都会写，就是按照枢轴，把小的放左边，大的放到右边
+ 这个大家都会写，就是按照枢轴，把小的放左边，大的放到右边
 ##### threshold
-&emsp;&emsp; 当只有很少很少的几个元素的时候，插入排序更快。
+ 当只有很少很少的几个元素的时候，插入排序更快。
 ##### final insertion sort
-&emsp;&emsp; 我们不必在快速排序中进行插入排序，但是可以提前推出，保证序列基本有序，然后再对整体使用插入排序
+ 我们不必在快速排序中进行插入排序，但是可以提前推出，保证序列基本有序，然后再对整体使用插入排序
 ##### SGI sort 
-&emsp;&emsp; 先快速排序到基本有序，然后插入排序
+ 先快速排序到基本有序，然后插入排序
 ###### 快速排序
-&emsp;&emsp; 先排序右边，后左边，且将左边当作下一层，当迭代深度恶化的时候，即超过了lg(n)*2的时候，采取堆排序
-&emsp;&emsp; 枢轴的选择，首、尾、中间的中位数
+ 先排序右边，后左边，且将左边当作下一层，当迭代深度恶化的时候，即超过了lg(n)*2的时候，采取堆排序
+ 枢轴的选择，首、尾、中间的中位数
 ##### RW sort
-&emsp;&emsp; 这个就少了堆排序了，其他的和SGI一样
+ 这个就少了堆排序了，其他的和SGI一样
 
 
 ####  equal_range
-&emsp;&emsp; lower_bound和upper_bound的合体
-&emsp;&emsp; 比直接lower_bound+upper_bound应该快一些，大概这样，二分中值偏小，做缩左断点，偏大则缩右端点，若二分中值等于value，则对左边lower_bound,对右边upper_bound,然后就能直接返回了
+ lower_bound和upper_bound的合体
+ 比直接lower_bound+upper_bound应该快一些，大概这样，二分中值偏小，做缩左断点，偏大则缩右端点，若二分中值等于value，则对左边lower_bound,对右边upper_bound,然后就能直接返回了
 
 #### inplace_merge
-&emsp;&emsp; 将两个相邻的有序序列合并为有序序列，他在分析卡空间的做法，再见。。。不缺空间，
+ 将两个相邻的有序序列合并为有序序列，他在分析卡空间的做法，再见。。。不缺空间，
 
 ####  nth_element
-&emsp;&emsp; 线性时间选择，三点中值，递归变迭代，长度很小以后直接插入排序，666666
+ 线性时间选择，三点中值，递归变迭代，长度很小以后直接插入排序，666666
 
 #### mergesort
-&emsp;&emsp; 借助inplace_merge直接完成了，
+ 借助inplace_merge直接完成了，
 
 #### 总结
-&emsp;&emsp; STL的算法还是很厉害的。
+ STL的算法还是很厉害的。
 
 
 ### STL源码分析8-仿函数
@@ -5491,7 +5491,7 @@ while(first<last) iter_swap(first++,--last);
 
 
 #### 仿函数
-&emsp;&emsp; c++的一大特色，通过重载()来实现像函数一样的功能
+ c++的一大特色，通过重载()来实现像函数一样的功能
 
 #### 一元仿函数
 ```cpp
@@ -5501,7 +5501,7 @@ struct unary_function{
   typedef Result result_type;
 };
 ```
-&emsp;&emsp; 看到上面那玩意没，你得继承它。
+ 看到上面那玩意没，你得继承它。
 
 - negeta 取反，返回-x
 - logical_not  !x
@@ -5535,7 +5535,7 @@ struct unary_function{
 - project2nd b
 
 #### 仿函数单位元
-&emsp;&emsp; 你要为你的仿函数设置一个identity_element单位元，用于快速幂
+ 你要为你的仿函数设置一个identity_element单位元，用于快速幂
 
 #### 
 
@@ -5545,14 +5545,14 @@ struct unary_function{
 
 
 #### 配接器
-&emsp;&emsp; 本质上，配接器是一种设计模式，改变仿函数的接口，成为仿函数配接器，改变容器接口，称为容器配接器，改变迭代器接口，称为迭代器配接器
+ 本质上，配接器是一种设计模式，改变仿函数的接口，成为仿函数配接器，改变容器接口，称为容器配接器，改变迭代器接口，称为迭代器配接器
 
 #### 容器配接器
-&emsp;&emsp; queue和stack就是修饰了deque的配接器
+ queue和stack就是修饰了deque的配接器
 
 #### 迭代器配接器
-&emsp;&emsp; 迭代器的配接器有3个，insert itertors,reverse iterators,iostream iterators.
-&emsp;&emsp;哇塞这东西有点深，明天再看。
+ 迭代器的配接器有3个，insert itertors,reverse iterators,iostream iterators.
+哇塞这东西有点深，明天再看。
 
 # DataStrcuture
 
@@ -5825,27 +5825,27 @@ inline void link(int x,int y){makeroot(x);f[x]=y;}
 
 
 ##### 珂朵莉树
-&emsp;&emsp;珂朵莉树是一颗树，我们用集合来维护，c++中集合是红黑树，所以我们借助此集合来完成珂朵莉树。    
-&emsp;&emsp;我们将区间分段，那么各段有唯一的左端点，我们将左端点放入集合，当我们遍历集合的时候，我们就得到了我们要的序列，此时我们维护了结构，但未维护值，进一步发现我们可以使用map,用键值对来维护更多信息，键用来维护树的结构，值来维护序列的值。
+珂朵莉树是一颗树，我们用集合来维护，c++中集合是红黑树，所以我们借助此集合来完成珂朵莉树。    
+我们将区间分段，那么各段有唯一的左端点，我们将左端点放入集合，当我们遍历集合的时候，我们就得到了我们要的序列，此时我们维护了结构，但未维护值，进一步发现我们可以使用map,用键值对来维护更多信息，键用来维护树的结构，值来维护序列的值。
 
 
 ##### split
-&emsp;&emsp;因为我们要维护区间信息，所以我们需要操作split来提取区间，本质上提取区间为提取单点，这一点在splay中表现的很出色，当我们提取出左端点和右端点的时候，区间也就被提取出来了，如果提取位置x，在红黑树中我们二分到x的位置，若此处是一个区间[l,r]，我们将此区间拆分为[l,x-1][x,r]即可。
+因为我们要维护区间信息，所以我们需要操作split来提取区间，本质上提取区间为提取单点，这一点在splay中表现的很出色，当我们提取出左端点和右端点的时候，区间也就被提取出来了，如果提取位置x，在红黑树中我们二分到x的位置，若此处是一个区间[l,r]，我们将此区间拆分为[l,x-1][x,r]即可。
 
 ##### assign
-&emsp;&emsp;我们提取出区间，删掉这些节点然后，插入一个新的节点即可
+我们提取出区间，删掉这些节点然后，插入一个新的节点即可
 
 ##### add
-&emsp;&emsp;我们提取出区间，暴力更新所有节点即可
+我们提取出区间，暴力更新所有节点即可
 
 ##### sum
-&emsp;&emsp;我们提取出区间，暴力计算所有节点，使用快速幂
+我们提取出区间，暴力计算所有节点，使用快速幂
 
 ##### kth
-&emsp;&emsp;我们提取出区间，还是暴力
+我们提取出区间，还是暴力
 
 ##### 什么时候选择此数据结构
-&emsp;&emsp;数据随机且含有区间赋值操作，此数据结构的操作可以在splay上实现，并维护更多信息，map法仅仅只是编码简单了很多。
+数据随机且含有区间赋值操作，此数据结构的操作可以在splay上实现，并维护更多信息，map法仅仅只是编码简单了很多。
 
 ##### 例题
 [C. Willem, Chtholly and Seniorious](https://codeforces.com/contest/896/problem/C)
@@ -5870,42 +5870,42 @@ inline void link(int x,int y){makeroot(x);f[x]=y;}
 
 
 ### 总览
-&emsp;&emsp;这篇博客将用于整理各种堆的数据结构代码以及复杂度证明: 二叉堆、二项堆、斐波拉契堆、配对堆、左偏树、斜堆、bordal队列、B堆
+这篇博客将用于整理各种堆的数据结构代码以及复杂度证明: 二叉堆、二项堆、斐波拉契堆、配对堆、左偏树、斜堆、bordal队列、B堆
 
 ### 注意
-&emsp;&emsp; 全部代码单对象测试通过，部分代码未实现拷贝构造函数达到深拷贝。
+ 全部代码单对象测试通过，部分代码未实现拷贝构造函数达到深拷贝。
 
 ### heap 
-&emsp;&emsp;堆是一种非常重要的数据结构，在计算机科学中，堆一般指堆是根节点比子孙后代都要大(小)的一种数据结构。
+堆是一种非常重要的数据结构，在计算机科学中，堆一般指堆是根节点比子孙后代都要大(小)的一种数据结构。
 
 ### 项目地址
 [链接](https://github.com/fightinggg/fightinggg.github.io/tree/master/cpp/perfect)
 
 ### 前置条件
-&emsp;&emsp;基本数据结构：变长数组、栈、队列、字符串的实现(此时暂未实现，使用STL代替，后面有时间会自己实现)
-&emsp;&emsp;内存池机制
-&emsp;&emsp; {% post_link  势能分析%}
+基本数据结构：变长数组、栈、队列、字符串的实现(此时暂未实现，使用STL代替，后面有时间会自己实现)
+内存池机制
+ {% post_link  势能分析%}
 
 
 
 ### 基类设计
-&emsp;&emsp;在这里我们暂且只设置三个接口，如果不够，我们再补充。
+在这里我们暂且只设置三个接口，如果不够，我们再补充。
 <details>
 <summary> heap代码 </summary>
 {% include_code heap lang:cpp cpp/perfect/data_structure/heap.h %}
 </details>
 
 ### binary heap
-&emsp;&emsp;二叉堆，就是我们常见的堆，也是大多数人常用的堆，二叉堆是一个完全二叉树，满足根节点的值大于（小于）子孙的值。我们设计他的时候，采取下标从1开始的数组来直接模拟，使用i,2i,2i+1之间的关系来完成边的构建。
+二叉堆，就是我们常见的堆，也是大多数人常用的堆，二叉堆是一个完全二叉树，满足根节点的值大于（小于）子孙的值。我们设计他的时候，采取下标从1开始的数组来直接模拟，使用i,2i,2i+1之间的关系来完成边的构建。
 
 #### push
-&emsp;&emsp;我们将数放入数组尾部，并不断上浮即可。细节稍微推一下就出来了。每个元素最多上浮堆的高度次，复杂度$O(lgn)$
+我们将数放入数组尾部，并不断上浮即可。细节稍微推一下就出来了。每个元素最多上浮堆的高度次，复杂度$O(lgn)$
 
 #### pop
-&emsp;&emsp;我们直接删掉第一个元素，并让最后一个元素顶替他，然后下沉即可。这里个细节也是稍微推一下就出来了。每个元素最多下沉堆的高度次,复杂度$O(lgn)$
+我们直接删掉第一个元素，并让最后一个元素顶替他，然后下沉即可。这里个细节也是稍微推一下就出来了。每个元素最多下沉堆的高度次,复杂度$O(lgn)$
 
 #### top
-&emsp;&emsp;就是第一个元素,复杂度$O(1)$
+就是第一个元素,复杂度$O(1)$
 
 #### 代码如下:
 <details>
@@ -5914,7 +5914,7 @@ inline void link(int x,int y){makeroot(x);f[x]=y;}
 </details>
 
 ### binomial heap
-&emsp;&emsp;二项堆，是一个堆森林，其中每个堆以及各自的子堆的元素个数都是2的幂，并且森林中没有两个堆元素个数相同的堆。举个简单的例子，一个包含了6个元素的二项堆，这个堆森林中一定是两个堆组成，因为6=2+4，他不能是6=2+2+2由三个堆组成，因为森林中不允许出现元素相同的堆。
+二项堆，是一个堆森林，其中每个堆以及各自的子堆的元素个数都是2的幂，并且森林中没有两个堆元素个数相同的堆。举个简单的例子，一个包含了6个元素的二项堆，这个堆森林中一定是两个堆组成，因为6=2+4，他不能是6=2+2+2由三个堆组成，因为森林中不允许出现元素相同的堆。
 
 #### 堆的具体形状
 
@@ -5922,10 +5922,10 @@ inline void link(int x,int y){makeroot(x);f[x]=y;}
 ![binomial heap](/images/binomial heap.png)
 
 #### merge
-&emsp;&emsp; 二项堆天然支持合并，即可并堆，当合并的时候，我们很容易发现，只要将森林合并即可,而对于哪些出现的元素个数相同的堆，我们可以两两合并，让其中一个作为另一个的根的直接儿子即可。每次合并的时候，两两合并的复杂度是$O(1)$,最多合并的次数等于森林中元素的个数减1，而森林中堆的个数等于二进制中1的个数，这个是O(lgn)级别的，所以总体复杂度O(lgn)
+ 二项堆天然支持合并，即可并堆，当合并的时候，我们很容易发现，只要将森林合并即可,而对于哪些出现的元素个数相同的堆，我们可以两两合并，让其中一个作为另一个的根的直接儿子即可。每次合并的时候，两两合并的复杂度是$O(1)$,最多合并的次数等于森林中元素的个数减1，而森林中堆的个数等于二进制中1的个数，这个是O(lgn)级别的，所以总体复杂度O(lgn)
 
 #### push
-&emsp;&emsp; 可以看作与一个只包含了一个元素的堆合并,每次push，最坏的情况下时间复杂度为$O(lgn)$,但是多次连续的push，均摊时间复杂度就不一样了，我们来分析一下n次连续push的情况，森林中的堆两两合并的次数等于时间复杂度，定义函数$f(x)$,表示在森林中所有堆中的元素个数的总和为$x$的情况下，push一个值以后，堆中合并发生的次数，显然$f(x)=$x的二进制表示中末尾连续的1的个数，不难发现
+ 可以看作与一个只包含了一个元素的堆合并,每次push，最坏的情况下时间复杂度为$O(lgn)$,但是多次连续的push，均摊时间复杂度就不一样了，我们来分析一下n次连续push的情况，森林中的堆两两合并的次数等于时间复杂度，定义函数$f(x)$,表示在森林中所有堆中的元素个数的总和为$x$的情况下，push一个值以后，堆中合并发生的次数，显然$f(x)=$x的二进制表示中末尾连续的1的个数，不难发现
 $f(x)>=1$的时候$x\%2=1$,
 $f(x)>=2$的时候$x\%4=3$,
 $f(x)>=3$的时候$x\%8=7$
@@ -5935,16 +5935,16 @@ $$
 \sum_{i=1}^n{f(i)}=\lfloor\frac{x+1}{2}\rfloor+\lfloor\frac{x+1}{4}\rfloor+\lfloor\frac{x+1}{8}\rfloor+...+\lt x+1 
 \end{aligned}
 $$
-&emsp;&emsp;所以在大量连续的push过程中，均摊时间复杂度为O(1)
+所以在大量连续的push过程中，均摊时间复杂度为O(1)
 
 #### pop
-&emsp;&emsp; 先遍历各个根，找出最值，不难发现，森林中，任意一个堆去掉根以后，恰好也是一个满足条件森林，这里也可以用合并处理,时间复杂度$O(lgn)$
+ 先遍历各个根，找出最值，不难发现，森林中，任意一个堆去掉根以后，恰好也是一个满足条件森林，这里也可以用合并处理,时间复杂度$O(lgn)$
 
 #### top
-&emsp;&emsp; 遍历所有堆即可，时间复杂度O(lgn)
+ 遍历所有堆即可，时间复杂度O(lgn)
 
 #### 程序设计
-&emsp;&emsp;很多人说用链表实现链接，这确实是一个好方法，但是如果用单链表或循环链表或双向链表实现，则有很多局限性，下面代码中也提及了。我这里采取的是使用数组存森林，使用左儿子右兄弟的手段，将多叉树用二叉树来表示。这个方法非常棒。
+很多人说用链表实现链接，这确实是一个好方法，但是如果用单链表或循环链表或双向链表实现，则有很多局限性，下面代码中也提及了。我这里采取的是使用数组存森林，使用左儿子右兄弟的手段，将多叉树用二叉树来表示。这个方法非常棒。
 
 #### 代码
 <details>
@@ -5954,31 +5954,31 @@ $$
 
 
 ### fibonacci heap
-&emsp;&emsp; 斐波拉契堆，是目前理论上最强大的堆，他和二项堆很长得很相似。和二项堆一样，斐波拉契堆也是一个堆森林，斐波拉契堆简化了几乎所有的堆操作为懒惰性操作，这极大的提升了很多操作的时间复杂度。
+ 斐波拉契堆，是目前理论上最强大的堆，他和二项堆很长得很相似。和二项堆一样，斐波拉契堆也是一个堆森林，斐波拉契堆简化了几乎所有的堆操作为懒惰性操作，这极大的提升了很多操作的时间复杂度。
 
 #### potential method
-&emsp;&emsp; 对于一个斐波拉契堆$H$,我们定义势能函数为$\Phi(H) = t(H) + 2m(H)$, 其中$t(H)$是斐波拉契堆$H$的森林中堆的个数,$m(H)$是斐波拉契堆中被标记的点的数量。
+ 对于一个斐波拉契堆$H$,我们定义势能函数为$\Phi(H) = t(H) + 2m(H)$, 其中$t(H)$是斐波拉契堆$H$的森林中堆的个数,$m(H)$是斐波拉契堆中被标记的点的数量。
 
 #### push 
-&emsp;&emsp; 当我们向一个斐波拉契堆中添加元素的时候，我们会选择将这个元素做成一个堆，然后链入森林的根集和，常常选择链表维护根集合，同时更新斐波拉契堆中最小值的指针，实际时间复杂度显然是$O(1)$，势能变化为1，因为堆的个数变大了1，均摊复杂度为$O(1)+1=O(1)$
+ 当我们向一个斐波拉契堆中添加元素的时候，我们会选择将这个元素做成一个堆，然后链入森林的根集和，常常选择链表维护根集合，同时更新斐波拉契堆中最小值的指针，实际时间复杂度显然是$O(1)$，势能变化为1，因为堆的个数变大了1，均摊复杂度为$O(1)+1=O(1)$
 
 #### merge 
-&emsp;&emsp; 当我们合并两个斐波拉契堆的时候，我们是懒惰操作，直接将这两个堆森林的根集合并为一个根集，常常选择链表来维护根集合,同时更新新的最小值指针，实际实际复杂度为$O(1)$,势能无变化，均摊复杂度为$O(1)$
+ 当我们合并两个斐波拉契堆的时候，我们是懒惰操作，直接将这两个堆森林的根集合并为一个根集，常常选择链表来维护根集合,同时更新新的最小值指针，实际实际复杂度为$O(1)$,势能无变化，均摊复杂度为$O(1)$
 
 #### top 
-&emsp;&emsp; $O(1)$
+ $O(1)$
 
 #### decrease
-&emsp;&emsp; 当我们想要减小一个节点的值堆时候，我们直接将他和父亲断开，然后将他链入森林并减小值，然后标记父亲，如果父亲被标记过一次，则将父亲和爷爷也断开并链入森林，并清除标记，一直递归下去，这里我们不要太认真，加上这条路上一个有$c$个，则我们一共断开了c次，实际复杂度为$O(c)$,势能的第一项变为了$t(H)+c$，第二项变为了$2(m(H)-c)$,于是势能的变化为$c-2c=-c$,于是均摊复杂度为$O(c)-c$,这里本来并不等于$O(1)$,但是我们可以增大势的单位到和这里的$O(c)$同级，这样就得到了$O(1)$
+ 当我们想要减小一个节点的值堆时候，我们直接将他和父亲断开，然后将他链入森林并减小值，然后标记父亲，如果父亲被标记过一次，则将父亲和爷爷也断开并链入森林，并清除标记，一直递归下去，这里我们不要太认真，加上这条路上一个有$c$个，则我们一共断开了c次，实际复杂度为$O(c)$,势能的第一项变为了$t(H)+c$，第二项变为了$2(m(H)-c)$,于是势能的变化为$c-2c=-c$,于是均摊复杂度为$O(c)-c$,这里本来并不等于$O(1)$,但是我们可以增大势的单位到和这里的$O(c)$同级，这样就得到了$O(1)$
 
 #### erase
-&emsp;&emsp; 当我们想要删除一个节点的时候,先将其设为无穷小，然后在调用pop
+ 当我们想要删除一个节点的时候,先将其设为无穷小，然后在调用pop
 
 #### pop
-&emsp;&emsp; 前面偷了很多懒，导致除了erase以外，其他操作的均摊复杂度均为$O(1)$,这里就要好好地操作了，我们是这样来操作的，删掉最小值以后，将他的儿子都链入森林，这里花费了$O(D(H))$的实际代价，这里的$D(H)$指的是斐波拉契堆$H$中堆的最大度数。然后我们更新top的时候，不得不遍历所有的根，这时候我们就顺便调整一下堆。我们遍历所有的根，依次对森林中所有的堆进行合并，直到没有任意两个堆的度数相同，假设最后我们得到了数据结构$H'$，那么这个过程是$O(t(H)-t(H'))$的，于是时间复杂度为$O(t(H)-t(H'))+O(D(H))$,然后我们观察堆的势能变化，显然第一项的变化量为$t(H')-t(H)$,第二项无变化，即势能总变化为$t(H')-t(H)$,则均摊复杂度为$O(t(H)-t(H'))+O(D(H))+(t(H')-t(H))$,这里依然不一定等于$O(D(H))$,但是我们依然可以增大势的单位到能够和$O(t(H)-t(H'))$抵消，最终，均摊复杂度成了$O(D(H))$
+ 前面偷了很多懒，导致除了erase以外，其他操作的均摊复杂度均为$O(1)$,这里就要好好地操作了，我们是这样来操作的，删掉最小值以后，将他的儿子都链入森林，这里花费了$O(D(H))$的实际代价，这里的$D(H)$指的是斐波拉契堆$H$中堆的最大度数。然后我们更新top的时候，不得不遍历所有的根，这时候我们就顺便调整一下堆。我们遍历所有的根，依次对森林中所有的堆进行合并，直到没有任意两个堆的度数相同，假设最后我们得到了数据结构$H'$，那么这个过程是$O(t(H)-t(H'))$的，于是时间复杂度为$O(t(H)-t(H'))+O(D(H))$,然后我们观察堆的势能变化，显然第一项的变化量为$t(H')-t(H)$,第二项无变化，即势能总变化为$t(H')-t(H)$,则均摊复杂度为$O(t(H)-t(H'))+O(D(H))+(t(H')-t(H))$,这里依然不一定等于$O(D(H))$,但是我们依然可以增大势的单位到能够和$O(t(H)-t(H'))$抵消，最终，均摊复杂度成了$O(D(H))$
 
 #### D(H)
-&emsp;&emsp; 现在我们进入最高潮的地方。我们考虑斐波拉契堆中一个度数为k的堆，若不考虑丢失儿子这种情况发生，我们对他的儿子按照儿子的度数进行排序，显然第i个儿子的度数为i-1,$i=1,2,3...k$,此时考虑儿子们会丢掉自己的儿子，则有第i个儿子的度数$\ge i-2$,在考虑他自己也会丢失儿子，但这不会影响到第i个儿子的度数$\ge i-2$这个结论。
+ 现在我们进入最高潮的地方。我们考虑斐波拉契堆中一个度数为k的堆，若不考虑丢失儿子这种情况发生，我们对他的儿子按照儿子的度数进行排序，显然第i个儿子的度数为i-1,$i=1,2,3...k$,此时考虑儿子们会丢掉自己的儿子，则有第i个儿子的度数$\ge i-2$,在考虑他自己也会丢失儿子，但这不会影响到第i个儿子的度数$\ge i-2$这个结论。
 ##### 斐波拉契数列 
 $$
 \begin{aligned}
@@ -5993,20 +5993,20 @@ F_i =
 \end{aligned}
 $$
 ##### 斐波拉契数列的两个结论
-&emsp;&emsp;$F_{n+2}=1+\sum_{i=1}^nF_i$
-&emsp;&emsp;$F_{n+2}\ge \phi^n,\phi^2=\phi+1,\phi大约取1.618$
+$F_{n+2}=1+\sum_{i=1}^nF_i$
+$F_{n+2}\ge \phi^n,\phi^2=\phi+1,\phi大约取1.618$
 
 ##### 比斐波拉契数更大
-&emsp;&emsp; 容易用数学归纳法证明对于一个度数为k的堆，他里面的节点的个数$\ge F_{k+2}$,这里$F_{i}$是斐波拉契数列的第i项。
-&emsp;&emsp; 当k=0的时候，节点数数目为1，大于等于1
-&emsp;&emsp; 当k=1的时候，节点数数目至少为2，大于等于2
-&emsp;&emsp; 若$k\le k_0$的时候成立， 则当$k=k_0+1$的时候，节点数目至少为$1+F_1+F_2+...+F_{k_0+1}=F_{k_0+3}=F_{k+2}$
+ 容易用数学归纳法证明对于一个度数为k的堆，他里面的节点的个数$\ge F_{k+2}$,这里$F_{i}$是斐波拉契数列的第i项。
+ 当k=0的时候，节点数数目为1，大于等于1
+ 当k=1的时候，节点数数目至少为2，大于等于2
+ 若$k\le k_0$的时候成立， 则当$k=k_0+1$的时候，节点数目至少为$1+F_1+F_2+...+F_{k_0+1}=F_{k_0+3}=F_{k+2}$
 
 ##### 比黄金分割值的幂更大
-&emsp;&emsp; 现在我们就能够得到一个结果了，一个度数为k的堆，他的节点个数至少为$\Phi^k$,这里我们很容易就能得到这样一个结果，$D(H)\le \log_\Phi 最大的堆内元素的个数$
+ 现在我们就能够得到一个结果了，一个度数为k的堆，他的节点个数至少为$\Phi^k$,这里我们很容易就能得到这样一个结果，$D(H)\le \log_\Phi 最大的堆内元素的个数$
 
 ##### 结尾
-&emsp;&emsp; 至此我们已经全部证明完成，读者也应该知道为什么斐波拉契堆要叫这个名字。
+ 至此我们已经全部证明完成，读者也应该知道为什么斐波拉契堆要叫这个名字。
 #### fibonacci heap 代码
 <details>
 <summary> fibonacci heap代码 </summary>
@@ -6020,25 +6020,25 @@ $$
 
 
 ### pairing heap
-&emsp;&emsp;配对堆，名字来源于其中的一个匹配操作。很有趣，他的定义就是一个普通多叉堆，但使用特殊的删除方式来避免复杂度退化。是继Michael L. Fredman和Robert E.Tarjan发明斐波拉契堆以后，由于该数据结构实现难度高以及不如理论上那么有效率，Fredma、Sedgewick、Sleator和Tarjan一起发明的。
+配对堆，名字来源于其中的一个匹配操作。很有趣，他的定义就是一个普通多叉堆，但使用特殊的删除方式来避免复杂度退化。是继Michael L. Fredman和Robert E.Tarjan发明斐波拉契堆以后，由于该数据结构实现难度高以及不如理论上那么有效率，Fredma、Sedgewick、Sleator和Tarjan一起发明的。
 #### potential method
-&emsp;&emsp; 我们有一个配对堆$H$,其中有n节点$node$,$node_i$有$d_i$个儿子,
-&emsp;&emsp; 则有
-&emsp;&emsp; $F(H) = \sum F(node)$, 
-&emsp;&emsp; $F(node_i)=1-min(d_i,\sqrt{n})$
-&emsp;&emsp; 复杂度证明方面，等我把论文看完再来整这个，感觉证明比斐波拉契堆更复杂。
+ 我们有一个配对堆$H$,其中有n节点$node$,$node_i$有$d_i$个儿子,
+ 则有
+ $F(H) = \sum F(node)$, 
+ $F(node_i)=1-min(d_i,\sqrt{n})$
+ 复杂度证明方面，等我把论文看完再来整这个，感觉证明比斐波拉契堆更复杂。
 #### merge
-&emsp;&emsp;合并的时候，让次大堆做最大堆的儿子,显然时间复杂度$O(1)$
+合并的时候，让次大堆做最大堆的儿子,显然时间复杂度$O(1)$
 #### push
-&emsp;&emsp;插入的时候，看作与只包含了一个元素的堆合并,所以$O(1)$
+插入的时候，看作与只包含了一个元素的堆合并,所以$O(1)$
 #### top
-&emsp;&emsp;就是根 $O(1)$
+就是根 $O(1)$
 #### pop
-&emsp;&emsp;当我们删除根以后，会形成一个堆森林，这时我们从左到右，每两个连续的堆配对合并一次，然后从右到左依次合并。比方说有这样一个情况AABBCCDDEEFFGGH,我们先将其从左到右合并AA->A,BB->B...得到ABCDEFG，->ABCDEH -> ABCDI -> ABCJ -> ABK -> AL -> M
+当我们删除根以后，会形成一个堆森林，这时我们从左到右，每两个连续的堆配对合并一次，然后从右到左依次合并。比方说有这样一个情况AABBCCDDEEFFGGH,我们先将其从左到右合并AA->A,BB->B...得到ABCDEFG，->ABCDEH -> ABCDI -> ABCJ -> ABK -> AL -> M
 
 
 #### 程序设计
-&emsp;&emsp; 同样的左儿子右兄弟
+ 同样的左儿子右兄弟
 
 #### 代码
 <details>
@@ -6048,17 +6048,17 @@ $$
 
 
 ### leftist heap
-&emsp;&emsp; 左偏树、左式堆、左翼堆是一个堆，除此以外，他定义了距离，没有右子节点的节点的距离为0，其他节点的距离为右子节点的距离加1，在这个定义下，左偏树的左偏体现着每个节点的左子节点的距离不小于右子节点的距离。
+ 左偏树、左式堆、左翼堆是一个堆，除此以外，他定义了距离，没有右子节点的节点的距离为0，其他节点的距离为右子节点的距离加1，在这个定义下，左偏树的左偏体现着每个节点的左子节点的距离不小于右子节点的距离。
 #### push
-&emsp;&emsp; 为新节点建立堆，然后与堆合并 $O(lgn)$
+ 为新节点建立堆，然后与堆合并 $O(lgn)$
 #### pop 
-&emsp;&emsp; 删除根节点，合并左右子树 $O(lgn)$
+ 删除根节点，合并左右子树 $O(lgn)$
 #### top
-&emsp;&emsp; 根节点 $O(1)$
+ 根节点 $O(1)$
 #### merge
-&emsp;&emsp; $O(lgn)$, 当我们合并两个堆$H1,H2$的时候，我们只需要比较这两个堆顶的大小，不妨设H1小，并设H3、H4为H1的左右儿子，则我们可以这样来看待，我们将H3,H4从H1中断开，递归合并H4和H2位H5，这时候我们还剩下H3、H5以及H1的堆顶，我们根据左偏树的定义，选择H3、H5分别作为左右或右左儿子即可，
+ $O(lgn)$, 当我们合并两个堆$H1,H2$的时候，我们只需要比较这两个堆顶的大小，不妨设H1小，并设H3、H4为H1的左右儿子，则我们可以这样来看待，我们将H3,H4从H1中断开，递归合并H4和H2位H5，这时候我们还剩下H3、H5以及H1的堆顶，我们根据左偏树的定义，选择H3、H5分别作为左右或右左儿子即可，
 ##### 复杂度证明
-&emsp;&emsp; 算法中每次均选择右儿子递归向下，这导致时间复杂度与右儿子的右儿子的右儿子的...有关，这里不难发现递归的次数就是节点的距离。根据左距离不小于右距离，我们很容易就能得到这个距离是$O(lgn)$级别的。
+ 算法中每次均选择右儿子递归向下，这导致时间复杂度与右儿子的右儿子的右儿子的...有关，这里不难发现递归的次数就是节点的距离。根据左距离不小于右距离，我们很容易就能得到这个距离是$O(lgn)$级别的。
 #### leftist heap 代码
 <details>
 <summary> leftist heap代码 </summary>
@@ -6068,13 +6068,13 @@ $$
 
 
 ### skew heap
-&emsp;&emsp; 我们的左偏树不记录距离，并且每次递归的时候无条件交换左右儿子，则成了斜堆。
+ 我们的左偏树不记录距离，并且每次递归的时候无条件交换左右儿子，则成了斜堆。
 #### 复杂度证明
 ##### potential method
-&emsp;&emsp; 定义斜堆中的右子树距离比左子树大的节点为重节点，否则为轻节点。
-&emsp;&emsp; 定义势能函数为重节点的个数。
+ 定义斜堆中的右子树距离比左子树大的节点为重节点，否则为轻节点。
+ 定义势能函数为重节点的个数。
 ##### merge
-&emsp;&emsp; 当我们合并两个斜堆$H_1,H_2$的时候，不妨设他们的右子节点链中的轻重儿子为$l_1,h_1,l_2,h_2$,则时间时间复杂度为$O(l_1+h_1+l_2+h_2)$,经过交换以后，链上的重节点一定会变成轻节点,轻节点可能会变为重节点，我们取最坏的情况，即轻节点全部变为重节点，这时势能的变化量为$l_1+l_2-h_1-h_2$,最后我们的均摊复杂度为$O(l_1+h_1+l_2+h_2)+l_1+l_2-h_1-h_2$，我们依然可以增大势的单位，直到足以抵消所有的h，最终均摊复杂度为$O(l_1+l_2)$,这里不难证明，一条右儿子构成的链上，轻节点的个数是对数级别。
+ 当我们合并两个斜堆$H_1,H_2$的时候，不妨设他们的右子节点链中的轻重儿子为$l_1,h_1,l_2,h_2$,则时间时间复杂度为$O(l_1+h_1+l_2+h_2)$,经过交换以后，链上的重节点一定会变成轻节点,轻节点可能会变为重节点，我们取最坏的情况，即轻节点全部变为重节点，这时势能的变化量为$l_1+l_2-h_1-h_2$,最后我们的均摊复杂度为$O(l_1+h_1+l_2+h_2)+l_1+l_2-h_1-h_2$，我们依然可以增大势的单位，直到足以抵消所有的h，最终均摊复杂度为$O(l_1+l_2)$,这里不难证明，一条右儿子构成的链上，轻节点的个数是对数级别。
 #### skew heap代码
 <details>
 <summary> skew heap代码 </summary>
@@ -6084,10 +6084,10 @@ $$
 
 
 ### bordal heap
-&emsp;&emsp; 这里已经涉及到一些冷门的东西了。暂时先放一下
+ 这里已经涉及到一些冷门的东西了。暂时先放一下
 
 ### B heap
-&emsp;&emsp; 是一种和B树一样利用内存页的东西。冷门，先放一下
+ 是一种和B树一样利用内存页的东西。冷门，先放一下
 
 ### wiki上还有数不清的堆，学到这里暂停一下
 
@@ -6116,27 +6116,27 @@ $$
 
 
 ### 总览
-&emsp;&emsp;这篇博客将用于整理各种搜索树的数据结构,目前已经整理了BST、AVL、BTree、B+Tree、B*Tree、23Tree、234Tree、TTree、RBTree、LLRBTree、AATree、SplayTree、Treap、无旋Treap、scapegoatTree,VPTree、cartesianTree,
+这篇博客将用于整理各种搜索树的数据结构,目前已经整理了BST、AVL、BTree、B+Tree、B*Tree、23Tree、234Tree、TTree、RBTree、LLRBTree、AATree、SplayTree、Treap、无旋Treap、scapegoatTree,VPTree、cartesianTree,
 
 ### 项目地址
 [链接](https://github.com/fightinggg/fightinggg.github.io/tree/master/cpp/perfect)
 
 ### 前置条件
-&emsp;&emsp;基本数据结构：变长数组、栈、队列、字符串的实现(此时暂未实现，使用STL代替，后面有时间会自己实现)
-&emsp;&emsp;内存池机制
+基本数据结构：变长数组、栈、队列、字符串的实现(此时暂未实现，使用STL代替，后面有时间会自己实现)
+内存池机制
 
 ### 树的设计
-&emsp;&emsp;我们设计一个基类让所有的树来继承此基类，然后在看后面会有什么改变，以后再来更新
+我们设计一个基类让所有的树来继承此基类，然后在看后面会有什么改变，以后再来更新
 ### 基类
-&emsp;&emsp; 我们的基类只提供接口，不提供数据类型
+ 我们的基类只提供接口，不提供数据类型
 <details>
 <summary> tree代码 </summary>
 {% include_code tree lang:cpp cpp/perfect/data_structure/tree.h %}
 </details>
 
 ### 更新： 搜索树的设计
-&emsp;&emsp; 由于笔者能力有限，设计欠佳，导致后面的空间树、字典树等数据结构无法加入tree中，所以我们在tree的后面加一层search_tree来表示搜索树。
-&emsp;&emsp;
+ 由于笔者能力有限，设计欠佳，导致后面的空间树、字典树等数据结构无法加入tree中，所以我们在tree的后面加一层search_tree来表示搜索树。
+
 <details>
 <summary> 搜索树代码 </summary>
 {% include_code tree lang:cpp cpp/perfect/data_structure/search_tree.h %}
@@ -6144,44 +6144,44 @@ $$
 
 
 ### B+ Tree
-&emsp;&emsp; 和B树一样，B+树也具有相同的性质。
+ 和B树一样，B+树也具有相同的性质。
 
 #### 不同点
-&emsp;&emsp; B+树的内部节点、根节点只保存了键的索引，一般情况下保存的是一个键指向的子树的所有键的集合中最大的那个，即所有左边子树的max，唯一的键保存在叶子节点上，
-&emsp;&emsp; 叶子节点按照链表有序连接，这导致了B+树能够用链表来遍历整棵树。
+ B+树的内部节点、根节点只保存了键的索引，一般情况下保存的是一个键指向的子树的所有键的集合中最大的那个，即所有左边子树的max，唯一的键保存在叶子节点上，
+ 叶子节点按照链表有序连接，这导致了B+树能够用链表来遍历整棵树。
 
 
 ### 23tree
-&emsp;&emsp;参见3阶Btree
+参见3阶Btree
 
 ### 234tree
-&emsp;&emsp;参见4阶Btree
+参见4阶Btree
 
 
 ### T tree
-&emsp;&emsp;T tree 是一颗二叉树，他和avl tree有着一定的联系,总所周知，avl树为一颗二叉树，利用其中序维护信息，利用子树高度维护平衡。我们借此修改一下，我们尝试让avl树的每个节点维护多个信息[信息序列]，于是T tree就出现了。T tree是一颗二叉树，每个节点维护一个有序序列，用T 树的中序遍历方式，将其节点维护的序列依次相连即成为了我们维护的信息。
+T tree 是一颗二叉树，他和avl tree有着一定的联系,总所周知，avl树为一颗二叉树，利用其中序维护信息，利用子树高度维护平衡。我们借此修改一下，我们尝试让avl树的每个节点维护多个信息[信息序列]，于是T tree就出现了。T tree是一颗二叉树，每个节点维护一个有序序列，用T 树的中序遍历方式，将其节点维护的序列依次相连即成为了我们维护的信息。
 
 #### T tree 解释
-&emsp;&emsp;为了便于编码，我们不考虑序列中会出现相同的元素，可以证明，对于泛型编程方式而言，这并不影响该数据结构的功能，该数据结构依旧具备维护相同元素的能力
+为了便于编码，我们不考虑序列中会出现相同的元素，可以证明，对于泛型编程方式而言，这并不影响该数据结构的功能，该数据结构依旧具备维护相同元素的能力
 
 #### T tree结论
-&emsp;&emsp;非叶节点维护的序列都充满了各自的容器
+非叶节点维护的序列都充满了各自的容器
 
 #### T tree树上信息
-&emsp;&emsp;每一颗子树都要维护一个序列，对于每个节点，我们都维护一个稍微小一点的序列，比该序列中元素更小的元素放入左子树，否则放入右子树。
+每一颗子树都要维护一个序列，对于每个节点，我们都维护一个稍微小一点的序列，比该序列中元素更小的元素放入左子树，否则放入右子树。
 
 
 #### T tree搜索
-&emsp;&emsp;搜索的话，就是普通二叉树的搜索，比当前节点维护的最小值小，就在左子树找，比当前节点维护的最大值大，就在右子树找，否则就在当前节点找
+搜索的话，就是普通二叉树的搜索，比当前节点维护的最小值小，就在左子树找，比当前节点维护的最大值大，就在右子树找，否则就在当前节点找
 
 #### T tree插入
-&emsp;&emsp;当我们插入一个数的时候，我们首先递归向下，找到插入的节点位置，若该节点中储存的序列未满，则置入该节点，否则，有两种处理方式，第一种是从该节点中取出最小值，放入左子树，然后把带插入的树放入该节点，第二种是放入右子树，这里不多说明。插入可能会导致树失去平衡，我们用avl树单旋的方式来让树重新平衡
+当我们插入一个数的时候，我们首先递归向下，找到插入的节点位置，若该节点中储存的序列未满，则置入该节点，否则，有两种处理方式，第一种是从该节点中取出最小值，放入左子树，然后把带插入的树放入该节点，第二种是放入右子树，这里不多说明。插入可能会导致树失去平衡，我们用avl树单旋的方式来让树重新平衡
 
 #### T tree删除
-&emsp;&emsp;当我们删除一个数的时候，像avl树一样处理，若该数在叶子上，简单删掉并维护树的平衡即可，让该数在非叶节点时，我们取出前驱或后继来顶替即可。
+当我们删除一个数的时候，像avl树一样处理，若该数在叶子上，简单删掉并维护树的平衡即可，让该数在非叶节点时，我们取出前驱或后继来顶替即可。
 
 #### T tree一个容易出错的地方
-&emsp;&emsp;笔者在编码的时候，遇到了一个问题，就是有时候会出现非叶节点维护的数据并未充满容器，这种情况发生的原因是单旋造成的。在单旋的时候，将叶子结点旋转成非叶节点后，我们应该调整数据，让非叶节点重新维护的数据充满容器
+笔者在编码的时候，遇到了一个问题，就是有时候会出现非叶节点维护的数据并未充满容器，这种情况发生的原因是单旋造成的。在单旋的时候，将叶子结点旋转成非叶节点后，我们应该调整数据，让非叶节点重新维护的数据充满容器
 
 #### T treecode
 <details>
@@ -6191,7 +6191,7 @@ $$
 
 ### red black tree
 #### red black tree定义
-&emsp;&emsp;红黑树是一种平衡树，他满足下面的性质
+红黑树是一种平衡树，他满足下面的性质
 >1.节点是红色或黑色。
 >2.根是黑色。
 >3.所有叶子都是黑色（叶子是NIL节点）。
@@ -6199,22 +6199,22 @@ $$
 >5.从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。
 
 #### red black tree解读性质
-&emsp;&emsp;红黑树的性质难以理解，这是因为他太过于抽象了, 如果你了解B Tree, 我们现在考虑节点中最多包含3个键的B Tree，他又叫2-3-4tree,意思是任何一个节点都有2，3或4个直接子孙，直接子孙指的是和当前节点相邻的子孙，相邻指的是恰好有一条边连接。
-&emsp;&emsp;2-3-4树的编码是比较复杂的，原因在于节点种类过多。我们现在考虑这样一种情况，RB tree中的红色节点代表他和他父亲在一起，即他+他的父亲构成了2key3son-node，若他的兄弟也是红色，则他+兄弟+父亲构成了3key4son-node
-&emsp;&emsp;性质1显然
-&emsp;&emsp;性质2的原因是根没有父亲，所以他不能为红
-&emsp;&emsp;性质3的原因是为了保证更具有一般性
-&emsp;&emsp;性质4的原因是保证最多只有3key4son-node，不能出现4key5son-node
-&emsp;&emsp;性质5的原因是B树的完全平衡性质
+红黑树的性质难以理解，这是因为他太过于抽象了, 如果你了解B Tree, 我们现在考虑节点中最多包含3个键的B Tree，他又叫2-3-4tree,意思是任何一个节点都有2，3或4个直接子孙，直接子孙指的是和当前节点相邻的子孙，相邻指的是恰好有一条边连接。
+2-3-4树的编码是比较复杂的，原因在于节点种类过多。我们现在考虑这样一种情况，RB tree中的红色节点代表他和他父亲在一起，即他+他的父亲构成了2key3son-node，若他的兄弟也是红色，则他+兄弟+父亲构成了3key4son-node
+性质1显然
+性质2的原因是根没有父亲，所以他不能为红
+性质3的原因是为了保证更具有一般性
+性质4的原因是保证最多只有3key4son-node，不能出现4key5son-node
+性质5的原因是B树的完全平衡性质
 
 #### red black tree编码
-&emsp;&emsp;由此可见，我们仿照234Tree即BTree即可完成编码
+由此可见，我们仿照234Tree即BTree即可完成编码
 
 #### 为什么红黑树跑得快
-&emsp;&emsp;我们发现234树的所有操作都能在红黑树上表现,但是234树有一个很大的缺陷，即分裂合并的速度太慢了，要重构很多东西，细心的读者自己模拟会发现，这个过程在RBTree上对应的仅仅是染色问题，这极大的加速了数据结构，这是优势。
+我们发现234树的所有操作都能在红黑树上表现,但是234树有一个很大的缺陷，即分裂合并的速度太慢了，要重构很多东西，细心的读者自己模拟会发现，这个过程在RBTree上对应的仅仅是染色问题，这极大的加速了数据结构，这是优势。
 
 #### red black tree erase
-&emsp;&emsp;删除是比较复杂的，你怎样操作都可以，只要旋转次数少，你可以分很多类来讨论，显然分类越多，平均旋转次数是最少的。正常情况下，erase会引进一个重黑色的概念，这个概念的实际意义指的是该节点有一个0key1son的黑色父亲被隐藏了。
+删除是比较复杂的，你怎样操作都可以，只要旋转次数少，你可以分很多类来讨论，显然分类越多，平均旋转次数是最少的。正常情况下，erase会引进一个重黑色的概念，这个概念的实际意义指的是该节点有一个0key1son的黑色父亲被隐藏了。
 
 #### red black tree code
 <details>
@@ -6224,11 +6224,11 @@ $$
 
 ### left leaning red black tree
 ####  left leaning red black tree定义
-&emsp;&emsp; 在红黑树的基础上，左倾红黑树保证了3节点(2key-3son-node)的红色节点为向左倾斜，这导致了红黑树更加严格的定义,
+ 在红黑树的基础上，左倾红黑树保证了3节点(2key-3son-node)的红色节点为向左倾斜，这导致了红黑树更加严格的定义,
 ####  left leaning red black tree实现
-&emsp;&emsp; 在红黑树代码的基础上，我们定义一个left leaning函数，用来调整右倾斜为左倾斜，这个函数需要适当的加入到红黑树代码当中，笔者调试了很久，找到了很多思维漏洞，把这些漏洞全部用数学的方式严格证明以后，调用left leaning函数即可。
+ 在红黑树代码的基础上，我们定义一个left leaning函数，用来调整右倾斜为左倾斜，这个函数需要适当的加入到红黑树代码当中，笔者调试了很久，找到了很多思维漏洞，把这些漏洞全部用数学的方式严格证明以后，调用left leaning函数即可。
 ####  left leaning red black tree优点
-&emsp;&emsp; 相比红黑树而言，笔者认为提升不大，真的，但是有人使用了很少的代码就实现了LLRBT，这也算一个吧，笔者是修改的红黑树，所以很难受，代码更长了。
+ 相比红黑树而言，笔者认为提升不大，真的，但是有人使用了很少的代码就实现了LLRBT，这也算一个吧，笔者是修改的红黑树，所以很难受，代码更长了。
 ####  left leaning red black tree code
 <details>
 <summary>left leaning red black tree代码</summary>
@@ -6236,13 +6236,13 @@ $$
 </details>
 
 ### AA Tree
-&emsp;&emsp; AA树真的很棒，虽然他没有普通红黑树那么厉害,但是AA树挺容易实现的，AA树是一棵右倾红黑树23树，注意! 这里是23树，不是234树。
+ AA树真的很棒，虽然他没有普通红黑树那么厉害,但是AA树挺容易实现的，AA树是一棵右倾红黑树23树，注意! 这里是23树，不是234树。
 #### AA树的由来
-&emsp;&emsp; Arne Andersson教授在论文Balanced search trees made simple中提到，红黑树有7种特殊情况（图片源于wiki）
+ Arne Andersson教授在论文Balanced search trees made simple中提到，红黑树有7种特殊情况（图片源于wiki）
 ![](\images\aa_tree\rb.png)
-&emsp;&emsp; 为了改进，他提出了使用23树并强行要求3节点(2key-3son-node)向右倾斜，于是，我们只剩下两种情况(图片源于wiki)
+ 为了改进，他提出了使用23树并强行要求3节点(2key-3son-node)向右倾斜，于是，我们只剩下两种情况(图片源于wiki)
 ![](\images\aa_tree\aa.png)
-&emsp;&emsp; 为了更加容易编码，他提出不再使用红黑来标识节点，而是选择高度，这里的高度指的是黑高度，即黑色节点的高度，学习过左偏树(左翼堆)或斜堆的读者应该对这里不太陌生，这里的高度其实和左偏树或斜堆中的右距离是同一个东西。
+ 为了更加容易编码，他提出不再使用红黑来标识节点，而是选择高度，这里的高度指的是黑高度，即黑色节点的高度，学习过左偏树(左翼堆)或斜堆的读者应该对这里不太陌生，这里的高度其实和左偏树或斜堆中的右距离是同一个东西。
 #### AA树的特性
 >所有叶节点的level都是1
 >每个左孩子的level恰好为其父亲的level减一
@@ -6251,62 +6251,62 @@ $$
 >每一个level大于1的节点有两个子节点
 
 #### AA树的skew
-&emsp;&emsp;skew 是一个辅助函数，他的本质是zig，即如果发现一个节点的左儿子与自己黑高相同，则将左儿子选择至根。这将保证右倾。
+skew 是一个辅助函数，他的本质是zig，即如果发现一个节点的左儿子与自己黑高相同，则将左儿子选择至根。这将保证右倾。
 #### AA树中的split
-&emsp;&emsp; split同样是一个辅助函数，他的本质是zag，即如果发现一个节点的右孙子与自己黑高相同，则将右儿子选择至根，并将黑高+1，这将保证不会出现4节点(3key-4son-node)
+ split同样是一个辅助函数，他的本质是zag，即如果发现一个节点的右孙子与自己黑高相同，则将右儿子选择至根，并将黑高+1，这将保证不会出现4节点(3key-4son-node)
 #### AA树中的insert
-&emsp;&emsp; 递归向下，找到插入位置，然后插入，最后调整，调整的时候，树会变高，对每一层递归而言，左儿子变高我们就先让其skew，这可能导致出现4节点，我们再split，对于右儿子变高的情况，这时候可能右儿子本身是一个3节点，当他变高，导致根成为了4节点，我们调用skew即可，全部统一一下，就是先skew后split
+ 递归向下，找到插入位置，然后插入，最后调整，调整的时候，树会变高，对每一层递归而言，左儿子变高我们就先让其skew，这可能导致出现4节点，我们再split，对于右儿子变高的情况，这时候可能右儿子本身是一个3节点，当他变高，导致根成为了4节点，我们调用skew即可，全部统一一下，就是先skew后split
 #### AA树中的erase
-&emsp;&emsp; 很多时候删除都是一件困难的事情，但是我们可以通过寻找前驱后继，可以保证删除的节点一定是叶子,对于删除叶子，可能树高下降，同样的，先删除后对每一层进行调整。我们前面说过，AA树只有两种结构。我们来分析一下树高下降产生的影响。
+ 很多时候删除都是一件困难的事情，但是我们可以通过寻找前驱后继，可以保证删除的节点一定是叶子,对于删除叶子，可能树高下降，同样的，先删除后对每一层进行调整。我们前面说过，AA树只有两种结构。我们来分析一下树高下降产生的影响。
 
 ##### 情况1
-&emsp;&emsp; 右儿子与自己同黑高
+ 右儿子与自己同黑高
 <img src="/images/aa_tree/3.png" width="30%">
 ###### 情况1.1
-&emsp;&emsp;  右儿子下降
+  右儿子下降
 <img src="/images/aa_tree/1.png" width="30%">
-&emsp;&emsp; 这种情况是合法的，不需要调整
+ 这种情况是合法的，不需要调整
 ###### 情况1.2
-&emsp;&emsp;  左儿子下降
+  左儿子下降
 <img src="/images/aa_tree/10.png" width="30%">
-&emsp;&emsp; 我们观察到这里是一种较为复杂的情况，可以这样处理，让节点a和c同时黑下降，得到了
+ 我们观察到这里是一种较为复杂的情况，可以这样处理，让节点a和c同时黑下降，得到了
 <img src="/images/aa_tree/11.png" width="30%">
-&emsp;&emsp; 然后我们考虑到c节点的左右儿子,注意到c和a以前黑同高，所以c的右儿子cr，一定比c矮，当c下降以后，cl、c、cr同高
+ 然后我们考虑到c节点的左右儿子,注意到c和a以前黑同高，所以c的右儿子cr，一定比c矮，当c下降以后，cl、c、cr同高
 <img src="/images/aa_tree/12.png" width="30%">
-&emsp;&emsp; 根据定义，这里最多还能拖出两个同黑高的，cl的右儿子clr，cr的右儿子crr
+ 根据定义，这里最多还能拖出两个同黑高的，cl的右儿子clr，cr的右儿子crr
 <img src="/images/aa_tree/13.png" width="30%">
-&emsp;&emsp; 这时候我们对c执行skew，然后clr成了c的左儿子，我们再次对c执行skew，最终a-cl-clr-c-cr-crr同黑高，
+ 这时候我们对c执行skew，然后clr成了c的左儿子，我们再次对c执行skew，最终a-cl-clr-c-cr-crr同黑高，
 <img src="/images/aa_tree/14.png" width="30%">
-&emsp;&emsp; 接下来的一步是让我最吃惊的，非常漂亮，我们先对a进行split，然后对根的右儿子再次split，就结束了。对a进行split后我们得到,注意到这里根的高度提高了
+ 接下来的一步是让我最吃惊的，非常漂亮，我们先对a进行split，然后对根的右儿子再次split，就结束了。对a进行split后我们得到,注意到这里根的高度提高了
 <img src="/images/aa_tree/15.png" width="30%">
-&emsp;&emsp; 对根对右儿子split,就结束了
+ 对根对右儿子split,就结束了
 <img src="/images/aa_tree/16.png" width="30%">
 ##### 情况2
-&emsp;&emsp; 右儿子与自己不同黑高
+ 右儿子与自己不同黑高
 <img src="/images/aa_tree/1.png" width="30%">
 ###### 情况2.1
-&emsp;&emsp; 右儿子下降
+ 右儿子下降
 <img src="/images/aa_tree/4.png" width="30%">
-&emsp;&emsp; 让a节点高度降低
+ 让a节点高度降低
 <img src="/images/aa_tree/5.png" width="30%">
-&emsp;&emsp; 让a进行skew,最后因为b的右儿子高度，分两种情况
+ 让a进行skew,最后因为b的右儿子高度，分两种情况
 <img src="/images/aa_tree/6.png" width="30%">
 <img src="/images/aa_tree/7.png" width="30%">
-&emsp;&emsp; 对于b的右儿子太高的时候，对a进行skew
+ 对于b的右儿子太高的时候，对a进行skew
 <img src="/images/aa_tree/8.png" width="30%">
-&emsp;&emsp; 然后对b进行split即可
+ 然后对b进行split即可
 ###### 情况2.2
-&emsp;&emsp; 左儿子下降
+ 左儿子下降
 <img src="/images/aa_tree/2.png" width="30%">
-&emsp;&emsp; 让a下降
+ 让a下降
 <img src="/images/aa_tree/9.png" width="30%">
-&emsp;&emsp; 这里可能发生c的右儿子与c同高，split（a）即可
+ 这里可能发生c的右儿子与c同高，split（a）即可
 
 #### AA树erase总结
-&emsp;&emsp; 至此我们的删除已经讨论完了，实际细分只有4种情况，这要比普通红黑树简单多了，
+ 至此我们的删除已经讨论完了，实际细分只有4种情况，这要比普通红黑树简单多了，
 
 #### AA树缺点
-&emsp;&emsp; 多次旋转导致性能不及红黑树，旋转次数较多
+ 多次旋转导致性能不及红黑树，旋转次数较多
 
 #### AA树代码
 <details>
@@ -6315,29 +6315,29 @@ $$
 </details>
 
 ### splay tree
-&emsp;&emsp; 伸展树，以其操作splay出名。
-&emsp;&emsp; 伸展树的本质就是bst，
+ 伸展树，以其操作splay出名。
+ 伸展树的本质就是bst，
 #### splay操作
-&emsp;&emsp; 伸展树对splay操作的参数是一个节点，他的结果是将这个节点通过双旋变成根。
+ 伸展树对splay操作的参数是一个节点，他的结果是将这个节点通过双旋变成根。
 #### splay insert
-&emsp;&emsp; 伸展树insert的时候，先按照bst的操作insert，然后将insert的点进行splay操作即可
+ 伸展树insert的时候，先按照bst的操作insert，然后将insert的点进行splay操作即可
 #### splay search
-&emsp;&emsp; 伸展树search的时候，先按照bst的操作search,对找到的节点进行splay即可
+ 伸展树search的时候，先按照bst的操作search,对找到的节点进行splay即可
 #### splay erase
-&emsp;&emsp; 伸展树erase的时候，先search,这样我们要删除的节点就成为了根，然后按照bst的操作删除即可
+ 伸展树erase的时候，先search,这样我们要删除的节点就成为了根，然后按照bst的操作删除即可
 #### splay操作详解
 ##### 重新定义旋转rotate
-&emsp;&emsp; rotate(x)即交换x和x的父亲的位置，即如果x是父亲y的左儿子，则rotate(x)等价与zig(y)，反之则等价于zag(y)
+ rotate(x)即交换x和x的父亲的位置，即如果x是父亲y的左儿子，则rotate(x)等价与zig(y)，反之则等价于zag(y)
 ##### 定义splay
-&emsp;&emsp; 如果祖父-父亲-自己构成一条直链，则选rotate父亲再rotate自己，若不是直链则rotate自己两次。知道自己成为根。
+ 如果祖父-父亲-自己构成一条直链，则选rotate父亲再rotate自己，若不是直链则rotate自己两次。知道自己成为根。
 #### splay复杂度分析
 ##### splay势能函数
-&emsp;&emsp; 对于一个伸展树T，他的一个节点x的子树大小为$s(x)$,定义一个节点x的势能为$X=log_2(s(x))$
+ 对于一个伸展树T，他的一个节点x的子树大小为$s(x)$,定义一个节点x的势能为$X=log_2(s(x))$
 ###### 对数函数是一个凸函数
-&emsp;&emsp; 已知a,b>0,则$lg(a)+lg(b)\lt 2lg(\frac{a+b}{2}) = 2lg(a+b)-2$
+ 已知a,b>0,则$lg(a)+lg(b)\lt 2lg(\frac{a+b}{2}) = 2lg(a+b)-2$
 ##### 对于一条直链，我们要先rotate父亲，再rotate自己
 <img src="/images/splay_tree/rotate_father.png" width="30%">
-&emsp;&emsp; 设自己为x，父亲为y，祖父为z， 则势能变化为
+ 设自己为x，父亲为y，祖父为z， 则势能变化为
 $$
 \begin{aligned}
 &X'+Y'+Z'-X-Y-Z
@@ -6345,10 +6345,10 @@ $$
 \\&=(3X'-3X)+(X+Z'-2X')
 \end{aligned}
 $$
-&emsp;&emsp;这里的x和z‘的子树大小加起来刚好等于x'的子树大小-1。所以势能变化小于$3(X'-X)-2$
+这里的x和z‘的子树大小加起来刚好等于x'的子树大小-1。所以势能变化小于$3(X'-X)-2$
 ##### 对于一条非直链，我们要rotate自己两次，才能上去，rotate父亲不行的
 <img src="/images/splay_tree/rotate_self.png" width="30%">
-&emsp;&emsp; 同理，势能变化为
+ 同理，势能变化为
 $$
 \begin{aligned}
 &X'+Y'+Z'-X-Y-Z
@@ -6356,11 +6356,11 @@ $$
 \\&=(2X'-2X)+(Y'+Z'-2X')
 \end{aligned}
 $$
-&emsp;&emsp;这里的y'和z'的子树大小加起来刚好等于x‘的子树大小-1，所以势能变化小于$2(X'-X)-2$
+这里的y'和z'的子树大小加起来刚好等于x‘的子树大小-1，所以势能变化小于$2(X'-X)-2$
 ##### 单旋
-&emsp;&emsp; 易证势能变化小于$X'-X$
+ 易证势能变化小于$X'-X$
 ##### 整理合并
-&emsp;&emsp; 三种操作的均摊复杂度分别为$O(1)+X'-X$,$O(1)+2(X'-X)-2$,$O(1)+3(X'-X)-2$,对于后面的两种情况,我们增大势的单位来支配隐藏在O(1)中的常数，最终分别为$O(1)+X'-X$,$2(X'-X)$,$3(X'-X)$,再次放缩: $O(1)+3(X'-X)$,$3(X'-X)$,$3(X'-X)$,最后对于所有的旋转求和，因为只有一次单旋所以最终我们得到了均摊复杂度为$O(1)+X'-X\lt O(1)+X'$,显然X'是一个很小的数，他恰好等于伸展树中的元素的个数取对数后的结果。至此所有的操作均取决于splay的复杂度，均为$lg$级别。
+ 三种操作的均摊复杂度分别为$O(1)+X'-X$,$O(1)+2(X'-X)-2$,$O(1)+3(X'-X)-2$,对于后面的两种情况,我们增大势的单位来支配隐藏在O(1)中的常数，最终分别为$O(1)+X'-X$,$2(X'-X)$,$3(X'-X)$,再次放缩: $O(1)+3(X'-X)$,$3(X'-X)$,$3(X'-X)$,最后对于所有的旋转求和，因为只有一次单旋所以最终我们得到了均摊复杂度为$O(1)+X'-X\lt O(1)+X'$,显然X'是一个很小的数，他恰好等于伸展树中的元素的个数取对数后的结果。至此所有的操作均取决于splay的复杂度，均为$lg$级别。
 #### splay代码
 <details>
 <summary>splay树代码</summary>
@@ -6368,13 +6368,13 @@ $$
 </details>
 
 ### Treap
-&emsp;&emsp; 树堆Treap来源于Tree+Heap的组合, 其实就是一棵树，他的节点储存了两个键，一个是我们维护的信息，另外一个是随机数，我们不妨设前者叫key，后者叫rand_key，Treap的key满足搜索树的性质，Treap的rand_key满足堆的性质。(从某种意义上而言，笛卡尔树是key=rand_key的Treap)
-&emsp;&emsp; 特点: 若key与rand_key确定后，Treap的形态唯一，
-&emsp;&emsp; Treap在大多数情况下显然是平衡的，但我不会证明，也没找到证明，暂时先放一下。
+ 树堆Treap来源于Tree+Heap的组合, 其实就是一棵树，他的节点储存了两个键，一个是我们维护的信息，另外一个是随机数，我们不妨设前者叫key，后者叫rand_key，Treap的key满足搜索树的性质，Treap的rand_key满足堆的性质。(从某种意义上而言，笛卡尔树是key=rand_key的Treap)
+ 特点: 若key与rand_key确定后，Treap的形态唯一，
+ Treap在大多数情况下显然是平衡的，但我不会证明，也没找到证明，暂时先放一下。
 #### Treap insert
-&emsp;&emsp; 我们向一棵Treap中按照搜索树的性质插入值以后，不会破坏搜索树的特点，但是大概率导致Heap的性质被违反。考虑到单旋不会导致搜索树的性质被破坏，我们通过单旋来从新让Treap满足Heap的性质。考虑回溯，假设我们对某个子树插入了一个值，若最终插入到左子树，则可能导致左子树树根的rand_key比当前节点的rand_key大，同时因为我们只插入了一个节点，所以最多也只有一个节点的rand_key比当前节点的rand_key大，这时候如果使用zig，则树恢复平衡。
+ 我们向一棵Treap中按照搜索树的性质插入值以后，不会破坏搜索树的特点，但是大概率导致Heap的性质被违反。考虑到单旋不会导致搜索树的性质被破坏，我们通过单旋来从新让Treap满足Heap的性质。考虑回溯，假设我们对某个子树插入了一个值，若最终插入到左子树，则可能导致左子树树根的rand_key比当前节点的rand_key大，同时因为我们只插入了一个节点，所以最多也只有一个节点的rand_key比当前节点的rand_key大，这时候如果使用zig，则树恢复平衡。
 #### Treap erase
-&emsp;&emsp; 还是使用平衡树的操作来对Treap进行删除。如果过程中用到了前驱后继替换的技巧，这将导致替换节点的rand_key和他所处在为位置不匹配，我们就只考虑这颗子树，因为只有这颗子树的树根出现了问题，我们尝试递归向下，将位置不匹配这个现象下移，因为不匹配，必然是这个节点的rand_key比儿子们小，这时候如果左儿子的rand_key大就zig，否则zag,最后能发现这问题在向叶子结点转移，我们能够递归向下，直到最后转移到叶子上，树就恢复平衡了。
+ 还是使用平衡树的操作来对Treap进行删除。如果过程中用到了前驱后继替换的技巧，这将导致替换节点的rand_key和他所处在为位置不匹配，我们就只考虑这颗子树，因为只有这颗子树的树根出现了问题，我们尝试递归向下，将位置不匹配这个现象下移，因为不匹配，必然是这个节点的rand_key比儿子们小，这时候如果左儿子的rand_key大就zig，否则zag,最后能发现这问题在向叶子结点转移，我们能够递归向下，直到最后转移到叶子上，树就恢复平衡了。
 #### Treap 代码
 <details>
 <summary>Treap代码</summary>
@@ -6382,16 +6382,16 @@ $$
 </details>
 
 ### 无旋Treap
-&emsp;&emsp; 无旋treap，指的是不使用zig和zag来重新恢复平衡的Treap
-&emsp;&emsp; 我们使用merge和split
+ 无旋treap，指的是不使用zig和zag来重新恢复平衡的Treap
+ 我们使用merge和split
 #### 无旋Treap merge
-&emsp;&emsp; merge的参数是两个treap，他返回treap合并后的结果,不妨设其中一个为T1，另一个为T2，这里还要求T1的最大key小于等于T2的最小key。merge其实很简单，如果你学过左偏树的话，会很容易理解。我们不妨设T1的根的rand_key比T2的小。那么很显然，最终结果的根为T2的根，这里我们就可以递归了，我们将T2的左子树与T1合并出T3，最后让T3最为T2新的左子树，我们得到的T2就是merge的结果。
+ merge的参数是两个treap，他返回treap合并后的结果,不妨设其中一个为T1，另一个为T2，这里还要求T1的最大key小于等于T2的最小key。merge其实很简单，如果你学过左偏树的话，会很容易理解。我们不妨设T1的根的rand_key比T2的小。那么很显然，最终结果的根为T2的根，这里我们就可以递归了，我们将T2的左子树与T1合并出T3，最后让T3最为T2新的左子树，我们得到的T2就是merge的结果。
 #### 无旋Treap split
-&emsp;&emsp; split的参数是一个Treap和一个值W，他返回两颗Treap,其中一个的最大key小于W，另一个大于W(不需要考虑等于的情况)，这个过程依然很简单，我们考虑根就可以了，如果根的key大于w，则根和右子树分到一遍，然后递归左儿子，将得到的两个Treap中key大的那个作为之前分到一边的根的左儿子即可。
+ split的参数是一个Treap和一个值W，他返回两颗Treap,其中一个的最大key小于W，另一个大于W(不需要考虑等于的情况)，这个过程依然很简单，我们考虑根就可以了，如果根的key大于w，则根和右子树分到一遍，然后递归左儿子，将得到的两个Treap中key大的那个作为之前分到一边的根的左儿子即可。
 #### 无旋Treap insert
-&emsp;&emsp; 先split，然后merge两次
+ 先split，然后merge两次
 #### 无旋Treap erase
-&emsp;&emsp; 很多人这里使用了split两次然后merge三次，我认为这个不太好，常数过大，我们可以这样做，先search找到要删的点，然后merge其左右子树顶替自己即可。
+ 很多人这里使用了split两次然后merge三次，我认为这个不太好，常数过大，我们可以这样做，先search找到要删的点，然后merge其左右子树顶替自己即可。
 #### 无旋Treap代码
 <details>
 <summary>无旋Treap代码</summary>
@@ -6399,13 +6399,13 @@ $$
 </details>
 
 ### scapegoat Tree
-&emsp;&emsp; 替罪羊树，他是一个暴力的bst，与普通bst相比，他记录了子树的大小，用参数alpha来定义平衡，即左右子树的大小都不允许超过根的alpha倍，所以往往aplha是一个0.5到1的数字，当违反了这个性质，就暴力重构，将树构造为完全平衡树。
+ 替罪羊树，他是一个暴力的bst，与普通bst相比，他记录了子树的大小，用参数alpha来定义平衡，即左右子树的大小都不允许超过根的alpha倍，所以往往aplha是一个0.5到1的数字，当违反了这个性质，就暴力重构，将树构造为完全平衡树。
 #### 替罪羊树erase
-&emsp;&emsp; 为节点打上标记scapegoat，代表这个节点已经被删除了，回溯子树大小信息。
+ 为节点打上标记scapegoat，代表这个节点已经被删除了，回溯子树大小信息。
 #### 替罪羊树insert
-&emsp;&emsp; 使用bst插入的方式来插入，注意特判掉那些被打删除标记的点，就可以了
+ 使用bst插入的方式来插入，注意特判掉那些被打删除标记的点，就可以了
 #### 替罪羊树重构
-&emsp;&emsp; 当我们erase或者insert以后，受影响的节点应该恰好构成了一条从根到目标的链，我们使用maintain来重新调整子树大小的时候，注意标记那些非法(不平衡)的节点，然后当我们maintain到根的时候，我们重构离根最近的不平衡的子树。
+ 当我们erase或者insert以后，受影响的节点应该恰好构成了一条从根到目标的链，我们使用maintain来重新调整子树大小的时候，注意标记那些非法(不平衡)的节点，然后当我们maintain到根的时候，我们重构离根最近的不平衡的子树。
 #### 替罪羊树代码
 <details>
 <summary>替罪羊树代码</summary>
@@ -6415,25 +6415,25 @@ $$
 
 
 ### vantate point tree
-&emsp;&emsp;vp tree 是一颗二叉树，他和kd tree有着一定的相似度,
+vp tree 是一颗二叉树，他和kd tree有着一定的相似度,
 
 #### 树上信息
-&emsp;&emsp;每一颗子树都要维护一个点集，对于每个节点，我们都维护一个距离d，然后将到该节点的距离小于d的点放到左儿子，其他的放到右儿子中。
+每一颗子树都要维护一个点集，对于每个节点，我们都维护一个距离d，然后将到该节点的距离小于d的点放到左儿子，其他的放到右儿子中。
 
 #### vantate point
-&emsp;&emsp;vantate point的选取是一个比较麻烦的事情，我们仔细想想都知道，这个点的选取肯定会影响算法，有一种处理办法是随机选取，这显然不是我们想要的。我们其实可以这样来处理，
+vantate point的选取是一个比较麻烦的事情，我们仔细想想都知道，这个点的选取肯定会影响算法，有一种处理办法是随机选取，这显然不是我们想要的。我们其实可以这样来处理，
 >Our algorithm constructs a set of vantage point candidates by random sampling,and then evaluates each of them.Evaluation is accomplished by extracting another sample,from which the median of $\prod_p(S)$,and a corresponding moment are estimated.Finally,based on these statistical images,the candidate with the largest moment is chosen.
 
-&emsp;&emsp;这里的$\prod_p(S)$指的就是在该度量空间中点p和点s的距离,作者选取的statistical images是方差，我们可以从伪码中看出。
+这里的$\prod_p(S)$指的就是在该度量空间中点p和点s的距离,作者选取的statistical images是方差，我们可以从伪码中看出。
 
 #### 建树
-&emsp;&emsp;和kd树一样，建树的过程是一致的，我们选出vantate point,然后递归左右建树
+和kd树一样，建树的过程是一致的，我们选出vantate point,然后递归左右建树
 
 #### 搜索
-&emsp;&emsp;搜索的话，也是一样的，用结果剪枝即可
+搜索的话，也是一样的，用结果剪枝即可
 
 #### 修改
-&emsp;&emsp;这样的树不存在单旋这种方式，我们只能用替罪羊树套vantate point tree来实现
+这样的树不存在单旋这种方式，我们只能用替罪羊树套vantate point tree来实现
 
 
 #### 参考资料
@@ -6482,7 +6482,7 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### AVL Tree
-&emsp;&emsp; AVL Tree使用高度差作为平衡因子，他要求兄弟的高度差的绝对值不超过1
+ AVL Tree使用高度差作为平衡因子，他要求兄弟的高度差的绝对值不超过1
 #### code
 <details>
 <summary>avl Tree代码</summary>
@@ -6497,26 +6497,26 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### B Tree
-&emsp;&emsp;B树是一颗多叉树，和二叉树比较类似,但是每个节点有多个子节点和多个键，通常我们称最多拥有N个子节点的B树为N阶B树，B树为了保证树的有序，树上节点的子节点数量恰好比键的数量多1，这就保证了存在一种方式将子节点和键排在一起，且每个键的左边、右边都是子节点，这样形成的序列即为维护的序列。
+B树是一颗多叉树，和二叉树比较类似,但是每个节点有多个子节点和多个键，通常我们称最多拥有N个子节点的B树为N阶B树，B树为了保证树的有序，树上节点的子节点数量恰好比键的数量多1，这就保证了存在一种方式将子节点和键排在一起，且每个键的左边、右边都是子节点，这样形成的序列即为维护的序列。
 
 #### B Tree 约束
-&emsp;&emsp;B树的节点分三类，根节点、叶子节点、内部节点(除了根节点和叶子节点以外的节点)
-&emsp;&emsp;所有的叶子节点的深度相同,这一点保证树的平衡
-&emsp;&emsp;根节点的键的的数量在区间[2,N-1]上 , N>=3
-&emsp;&emsp;每个内部节点、叶子节点的键的数量在区间$[\lceil\frac{N}{2}\rceil-1,N-1]$上
-&emsp;&emsp;每个节点的键的个数恰好比子节点个数多1
+B树的节点分三类，根节点、叶子节点、内部节点(除了根节点和叶子节点以外的节点)
+所有的叶子节点的深度相同,这一点保证树的平衡
+根节点的键的的数量在区间[2,N-1]上 , N>=3
+每个内部节点、叶子节点的键的数量在区间$[\lceil\frac{N}{2}\rceil-1,N-1]$上
+每个节点的键的个数恰好比子节点个数多1
 
 #### B Tree insert
-&emsp;&emsp;B树的插入很简单，找到应该插入的叶子节点，然后插入。这会可能导致树不符合约束->叶子节点上键的数量过多，此时叶子结点上的键的数量为N，这时候我们分裂叶子节点为两个叶节点，从中取出中位数置入父节点作为划分这两个叶子节点的键。我们很容易证明$\lfloor\frac{N-1}{2}\rfloor\ge\lceil\frac{N}{2}\rceil-1$,若父节点依旧超出约束范围，同理向上继续对内部节点分裂,直道碰到根节点，若根节点依旧键的个数过多，则继续分裂，然后创建新的根节点将分裂出的节点连接。
+B树的插入很简单，找到应该插入的叶子节点，然后插入。这会可能导致树不符合约束->叶子节点上键的数量过多，此时叶子结点上的键的数量为N，这时候我们分裂叶子节点为两个叶节点，从中取出中位数置入父节点作为划分这两个叶子节点的键。我们很容易证明$\lfloor\frac{N-1}{2}\rfloor\ge\lceil\frac{N}{2}\rceil-1$,若父节点依旧超出约束范围，同理向上继续对内部节点分裂,直道碰到根节点，若根节点依旧键的个数过多，则继续分裂，然后创建新的根节点将分裂出的节点连接。
 
 #### B Tree erase
-&emsp;&emsp;B树的删除同普通平衡树一样，若删除点出现在内部节点或根节点中，我们取出他的前驱或后继将他替换。然后再删除。我们将所有情况合并到了删除叶子节点上。若删除后树依旧满足约束，则不需要调整。若不满足约束，根据N>=3我们得出每个节点最少两个子节点，若删除位置的兄弟节点有较多键，我们只需要从兄弟节点移动一个键过来即可。若兄弟节点同样处于最少键时，我们可以合并这两个节点$2*(\lceil\frac{N}{2}\rceil-1)\le N-1$
+B树的删除同普通平衡树一样，若删除点出现在内部节点或根节点中，我们取出他的前驱或后继将他替换。然后再删除。我们将所有情况合并到了删除叶子节点上。若删除后树依旧满足约束，则不需要调整。若不满足约束，根据N>=3我们得出每个节点最少两个子节点，若删除位置的兄弟节点有较多键，我们只需要从兄弟节点移动一个键过来即可。若兄弟节点同样处于最少键时，我们可以合并这两个节点$2*(\lceil\frac{N}{2}\rceil-1)\le N-1$
 
 #### B Tree search
-&emsp;&emsp;直接二分向下即可。
+直接二分向下即可。
 
 #### 注意
-&emsp;&emsp;注意vector的 insert、erase后会导致的引用失效,
+注意vector的 insert、erase后会导致的引用失效,
 
 #### code
 <details>
@@ -6531,10 +6531,10 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 #### B+树优点
-&emsp;&emsp; 因为内部节点、根节点保存的是索引(指针),这导致单位储存空间储存的指针要比单位空间储存的键多得多，这同时导致了B+树能够比B树更加扁平。
+ 因为内部节点、根节点保存的是索引(指针),这导致单位储存空间储存的指针要比单位空间储存的键多得多，这同时导致了B+树能够比B树更加扁平。
 
 #### 代码
-&emsp;&emsp; 这东西实现难度有点高，太码农了，我随缘实现吧。哈哈哈哈哈哈。
+ 这东西实现难度有点高，太码农了，我随缘实现吧。哈哈哈哈哈哈。
 
 
 
@@ -6542,10 +6542,10 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### B* Tree
-&emsp;&emsp; B*树在B+树的基础上再把内部节点也整上链表，同时要求空间使用率为$\frac{2}{3}$而不是$\frac{1}{2}$
+ B*树在B+树的基础上再把内部节点也整上链表，同时要求空间使用率为$\frac{2}{3}$而不是$\frac{1}{2}$
 
 #### 代码
-&emsp;&emsp; 随缘
+ 随缘
 
 
 
@@ -6554,7 +6554,7 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### 23tree
-&emsp;&emsp;参见3阶Btree
+参见3阶Btree
 
 
 ## 234Tree
@@ -6562,36 +6562,36 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### 234tree
-&emsp;&emsp;参见4阶Btree
+参见4阶Btree
 
 
 ## TTree
 
 
 ### T tree
-&emsp;&emsp;T tree 是一颗二叉树，他和avl tree有着一定的联系,总所周知，avl树为一颗二叉树，利用其中序维护信息，利用子树高度维护平衡。我们借此修改一下，我们尝试让avl树的每个节点维护多个信息[信息序列]，于是T tree就出现了。T tree是一颗二叉树，每个节点维护一个有序序列，用T 树的中序遍历方式，将其节点维护的序列依次相连即成为了我们维护的信息。
+T tree 是一颗二叉树，他和avl tree有着一定的联系,总所周知，avl树为一颗二叉树，利用其中序维护信息，利用子树高度维护平衡。我们借此修改一下，我们尝试让avl树的每个节点维护多个信息[信息序列]，于是T tree就出现了。T tree是一颗二叉树，每个节点维护一个有序序列，用T 树的中序遍历方式，将其节点维护的序列依次相连即成为了我们维护的信息。
 
 #### T tree 解释
-&emsp;&emsp;为了便于编码，我们不考虑序列中会出现相同的元素，可以证明，对于泛型编程方式而言，这并不影响该数据结构的功能，该数据结构依旧具备维护相同元素的能力
+为了便于编码，我们不考虑序列中会出现相同的元素，可以证明，对于泛型编程方式而言，这并不影响该数据结构的功能，该数据结构依旧具备维护相同元素的能力
 
 #### T tree结论
-&emsp;&emsp;非叶节点维护的序列都充满了各自的容器
+非叶节点维护的序列都充满了各自的容器
 
 #### T tree树上信息
-&emsp;&emsp;每一颗子树都要维护一个序列，对于每个节点，我们都维护一个稍微小一点的序列，比该序列中元素更小的元素放入左子树，否则放入右子树。
+每一颗子树都要维护一个序列，对于每个节点，我们都维护一个稍微小一点的序列，比该序列中元素更小的元素放入左子树，否则放入右子树。
 
 
 #### T tree搜索
-&emsp;&emsp;搜索的话，就是普通二叉树的搜索，比当前节点维护的最小值小，就在左子树找，比当前节点维护的最大值大，就在右子树找，否则就在当前节点找
+搜索的话，就是普通二叉树的搜索，比当前节点维护的最小值小，就在左子树找，比当前节点维护的最大值大，就在右子树找，否则就在当前节点找
 
 #### T tree插入
-&emsp;&emsp;当我们插入一个数的时候，我们首先递归向下，找到插入的节点位置，若该节点中储存的序列未满，则置入该节点，否则，有两种处理方式，第一种是从该节点中取出最小值，放入左子树，然后把带插入的树放入该节点，第二种是放入右子树，这里不多说明。插入可能会导致树失去平衡，我们用avl树单旋的方式来让树重新平衡
+当我们插入一个数的时候，我们首先递归向下，找到插入的节点位置，若该节点中储存的序列未满，则置入该节点，否则，有两种处理方式，第一种是从该节点中取出最小值，放入左子树，然后把带插入的树放入该节点，第二种是放入右子树，这里不多说明。插入可能会导致树失去平衡，我们用avl树单旋的方式来让树重新平衡
 
 #### T tree删除
-&emsp;&emsp;当我们删除一个数的时候，像avl树一样处理，若该数在叶子上，简单删掉并维护树的平衡即可，让该数在非叶节点时，我们取出前驱或后继来顶替即可。
+当我们删除一个数的时候，像avl树一样处理，若该数在叶子上，简单删掉并维护树的平衡即可，让该数在非叶节点时，我们取出前驱或后继来顶替即可。
 
 #### T tree一个容易出错的地方
-&emsp;&emsp;笔者在编码的时候，遇到了一个问题，就是有时候会出现非叶节点维护的数据并未充满容器，这种情况发生的原因是单旋造成的。在单旋的时候，将叶子结点旋转成非叶节点后，我们应该调整数据，让非叶节点重新维护的数据充满容器
+笔者在编码的时候，遇到了一个问题，就是有时候会出现非叶节点维护的数据并未充满容器，这种情况发生的原因是单旋造成的。在单旋的时候，将叶子结点旋转成非叶节点后，我们应该调整数据，让非叶节点重新维护的数据充满容器
 
 #### T treecode
 <details>
@@ -6609,7 +6609,7 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 ### red black tree
 #### red black tree定义
-&emsp;&emsp;红黑树是一种平衡树，他满足下面的性质
+红黑树是一种平衡树，他满足下面的性质
 >1.节点是红色或黑色。
 >2.根是黑色。
 >3.所有叶子都是黑色（叶子是NIL节点）。
@@ -6617,22 +6617,22 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 >5.从任一节点到其每个叶子的所有简单路径都包含相同数目的黑色节点。
 
 #### red black tree解读性质
-&emsp;&emsp;红黑树的性质难以理解，这是因为他太过于抽象了, 如果你了解B Tree, 我们现在考虑节点中最多包含3个键的B Tree，他又叫2-3-4tree,意思是任何一个节点都有2，3或4个直接子孙，直接子孙指的是和当前节点相邻的子孙，相邻指的是恰好有一条边连接。
-&emsp;&emsp;2-3-4树的编码是比较复杂的，原因在于节点种类过多。我们现在考虑这样一种情况，RB tree中的红色节点代表他和他父亲在一起，即他+他的父亲构成了2key3son-node，若他的兄弟也是红色，则他+兄弟+父亲构成了3key4son-node
-&emsp;&emsp;性质1显然
-&emsp;&emsp;性质2的原因是根没有父亲，所以他不能为红
-&emsp;&emsp;性质3的原因是为了保证更具有一般性
-&emsp;&emsp;性质4的原因是保证最多只有3key4son-node，不能出现4key5son-node
-&emsp;&emsp;性质5的原因是B树的完全平衡性质
+红黑树的性质难以理解，这是因为他太过于抽象了, 如果你了解B Tree, 我们现在考虑节点中最多包含3个键的B Tree，他又叫2-3-4tree,意思是任何一个节点都有2，3或4个直接子孙，直接子孙指的是和当前节点相邻的子孙，相邻指的是恰好有一条边连接。
+2-3-4树的编码是比较复杂的，原因在于节点种类过多。我们现在考虑这样一种情况，RB tree中的红色节点代表他和他父亲在一起，即他+他的父亲构成了2key3son-node，若他的兄弟也是红色，则他+兄弟+父亲构成了3key4son-node
+性质1显然
+性质2的原因是根没有父亲，所以他不能为红
+性质3的原因是为了保证更具有一般性
+性质4的原因是保证最多只有3key4son-node，不能出现4key5son-node
+性质5的原因是B树的完全平衡性质
 
 #### red black tree编码
-&emsp;&emsp;由此可见，我们仿照234Tree即BTree即可完成编码
+由此可见，我们仿照234Tree即BTree即可完成编码
 
 #### 为什么红黑树跑得快
-&emsp;&emsp;我们发现234树的所有操作都能在红黑树上表现,但是234树有一个很大的缺陷，即分裂合并的速度太慢了，要重构很多东西，细心的读者自己模拟会发现，这个过程在RBTree上对应的仅仅是染色问题，这极大的加速了数据结构，这是优势。
+我们发现234树的所有操作都能在红黑树上表现,但是234树有一个很大的缺陷，即分裂合并的速度太慢了，要重构很多东西，细心的读者自己模拟会发现，这个过程在RBTree上对应的仅仅是染色问题，这极大的加速了数据结构，这是优势。
 
 #### red black tree erase
-&emsp;&emsp;删除是比较复杂的，你怎样操作都可以，只要旋转次数少，你可以分很多类来讨论，显然分类越多，平均旋转次数是最少的。正常情况下，erase会引进一个重黑色的概念，这个概念的实际意义指的是该节点有一个0key1son的黑色父亲被隐藏了。
+删除是比较复杂的，你怎样操作都可以，只要旋转次数少，你可以分很多类来讨论，显然分类越多，平均旋转次数是最少的。正常情况下，erase会引进一个重黑色的概念，这个概念的实际意义指的是该节点有一个0key1son的黑色父亲被隐藏了。
 
 #### red black tree code
 <details>
@@ -6648,11 +6648,11 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 ### left leaning red black tree
 ####  left leaning red black tree定义
-&emsp;&emsp; 在红黑树的基础上，左倾红黑树保证了3节点(2key-3son-node)的红色节点为向左倾斜，这导致了红黑树更加严格的定义,
+ 在红黑树的基础上，左倾红黑树保证了3节点(2key-3son-node)的红色节点为向左倾斜，这导致了红黑树更加严格的定义,
 ####  left leaning red black tree实现
-&emsp;&emsp; 在红黑树代码的基础上，我们定义一个left leaning函数，用来调整右倾斜为左倾斜，这个函数需要适当的加入到红黑树代码当中，笔者调试了很久，找到了很多思维漏洞，把这些漏洞全部用数学的方式严格证明以后，调用left leaning函数即可。
+ 在红黑树代码的基础上，我们定义一个left leaning函数，用来调整右倾斜为左倾斜，这个函数需要适当的加入到红黑树代码当中，笔者调试了很久，找到了很多思维漏洞，把这些漏洞全部用数学的方式严格证明以后，调用left leaning函数即可。
 ####  left leaning red black tree优点
-&emsp;&emsp; 相比红黑树而言，笔者认为提升不大，真的，但是有人使用了很少的代码就实现了LLRBT，这也算一个吧，笔者是修改的红黑树，所以很难受，代码更长了。
+ 相比红黑树而言，笔者认为提升不大，真的，但是有人使用了很少的代码就实现了LLRBT，这也算一个吧，笔者是修改的红黑树，所以很难受，代码更长了。
 ####  left leaning red black tree code
 <details>
 <summary>left leaning red black tree代码</summary>
@@ -6666,13 +6666,13 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### AA Tree
-&emsp;&emsp; AA树真的很棒，虽然他没有普通红黑树那么厉害,但是AA树挺容易实现的，AA树是一棵右倾红黑树23树，注意! 这里是23树，不是234树。
+ AA树真的很棒，虽然他没有普通红黑树那么厉害,但是AA树挺容易实现的，AA树是一棵右倾红黑树23树，注意! 这里是23树，不是234树。
 #### AA树的由来
-&emsp;&emsp; Arne Andersson教授在论文Balanced search trees made simple中提到，红黑树有7种特殊情况（图片源于wiki）
+ Arne Andersson教授在论文Balanced search trees made simple中提到，红黑树有7种特殊情况（图片源于wiki）
 ![](\images\aa_tree\rb.png)
-&emsp;&emsp; 为了改进，他提出了使用23树并强行要求3节点(2key-3son-node)向右倾斜，于是，我们只剩下两种情况(图片源于wiki)
+ 为了改进，他提出了使用23树并强行要求3节点(2key-3son-node)向右倾斜，于是，我们只剩下两种情况(图片源于wiki)
 ![](\images\aa_tree\aa.png)
-&emsp;&emsp; 为了更加容易编码，他提出不再使用红黑来标识节点，而是选择高度，这里的高度指的是黑高度，即黑色节点的高度，学习过左偏树(左翼堆)或斜堆的读者应该对这里不太陌生，这里的高度其实和左偏树或斜堆中的右距离是同一个东西。
+ 为了更加容易编码，他提出不再使用红黑来标识节点，而是选择高度，这里的高度指的是黑高度，即黑色节点的高度，学习过左偏树(左翼堆)或斜堆的读者应该对这里不太陌生，这里的高度其实和左偏树或斜堆中的右距离是同一个东西。
 #### AA树的特性
 >所有叶节点的level都是1
 >每个左孩子的level恰好为其父亲的level减一
@@ -6681,62 +6681,62 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 >每一个level大于1的节点有两个子节点
 
 #### AA树的skew
-&emsp;&emsp;skew 是一个辅助函数，他的本质是zig，即如果发现一个节点的左儿子与自己黑高相同，则将左儿子选择至根。这将保证右倾。
+skew 是一个辅助函数，他的本质是zig，即如果发现一个节点的左儿子与自己黑高相同，则将左儿子选择至根。这将保证右倾。
 #### AA树中的split
-&emsp;&emsp; split同样是一个辅助函数，他的本质是zag，即如果发现一个节点的右孙子与自己黑高相同，则将右儿子选择至根，并将黑高+1，这将保证不会出现4节点(3key-4son-node)
+ split同样是一个辅助函数，他的本质是zag，即如果发现一个节点的右孙子与自己黑高相同，则将右儿子选择至根，并将黑高+1，这将保证不会出现4节点(3key-4son-node)
 #### AA树中的insert
-&emsp;&emsp; 递归向下，找到插入位置，然后插入，最后调整，调整的时候，树会变高，对每一层递归而言，左儿子变高我们就先让其skew，这可能导致出现4节点，我们再split，对于右儿子变高的情况，这时候可能右儿子本身是一个3节点，当他变高，导致根成为了4节点，我们调用skew即可，全部统一一下，就是先skew后split
+ 递归向下，找到插入位置，然后插入，最后调整，调整的时候，树会变高，对每一层递归而言，左儿子变高我们就先让其skew，这可能导致出现4节点，我们再split，对于右儿子变高的情况，这时候可能右儿子本身是一个3节点，当他变高，导致根成为了4节点，我们调用skew即可，全部统一一下，就是先skew后split
 #### AA树中的erase
-&emsp;&emsp; 很多时候删除都是一件困难的事情，但是我们可以通过寻找前驱后继，可以保证删除的节点一定是叶子,对于删除叶子，可能树高下降，同样的，先删除后对每一层进行调整。我们前面说过，AA树只有两种结构。我们来分析一下树高下降产生的影响。
+ 很多时候删除都是一件困难的事情，但是我们可以通过寻找前驱后继，可以保证删除的节点一定是叶子,对于删除叶子，可能树高下降，同样的，先删除后对每一层进行调整。我们前面说过，AA树只有两种结构。我们来分析一下树高下降产生的影响。
 
 ##### 情况1
-&emsp;&emsp; 右儿子与自己同黑高
+ 右儿子与自己同黑高
 <img src="/images/aa_tree/3.png" width="30%">
 ###### 情况1.1
-&emsp;&emsp;  右儿子下降
+  右儿子下降
 <img src="/images/aa_tree/1.png" width="30%">
-&emsp;&emsp; 这种情况是合法的，不需要调整
+ 这种情况是合法的，不需要调整
 ###### 情况1.2
-&emsp;&emsp;  左儿子下降
+  左儿子下降
 <img src="/images/aa_tree/10.png" width="30%">
-&emsp;&emsp; 我们观察到这里是一种较为复杂的情况，可以这样处理，让节点a和c同时黑下降，得到了
+ 我们观察到这里是一种较为复杂的情况，可以这样处理，让节点a和c同时黑下降，得到了
 <img src="/images/aa_tree/11.png" width="30%">
-&emsp;&emsp; 然后我们考虑到c节点的左右儿子,注意到c和a以前黑同高，所以c的右儿子cr，一定比c矮，当c下降以后，cl、c、cr同高
+ 然后我们考虑到c节点的左右儿子,注意到c和a以前黑同高，所以c的右儿子cr，一定比c矮，当c下降以后，cl、c、cr同高
 <img src="/images/aa_tree/12.png" width="30%">
-&emsp;&emsp; 根据定义，这里最多还能拖出两个同黑高的，cl的右儿子clr，cr的右儿子crr
+ 根据定义，这里最多还能拖出两个同黑高的，cl的右儿子clr，cr的右儿子crr
 <img src="/images/aa_tree/13.png" width="30%">
-&emsp;&emsp; 这时候我们对c执行skew，然后clr成了c的左儿子，我们再次对c执行skew，最终a-cl-clr-c-cr-crr同黑高，
+ 这时候我们对c执行skew，然后clr成了c的左儿子，我们再次对c执行skew，最终a-cl-clr-c-cr-crr同黑高，
 <img src="/images/aa_tree/14.png" width="30%">
-&emsp;&emsp; 接下来的一步是让我最吃惊的，非常漂亮，我们先对a进行split，然后对根的右儿子再次split，就结束了。对a进行split后我们得到,注意到这里根的高度提高了
+ 接下来的一步是让我最吃惊的，非常漂亮，我们先对a进行split，然后对根的右儿子再次split，就结束了。对a进行split后我们得到,注意到这里根的高度提高了
 <img src="/images/aa_tree/15.png" width="30%">
-&emsp;&emsp; 对根对右儿子split,就结束了
+ 对根对右儿子split,就结束了
 <img src="/images/aa_tree/16.png" width="30%">
 ##### 情况2
-&emsp;&emsp; 右儿子与自己不同黑高
+ 右儿子与自己不同黑高
 <img src="/images/aa_tree/1.png" width="30%">
 ###### 情况2.1
-&emsp;&emsp; 右儿子下降
+ 右儿子下降
 <img src="/images/aa_tree/4.png" width="30%">
-&emsp;&emsp; 让a节点高度降低
+ 让a节点高度降低
 <img src="/images/aa_tree/5.png" width="30%">
-&emsp;&emsp; 让a进行skew,最后因为b的右儿子高度，分两种情况
+ 让a进行skew,最后因为b的右儿子高度，分两种情况
 <img src="/images/aa_tree/6.png" width="30%">
 <img src="/images/aa_tree/7.png" width="30%">
-&emsp;&emsp; 对于b的右儿子太高的时候，对a进行skew
+ 对于b的右儿子太高的时候，对a进行skew
 <img src="/images/aa_tree/8.png" width="30%">
-&emsp;&emsp; 然后对b进行split即可
+ 然后对b进行split即可
 ###### 情况2.2
-&emsp;&emsp; 左儿子下降
+ 左儿子下降
 <img src="/images/aa_tree/2.png" width="30%">
-&emsp;&emsp; 让a下降
+ 让a下降
 <img src="/images/aa_tree/9.png" width="30%">
-&emsp;&emsp; 这里可能发生c的右儿子与c同高，split（a）即可
+ 这里可能发生c的右儿子与c同高，split（a）即可
 
 #### AA树erase总结
-&emsp;&emsp; 至此我们的删除已经讨论完了，实际细分只有4种情况，这要比普通红黑树简单多了，
+ 至此我们的删除已经讨论完了，实际细分只有4种情况，这要比普通红黑树简单多了，
 
 #### AA树缺点
-&emsp;&emsp; 多次旋转导致性能不及红黑树，旋转次数较多
+ 多次旋转导致性能不及红黑树，旋转次数较多
 
 #### AA树代码
 <details>
@@ -6750,29 +6750,29 @@ BST是二叉搜索树，满足中序遍历是一个有序的序列,他是最最�
 
 
 ### splay tree
-&emsp;&emsp; 伸展树，以其操作splay出名。
-&emsp;&emsp; 伸展树的本质就是bst，
+ 伸展树，以其操作splay出名。
+ 伸展树的本质就是bst，
 #### splay操作
-&emsp;&emsp; 伸展树对splay操作的参数是一个节点，他的结果是将这个节点通过双旋变成根。
+ 伸展树对splay操作的参数是一个节点，他的结果是将这个节点通过双旋变成根。
 #### splay insert
-&emsp;&emsp; 伸展树insert的时候，先按照bst的操作insert，然后将insert的点进行splay操作即可
+ 伸展树insert的时候，先按照bst的操作insert，然后将insert的点进行splay操作即可
 #### splay search
-&emsp;&emsp; 伸展树search的时候，先按照bst的操作search,对找到的节点进行splay即可
+ 伸展树search的时候，先按照bst的操作search,对找到的节点进行splay即可
 #### splay erase
-&emsp;&emsp; 伸展树erase的时候，先search,这样我们要删除的节点就成为了根，然后按照bst的操作删除即可
+ 伸展树erase的时候，先search,这样我们要删除的节点就成为了根，然后按照bst的操作删除即可
 #### splay操作详解
 ##### 重新定义旋转rotate
-&emsp;&emsp; rotate(x)即交换x和x的父亲的位置，即如果x是父亲y的左儿子，则rotate(x)等价与zig(y)，反之则等价于zag(y)
+ rotate(x)即交换x和x的父亲的位置，即如果x是父亲y的左儿子，则rotate(x)等价与zig(y)，反之则等价于zag(y)
 ##### 定义splay
-&emsp;&emsp; 如果祖父-父亲-自己构成一条直链，则选rotate父亲再rotate自己，若不是直链则rotate自己两次。知道自己成为根。
+ 如果祖父-父亲-自己构成一条直链，则选rotate父亲再rotate自己，若不是直链则rotate自己两次。知道自己成为根。
 #### splay复杂度分析
 ##### splay势能函数
-&emsp;&emsp; 对于一个伸展树T，他的一个节点x的子树大小为$s(x)$,定义一个节点x的势能为$X=log_2(s(x))$
+ 对于一个伸展树T，他的一个节点x的子树大小为$s(x)$,定义一个节点x的势能为$X=log_2(s(x))$
 ###### 对数函数是一个凸函数
-&emsp;&emsp; 已知a,b>0,则$lg(a)+lg(b)\lt 2lg(\frac{a+b}{2}) = 2lg(a+b)-2$
+ 已知a,b>0,则$lg(a)+lg(b)\lt 2lg(\frac{a+b}{2}) = 2lg(a+b)-2$
 ##### 对于一条直链，我们要先rotate父亲，再rotate自己
 <img src="/images/splay_tree/rotate_father.png" width="30%">
-&emsp;&emsp; 设自己为x，父亲为y，祖父为z， 则势能变化为
+ 设自己为x，父亲为y，祖父为z， 则势能变化为
 $$
 \begin{aligned}
 &X'+Y'+Z'-X-Y-Z
@@ -6780,10 +6780,10 @@ $$
 \\&=(3X'-3X)+(X+Z'-2X')
 \end{aligned}
 $$
-&emsp;&emsp;这里的x和z‘的子树大小加起来刚好等于x'的子树大小-1。所以势能变化小于$3(X'-X)-2$
+这里的x和z‘的子树大小加起来刚好等于x'的子树大小-1。所以势能变化小于$3(X'-X)-2$
 ##### 对于一条非直链，我们要rotate自己两次，才能上去，rotate父亲不行的
 <img src="/images/splay_tree/rotate_self.png" width="30%">
-&emsp;&emsp; 同理，势能变化为
+ 同理，势能变化为
 $$
 \begin{aligned}
 &X'+Y'+Z'-X-Y-Z
@@ -6791,11 +6791,11 @@ $$
 \\&=(2X'-2X)+(Y'+Z'-2X')
 \end{aligned}
 $$
-&emsp;&emsp;这里的y'和z'的子树大小加起来刚好等于x‘的子树大小-1，所以势能变化小于$2(X'-X)-2$
+这里的y'和z'的子树大小加起来刚好等于x‘的子树大小-1，所以势能变化小于$2(X'-X)-2$
 ##### 单旋
-&emsp;&emsp; 易证势能变化小于$X'-X$
+ 易证势能变化小于$X'-X$
 ##### 整理合并
-&emsp;&emsp; 三种操作的均摊复杂度分别为$O(1)+X'-X$,$O(1)+2(X'-X)-2$,$O(1)+3(X'-X)-2$,对于后面的两种情况,我们增大势的单位来支配隐藏在O(1)中的常数，最终分别为$O(1)+X'-X$,$2(X'-X)$,$3(X'-X)$,再次放缩: $O(1)+3(X'-X)$,$3(X'-X)$,$3(X'-X)$,最后对于所有的旋转求和，因为只有一次单旋所以最终我们得到了均摊复杂度为$O(1)+X'-X\lt O(1)+X'$,显然X'是一个很小的数，他恰好等于伸展树中的元素的个数取对数后的结果。至此所有的操作均取决于splay的复杂度，均为$lg$级别。
+ 三种操作的均摊复杂度分别为$O(1)+X'-X$,$O(1)+2(X'-X)-2$,$O(1)+3(X'-X)-2$,对于后面的两种情况,我们增大势的单位来支配隐藏在O(1)中的常数，最终分别为$O(1)+X'-X$,$2(X'-X)$,$3(X'-X)$,再次放缩: $O(1)+3(X'-X)$,$3(X'-X)$,$3(X'-X)$,最后对于所有的旋转求和，因为只有一次单旋所以最终我们得到了均摊复杂度为$O(1)+X'-X\lt O(1)+X'$,显然X'是一个很小的数，他恰好等于伸展树中的元素的个数取对数后的结果。至此所有的操作均取决于splay的复杂度，均为$lg$级别。
 #### splay代码
 <details>
 <summary>splay树代码</summary>
@@ -6809,13 +6809,13 @@ $$
 
 
 ### Treap
-&emsp;&emsp; 树堆Treap来源于Tree+Heap的组合, 其实就是一棵树，他的节点储存了两个键，一个是我们维护的信息，另外一个是随机数，我们不妨设前者叫key，后者叫rand_key，Treap的key满足搜索树的性质，Treap的rand_key满足堆的性质。(从某种意义上而言，笛卡尔树是key=rand_key的Treap)
-&emsp;&emsp; 特点: 若key与rand_key确定后，Treap的形态唯一，
-&emsp;&emsp; Treap在大多数情况下显然是平衡的，但我不会证明，也没找到证明，暂时先放一下。
+ 树堆Treap来源于Tree+Heap的组合, 其实就是一棵树，他的节点储存了两个键，一个是我们维护的信息，另外一个是随机数，我们不妨设前者叫key，后者叫rand_key，Treap的key满足搜索树的性质，Treap的rand_key满足堆的性质。(从某种意义上而言，笛卡尔树是key=rand_key的Treap)
+ 特点: 若key与rand_key确定后，Treap的形态唯一，
+ Treap在大多数情况下显然是平衡的，但我不会证明，也没找到证明，暂时先放一下。
 #### Treap insert
-&emsp;&emsp; 我们向一棵Treap中按照搜索树的性质插入值以后，不会破坏搜索树的特点，但是大概率导致Heap的性质被违反。考虑到单旋不会导致搜索树的性质被破坏，我们通过单旋来从新让Treap满足Heap的性质。考虑回溯，假设我们对某个子树插入了一个值，若最终插入到左子树，则可能导致左子树树根的rand_key比当前节点的rand_key大，同时因为我们只插入了一个节点，所以最多也只有一个节点的rand_key比当前节点的rand_key大，这时候如果使用zig，则树恢复平衡。
+ 我们向一棵Treap中按照搜索树的性质插入值以后，不会破坏搜索树的特点，但是大概率导致Heap的性质被违反。考虑到单旋不会导致搜索树的性质被破坏，我们通过单旋来从新让Treap满足Heap的性质。考虑回溯，假设我们对某个子树插入了一个值，若最终插入到左子树，则可能导致左子树树根的rand_key比当前节点的rand_key大，同时因为我们只插入了一个节点，所以最多也只有一个节点的rand_key比当前节点的rand_key大，这时候如果使用zig，则树恢复平衡。
 #### Treap erase
-&emsp;&emsp; 还是使用平衡树的操作来对Treap进行删除。如果过程中用到了前驱后继替换的技巧，这将导致替换节点的rand_key和他所处在为位置不匹配，我们就只考虑这颗子树，因为只有这颗子树的树根出现了问题，我们尝试递归向下，将位置不匹配这个现象下移，因为不匹配，必然是这个节点的rand_key比儿子们小，这时候如果左儿子的rand_key大就zig，否则zag,最后能发现这问题在向叶子结点转移，我们能够递归向下，直到最后转移到叶子上，树就恢复平衡了。
+ 还是使用平衡树的操作来对Treap进行删除。如果过程中用到了前驱后继替换的技巧，这将导致替换节点的rand_key和他所处在为位置不匹配，我们就只考虑这颗子树，因为只有这颗子树的树根出现了问题，我们尝试递归向下，将位置不匹配这个现象下移，因为不匹配，必然是这个节点的rand_key比儿子们小，这时候如果左儿子的rand_key大就zig，否则zag,最后能发现这问题在向叶子结点转移，我们能够递归向下，直到最后转移到叶子上，树就恢复平衡了。
 #### Treap 代码
 <details>
 <summary>Treap代码</summary>
@@ -6823,16 +6823,16 @@ $$
 </details>
 
 ### 无旋Treap
-&emsp;&emsp; 无旋treap，指的是不使用zig和zag来重新恢复平衡的Treap
-&emsp;&emsp; 我们使用merge和split
+ 无旋treap，指的是不使用zig和zag来重新恢复平衡的Treap
+ 我们使用merge和split
 #### 无旋Treap merge
-&emsp;&emsp; merge的参数是两个treap，他返回treap合并后的结果,不妨设其中一个为T1，另一个为T2，这里还要求T1的最大key小于等于T2的最小key。merge其实很简单，如果你学过左偏树的话，会很容易理解。我们不妨设T1的根的rand_key比T2的小。那么很显然，最终结果的根为T2的根，这里我们就可以递归了，我们将T2的左子树与T1合并出T3，最后让T3最为T2新的左子树，我们得到的T2就是merge的结果。
+ merge的参数是两个treap，他返回treap合并后的结果,不妨设其中一个为T1，另一个为T2，这里还要求T1的最大key小于等于T2的最小key。merge其实很简单，如果你学过左偏树的话，会很容易理解。我们不妨设T1的根的rand_key比T2的小。那么很显然，最终结果的根为T2的根，这里我们就可以递归了，我们将T2的左子树与T1合并出T3，最后让T3最为T2新的左子树，我们得到的T2就是merge的结果。
 #### 无旋Treap split
-&emsp;&emsp; split的参数是一个Treap和一个值W，他返回两颗Treap,其中一个的最大key小于W，另一个大于W(不需要考虑等于的情况)，这个过程依然很简单，我们考虑根就可以了，如果根的key大于w，则根和右子树分到一遍，然后递归左儿子，将得到的两个Treap中key大的那个作为之前分到一边的根的左儿子即可。
+ split的参数是一个Treap和一个值W，他返回两颗Treap,其中一个的最大key小于W，另一个大于W(不需要考虑等于的情况)，这个过程依然很简单，我们考虑根就可以了，如果根的key大于w，则根和右子树分到一遍，然后递归左儿子，将得到的两个Treap中key大的那个作为之前分到一边的根的左儿子即可。
 #### 无旋Treap insert
-&emsp;&emsp; 先split，然后merge两次
+ 先split，然后merge两次
 #### 无旋Treap erase
-&emsp;&emsp; 很多人这里使用了split两次然后merge三次，我认为这个不太好，常数过大，我们可以这样做，先search找到要删的点，然后merge其左右子树顶替自己即可。
+ 很多人这里使用了split两次然后merge三次，我认为这个不太好，常数过大，我们可以这样做，先search找到要删的点，然后merge其左右子树顶替自己即可。
 #### 无旋Treap代码
 <details>
 <summary>无旋Treap代码</summary>
@@ -6867,13 +6867,13 @@ $$
 
 
 ### scapegoat Tree
-&emsp;&emsp; 替罪羊树，他是一个暴力的bst，与普通bst相比，他记录了子树的大小，用参数alpha来定义平衡，即左右子树的大小都不允许超过根的alpha倍，所以往往aplha是一个0.5到1的数字，当违反了这个性质，就暴力重构，将树构造为完全平衡树。
+ 替罪羊树，他是一个暴力的bst，与普通bst相比，他记录了子树的大小，用参数alpha来定义平衡，即左右子树的大小都不允许超过根的alpha倍，所以往往aplha是一个0.5到1的数字，当违反了这个性质，就暴力重构，将树构造为完全平衡树。
 #### 替罪羊树erase
-&emsp;&emsp; 为节点打上标记scapegoat，代表这个节点已经被删除了，回溯子树大小信息。
+ 为节点打上标记scapegoat，代表这个节点已经被删除了，回溯子树大小信息。
 #### 替罪羊树insert
-&emsp;&emsp; 使用bst插入的方式来插入，注意特判掉那些被打删除标记的点，就可以了
+ 使用bst插入的方式来插入，注意特判掉那些被打删除标记的点，就可以了
 #### 替罪羊树重构
-&emsp;&emsp; 当我们erase或者insert以后，受影响的节点应该恰好构成了一条从根到目标的链，我们使用maintain来重新调整子树大小的时候，注意标记那些非法(不平衡)的节点，然后当我们maintain到根的时候，我们重构离根最近的不平衡的子树。
+ 当我们erase或者insert以后，受影响的节点应该恰好构成了一条从根到目标的链，我们使用maintain来重新调整子树大小的时候，注意标记那些非法(不平衡)的节点，然后当我们maintain到根的时候，我们重构离根最近的不平衡的子树。
 #### 替罪羊树代码
 <details>
 <summary>替罪羊树代码</summary>
@@ -6888,25 +6888,25 @@ $$
 
 
 ### vantate point tree
-&emsp;&emsp;vp tree 是一颗二叉树，他和kd tree有着一定的相似度,
+vp tree 是一颗二叉树，他和kd tree有着一定的相似度,
 
 #### 树上信息
-&emsp;&emsp;每一颗子树都要维护一个点集，对于每个节点，我们都维护一个距离d，然后将到该节点的距离小于d的点放到左儿子，其他的放到右儿子中。
+每一颗子树都要维护一个点集，对于每个节点，我们都维护一个距离d，然后将到该节点的距离小于d的点放到左儿子，其他的放到右儿子中。
 
 #### vantate point
-&emsp;&emsp;vantate point的选取是一个比较麻烦的事情，我们仔细想想都知道，这个点的选取肯定会影响算法，有一种处理办法是随机选取，这显然不是我们想要的。我们其实可以这样来处理，
+vantate point的选取是一个比较麻烦的事情，我们仔细想想都知道，这个点的选取肯定会影响算法，有一种处理办法是随机选取，这显然不是我们想要的。我们其实可以这样来处理，
 >Our algorithm constructs a set of vantage point candidates by random sampling,and then evaluates each of them.Evaluation is accomplished by extracting another sample,from which the median of $\prod_p(S)$,and a corresponding moment are estimated.Finally,based on these statistical images,the candidate with the largest moment is chosen.
 
-&emsp;&emsp;这里的$\prod_p(S)$指的就是在该度量空间中点p和点s的距离,作者选取的statistical images是方差，我们可以从伪码中看出。
+这里的$\prod_p(S)$指的就是在该度量空间中点p和点s的距离,作者选取的statistical images是方差，我们可以从伪码中看出。
 
 #### 建树
-&emsp;&emsp;和kd树一样，建树的过程是一致的，我们选出vantate point,然后递归左右建树
+和kd树一样，建树的过程是一致的，我们选出vantate point,然后递归左右建树
 
 #### 搜索
-&emsp;&emsp;搜索的话，也是一样的，用结果剪枝即可
+搜索的话，也是一样的，用结果剪枝即可
 
 #### 修改
-&emsp;&emsp;这样的树不存在单旋这种方式，我们只能用替罪羊树套vantate point tree来实现
+这样的树不存在单旋这种方式，我们只能用替罪羊树套vantate point tree来实现
 
 
 #### 参考资料
@@ -6934,25 +6934,25 @@ $$
 
 
 ### 字典树
-&emsp;&emsp; 字典树是我接触自动机的开端，我们先讲自动机，
+ 字典树是我接触自动机的开端，我们先讲自动机，
 
 ### 自动机
-&emsp;&emsp; 自动机有五个要素，开始状态，转移函数，字符集，状态集，结束状态。
+ 自动机有五个要素，开始状态，转移函数，字符集，状态集，结束状态。
 
 ### 自动机识别字符串
-&emsp;&emsp; 假设我们有一个自动机，他长这个样子,他能识别字符串abc.
-&emsp;&emsp; **稍等片刻！下图正在转码中**
+ 假设我们有一个自动机，他长这个样子,他能识别字符串abc.
+ **稍等片刻！下图正在转码中**
 ```mermaid
 graph LR
 start((start))--a--> 1((1))
 1((1))--b-->2((2))
 2((2))--c-->3((end))
 ```
-&emsp;&emsp; 最开始我们在位置start，也就是初始状态，当我们读入字符a的时候，经过转移函数我们到达了1号状态，如果我们在初始状态读到的是字符b，则因为初始状态没有字符b的转移函数。会导致自动机在非终结状态停机，这就意味着无法识别字符b，同理也无法识别c-z,于是在初始状态只能识别a，<br>
-&emsp;&emsp; 然后分析状态1，只能识别b，到达状态2，只能识别c到达终态。最后就识别了字符串abc。<br>
-&emsp;&emsp; 然后我们来考虑一个复杂一点的自动机，他能识别字符串abc、abd、bc、ac<br>
+ 最开始我们在位置start，也就是初始状态，当我们读入字符a的时候，经过转移函数我们到达了1号状态，如果我们在初始状态读到的是字符b，则因为初始状态没有字符b的转移函数。会导致自动机在非终结状态停机，这就意味着无法识别字符b，同理也无法识别c-z,于是在初始状态只能识别a，<br>
+ 然后分析状态1，只能识别b，到达状态2，只能识别c到达终态。最后就识别了字符串abc。<br>
+ 然后我们来考虑一个复杂一点的自动机，他能识别字符串abc、abd、bc、ac<br>
 
-&emsp;&emsp; **稍等片刻！下图正在转码中**
+ **稍等片刻！下图正在转码中**
 ```mermaid
 graph TB
 start((start))--a--> 1((1))
@@ -6963,18 +6963,18 @@ start((start))--b--> 3((3))
 2((2))--c-->10((end))
 2((2))--d-->10((end))
 ```
-&emsp;&emsp; 如果我们不去分析其中的end节点，他的本质就是一颗树，他同时又叫做字典树，特别的，如果这个字典树的字符集为01，则他又叫做01字典树。
+ 如果我们不去分析其中的end节点，他的本质就是一颗树，他同时又叫做字典树，特别的，如果这个字典树的字符集为01，则他又叫做01字典树。
 
 ### 字典树的插入
-&emsp;&emsp; 字典树的插入应该是一个字符串，这个过程我们可以用递归实现，
+ 字典树的插入应该是一个字符串，这个过程我们可以用递归实现，
 ### 字典树的删除
-&emsp;&emsp; 特别注意，为了能够支持多重集合，我们常常用一个数字来代表有多少个字符串在某个状态结束，这样删除的时候只要减少那个值就可以了
+ 特别注意，为了能够支持多重集合，我们常常用一个数字来代表有多少个字符串在某个状态结束，这样删除的时候只要减少那个值就可以了
 ### 字典树的查找
-&emsp;&emsp; 递归。
+ 递归。
 ### 递归转非递归
-&emsp;&emsp; 因为字典树的代码特别简单，我们常常直接用递归转非递归来实现。
+ 因为字典树的代码特别简单，我们常常直接用递归转非递归来实现。
 ### 代码
-&emsp;&emsp; 先欠着，暂时拖一个不太友好的代码在这里,这里面有一部分代码就是字典树啦。
+ 先欠着，暂时拖一个不太友好的代码在这里,这里面有一部分代码就是字典树啦。
 [代码链接](https://fightinggg.github.io/ACM/stencil/string/AC自动机.html)
 
 ## 三叉搜索树
@@ -6984,70 +6984,70 @@ start((start))--b--> 3((3))
 ### ternary search tree
 
 ### 字典树的缺点
-&emsp;&emsp; 不难想到，对于那些字符集特别大的字典树来说，他们的空间消耗特别大，因为每个节点都要储存大量的指针，而这些指针往往又是空的。
+ 不难想到，对于那些字符集特别大的字典树来说，他们的空间消耗特别大，因为每个节点都要储存大量的指针，而这些指针往往又是空的。
 ### 将BST与trie结合起来
-&emsp;&emsp; 考虑这样一种树，每个节点有三个儿子，左右儿子表示自己的左右兄弟，向下的儿子表示真正的儿子。这样的树，将极大的提高了空间利用率。
+ 考虑这样一种树，每个节点有三个儿子，左右儿子表示自己的左右兄弟，向下的儿子表示真正的儿子。这样的树，将极大的提高了空间利用率。
 ### 偷个图来放着
-&emsp;&emsp; 这里插入了as,at,be,by,he....
+ 这里插入了as,at,be,by,he....
 ![](/images/三叉搜索树.png)
 
 ### 三叉搜索树的插入
-&emsp;&emsp; 考虑递归，假设我们插入到了某个节点，若下儿子与当前字符相等，则递归到下儿子并使用下一个字符来递归，如果当前字符小于下儿子，则递归到左儿子，保持当前字符不变，如果当前节点不存在了，则创建新节点，直接向下儿子走。
+ 考虑递归，假设我们插入到了某个节点，若下儿子与当前字符相等，则递归到下儿子并使用下一个字符来递归，如果当前字符小于下儿子，则递归到左儿子，保持当前字符不变，如果当前节点不存在了，则创建新节点，直接向下儿子走。
 
 ### 三叉搜索树的删除
-&emsp;&emsp; 我们还是用数字来记录终结节点的终结字符串有多少个，若找到待删除的节点以后，终止与此的只有一个字符串，则直接删掉，否则让终极节点的计数器减1，注意在回溯的时候，如果三个儿子都没有终结字符了，就删掉自己。
+ 我们还是用数字来记录终结节点的终结字符串有多少个，若找到待删除的节点以后，终止与此的只有一个字符串，则直接删掉，否则让终极节点的计数器减1，注意在回溯的时候，如果三个儿子都没有终结字符了，就删掉自己。
 
 ### 三叉搜索树的查找
-&emsp;&emsp; 递归递归。
+ 递归递归。
 
 ### 三叉搜索树的缺点
-&emsp;&emsp; 树的平衡是一个很大的问题，这个我也没办法
+ 树的平衡是一个很大的问题，这个我也没办法
 
 ### 三叉搜索树的本质
-&emsp;&emsp; 很多时候，很多数据结构像变戏法一样，我们从本质看带三叉搜索树，我们发现下儿子其实是字典树的边，在考虑左右儿子，其实这个就是bst，哈哈哈发现了没有，
-&emsp;&emsp; 我们考虑删掉所有下儿子，你会发现，剩下的是一个bst森林，就像lct删掉指向父亲没有指向自己的边以后，就是splay森林一样，很神奇。我们将这些bst森林转化为一个一个普通的数组，让这些数组从新充当节点，然后将下儿子连回去，
-&emsp;&emsp; 一切都清晰了，又变成普通字典树了。
-&emsp;&emsp; 所以三叉搜索树的本质是优化后的字典树，每个节点都是一个bst。即trie套bst，外层树为trie，内层树为bst。
+ 很多时候，很多数据结构像变戏法一样，我们从本质看带三叉搜索树，我们发现下儿子其实是字典树的边，在考虑左右儿子，其实这个就是bst，哈哈哈发现了没有，
+ 我们考虑删掉所有下儿子，你会发现，剩下的是一个bst森林，就像lct删掉指向父亲没有指向自己的边以后，就是splay森林一样，很神奇。我们将这些bst森林转化为一个一个普通的数组，让这些数组从新充当节点，然后将下儿子连回去，
+ 一切都清晰了，又变成普通字典树了。
+ 所以三叉搜索树的本质是优化后的字典树，每个节点都是一个bst。即trie套bst，外层树为trie，内层树为bst。
 
 ### 三叉搜索树的优化？
-&emsp;&emsp; 我们让这里的bst用avl代替？用rbt代替？用sbt代替？都可以，但是我觉得这样编码太难了吧，若实在是真的差这点效率，可以去这样做，但我认为，把普通字典树的节点用avl-map、rbt-map、sbt-map直接范型编程或设为类中类不香吗。在这玩树套树确实高大上，效率也高，但编码难度也太高了。
+ 我们让这里的bst用avl代替？用rbt代替？用sbt代替？都可以，但是我觉得这样编码太难了吧，若实在是真的差这点效率，可以去这样做，但我认为，把普通字典树的节点用avl-map、rbt-map、sbt-map直接范型编程或设为类中类不香吗。在这玩树套树确实高大上，效率也高，但编码难度也太高了。
 
 ### 代码
-&emsp;&emsp; 先欠着，以后再还。
+ 先欠着，以后再还。
 
 ## X快速前缀树
 
 
 
 ### X快速前缀树
-&emsp;&emsp; 我以前就说过，当你的数据结构达到了一定的基础，就可以学习那些更加高级的数据结构了，往往那些更加高级的数据结构由基本数据结构组合而成。
+ 我以前就说过，当你的数据结构达到了一定的基础，就可以学习那些更加高级的数据结构了，往往那些更加高级的数据结构由基本数据结构组合而成。
 
 ### 先提出一个问题
-&emsp;&emsp; 现在要你维护一个多重集合，支持3种操作，1询问一个值(这个值不一定在集合中)的前驱和后继，2向集合中插入一个元素，3从集合中删掉一个元素，1操作$10^6$次，2操作$10^5$次，3操作$10^5$,要求你在1S内完成回答。保证集合元素都小于M=$10^6$
+ 现在要你维护一个多重集合，支持3种操作，1询问一个值(这个值不一定在集合中)的前驱和后继，2向集合中插入一个元素，3从集合中删掉一个元素，1操作$10^6$次，2操作$10^5$次，3操作$10^5$,要求你在1S内完成回答。保证集合元素都小于M=$10^6$
 
 
 ### 普通平衡树？
-&emsp;&emsp; 我们考虑到上面三种操作都是普通平衡树常见的操作，很多人可能就直接拿起他自己的平衡树上了。很遗憾，大概率是无法通过的。因为操作次数太多了。
+ 我们考虑到上面三种操作都是普通平衡树常见的操作，很多人可能就直接拿起他自己的平衡树上了。很遗憾，大概率是无法通过的。因为操作次数太多了。
 
 ### 观察，思考
-&emsp;&emsp; 我们的操作需要的是大量的查询，大量、大量，你个普通平衡树怎么操作的过来？
+ 我们的操作需要的是大量的查询，大量、大量，你个普通平衡树怎么操作的过来？
 
 ### 新的平衡树
-&emsp;&emsp; 现在我们提出一个新的平衡树，这个平衡树非常厉害，他支持$O(lgM)$的时间来删除和插入，支持$O(lglgM)$的时间来查询前驱后继。
+ 现在我们提出一个新的平衡树，这个平衡树非常厉害，他支持$O(lgM)$的时间来删除和插入，支持$O(lglgM)$的时间来查询前驱后继。
 
 ### X快速前缀树
-&emsp;&emsp; 字典树+哈希表+维护叶子节点的双向链表+二分
-&emsp;&emsp; 首先，我们先建立一颗普通的01字典树，这个树我们对他稍作修改，考虑到字典树的节点分3类： 叶子节点、根节点、内部节点，我们让叶子节点间构造双向环状链表，其次，对于仅有左儿子的内部节点，让其右儿子指向子树的最小叶子节点，对于仅有右儿子的内部节点，让其左儿子指向子树的最大叶子节点。另一方面，我们对字典树的每一层都建立一个hash表，hash掉他们节点所代表的值是有还是没有，这样我们就构造出了一个X快速前缀树的模型了。
+ 字典树+哈希表+维护叶子节点的双向链表+二分
+ 首先，我们先建立一颗普通的01字典树，这个树我们对他稍作修改，考虑到字典树的节点分3类： 叶子节点、根节点、内部节点，我们让叶子节点间构造双向环状链表，其次，对于仅有左儿子的内部节点，让其右儿子指向子树的最小叶子节点，对于仅有右儿子的内部节点，让其左儿子指向子树的最大叶子节点。另一方面，我们对字典树的每一层都建立一个hash表，hash掉他们节点所代表的值是有还是没有，这样我们就构造出了一个X快速前缀树的模型了。
 ![](/images/X快速前缀树.png)
 
 ### X快速前缀树的查找
-&emsp;&emsp; 假设我们要找一个数k，我们在树上寻找树和k的lca[最低公共祖先]，这个过程可以只要在hash表中二分即可知道lca在哪一个节点，可以证明，这个节点要么没有左儿子，要么没有右儿子。如果有的话，他的儿子和k的lcp[最长公共前缀]一定更长，但是这与他自己是lca的事实相悖。另一方面，由于我们的单儿子节点储存了最值信息，如果这个节点没有右儿子，则他的右儿子指向的值是k的前驱，至于后继，在叶子节点的链表上后移一个单位即可。这个过程总复杂度在二分lca上，树的高度为lgn，二分高度，所以总体复杂度为$O(lglgn)$
+ 假设我们要找一个数k，我们在树上寻找树和k的lca[最低公共祖先]，这个过程可以只要在hash表中二分即可知道lca在哪一个节点，可以证明，这个节点要么没有左儿子，要么没有右儿子。如果有的话，他的儿子和k的lcp[最长公共前缀]一定更长，但是这与他自己是lca的事实相悖。另一方面，由于我们的单儿子节点储存了最值信息，如果这个节点没有右儿子，则他的右儿子指向的值是k的前驱，至于后继，在叶子节点的链表上后移一个单位即可。这个过程总复杂度在二分lca上，树的高度为lgn，二分高度，所以总体复杂度为$O(lglgn)$
 
 ### X快速前缀树的插入
-&emsp;&emsp; 找出lca，若lca没有右儿子，则说明当前节点要插入到右儿子里面。照着做就行了，同时注意向下递归的时候把值也插入到hash表里面，递归到叶子的时候重新连接双向环状链表(前驱和后继)，最后回溯的时候维护单儿子节点的信息，以及树根方面的值就行了。
+ 找出lca，若lca没有右儿子，则说明当前节点要插入到右儿子里面。照着做就行了，同时注意向下递归的时候把值也插入到hash表里面，递归到叶子的时候重新连接双向环状链表(前驱和后继)，最后回溯的时候维护单儿子节点的信息，以及树根方面的值就行了。
 
 ### X快速前缀树的删除
-&emsp;&emsp; 找到待删除节点，然后删掉，重新维护叶子链表，回溯的时候从hash表里面删掉自己，对于单儿子的节点也要根据子树回溯即可。
+ 找到待删除节点，然后删掉，重新维护叶子链表，回溯的时候从hash表里面删掉自己，对于单儿子的节点也要根据子树回溯即可。
 
 
 
@@ -7056,47 +7056,47 @@ start((start))--b--> 3((3))
 
 
 ### Y快速前缀树
-&emsp;&emsp; 继X快速前缀树以后，Dan Willard又提出了X快速前缀树的改进版本
+ 继X快速前缀树以后，Dan Willard又提出了X快速前缀树的改进版本
 
 ### 改进X快速前缀树
-&emsp;&emsp; 我们还是继续考虑n个小于M的整数(n&lt;M)，我们按照大小，从小到大分组,每组的元素的个数在区间$[\frac{lgM}{4},2lgM]$上,对每组构建一颗普通平衡树，这样我们一共会得到$\frac{n}{2lgM}$到$\frac{4n}{lgM}$颗树，我们在这些树中取一个随便的值r，r要在平衡树的最大和最小值之间,这样我们每棵树对应了一个r，把所有的r作为键,其对应的平衡树作为值放到X快速平衡树中，这就是Y快速平衡树。
+ 我们还是继续考虑n个小于M的整数(n&lt;M)，我们按照大小，从小到大分组,每组的元素的个数在区间$[\frac{lgM}{4},2lgM]$上,对每组构建一颗普通平衡树，这样我们一共会得到$\frac{n}{2lgM}$到$\frac{4n}{lgM}$颗树，我们在这些树中取一个随便的值r，r要在平衡树的最大和最小值之间,这样我们每棵树对应了一个r，把所有的r作为键,其对应的平衡树作为值放到X快速平衡树中，这就是Y快速平衡树。
 
 ### Y快速前缀树的查找前驱后继
-&emsp;&emsp; 首先在上层X前缀树上查找前驱和后继，最终我们会定位到两个叶子节点，也就对应了两颗普通平衡树，我们在这两颗普通平衡树里面直接找前驱后继然后合并就结束了。总复杂度$lglg(\frac{n}{lgM})+2*lg(lgM)=lglgM$
+ 首先在上层X前缀树上查找前驱和后继，最终我们会定位到两个叶子节点，也就对应了两颗普通平衡树，我们在这两颗普通平衡树里面直接找前驱后继然后合并就结束了。总复杂度$lglg(\frac{n}{lgM})+2*lg(lgM)=lglgM$
 
 ### Y快速前缀树的插入
-&emsp;&emsp; 先在X前缀树上查询前驱后继，然后在其对应的平衡树上插入真正要插入的值，总复杂度$lglg(\frac{n}{lgM})+lglgM=lglgM$，这里有可能导致插入的值太多，进行分裂，我们来看一下这次分裂前插入了多少元素，我们考虑最坏的情况，不妨设之前也是分裂的，那么他的大小为$lgM$，到这次分裂一共插入了lgM+1个元素，导致现在的大小超过了2lgM，于是这lgM次插入的均摊分裂复杂度为$\frac{lg(\frac{n}{lgM})}{lgM}\lt 1$,于是总复杂度为$lglgM$
+ 先在X前缀树上查询前驱后继，然后在其对应的平衡树上插入真正要插入的值，总复杂度$lglg(\frac{n}{lgM})+lglgM=lglgM$，这里有可能导致插入的值太多，进行分裂，我们来看一下这次分裂前插入了多少元素，我们考虑最坏的情况，不妨设之前也是分裂的，那么他的大小为$lgM$，到这次分裂一共插入了lgM+1个元素，导致现在的大小超过了2lgM，于是这lgM次插入的均摊分裂复杂度为$\frac{lg(\frac{n}{lgM})}{lgM}\lt 1$,于是总复杂度为$lglgM$
 
 ### Y快速前缀树的删除
-&emsp;&emsp; 同样的，我们还是先查询前驱后街，然后在对应的平衡树上删除真正要删除的值，总复杂度为$lglg(\frac{n}{lgM})+lglgM=lglgM$,这里有可能导致平衡树上剩下的值太少，我们考虑合并，合并后如果依然太大，比方说大于lgM，我们就再次分裂为两个平衡树即可。这里可以证明，均摊复杂度依然是O1，因为从$\frac{lgM}{2}$到$\frac{lgM}{4}$也要$\frac{lgM}{4}$次删除，均摊下来，依然是O1,为了懒惰删除，我们甚至可以不必要求合并后超过lgM猜分裂，到2lgM也行。懒惰总是优秀的。于是总体复杂度为$lglgM$
+ 同样的，我们还是先查询前驱后街，然后在对应的平衡树上删除真正要删除的值，总复杂度为$lglg(\frac{n}{lgM})+lglgM=lglgM$,这里有可能导致平衡树上剩下的值太少，我们考虑合并，合并后如果依然太大，比方说大于lgM，我们就再次分裂为两个平衡树即可。这里可以证明，均摊复杂度依然是O1，因为从$\frac{lgM}{2}$到$\frac{lgM}{4}$也要$\frac{lgM}{4}$次删除，均摊下来，依然是O1,为了懒惰删除，我们甚至可以不必要求合并后超过lgM猜分裂，到2lgM也行。懒惰总是优秀的。于是总体复杂度为$lglgM$
 
 ### 总结
-&emsp;&emsp; 至此，Y快速前缀树的所有操作均为lglgM了.
+ 至此，Y快速前缀树的所有操作均为lglgM了.
 
 ### 代码
-&emsp;&emsp; 欠着欠着，以后再补。
+ 欠着欠着，以后再补。
 
 ## 笛卡尔树
 
 
 
 ### 笛卡尔树
-&emsp;&emsp; 这个笛卡尔树没写出来，气死了
-&emsp;&emsp; 他是二叉树，他是堆，二叉树中序遍历的结果就是数组a
+ 这个笛卡尔树没写出来，气死了
+ 他是二叉树，他是堆，二叉树中序遍历的结果就是数组a
 
 ### 笛卡尔树的构造
-&emsp;&emsp; 先看一个简单的笛卡尔树
+ 先看一个简单的笛卡尔树
 ![](/images/笛卡尔树/笛卡尔树.png)
-&emsp;&emsp; 我们使用增量构建笛卡尔树来完成，就和增量构建后缀自动机一样容易。我们来对x分类讨论如果x比5小怎么样，如下
+ 我们使用增量构建笛卡尔树来完成，就和增量构建后缀自动机一样容易。我们来对x分类讨论如果x比5小怎么样，如下
 ![](/images/笛卡尔树/笛卡尔树x<5.png)
-&emsp;&emsp;如果x在5和7之间
+如果x在5和7之间
 ![](/images/笛卡尔树/笛卡尔树x>5<7.png)
-&emsp;&emsp;如果x在7和9之间
+如果x在7和9之间
 ![](/images/笛卡尔树/笛卡尔树x>7<9.png)
-&emsp;&emsp;如果x比9大呢
+如果x比9大呢
 ![](/images/笛卡尔树/笛卡尔树x>9.png)
-&emsp;&emsp; 我们不难发现，每当增加一个新的值的时候，笛卡尔树变化的一定只有从根一直向右走的路径，我们可以想出一个很简单的方法，每次新增加值a[i+1]的时候，让他不断和右链比较，找到lower_bound的地方，然后插入到那去就可以了。
-&emsp;&emsp; 进一步发现，上诉代码需要维护指向父亲的指针，我们考虑到用一个栈来维护右链，栈低为根，栈顶为叶子，在弹栈的时候维护右儿子指针，在压栈的时候维护左儿子指针即可。代码如下
+ 我们不难发现，每当增加一个新的值的时候，笛卡尔树变化的一定只有从根一直向右走的路径，我们可以想出一个很简单的方法，每次新增加值a[i+1]的时候，让他不断和右链比较，找到lower_bound的地方，然后插入到那去就可以了。
+ 进一步发现，上诉代码需要维护指向父亲的指针，我们考虑到用一个栈来维护右链，栈低为根，栈顶为叶子，在弹栈的时候维护右儿子指针，在压栈的时候维护左儿子指针即可。代码如下
 ```cpp
 int n;
 int a[N]; // a[1], a[2], a[3], a[4] ... a[n]
@@ -7131,13 +7131,13 @@ CREATE TABLE `employees` (
 `hire_date` date NOT NULL,
 PRIMARY KEY (`emp_no`));
 
-&emsp;&emsp; 我们排序以后选出最大的
+ 我们排序以后选出最大的
 ```sql
 select * from employees
     order by hire_date desc
     limit 0,1
 ```
-&emsp;&emsp; 找到最大值以后使用where
+ 找到最大值以后使用where
 ```sql
 select * from employees
     where hire_date = (select max(hire_date) from employees);
@@ -7162,7 +7162,7 @@ select * from employees
     limit 2,1
 ```
 
-&emsp;&emsp; 使用distinct去重
+ 使用distinct去重
 ```sql
 select * from employees
     where hire_date = (
@@ -7263,7 +7263,7 @@ CREATE TABLE `salaries` (
 `to_date` date NOT NULL,
 PRIMARY KEY (`emp_no`,`from_date`));
 
-&emsp;&emsp; 找出最早的那个
+ 找出最早的那个
 ```sql
 select distinct s.emp_no,s.salary
 from salaries as s
@@ -7318,7 +7318,7 @@ from (
 )
 order by salary desc
 ```
-&emsp;&emsp; 有个更好的写法
+ 有个更好的写法
 ```sql
 select salary
 from salaries
@@ -7678,56 +7678,56 @@ group by dm.dept_no
 
 
 ### nosql
-&emsp;&emsp; 随时大规模高并发的出现，传统关系型数据库已经碰到了很大的问题，他难以提供更快的数据访问速度了，这导致数据库成为了瓶颈。人们提出not only sql的一种理念，就是我们不能仅仅依靠关系型数据库。
+ 随时大规模高并发的出现，传统关系型数据库已经碰到了很大的问题，他难以提供更快的数据访问速度了，这导致数据库成为了瓶颈。人们提出not only sql的一种理念，就是我们不能仅仅依靠关系型数据库。
 
 ### 非关系型数据库
-&emsp;&emsp; 指的是没有关系的数据库，即不是二纬表，而是KV对。
+ 指的是没有关系的数据库，即不是二纬表，而是KV对。
 
 ### redis 
-&emsp;&emsp; redis 就是其中的一个非关系型数据库，他是单线程，将数据储存在内存中的数据库，他支持丰富的数据类型，包括string，list,set,hash,zset
+ redis 就是其中的一个非关系型数据库，他是单线程，将数据储存在内存中的数据库，他支持丰富的数据类型，包括string，list,set,hash,zset
 
 ### redis持久化
-&emsp;&emsp; 第一种是rdb方案，他将内存的数据定期储存到磁盘中，由于数据的空间问题，一般15分钟一次，第二种是aof方案，他将读取的数据定期增加到磁盘中，由于我们只是添加，一般1s一次。rdb本质为整体储存，aof为懒惰式储存，他储存的是操作，而不是数据库。
+ 第一种是rdb方案，他将内存的数据定期储存到磁盘中，由于数据的空间问题，一般15分钟一次，第二种是aof方案，他将读取的数据定期增加到磁盘中，由于我们只是添加，一般1s一次。rdb本质为整体储存，aof为懒惰式储存，他储存的是操作，而不是数据库。
 
 ### redis事务
-&emsp;&emsp; redis半支持事务，语法错误回滚，但运行错误不会。
+ redis半支持事务，语法错误回滚，但运行错误不会。
 
 ### redis主从复制
-&emsp;&emsp; 主机写，从机读，
+ 主机写，从机读，
 
 ### redis哨兵模式
-&emsp;&emsp; 当主机挂了以后，通过投票在从机中选出新的主机
+ 当主机挂了以后，通过投票在从机中选出新的主机
 
 ### 缓存雪崩
-&emsp;&emsp; 大量的缓存同时失效，导致原本应该访问缓存的请求由于找不到数据，都去查询数据库，造成数据库CPU和内存巨大的压力
-&emsp;&emsp; 解决方案：对数据库加锁，或者让缓存失效时间分散开
+ 大量的缓存同时失效，导致原本应该访问缓存的请求由于找不到数据，都去查询数据库，造成数据库CPU和内存巨大的压力
+ 解决方案：对数据库加锁，或者让缓存失效时间分散开
 
 ### 缓存穿透
-&emsp;&emsp; 查询数据库中没有的数据，导致每次都要进入数据库查询
-&emsp;&emsp; 解决方案： 布隆过滤器，或者把数据库中不存在的数据也存入缓存设为空
+ 查询数据库中没有的数据，导致每次都要进入数据库查询
+ 解决方案： 布隆过滤器，或者把数据库中不存在的数据也存入缓存设为空
 
 #### 布隆过滤器
-&emsp;&emsp; 引入多个相互独立的哈希函数，对数据库中的数据进行哈希，然后存入位图中，这里的多个确保了精度
+ 引入多个相互独立的哈希函数，对数据库中的数据进行哈希，然后存入位图中，这里的多个确保了精度
 
 ### 缓存击穿
-&emsp;&emsp; 由于缓存中某条热点数据过期，导致大量高并发的请求击穿缓存进入数据库，导致数据库巨大的压力
-&emsp;&emsp; 解决方案: 热点数据永不过期或者访问数据库前加互斥锁， 这里为什么不是依靠数据库自己的锁呢，我认为能早处理的话就早处理，不要给数据库加压。
+ 由于缓存中某条热点数据过期，导致大量高并发的请求击穿缓存进入数据库，导致数据库巨大的压力
+ 解决方案: 热点数据永不过期或者访问数据库前加互斥锁， 这里为什么不是依靠数据库自己的锁呢，我认为能早处理的话就早处理，不要给数据库加压。
 
 ### 缓存预热
-&emsp;&emsp; 系统上线以后，将某些相关的缓存数据之间加入到缓存系统中
+ 系统上线以后，将某些相关的缓存数据之间加入到缓存系统中
 
 ### 缓存更新
-&emsp;&emsp; 根据具体业务需求去自定义缓存淘汰机制，定期清理或者当请求来临的时候更新
+ 根据具体业务需求去自定义缓存淘汰机制，定期清理或者当请求来临的时候更新
 
 ### 缓存降级
-&emsp;&emsp; 当访问量增大，非核心服务影响核心服务的性能时，自动或者人工地让缓存尽量少查询数据库，尽管这可能导致少量的错误，但是我们的目标时系统的高可用性。
+ 当访问量增大，非核心服务影响核心服务的性能时，自动或者人工地让缓存尽量少查询数据库，尽管这可能导致少量的错误，但是我们的目标时系统的高可用性。
 
 ### memcache、mongoDB、redis
-&emsp;&emsp; 性能都高，但是redis和memcache比mongodb强一点点
-&emsp;&emsp; memcache只能是字符串，mongodb更加类似与关系型数据库，redis支持丰富的数据类型
-&emsp;&emsp; redis用主从一致、哨兵机制保护数据，memcache没有冗余数据，mongoDB有主从一致、内部选举、auto sharding保护数据
-&emsp;&emsp; redis支持rdb和aof，memcache没有持久化，mongodb用binlog
-&emsp;&emsp; Memcache用cas保存一致性，redis事务性较差，mongodb没有事务
+ 性能都高，但是redis和memcache比mongodb强一点点
+ memcache只能是字符串，mongodb更加类似与关系型数据库，redis支持丰富的数据类型
+ redis用主从一致、哨兵机制保护数据，memcache没有冗余数据，mongoDB有主从一致、内部选举、auto sharding保护数据
+ redis支持rdb和aof，memcache没有持久化，mongodb用binlog
+ Memcache用cas保存一致性，redis事务性较差，mongodb没有事务
 
 
 
@@ -7741,7 +7741,7 @@ group by dm.dept_no
 
 
 ### 游标允许我们遍历结果集
-&emsp;&emsp; 不想多说，我只是感觉好复杂
+ 不想多说，我只是感觉好复杂
 ```sql
 create table test(id int);
 delimiter //                            #定义标识符为双斜杠
@@ -7772,13 +7772,13 @@ call test();                            #调用存储过程
 
 
 ### DB
-&emsp;&emsp; Database 数据库
+ Database 数据库
 ### DBMS
-&emsp;&emsp; DatabaseManagementSystem 数据库管理系统
+ DatabaseManagementSystem 数据库管理系统
 ### SQL
-&emsp;&emsp; Sturcture Query Language 结构化查询语言
+ Sturcture Query Language 结构化查询语言
 #### SQL语言
-&emsp;&emsp; 不是某个特定数据库供应商专有的语言，DBMS都支持SQL
+ 不是某个特定数据库供应商专有的语言，DBMS都支持SQL
 ### MySQL 安装
 ### MySQL 卸载
 ### MySQL 配置
@@ -7786,7 +7786,7 @@ call test();                            #调用存储过程
 - port 是端口
 - datadir 是文件系统路径
 - default-storage-engin 是数据库默认引擎
-&emsp;&emsp; 注意要重启服务才能生效
+ 注意要重启服务才能生效
 
 # Design
 
@@ -7795,7 +7795,7 @@ call test();                            #调用存储过程
 
 
 ### 为什么我们需要设计模式
-&emsp;&emsp; 有一类问题会在软件设计中反复出现，我们能够提出一种抽象的方法来解决这类问题，这就是设计模式
+ 有一类问题会在软件设计中反复出现，我们能够提出一种抽象的方法来解决这类问题，这就是设计模式
 
 ### 设计模式的七大原则
 - 单一职责原则
@@ -7844,15 +7844,15 @@ call test();                            #调用存储过程
 
 
 ### 单一职责原则
-&emsp;&emsp; 一个类只管一个职责
+ 一个类只管一个职责
 
 <!--more-->
 ### 例子1
-&emsp;&emsp;如果我们创建了交通工具类，他掌管着很多工具，汽车、飞机、轮船，显然我们不适合让一个类来管理这么多种交通工具，这样导致职责太多，也不适合分别为这三种交通工具建立3个类，这样导致修改过多，正确的做法是创建三个函数，来分别管理他们。
+如果我们创建了交通工具类，他掌管着很多工具，汽车、飞机、轮船，显然我们不适合让一个类来管理这么多种交通工具，这样导致职责太多，也不适合分别为这三种交通工具建立3个类，这样导致修改过多，正确的做法是创建三个函数，来分别管理他们。
 ### 例子2
-&emsp;&emsp; 又如我们有树、链表、数组，我们要便利他们，你肯定不适合创建一个类，一个函数来遍历。应该是一个类三个函数分别遍历树、链表、数组
-&emsp;&emsp; 但是如果这种方法级的单一职责原则导致类过于庞大，应该考虑到使用类级的单一职责原则。
-&emsp;&emsp; 这样可以降低类的复杂度,提高可读性，降低变更的风险
+ 又如我们有树、链表、数组，我们要便利他们，你肯定不适合创建一个类，一个函数来遍历。应该是一个类三个函数分别遍历树、链表、数组
+ 但是如果这种方法级的单一职责原则导致类过于庞大，应该考虑到使用类级的单一职责原则。
+ 这样可以降低类的复杂度,提高可读性，降低变更的风险
 
 
 ## 设计模式3-接口隔离原则
@@ -7860,15 +7860,15 @@ call test();                            #调用存储过程
 
 
 ### 接口隔离原则
-&emsp;&emsp; 将类之间的依赖降低到最小的接口处。
+ 将类之间的依赖降低到最小的接口处。
 
 ### 例子1
-&emsp;&emsp; 接口interface有5个方法，被类B和类D实现，被类A和类C依赖，但是A使用B只依赖接口123，C使用D只依赖接口145，这就导致了你的B多实现了4、5两个方法，D多实现了2、3两个方法。我们应该把interface拆分成3个，1，23，45，B实现1和23，D实现1和45.
+ 接口interface有5个方法，被类B和类D实现，被类A和类C依赖，但是A使用B只依赖接口123，C使用D只依赖接口145，这就导致了你的B多实现了4、5两个方法，D多实现了2、3两个方法。我们应该把interface拆分成3个，1，23，45，B实现1和23，D实现1和45.
 
 
 ### 例子2
-&emsp;&emsp; 比方说你有一个数组类和一个链表类，都实现了一个接口类，这个接口包含插入、删除、遍历、反转、排序，然后你有一个数组操作类，他只用到了插入删除遍历排序，还有一个链表操作类，他只用到了插入删除遍历反转，这个设计就很糟糕，
-&emsp;&emsp; 你应该创建3个接口，第一个为插入删除遍历，第二个为反转，第三个为排序，让数组实现第一个接口和最后一个接口，让链表实现第一个接口和第二个接口。
+ 比方说你有一个数组类和一个链表类，都实现了一个接口类，这个接口包含插入、删除、遍历、反转、排序，然后你有一个数组操作类，他只用到了插入删除遍历排序，还有一个链表操作类，他只用到了插入删除遍历反转，这个设计就很糟糕，
+ 你应该创建3个接口，第一个为插入删除遍历，第二个为反转，第三个为排序，让数组实现第一个接口和最后一个接口，让链表实现第一个接口和第二个接口。
 
 
 ## 设计模式4-依赖反转原则
@@ -7876,17 +7876,17 @@ call test();                            #调用存储过程
 
 
 ### 依赖反转原则
-&emsp;&emsp; 高层模块不应该依赖底层模块，他们都应该依赖其抽象，抽象不应该依赖具体，具体应该依赖抽象，
-&emsp;&emsp; 因为具体是多变的，抽象是稳定的。
+ 高层模块不应该依赖底层模块，他们都应该依赖其抽象，抽象不应该依赖具体，具体应该依赖抽象，
+ 因为具体是多变的，抽象是稳定的。
 
 ### 例子1
-&emsp;&emsp; 有一个email类，一个person类，person接受邮件的时候要将email作为函数参数来实现，这就导致person依赖email，这很糟糕，万一需求变了，来了个微信类，来了个QQ类，来了个丁丁类，你岂不是要实现一堆person的方法？
-&emsp;&emsp; 你应该设计一个接受者接口，让其作为接受者接口的实现，让person依赖接受者这个接口
+ 有一个email类，一个person类，person接受邮件的时候要将email作为函数参数来实现，这就导致person依赖email，这很糟糕，万一需求变了，来了个微信类，来了个QQ类，来了个丁丁类，你岂不是要实现一堆person的方法？
+ 你应该设计一个接受者接口，让其作为接受者接口的实现，让person依赖接受者这个接口
 
 
 ### 例子2
-&emsp;&emsp; 有一个数组类和一个操作类，操作类需要操作数组的首个元素，我们将数组类作为操作类的函数的参数，这很糟糕，万一需求变了，要求操作链表怎么办？
-&emsp;&emsp; 我们应该定义一个容器接口，让数组类实现它，对于操作类，我们只需要将容器接口作为参数即可，如果需求变化，加入了链表类，也不会导致大量的修改，非常稳定。
+ 有一个数组类和一个操作类，操作类需要操作数组的首个元素，我们将数组类作为操作类的函数的参数，这很糟糕，万一需求变了，要求操作链表怎么办？
+ 我们应该定义一个容器接口，让数组类实现它，对于操作类，我们只需要将容器接口作为参数即可，如果需求变化，加入了链表类，也不会导致大量的修改，非常稳定。
 
 
 
@@ -7895,27 +7895,27 @@ call test();                            #调用存储过程
 
 
 ### 里氏替换原则
-&emsp;&emsp; 子类能够替换父类，并不产生故障，子类不要重写父类的方法。如果不能满足就不要这样继承。
+ 子类能够替换父类，并不产生故障，子类不要重写父类的方法。如果不能满足就不要这样继承。
 
 
 ### 例子1
-&emsp;&emsp; 做了一个减法类，然后让另外一个加法类继承减法类，重写了减法类的方法为加法。。你觉得这样合适吗？？？你应该定一个更加基础的类，让加法类和减法类都继承它。
+ 做了一个减法类，然后让另外一个加法类继承减法类，重写了减法类的方法为加法。。你觉得这样合适吗？？？你应该定一个更加基础的类，让加法类和减法类都继承它。
 
 ### 例子2
-&emsp;&emsp; 做了一长方形类，有个函数叫返回面积，让正方形类继承了长方形类，有个主类先定义了长为2，宽为2的长方形，然后让长扩大4倍，就成了8*2，如果你用正方形类来替换长方形类的位置，扩大4被以后面积成了8*8，这很糟糕，应该让长方形继承正方形。
+ 做了一长方形类，有个函数叫返回面积，让正方形类继承了长方形类，有个主类先定义了长为2，宽为2的长方形，然后让长扩大4倍，就成了8*2，如果你用正方形类来替换长方形类的位置，扩大4被以后面积成了8*8，这很糟糕，应该让长方形继承正方形。
 
 ## 设计模式6-开闭原则
 
 
 
 ### 开闭原则
-&emsp;&emsp; 一个模块和函数应该对扩展开放，对修改关闭
+ 一个模块和函数应该对扩展开放，对修改关闭
 
-&emsp;&esmp; 就是说我们尽量去扩展原有的功能，而不是修改功能。另一方面源代码应该允许扩展。
+&esmp; 就是说我们尽量去扩展原有的功能，而不是修改功能。另一方面源代码应该允许扩展。
 
 ### 例子
-&emsp;&emsp; 有一个数组、链表，有一个排序类，我们让排序类去对数组和链表排序，这个也不是很好，如果我们加入了双端数组，则需要修改排序类，
-&emsp;&emsp; 正确的方法是将排序作为一个成员方法来实现，即在基类中就定义一个排序的虚函数。
+ 有一个数组、链表，有一个排序类，我们让排序类去对数组和链表排序，这个也不是很好，如果我们加入了双端数组，则需要修改排序类，
+ 正确的方法是将排序作为一个成员方法来实现，即在基类中就定义一个排序的虚函数。
 
 
 
@@ -7924,10 +7924,10 @@ call test();                            #调用存储过程
 
 
 ### 迪米特法则
-&emsp;&emsp; 一个类和其他类个关系越少越好。
+ 一个类和其他类个关系越少越好。
 
 ### 例子
-&emsp;&emsp; 有类A，B，C，其中B是A的成员，C是B的成员，下面是这个糟糕的例子
+ 有类A，B，C，其中B是A的成员，C是B的成员，下面是这个糟糕的例子
 ```cpp
 class C {
  public:
@@ -7943,7 +7943,7 @@ class A {
 };
 int main() {}
 ```
-&emsp;&emsp; 这里注意到b.c.f();这里导致了A和C扯上了关系，正确的做法应该是在B中声明函数cf();
+ 这里注意到b.c.f();这里导致了A和C扯上了关系，正确的做法应该是在B中声明函数cf();
 ```cpp
 class C {
  public:
@@ -7967,8 +7967,8 @@ int main() {}
 
 
 ### 合成复用原则
-&emsp;&emsp; 尽量使用合成而不是继承
-&emsp;&emsp; 说的就是让一个类的对象做另外一个类的成员变量。
+ 尽量使用合成而不是继承
+ 说的就是让一个类的对象做另外一个类的成员变量。
 
 
 ## 设计模式9-单例模式
@@ -7976,26 +7976,26 @@ int main() {}
 
 
 ### 单例模式
-&emsp;&emsp; 单例模式的类，只允许出现一个对象
+ 单例模式的类，只允许出现一个对象
 
 #### 饿汉式
-&emsp;&emsp; 构造函数私有化,在内部之间final，new创建自己或者使用静态代码块new，提供静态方法访问。
-&emsp;&emsp; 简单，避免线程同步，在类装载的时候实例化，没有达到懒加载，可能造成内存浪费
+ 构造函数私有化,在内部之间final，new创建自己或者使用静态代码块new，提供静态方法访问。
+ 简单，避免线程同步，在类装载的时候实例化，没有达到懒加载，可能造成内存浪费
 
 #### 线程不安全的懒汉式
-&emsp;&emsp; 构造函数私有化，在内部创建自己的引用，设为空值，提供静态方法调用，在静态方法中有选择性地new自己
-&emsp;&emsp; 简单，线程不安全，达到了懒加载效果
+ 构造函数私有化，在内部创建自己的引用，设为空值，提供静态方法调用，在静态方法中有选择性地new自己
+ 简单，线程不安全，达到了懒加载效果
 
 #### 线程安全的懒汉式
-&emsp;&emsp; 在if中进行同步操作，在同步中进行if最后new,注意使用volatile
-&emsp;&emsp; 简单，线程安全
+ 在if中进行同步操作，在同步中进行if最后new,注意使用volatile
+ 简单，线程安全
 
 
 #### 静态内部类
-&emsp;&emsp; 字面意思，很强，懒加载，因为类只会加载一次，所以线程安全，这个写法最优秀
+ 字面意思，很强，懒加载，因为类只会加载一次，所以线程安全，这个写法最优秀
 
 #### 枚举方式
-&emsp;&emsp; 用枚举类型将类导入，
+ 用枚举类型将类导入，
 
 
 
@@ -8005,10 +8005,10 @@ int main() {}
 
 
 ### 工厂模式
-&emsp;&emsp; 设计一个工厂类，包含一个函数，返回指定类型
+ 设计一个工厂类，包含一个函数，返回指定类型
 
 ### 工厂方法模式
-&emsp;&emsp; 我们让原先的工厂作为基类，让多个工厂继承他，这就成为了工厂方法模式，比方说最开始的时候我们有多种口味的🍕，我们使用工厂模式完成了，现在来了新的需求，要求有多个地方的🍕，这时候我们就使用继承。为每个地理位置创建一个工厂。
+ 我们让原先的工厂作为基类，让多个工厂继承他，这就成为了工厂方法模式，比方说最开始的时候我们有多种口味的🍕，我们使用工厂模式完成了，现在来了新的需求，要求有多个地方的🍕，这时候我们就使用继承。为每个地理位置创建一个工厂。
 
 
 ## 设计模式11-抽象工厂模式
@@ -8016,7 +8016,7 @@ int main() {}
 
 
 ### 抽象工厂模式
-&emsp;&emsp; 考虑工厂方法模式，让工厂的父类作为接口即可。
+ 考虑工厂方法模式，让工厂的父类作为接口即可。
 
 
 ## 设计模式12-原型模式
@@ -8024,10 +8024,10 @@ int main() {}
 
 
 ### 原型模式
-&emsp;&emsp; 用原型实例来拷贝另一个对象，java中为.clone()，c++中为=。
+ 用原型实例来拷贝另一个对象，java中为.clone()，c++中为=。
 
 #### 深拷贝前拷贝
-&emsp;&emsp; 是否拷贝指针指向的内容。
+ 是否拷贝指针指向的内容。
 
 
 
@@ -8036,25 +8036,25 @@ int main() {}
 
 
 ### 建造者模式
-&emsp;&emsp; 将复杂对象的建造方式抽象出来，一步一步抽象的建造出来。
+ 将复杂对象的建造方式抽象出来，一步一步抽象的建造出来。
 
 ### 产品
-&emsp;&emsp; 创建的产品对象
+ 创建的产品对象
 
 ### 抽象建造者
-&emsp;&emsp; 指定建造流程
+ 指定建造流程
 
 ### 具体建造者
-&emsp;&emsp; 实现抽象建造者
+ 实现抽象建造者
 
 ### 指挥者
-&emsp;&emsp; 隔离客户和对象的生产过程，控制产品对象的生产过程
+ 隔离客户和对象的生产过程，控制产品对象的生产过程
 
 ### 建房子
-&emsp;&emsp; 比方你现在要建造一个房子，你需要打地基，砌墙，封顶，你可以建造矮房子，也可以建造高房子，现在你就可以使用建造者模式，房子是产品，建造者能打地基，砌墙，封顶，房子组合为建造者，建造者聚合指挥者，我们依赖指挥者。
+ 比方你现在要建造一个房子，你需要打地基，砌墙，封顶，你可以建造矮房子，也可以建造高房子，现在你就可以使用建造者模式，房子是产品，建造者能打地基，砌墙，封顶，房子组合为建造者，建造者聚合指挥者，我们依赖指挥者。
 
 ### StringBuilder
-&emsp;&emsp; Appendable是抽象建造者，AbstractStringBuilder为建造者，不能实例化，StringBuild为指挥者和具体建造者，但是是由AbstractStringBuilder建造的。
+ Appendable是抽象建造者，AbstractStringBuilder为建造者，不能实例化，StringBuild为指挥者和具体建造者，但是是由AbstractStringBuilder建造的。
 
 
 
@@ -8064,13 +8064,13 @@ int main() {}
 
 
 ### 适配器模式
-&emsp;&emsp; 将一个类的接口转化为用户可以使用的接口，如c++的queue和stack为deque的适配器
+ 将一个类的接口转化为用户可以使用的接口，如c++的queue和stack为deque的适配器
 
 #### 类适配器
-&emsp;&emsp; 一般为继承，一个类继承了另外一个类，通过简化接口，达到适配的效果
+ 一般为继承，一个类继承了另外一个类，通过简化接口，达到适配的效果
 
 #### 对象适配器
-&emsp;&emsp; ...
+ ...
 
 
 # Docker
@@ -8532,16 +8532,16 @@ ll maxflow(int base,int n,int s,int t){
 
 
 ##### 生成树
-&emsp;&emsp;一个无向图的生成树指的是从图中选若干边构成边集，全部点构成点集，使得这个边集加上点集恰好是一棵树。
+一个无向图的生成树指的是从图中选若干边构成边集，全部点构成点集，使得这个边集加上点集恰好是一棵树。
 
 ##### 生成树计数
-&emsp;&emsp;一个**无向无权图**(允许重边不允许自环)的**邻接矩阵**为g，显然这是一个对称矩阵，g\[u\]\[v\]代表边(u,v)的重数，即若存在一条边(u,v)则g\[u\]\[v\]的值为1，若存在k条，则g\[u\]\[v\]的值为k。    
-&emsp;&emsp;一个**无向无权图**(允许重边不允许自环)的**度数矩阵**为deg，显然这是一个对角矩阵，deg\[u\]\[u\]代表点u的度数。    
-&emsp;&emsp;一个**无向无权图**(允许重边不允许自环)的**基尔霍夫矩阵**(**拉普拉斯矩阵**)为hoff，是度数矩阵减去邻接矩阵。    
-&emsp;&emsp;**矩阵树定理**说一个无向图的生成树的个数刚好等于基尔霍夫矩阵的行列式的任意**n-1阶主子式**(代数余子式)的行列式的绝对值。    
-&emsp;&emsp;生成树计数复杂度$O(V^3+E)=O(V^3)$    
-&emsp;&emsp;[黑暗前的幻想乡](https://www.luogu.org/problem/P4336)    
-&emsp;&emsp;我们利用矩阵树定理就能轻松解决    
+一个**无向无权图**(允许重边不允许自环)的**邻接矩阵**为g，显然这是一个对称矩阵，g\[u\]\[v\]代表边(u,v)的重数，即若存在一条边(u,v)则g\[u\]\[v\]的值为1，若存在k条，则g\[u\]\[v\]的值为k。    
+一个**无向无权图**(允许重边不允许自环)的**度数矩阵**为deg，显然这是一个对角矩阵，deg\[u\]\[u\]代表点u的度数。    
+一个**无向无权图**(允许重边不允许自环)的**基尔霍夫矩阵**(**拉普拉斯矩阵**)为hoff，是度数矩阵减去邻接矩阵。    
+**矩阵树定理**说一个无向图的生成树的个数刚好等于基尔霍夫矩阵的行列式的任意**n-1阶主子式**(代数余子式)的行列式的绝对值。    
+生成树计数复杂度$O(V^3+E)=O(V^3)$    
+[黑暗前的幻想乡](https://www.luogu.org/problem/P4336)    
+我们利用矩阵树定理就能轻松解决    
 <details>
 <summary>黑暗前的幻想乡代码</summary>
 {% include_code p4336 lang:cpp cpp/p4336-生成树计数.cpp %}
@@ -8549,48 +8549,48 @@ ll maxflow(int base,int n,int s,int t){
 
 
 ##### 最小生成树
-&emsp;&emsp;有一个无向带权图，每条边有权$x_i$，需要求出一个生成树T，并最小化$\begin{aligned}\sum_{i\in T}x_i\end{aligned}$
-&emsp;&emsp;**kruskal算法**：贪心从小到大枚举边合并森林即可。这里就不证明此算法了。    
-&emsp;&emsp;最小生成树复杂度$O(V+ElgE)=O(ElgE)$    
-&emsp;&emsp;[最小生成树](https://www.luogu.org/problem/P3366)    
+有一个无向带权图，每条边有权$x_i$，需要求出一个生成树T，并最小化$\begin{aligned}\sum_{i\in T}x_i\end{aligned}$
+**kruskal算法**：贪心从小到大枚举边合并森林即可。这里就不证明此算法了。    
+最小生成树复杂度$O(V+ElgE)=O(ElgE)$    
+[最小生成树](https://www.luogu.org/problem/P3366)    
 <details>
 <summary>最小生成树代码</summary>
 {% include_code p3366 lang:cpp cpp/p3336-最小生成树.cpp %}
 </details>
 
 ##### 最小生成树计数
-&emsp;&emsp;由于最小生成树各自**边权**构成的**多重集合**是一样的，并且易证不同的边权对最小生成树的影响是独立的，所以我们可以通过将边按照边权分类，分别求出每一种边权各自对**联通块**的贡献，然后利用计数的**乘法原理**合并即可。我们需要先求出任意一个最小生成树，当我们对某一种边权进行讨论的时候，我们需要将这个生成树中这一边权的边全删掉，然后对剩余联通块进行缩点并重新编号，将待选集合中的边映射到联通块间的边，并去掉自环。这样以后待选集合中的边的边权就相等了。这时我们可以借助矩阵树定理来求解。    
-&emsp;&emsp;最小生成树计数复杂度$O(ElgE+V^3)=O(V^3)$    
-&emsp;&emsp;[最小生成树计数](https://www.luogu.org/problem/P4208)    
+由于最小生成树各自**边权**构成的**多重集合**是一样的，并且易证不同的边权对最小生成树的影响是独立的，所以我们可以通过将边按照边权分类，分别求出每一种边权各自对**联通块**的贡献，然后利用计数的**乘法原理**合并即可。我们需要先求出任意一个最小生成树，当我们对某一种边权进行讨论的时候，我们需要将这个生成树中这一边权的边全删掉，然后对剩余联通块进行缩点并重新编号，将待选集合中的边映射到联通块间的边，并去掉自环。这样以后待选集合中的边的边权就相等了。这时我们可以借助矩阵树定理来求解。    
+最小生成树计数复杂度$O(ElgE+V^3)=O(V^3)$    
+[最小生成树计数](https://www.luogu.org/problem/P4208)    
 <details>
 <summary>最小生成树计数代码</summary>
 {% include_code p4208 lang:cpp cpp/p4208-最小生成树计数.cpp %}
 </details>
 
 ##### 严格次小生成树
-&emsp;&emsp;严格次小生成树和最小生成树的**边权多重集合中**只有一个边权不一样，这样我们就有了一个简单的算法，先求出任意一个最小生成树，然后枚举没有被选中为构建最小生成树的边，假设这个边为$(u,v,w_1)$，我们在最小生成树上求出点$u$到点$v$这条路径上的最大边权$w_2$和严格次大边权$w_3$，若$w_1=w_2$则我们用此边换掉次大边，若$w_1>w_2$则我们用此边换掉最大边，这样我们最终能得到很多非最小生成树，从中选出最小的那个，他就是次小生成树,这个过程需要维护树上的路径信息，有算法都可以树剖、树上倍增、lct等等，我们这里使用树上倍增的办法来解决。    
-&emsp;&emsp;严格次小生成树时间复杂度$O(ElgE+ElnV)=O(ElgE)$    
-&emsp;&emsp;[严格次小生成树](https://www.luogu.org/problem/P4180)    
+严格次小生成树和最小生成树的**边权多重集合中**只有一个边权不一样，这样我们就有了一个简单的算法，先求出任意一个最小生成树，然后枚举没有被选中为构建最小生成树的边，假设这个边为$(u,v,w_1)$，我们在最小生成树上求出点$u$到点$v$这条路径上的最大边权$w_2$和严格次大边权$w_3$，若$w_1=w_2$则我们用此边换掉次大边，若$w_1>w_2$则我们用此边换掉最大边，这样我们最终能得到很多非最小生成树，从中选出最小的那个，他就是次小生成树,这个过程需要维护树上的路径信息，有算法都可以树剖、树上倍增、lct等等，我们这里使用树上倍增的办法来解决。    
+严格次小生成树时间复杂度$O(ElgE+ElnV)=O(ElgE)$    
+[严格次小生成树](https://www.luogu.org/problem/P4180)    
 <details>
 <summary>严格次小生成树代码</summary>
 {% include_code p4180 lang:cpp cpp/p4180-严格次小生成树.cpp %}
 </details>
 
 ##### 最小乘积生成树
-&emsp;&emsp;有一个无向带权图(权为正数)，每条边有权$x_i$和权$y_i$，需要求出一个生成树T，记$\begin{aligned}X=\sum_{i\in T}x_i,Y=\sum_{i\in T}y_i\end{aligned}$,要求最小化乘积$XY$    
-&emsp;&emsp;我们假设已经求出了所有生成树，他们的权为$(X_i,Y_i)$我们把这个二元组看做二维平面上的点，则最小乘积生成树一定在凸包上。进一步分析，整个凸包都在第一象限，那么我们可以锁定出两个点了，他们一定在凸包上。分别求出最小的$X_i$对映点$A$，和最小的$Y_i$对映点$B$，那么答案就在$AB$左下方，我们求出一个点$C$，若能让叉积$AC*AB$最大且为正数，则$C$一定也在凸包上。我们递归处理$AC$和$CB$即可。凸包上的点期望为lg级别。    
-&emsp;&emsp;最小乘积生成树复杂度$O(ElgElg(V!))=O(ElgElgV)$    
-&emsp;&emsp;[最小乘积生成树](https://www.luogu.org/problem/P5540)    
+有一个无向带权图(权为正数)，每条边有权$x_i$和权$y_i$，需要求出一个生成树T，记$\begin{aligned}X=\sum_{i\in T}x_i,Y=\sum_{i\in T}y_i\end{aligned}$,要求最小化乘积$XY$    
+我们假设已经求出了所有生成树，他们的权为$(X_i,Y_i)$我们把这个二元组看做二维平面上的点，则最小乘积生成树一定在凸包上。进一步分析，整个凸包都在第一象限，那么我们可以锁定出两个点了，他们一定在凸包上。分别求出最小的$X_i$对映点$A$，和最小的$Y_i$对映点$B$，那么答案就在$AB$左下方，我们求出一个点$C$，若能让叉积$AC*AB$最大且为正数，则$C$一定也在凸包上。我们递归处理$AC$和$CB$即可。凸包上的点期望为lg级别。    
+最小乘积生成树复杂度$O(ElgElg(V!))=O(ElgElgV)$    
+[最小乘积生成树](https://www.luogu.org/problem/P5540)    
 <details>
 <summary>最小乘积生成树代码</summary>
 {% include_code p5540 lang:cpp cpp/p5540-最小乘积生成树.cpp %}
 </details>
 
 ##### 最小差值生成树
-&emsp;&emsp;有一个无向带权图，每条边有权$x_i$，需要求出一个生成树T，让T的最大边权和最小边权的差值尽可能小。    
-&emsp;&emsp;我们对边集排序后，等价于求最短的一段区间，这个区间内部的边能够生成一棵树，这种连通性维护的问题，直接使用lct就可以了，    
-&emsp;&emsp;最小差值生成树时间复杂度$O(ElgE+Elg(E+V))=O(ElgE)$    
-&emsp;&emsp;[最小差值生成树](https://www.luogu.org/problem/P4234)    
+有一个无向带权图，每条边有权$x_i$，需要求出一个生成树T，让T的最大边权和最小边权的差值尽可能小。    
+我们对边集排序后，等价于求最短的一段区间，这个区间内部的边能够生成一棵树，这种连通性维护的问题，直接使用lct就可以了，    
+最小差值生成树时间复杂度$O(ElgE+Elg(E+V))=O(ElgE)$    
+[最小差值生成树](https://www.luogu.org/problem/P4234)    
 <details>
 <summary>最小差值生成树代码</summary>
 {% include_code p4234 lang:cpp cpp/p4234-最小差值生成树.cpp %}
@@ -8598,19 +8598,19 @@ ll maxflow(int base,int n,int s,int t){
 
 
 ##### k度限制最小生成树
-&emsp;&emsp;在最小生成树的要求下，多一个条件: 有一个定点的度数不能超过k。    
-&emsp;&emsp;k度限制最小生成树与k-1度限制最小生成树最多有一条边的区别。    
-&emsp;&emsp;时间复杂度$O(ElgE+kV)$
-&emsp;&emsp;[k度限制最小生成树](http://poj.org/problem?id=1639)
+在最小生成树的要求下，多一个条件: 有一个定点的度数不能超过k。    
+k度限制最小生成树与k-1度限制最小生成树最多有一条边的区别。    
+时间复杂度$O(ElgE+kV)$
+[k度限制最小生成树](http://poj.org/problem?id=1639)
 <details>
 <summary>k度限制最小生成树代码</summary>
 {% include_code poj1639 lang:cpp cpp/poj1639-k度限制最小生成树.cpp %}
 </details>
 
 ##### 最小直径生成树
-&emsp;&emsp;给无向连通图，求一个直径最小的生成树。
-&emsp;&emsp;以图的绝对中心为根的最短路树，是一个最小直径生成树。先用floyd求多源最短路，然后对每一条边，假设绝对中心在此边上，求出该绝对中心的偏心率，可以考虑从大到小枚举最短路闭包来实现，汇总得到绝对中心，最终以绝对中心为根，求最短路树。
-&emsp;&emsp;时间复杂度$O(n^3)$
+给无向连通图，求一个直径最小的生成树。
+以图的绝对中心为根的最短路树，是一个最小直径生成树。先用floyd求多源最短路，然后对每一条边，假设绝对中心在此边上，求出该绝对中心的偏心率，可以考虑从大到小枚举最短路闭包来实现，汇总得到绝对中心，最终以绝对中心为根，求最短路树。
+时间复杂度$O(n^3)$
 <details>
 <summary>最小直径生成树代码</summary>
 {% include_code spoj1479 lang:cpp cpp/spoj1479-最小直径生成树.cpp %}
@@ -8618,9 +8618,9 @@ ll maxflow(int base,int n,int s,int t){
 
 
 ##### 最小比值生成树
-&emsp;&emsp;有一个无向带权图(权为正数)，每条边有权$x_i$和权$y_i$，需要求出一个生成树T，记$\begin{aligned}X=\sum_{i\in T}x_i,Y=\sum_{i\in T}y_i\end{aligned}$,要求最小化比值$\frac{X}{Y}$.
-&emsp;&emsp;我们设$r=\frac{X}{Y}$则有$rY-X=0$我们定义函数$f(r)=rY-X$，为当以$ry_i-x_i$作为权值的时候的最大生成树的值，这里显然f(r)关于r单调增，当我们找到一个r使得f(r)等于0的时候，r就是我们分数规划要的答案。
-&emsp;&emsp;时间复杂度$O(lgn)*O(MST)$
+有一个无向带权图(权为正数)，每条边有权$x_i$和权$y_i$，需要求出一个生成树T，记$\begin{aligned}X=\sum_{i\in T}x_i,Y=\sum_{i\in T}y_i\end{aligned}$,要求最小化比值$\frac{X}{Y}$.
+我们设$r=\frac{X}{Y}$则有$rY-X=0$我们定义函数$f(r)=rY-X$，为当以$ry_i-x_i$作为权值的时候的最大生成树的值，这里显然f(r)关于r单调增，当我们找到一个r使得f(r)等于0的时候，r就是我们分数规划要的答案。
+时间复杂度$O(lgn)*O(MST)$
 <details>
 <summary>最小比值生成树代码</summary>
 {% include_code poj2728 lang:cpp cpp/poj2728-最小比值生成树.cpp %}
@@ -8637,12 +8637,12 @@ ll maxflow(int base,int n,int s,int t){
 
 
 #### Automic 
-&emsp;&emsp;是一个原子类型包,其中包含了AtomicBoolean,AtomicInteger,AtomicLong等， 原子操作说是这样说的，然而并不是所有的物理机器都支持原子指令，所以不能保证不被阻塞，一般而言，采用的CAS+volatile+native的方法，避免synchronized的使用，如果不支持CAS那就上自旋锁了
+是一个原子类型包,其中包含了AtomicBoolean,AtomicInteger,AtomicLong等， 原子操作说是这样说的，然而并不是所有的物理机器都支持原子指令，所以不能保证不被阻塞，一般而言，采用的CAS+volatile+native的方法，避免synchronized的使用，如果不支持CAS那就上自旋锁了
 
 <!--more-->
 
 #### 接口
-&emsp;&emsp; 我上图好不好，不想搞了
+ 我上图好不好，不想搞了
 ![](/images/Automic/type.png)
 ![](/images/Automic/Boolean.png)
 ![](/images/Automic/Integer.png)
@@ -8711,14 +8711,14 @@ public class Test {
 ```
 
 #### SLF4J
-&emsp;&emsp; log的实现太多了，log4j,logBack,jdklog,以后想换怎么办呢？
-&emsp;&emsp; Simple Logging Facade for Java
-&emsp;&emsp; 就像和JDBC一样，SLF4J把所有的日志框架连接起来
+ log的实现太多了，log4j,logBack,jdklog,以后想换怎么办呢？
+ Simple Logging Facade for Java
+ 就像和JDBC一样，SLF4J把所有的日志框架连接起来
 
 
 ##### 五个级别
-&emsp;&emsp; trace,debug,info,warn,error
-&emsp;&emsp; 啥事不干，写下面的代码
+ trace,debug,info,warn,error
+ 啥事不干，写下面的代码
 ```java
 package com.wsx;
 
@@ -8736,7 +8736,7 @@ public class Test {
     }
 }
 ```
-&emsp;&emsp; 得到了
+ 得到了
 ```out
 22:23:01.931 [main] DEBUG com.wsx.Slf4jStudy - debug
 22:23:01.940 [main] INFO com.wsx.Slf4jStudy - info
@@ -8744,9 +8744,9 @@ public class Test {
 22:23:01.941 [main] ERROR com.wsx.Slf4jStudy - error
 ```
 ##### logback
-&emsp;&emsp; 写一个logback.xml
-&emsp;&emsp; appender 后面是log的名字，再往后是输出位置：文件或者控制台
-&emsp;&emsp; level后面跟级别，表示输出哪些东西
+ 写一个logback.xml
+ appender 后面是log的名字，再往后是输出位置：文件或者控制台
+ level后面跟级别，表示输出哪些东西
 ```XML
 <configuration>
     <!--
@@ -8782,15 +8782,15 @@ public class Test {
 </configuration>
 ```
 ##### 简化
-&emsp;&emsp; 注释太烦了，我们给他全删掉，使用下面的vim指令
-&emsp;&emsp; \v代表字符模式，把所有的特殊字符看着特殊意义
-&emsp;&emsp; (.|\n)可以匹配所有的字符
-&emsp;&emsp; {-}是\*的非贪婪匹配
+ 注释太烦了，我们给他全删掉，使用下面的vim指令
+ \v代表字符模式，把所有的特殊字符看着特殊意义
+ (.|\n)可以匹配所有的字符
+ {-}是\*的非贪婪匹配
 ```
 %s/\v\<!--(.|\n){-}--\>//g
 ```
-&emsp;&emsp; 会到logback中
-&emsp;&emsp; %date是时间，%thread是线程，level是级别，-是左对齐，%logger指名字，%msg是日志输出 %n是换行
+ 会到logback中
+ %date是时间，%thread是线程，level是级别，-是左对齐，%logger指名字，%msg是日志输出 %n是换行
 
 ```XML
 <configuration>
@@ -8830,29 +8830,29 @@ logger.info("hello {} {} {}","I","am","wsx");
 
 
 #### Where from
-&emsp;&emsp; [快来点我](https://www.bilibili.com/video/BV1z7411H7zd?p=5)
+ [快来点我](https://www.bilibili.com/video/BV1z7411H7zd?p=5)
 
 #### 进程
-&emsp;&emsp; 一个活动的程序，是程序的实例，大部分程序可以运行多个实例，有的程序只可以运行一个实例
+ 一个活动的程序，是程序的实例，大部分程序可以运行多个实例，有的程序只可以运行一个实例
 <!--more-->
 #### 线程
-&emsp;&emsp; 一个进程可以有多个线程，线程是最小的调度单位，进程是资源分配的最小单位，
+ 一个进程可以有多个线程，线程是最小的调度单位，进程是资源分配的最小单位，
 
 #### 进程与线程
-&emsp;&emsp; 进程互相独立，线程是进程的子集
-&emsp;&emsp; 进程拥有共享的资源，供其内部的线程共享
-&emsp;&emsp; 进程通信较为复杂，同一台计算机之间的进程通信叫做IPC，不同的计算机之间需要通过网络协议
-&emsp;&emsp; 线程的通信相对简单，他们共享进程的内存，
-&emsp;&emsp; 线程更加轻量，他们上下文切换的成本更低
+ 进程互相独立，线程是进程的子集
+ 进程拥有共享的资源，供其内部的线程共享
+ 进程通信较为复杂，同一台计算机之间的进程通信叫做IPC，不同的计算机之间需要通过网络协议
+ 线程的通信相对简单，他们共享进程的内存，
+ 线程更加轻量，他们上下文切换的成本更低
 
 #### 并行与并发
-&emsp;&emsp; 单核CPU的线程都是串行，这就叫并发concurrent
-&emsp;&emsp; 多核CPU能够达到并行,一些代码同时执行，但是更多情况下，我们的计算机是并发+并行
-&emsp;&emsp; 并发concurrent是同一时间应对dealing with多件事情的能力，并行parallel是同一时间动手做doing多件事情的能力
+ 单核CPU的线程都是串行，这就叫并发concurrent
+ 多核CPU能够达到并行,一些代码同时执行，但是更多情况下，我们的计算机是并发+并行
+ 并发concurrent是同一时间应对dealing with多件事情的能力，并行parallel是同一时间动手做doing多件事情的能力
 
 
 #### 同步和异步
-&emsp;&emsp; 比如我们有个视频转换转换格式非常耗时间，我们让新的线程去做处理，避免主线程被阻塞
+ 比如我们有个视频转换转换格式非常耗时间，我们让新的线程去做处理，避免主线程被阻塞
 
 
 ### java并发编程2-创建和运行线程
@@ -8861,7 +8861,7 @@ logger.info("hello {} {} {}","I","am","wsx");
 
 
 #### 使用Tread创建线程
-&emsp;&emsp;
+
 ```java
 package com.wsx.test;
 
@@ -8886,7 +8886,7 @@ public class ThreadTest {
 }
 ```
 <!-- more -->
-&emsp;&emsp; 得到输出
+ 得到输出
 ```output
 13:23:33.225 [t1] DEBUG com.wsx.test.ThreadTest - running
 13:23:33.225 [main] DEBUG com.wsx.test.ThreadTest - running
@@ -8907,14 +8907,14 @@ public class ThreadTest {
         logger.debug("running");
     }
 ```
-&emsp;&emsp;
+
 ```output
 13:29:08.503 [t2] DEBUG com.wsx.test.ThreadTest - runing
 13:29:08.503 [main] DEBUG com.wsx.test.ThreadTest - running
 ```
 
 #### lambda表达式
-&emsp;&emsp; 注意到Runnable源码中有注解@FunctionalInterface,那么他就可以被lambda表达式简化，因为只有一个方法
+ 注意到Runnable源码中有注解@FunctionalInterface,那么他就可以被lambda表达式简化，因为只有一个方法
 ```java
     @Test
     public void test3() {
@@ -8929,11 +8929,11 @@ public class ThreadTest {
 ```
 
 #### Thread和Runnable
-&emsp;&emsp; Thread在用Runnable构造的时候，把他赋值给了一个target变量，然后run
+ Thread在用Runnable构造的时候，把他赋值给了一个target变量，然后run
 
 
 #### FutureTask和Callable
-&emsp;&emsp; 下面的代码会阻塞
+ 下面的代码会阻塞
 ```java
     @Test
     public void test4() throws ExecutionException, InterruptedException {
@@ -8961,23 +8961,23 @@ public class ThreadTest {
 ```
 
 #### jps
-&emsp;&emsp; 可以查看java程序的pid
-&emsp;&emsp; jstack &lt;pid&gt; 查看某个java进程的所有线程状态,非动态
-&emsp;&emsp; jconsole可以查看java进程中线程的图形界面
+ 可以查看java程序的pid
+ jstack &lt;pid&gt; 查看某个java进程的所有线程状态,非动态
+ jconsole可以查看java进程中线程的图形界面
 ![](http://q8awr187j.bkt.clouddn.com/java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B-jconsole.png)
-&emsp;&emsp; 他还可以远程连接，注意需要在运行java程序的时候要加入一些参数，而且注意关闭防火墙
+ 他还可以远程连接，注意需要在运行java程序的时候要加入一些参数，而且注意关闭防火墙
 
 
 #### ps
 ```shell script
 ps | grep java
 ```
-&emsp;&emsp;, ps 看进程，grep筛选
-&emsp;&emsp; kill + PID杀死进程
+, ps 看进程，grep筛选
+ kill + PID杀死进程
 
 #### top
-&emsp;&emsp; 他用表格来显示，还是动态的
-&emsp;&emsp; -H 表示查看线程，-p表示pid
+ 他用表格来显示，还是动态的
+ -H 表示查看线程，-p表示pid
 ```shell script
 top -H -p 3456
 ```
@@ -8989,7 +8989,7 @@ top -H -p 3456
 
 
 #### 栈
-&emsp;&emsp; 每个线程都有自己的栈，
+ 每个线程都有自己的栈，
 
 #### 线程上下文切换
 - CPU时间片用完
@@ -9021,7 +9021,7 @@ top -H -p 3456
 - yield() 提示调度器让出当前线程对cpu使用
 
 #### run和start
-&emsp;&emsp; 主线程也可以直接调用thread的run，但这不是多线程
+ 主线程也可以直接调用thread的run，但这不是多线程
 
 #### sleep
 ```java
@@ -9036,7 +9036,7 @@ top -H -p 3456
 ```
 
 #### yield
-&emsp;&emsp; 让当前线程进入就绪状态,而不是sleep的阻塞
+ 让当前线程进入就绪状态,而不是sleep的阻塞
 
 #### 防止CPU占用100%
 ```java
@@ -9053,24 +9053,24 @@ top -H -p 3456
 ```
 
 #### 打断
-&emsp;&emsp; 打断会让打断标记变为true，sleep的时候打断会抛出异常，并清除打断标记，没有sleep的程序，可以用Thread.isInterrupted()退出
+ 打断会让打断标记变为true，sleep的时候打断会抛出异常，并清除打断标记，没有sleep的程序，可以用Thread.isInterrupted()退出
 
 #### 两阶段终止模式(别用stop)
-&emsp;&emsp; 每次循环前尝试判断自己是否被打断，sleep的时候被打断会被清除,就自己打断自己，最后料理后事
+ 每次循环前尝试判断自己是否被打断，sleep的时候被打断会被清除,就自己打断自己，最后料理后事
 
 #### LockSupport.park()
-&emsp;&emsp; 打断park的线程，不会清除标记，所以连续的park其实后面的都无效了，你可以手动用Interrupted来清除。
+ 打断park的线程，不会清除标记，所以连续的park其实后面的都无效了，你可以手动用Interrupted来清除。
 
 #### 守护线程
-&emsp;&emsp; setDaemon(true); 
-&emsp;&emsp; 只要进程的所有非守护线程都结束以后，不管守护线程有没有结束，他都会被强制结束，垃圾回收器就是守护线程。Tomcat中的Acceptor和Poller线程都是守护线程，他们用来接受请求和分发请求的，如果shutdown以后，不会等待他们处理的
+ setDaemon(true); 
+ 只要进程的所有非守护线程都结束以后，不管守护线程有没有结束，他都会被强制结束，垃圾回收器就是守护线程。Tomcat中的Acceptor和Poller线程都是守护线程，他们用来接受请求和分发请求的，如果shutdown以后，不会等待他们处理的
 
 #### 线程的五种状态
-&emsp;&emsp; 初始、就绪、运行、阻塞、终止
+ 初始、就绪、运行、阻塞、终止
 
 #### 线程的六种状态
-&emsp;&emsp; new,runnable,blockded,wating,timedwaiting,terminated,分别是没有调用start，正在被调度，没有获得锁，join之类的等待，sleep之类的等待，执行完成
-&emsp;&emsp; 千万注意runnable包含了物种状态中的就绪、运行和阻塞
+ new,runnable,blockded,wating,timedwaiting,terminated,分别是没有调用start，正在被调度，没有获得锁，join之类的等待，sleep之类的等待，执行完成
+ 千万注意runnable包含了物种状态中的就绪、运行和阻塞
 
 
 
@@ -9089,50 +9089,50 @@ top -H -p 3456
 
 
 #### synchronized
-&emsp;&emsp; 锁住对象，放在静态方法前为锁类，放在普通方法前为锁类的对像。使用管程实现
+ 锁住对象，放在静态方法前为锁类，放在普通方法前为锁类的对像。使用管程实现
 
 #### 线程安全类
-&emsp;&emsp; String, Integer, StringBuffer,Random,Vector,Hashtable,juc;
+ String, Integer, StringBuffer,Random,Vector,Hashtable,juc;
 
 #### 加锁
-&emsp;&emsp; 把对象头的hash、Age和对象的指针放进自己的栈中，让对象头的hash、Age,位置指向自己的栈，
-&emsp;&emsp; 这时候来了另一个线程也想拿到锁，但是他肯定会失败，失败以后他就申请重量级锁，让对象头再次改变为指向管程，
-&emsp;&emsp; 当原来当线程想要释放锁的时候，依然使用cas，但是肯定失败，他发现现在的锁已经变成了重量级锁了。
+ 把对象头的hash、Age和对象的指针放进自己的栈中，让对象头的hash、Age,位置指向自己的栈，
+ 这时候来了另一个线程也想拿到锁，但是他肯定会失败，失败以后他就申请重量级锁，让对象头再次改变为指向管程，
+ 当原来当线程想要释放锁的时候，依然使用cas，但是肯定失败，他发现现在的锁已经变成了重量级锁了。
 
 <!--more-->
 
 #### 自旋优化
-&emsp;&emsp; 不阻塞，使用自旋，如果自旋多次失败就阻塞了
+ 不阻塞，使用自旋，如果自旋多次失败就阻塞了
 
 #### 偏向锁
-&emsp;&emsp; 可以在对象头中加入线程的ID，然后对象的锁就被这个线程所持有了。程序启动3秒以后启动偏向锁，可以通过VM参数来改变
+ 可以在对象头中加入线程的ID，然后对象的锁就被这个线程所持有了。程序启动3秒以后启动偏向锁，可以通过VM参数来改变
 
 #### 禁用偏向锁
-&emsp;&emsp; -XX: -UseBiasedLocking
+ -XX: -UseBiasedLocking
 
 #### hashcode
-&emsp;&emsp; 轻量级锁和重量级锁都不会因为调用hashcode而撤销锁状态，但是偏向锁会，因为他没有地方储存hashcode，所以调用hashcode以后，偏向锁会被撤销
+ 轻量级锁和重量级锁都不会因为调用hashcode而撤销锁状态，但是偏向锁会，因为他没有地方储存hashcode，所以调用hashcode以后，偏向锁会被撤销
 
 #### wait/notify
-&emsp;&emsp; 这个是只有重量级锁才有的东西，所以也会撤销轻量锁
+ 这个是只有重量级锁才有的东西，所以也会撤销轻量锁
 
 #### 批量重偏向
-&emsp;&emsp; 如果连续撤销锁超过20次，jvm会批量的让类的所有对象都偏向于另一个线程
+ 如果连续撤销锁超过20次，jvm会批量的让类的所有对象都偏向于另一个线程
 
 #### 批量撤销
-&emsp;&emsp; 如果撤销次数超过40次，jvm会撤销这个类的所有对象的偏向锁，甚至新建的对象也不会有偏向锁
+ 如果撤销次数超过40次，jvm会撤销这个类的所有对象的偏向锁，甚至新建的对象也不会有偏向锁
 
 #### 锁消除
-&emsp;&emsp; JIT即时编译器会优化热点代码，如果分析出某个锁不会逃离方法，则进行锁消除
+ JIT即时编译器会优化热点代码，如果分析出某个锁不会逃离方法，则进行锁消除
 
 #### 保护性暂停GuardObject
-&emsp;&emsp; 用一个中间对象把线程连接起来，注意虚假唤醒的情况发生。我们用时间相减来避免产生等待时间错误的情况
+ 用一个中间对象把线程连接起来，注意虚假唤醒的情况发生。我们用时间相减来避免产生等待时间错误的情况
 
 #### park和unpark
-&emsp;&emsp; 他们就像PV操作一样，但是信号量不能叠加
-&emsp;&emsp; park和unpark实现的时候有三部分,_mutex,_condition,_counter,这里的_counter最多只能是
-&emsp;&emsp; 调用park : 检查_counter，如果为0，就获得_mutex锁，然后该线程进入_condition开始阻塞,如果为1，就把它设为0，然后继续执行线程
-&emsp;&emsp; 调用unpark, 把counter设为1，然后唤醒_condition中的线程
+ 他们就像PV操作一样，但是信号量不能叠加
+ park和unpark实现的时候有三部分,_mutex,_condition,_counter,这里的_counter最多只能是
+ 调用park : 检查_counter，如果为0，就获得_mutex锁，然后该线程进入_condition开始阻塞,如果为1，就把它设为0，然后继续执行线程
+ 调用unpark, 把counter设为1，然后唤醒_condition中的线程
 
 #### 线程状态转换
 ##### start
@@ -9164,21 +9164,21 @@ top -H -p 3456
 
 #### 死锁
 ##### 定位死锁
-&emsp;&emsp; jconsole，jps都可以
+ jconsole，jps都可以
 ##### jps
-&emsp;&emsp; 如果死锁，会提示Found One Java-level deadlock,在里面找去
+ 如果死锁，会提示Found One Java-level deadlock,在里面找去
 ##### jconsole 
-&emsp;&emsp; 选择线程，点检测死锁，就能看到了
+ 选择线程，点检测死锁，就能看到了
 
 
 #### 活锁
-&emsp;&emsp; 一个线程i++，另一个i--,难以结束了,原因是改变了互相的结束条件
+ 一个线程i++，另一个i--,难以结束了,原因是改变了互相的结束条件
 
 #### 饥饿
-&emsp;&emsp; 可以通过顺序加锁来避免死锁，但是这又会导致饥饿发生
+ 可以通过顺序加锁来避免死锁，但是这又会导致饥饿发生
 
 #### ReentrantLock
-&emsp;&emsp; 可中断，可设置超时时间，可设置公平锁，支持多个条件变量，可重入
+ 可中断，可设置超时时间，可设置公平锁，支持多个条件变量，可重入
 ##### 用法
 ```java
 reentrantLock.lock();
@@ -9189,7 +9189,7 @@ try{
 }
 ```
 ##### 可打断
-&emsp;&emsp; 没有竞争就能得到锁，如果进入了阻塞队列，可以被其他线程用interruput打断。
+ 没有竞争就能得到锁，如果进入了阻塞队列，可以被其他线程用interruput打断。
 ```java
 try{
   reentrantLock.lockInterruptibly();
@@ -9203,12 +9203,12 @@ try{
 }
 ```
 ##### 非阻塞
-&emsp;&emsp; tryLock()
+ tryLock()
 ##### 超时机制
-&emsp;&emsp; tryLock(1,TimeUnit.SECONDS)
+ tryLock(1,TimeUnit.SECONDS)
 
 ##### 条件变量
-&emsp;&emsp; ReentrantLock支持多个条件变量
+ ReentrantLock支持多个条件变量
 ```java
 Condition c1 = reentrantLock.newCondition()
 Condition c2 = reentrantLock.newCondition()
@@ -9220,15 +9220,15 @@ c1.signal();
 ```
 
 #### 同步
-&emsp;&emsp; await和signal,park和unpark,wati和notify，
+ await和signal,park和unpark,wati和notify，
 
 #### 3个线程分别输出a,b,c, 要看到abcabcabcabcabc
 ##### 一个整数+wait/notifyAll
-&emsp;&emsp; 轮换，1则a输出，2则b输出，3则c输出，如果不是自己的就wait，是的话就输出然后notifyAll
+ 轮换，1则a输出，2则b输出，3则c输出，如果不是自己的就wait，是的话就输出然后notifyAll
 ##### 使用信号量+await/signal
-&emsp;&emsp; 设置3个信号量，一个线程用一个，然后a唤醒b，b唤醒c，c唤醒a
+ 设置3个信号量，一个线程用一个，然后a唤醒b，b唤醒c，c唤醒a
 ##### park和unpark
-&emsp;&emsp; a unpark b, b unpark c, c unpark a;
+ a unpark b, b unpark c, c unpark a;
 ```java
    static Thread t1 = null, t2 = null, t3 = null;
     void show(String string, Thread thread) {
@@ -9261,7 +9261,7 @@ c1.signal();
 
 
 #### JMM
-&emsp;&emsp; Java Memory Model
+ Java Memory Model
 - 原子性: 保证指令不会收到线程上下文切换的影响
 - 可见性: 保证指令不会受到cpu缓存的影响
 - 有序性: 保证指令不会受到cpu指令并行优化的影响
@@ -9269,7 +9269,7 @@ c1.signal();
 <!-- more -->
 
 #### 可见性
-&emsp;&emsp; java线程都有自己的高速缓存区，是内存的一个子集，下面的测试，不会停止运行,尝试使用volatile解决,当然加入synchronized罩住他也可以。System.out.println也可以
+ java线程都有自己的高速缓存区，是内存的一个子集，下面的测试，不会停止运行,尝试使用volatile解决,当然加入synchronized罩住他也可以。System.out.println也可以
 ```java
     boolean flag = true;
     @Test
@@ -9290,14 +9290,14 @@ c1.signal();
 ```
 
 #### 两阶段终止
-&emsp;&emsp; 用volatile来实现可见性，一个负责读，另一个负责写。
+ 用volatile来实现可见性，一个负责读，另一个负责写。
 
 #### balking
-&emsp;&emsp; 犹豫
-&emsp;&emsp; 参见多线程实现的单例模式，双重检查锁，指令重排发生在构造函数和对内存赋值之间。
+ 犹豫
+ 参见多线程实现的单例模式，双重检查锁，指令重排发生在构造函数和对内存赋值之间。
 
 #### 指令重排
-&emsp;&emsp; 为了提高CPU吞吐率，我们会做指令重排,下面的f2中，一旦发生指令重拍，r就可能变为0
+ 为了提高CPU吞吐率，我们会做指令重排,下面的f2中，一旦发生指令重拍，r就可能变为0
 ```java
     int num = 0;
     boolean ready = false;
@@ -9315,22 +9315,22 @@ c1.signal();
 ```
 
 #### 压测工具
-&emsp;&emsp; JCstress, 用大量的线程并发模拟
+ JCstress, 用大量的线程并发模拟
 
 #### 禁止指令重排
-&emsp;&emsp; volatile 可以实现
+ volatile 可以实现
 
 #### volatile原理
 ##### 写屏障
-&emsp;&emsp; 在该屏障之前的改动，都将被同步到主存当中
+ 在该屏障之前的改动，都将被同步到主存当中
 ##### 读屏障
-&emsp;&emsp; 保证该屏障以后的读取，都要加载主存中最新的数据
+ 保证该屏障以后的读取，都要加载主存中最新的数据
 
 #### 单例操作volatile
-&emsp;&emsp; 因为volatile加入了写屏障，构造方法不会被排到对内存赋值之后
+ 因为volatile加入了写屏障，构造方法不会被排到对内存赋值之后
 
 #### happens-before
-&emsp;&emsp; happens-before 规定了对共享变量的写操作对其他线程的读操作可见。线程解锁m前对变量的写，对于接来下对m加锁的其他线程可见，对volatile的写对其他线程的读可见，start之前对变量的写，对其可见，线程结束前对变量的写，对其他线程得知他结束后可见，线程t1打断t2前对变量的写，对于其他线程得知t2被打断后对变量的读可见,对变量的默认值的写，对其他线程可见，还有屏障也能保证
+ happens-before 规定了对共享变量的写操作对其他线程的读操作可见。线程解锁m前对变量的写，对于接来下对m加锁的其他线程可见，对volatile的写对其他线程的读可见，start之前对变量的写，对其可见，线程结束前对变量的写，对其他线程得知他结束后可见，线程t1打断t2前对变量的写，对于其他线程得知t2被打断后对变量的读可见,对变量的默认值的写，对其他线程可见，还有屏障也能保证
 
 
 ### java并发编程6-无锁并发
@@ -9339,11 +9339,11 @@ c1.signal();
 
 
 #### CAS
-&emsp;&emsp; compareAndSet(prev,next);无锁，无阻塞
+ compareAndSet(prev,next);无锁，无阻塞
 
 
 #### 为什么效率高
-&emsp;&emsp; 失败的话会重新尝试，但是锁会进行上下文切换，代价大
+ 失败的话会重新尝试，但是锁会进行上下文切换，代价大
 
 #### 原子整形
 ##### AtomicInteger
@@ -9355,30 +9355,30 @@ updateAndGet(value -> value*10);
 
 <!-- more -->
 #### 原子引用
-&emsp;&emsp; AtomicReference 不能解决ABA问题
-&emsp;&emsp; AtomicStampedReference 版本号机制
-&emsp;&emsp; AtomicMarkableReference True和false
+ AtomicReference 不能解决ABA问题
+ AtomicStampedReference 版本号机制
+ AtomicMarkableReference True和false
 
 
 #### 原子数组
 #### 字段更新器
-&emsp;&emsp; 可以保护类的成员
-&emsp;&emsp; compareAndSet(obj,expect,update);
+ 可以保护类的成员
+ compareAndSet(obj,expect,update);
 
 #### 原子累加器
-&emsp;&emsp; 和原子整形一样，但是只支持累加并且效率更高
+ 和原子整形一样，但是只支持累加并且效率更高
 
 ##### 缓存行伪共享 
-&emsp;&emsp; 缓存中的数据是按照行分的，要失效就一起失效
-&emsp;&emsp; 有数据a和b，他们被分到了一个行中，线程1改变a导致线程2的行失效，线程2改变b导致线程1的行失效，这就是伪共享
-&emsp;&emsp; 注解sum.misc.Contended , 可以在内存中加入空白，不出现伪共享
+ 缓存中的数据是按照行分的，要失效就一起失效
+ 有数据a和b，他们被分到了一个行中，线程1改变a导致线程2的行失效，线程2改变b导致线程1的行失效，这就是伪共享
+ 注解sum.misc.Contended , 可以在内存中加入空白，不出现伪共享
 
 ##### longadder
-&emsp;&emsp; 累加单元，和concurrentHashMap一样，使用分段的机制，提高并行度，用一个数组来表示累加，数组元素的和才是真正的累加值，orn
+ 累加单元，和concurrentHashMap一样，使用分段的机制，提高并行度，用一个数组来表示累加，数组元素的和才是真正的累加值，orn
 
 
 #### Unsafe
-&emsp;&emsp; 获得Unsafe ,他是单例且private
+ 获得Unsafe ,他是单例且private
 ```java
 Field theUnsafe = Unsafe.class.getDeclaredField("theUnsafe");
 theUnsafe.setAccessible(true);
@@ -9428,25 +9428,25 @@ class MyAtomicInteger{
 
 
 #### 不可变就是线程安全
-&emsp;&emsp; 如String
+ 如String
 
 ##### 拷贝构造函数
-&emsp;&emsp; 之间赋值
+ 之间赋值
 
 ##### char[]构造 
-&emsp;&emsp; 拷贝一份(保护性拷贝)
+ 拷贝一份(保护性拷贝)
 
 ##### 子串
-&emsp;&emsp; 如果下标起点和母串起点相同，则之间引用过去，否则保护性拷贝(不明白为啥不共用)
+ 如果下标起点和母串起点相同，则之间引用过去，否则保护性拷贝(不明白为啥不共用)
 
 #### 享元模式
-&emsp;&emsp; 最小化内存的使用，共用内存
+ 最小化内存的使用，共用内存
 
 ##### 包装类
-&emsp;&emsp; valueOf, 比如Long如果在-128到127之间，就使用一个cache数组，又如String串池，BigDecimal和BigInteger的某些数组
+ valueOf, 比如Long如果在-128到127之间，就使用一个cache数组，又如String串池，BigDecimal和BigInteger的某些数组
 
 ##### 保护
-&emsp;&emsp; 千万要注意这些类的函数组合起来操作就不一定安全了，需要用原子引用类来保护
+ 千万要注意这些类的函数组合起来操作就不一定安全了，需要用原子引用类来保护
 
 <!-- more -->
 
@@ -9513,22 +9513,22 @@ public class ConcurrentPool {
 }
 ```
 #### 改进
-&emsp;&emsp; 动态扩容，可用性检测，等待超时处理，分布式hash
+ 动态扩容，可用性检测，等待超时处理，分布式hash
 
 #### final原理
-&emsp;&emsp; final会给变量后面加入写屏障，注意第一步是分配空间值默认为0，然后才赋予初值，写屏障保证其他对象看到他的值是赋值以后的而不是默认值
-&emsp;&emsp; 在读的时候，如果不用final用的是getstatic，否则的话如果小就复制到栈中，大就放到常量池中。
+ final会给变量后面加入写屏障，注意第一步是分配空间值默认为0，然后才赋予初值，写屏障保证其他对象看到他的值是赋值以后的而不是默认值
+ 在读的时候，如果不用final用的是getstatic，否则的话如果小就复制到栈中，大就放到常量池中。
 
 #### 无状态
-&emsp;&emsp; 例如不要为servlet设置成员变量，这时候他就成了无状态对象，这就是线程安全的
+ 例如不要为servlet设置成员变量，这时候他就成了无状态对象，这就是线程安全的
 
 ### java并发编程8-自定义线程池
 
 
 
 #### 自定义线程池
-&emsp;&emsp; 把main看作任务的生产者，把线程看作任务的消费者，这时候模型就建立出来了
-&emsp;&emsp; 于是我们需要一个缓冲区，采取消费正生产者模式，然后让消费者不断消费，并在适当的时候创建新的消费者，如果所有任务都做完了，就取消消费者
+ 把main看作任务的生产者，把线程看作任务的消费者，这时候模型就建立出来了
+ 于是我们需要一个缓冲区，采取消费正生产者模式，然后让消费者不断消费，并在适当的时候创建新的消费者，如果所有任务都做完了，就取消消费者
 
 <!-- more -->
 
@@ -9672,16 +9672,16 @@ class BlockingQueue<T> {
     }
 }
 ```
-&emsp;&emsp; 策略模式
-&emsp;&emsp; 当队列满了的时候， 死等，超时等待，让调用者放弃执行，让调用者抛出异常，让调用者自己执行
-&emsp;&emsp; 可以用函数式编程实现
+ 策略模式
+ 当队列满了的时候， 死等，超时等待，让调用者放弃执行，让调用者抛出异常，让调用者自己执行
+ 可以用函数式编程实现
 
 ### java并发编程9-JDK线程池
 
 
 
 #### JDK的线程池
-&emsp;&emsp; 线程池状态，RUNNING，SHUTDOWN(不会再接受新任务了)，STOP(立刻停止)，TIDYING(任务执行完毕，即将TERMINATED)，TERMINATED
+ 线程池状态，RUNNING，SHUTDOWN(不会再接受新任务了)，STOP(立刻停止)，TIDYING(任务执行完毕，即将TERMINATED)，TERMINATED
 
 ##### 构造函数
 ```java
@@ -9707,9 +9707,9 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
 - PinPoint 拒绝策略链， 比如先用方法A，如果失败就要方法B，...
 
 ##### newFixedThreadPool
-&emsp;&emsp; 固定大小的线程池
-&emsp;&emsp; 阻塞队列无界，没有就急线程，nThreads个核心线程, 是非守护线程
-&emsp;&emsp; 当然我们也可以自己创建线程工厂，自己给线程取名字
+ 固定大小的线程池
+ 阻塞队列无界，没有就急线程，nThreads个核心线程, 是非守护线程
+ 当然我们也可以自己创建线程工厂，自己给线程取名字
 ```java
  public static ExecutorService newFixedThreadPool(int nThreads) {
         return new ThreadPoolExecutor(nThreads, nThreads,
@@ -9719,8 +9719,8 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
 ```
 
 ##### newCachedThraedPool
-&emsp;&emsp; 不固定大小的线程池
-&emsp;&emsp; 阻塞队列无界，没有核心线程，全是救急线程，但不是无限个，活60秒
+ 不固定大小的线程池
+ 阻塞队列无界，没有核心线程，全是救急线程，但不是无限个，活60秒
 ```java
     public static ExecutorService newCachedThreadPool() {
         return new ThreadPoolExecutor(0, Integer.MAX_VALUE,
@@ -9730,7 +9730,7 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
 ```
 
 ###### SynchronousQueue
-&emsp;&emsp; 如果没有人取出东西，放入操作会被阻塞, 如果没有人放入东西，同理拿出会被阻塞，如果有多个同时拿，这时候就像栈一样，后来的人，会先拿到东西
+ 如果没有人取出东西，放入操作会被阻塞, 如果没有人放入东西，同理拿出会被阻塞，如果有多个同时拿，这时候就像栈一样，后来的人，会先拿到东西
 ```java
     void test10_f1(SynchronousQueue<Integer> integers, String string) throws InterruptedException {
         Thread.sleep(200);
@@ -9779,7 +9779,7 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
         test10_f1(integers, "h");
     }
 ```
-&emsp;&emsp; 下面是输出, 可以看到，1234按顺序进入，4321按顺序出来
+ 下面是输出, 可以看到，1234按顺序进入，4321按顺序出来
 ```sh
 16:33:54.391 [1] DEBUG com.wsx.test.ThreadTest - begin
 16:33:54.591 [2] DEBUG com.wsx.test.ThreadTest - begin
@@ -9816,7 +9816,7 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
 ```
 
 ##### newSingleThreadExecutor
-&emsp;&emsp; 1个核心线程，0个救急线程，使用无界队列,于是任务可以无数个
+ 1个核心线程，0个救急线程，使用无界队列,于是任务可以无数个
 ```java
     public static ExecutorService newSingleThreadExecutor() {
         return new FinalizableDelegatedExecutorService
@@ -9825,53 +9825,53 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
                                     new LinkedBlockingQueue<Runnable>()));
     }
 ```
-&emsp;&emsp; 1个线程的线程池能叫池吗？我干嘛不自己用？ 实际上我们自己创建的话如果碰到一些错误的任务，可能线程就退出了，这里不好处理，但是线程池在该线程退出以后会帮我们重新创建线程
-&emsp;&emsp; FinalizableDelegatedExecutorService 是一个装饰者模式，只暴露部分接口，避免后期被修改容量
+ 1个线程的线程池能叫池吗？我干嘛不自己用？ 实际上我们自己创建的话如果碰到一些错误的任务，可能线程就退出了，这里不好处理，但是线程池在该线程退出以后会帮我们重新创建线程
+ FinalizableDelegatedExecutorService 是一个装饰者模式，只暴露部分接口，避免后期被修改容量
 
 ##### TimerTask
-&emsp;&emsp; 这个不重要，他很差，他是串行执行的，如果前面的太耗时会导致后面的被推迟，如果前面发生异常，后面的不会执行
+ 这个不重要，他很差，他是串行执行的，如果前面的太耗时会导致后面的被推迟，如果前面发生异常，后面的不会执行
 
 ##### ScheduledExecutorService
-&emsp;&emsp; 用法和TimerTask很像，但是他不会出现上面的异常影响后续任务的情况
+ 用法和TimerTask很像，但是他不会出现上面的异常影响后续任务的情况
 ###### ScheduledExecutorService.scheduleAtFixedTate()
-&emsp;&emsp; 在初始延迟以后，能够在单位时间内被反复执行
+ 在初始延迟以后，能够在单位时间内被反复执行
 ###### ScheduledExecutorService.scheduleWithFixedDelay()
-&emsp;&emsp; 在初始延迟以后，反复执行的两个任务之间隔固定时间
+ 在初始延迟以后，反复执行的两个任务之间隔固定时间
 
 
 ##### 函数
 ###### submit
-&emsp;&emsp; 用future来返回，future.get();
+ 用future来返回，future.get();
 
 ###### invokeAll(tasks)
-&emsp;&emsp; 提交tasks中的所有任务
+ 提交tasks中的所有任务
 
 ###### invokeAll(tasks,timeout,unit)
-&emsp;&emsp; 带一个超时时间
+ 带一个超时时间
 
 ###### invokeAny 
-&emsp;&emsp; 谁最先执行完就返回谁，其他的就不管了
+ 谁最先执行完就返回谁，其他的就不管了
 
 ###### shutdown
-&emsp;&emsp; 无阻塞，不会接受新提交的任务，但已提交的任务后执行完。
+ 无阻塞，不会接受新提交的任务，但已提交的任务后执行完。
 
 ###### shutdownNow
-&emsp;&emsp; 打断所有的线程，并返回队列中的任务，
+ 打断所有的线程，并返回队列中的任务，
 
 ###### isShutdown
-&emsp;&emsp; 只要不是running， 就返回true
+ 只要不是running， 就返回true
 
 ###### isTerminated
-&emsp;&emsp; 只有TREMINATED返回真
+ 只有TREMINATED返回真
 
 ###### awaitTermination
-&emsp;&emsp; 就一直等，等到超时或者线程结束
+ 就一直等，等到超时或者线程结束
 
 ##### 正确处理异常
-&emsp;&emsp; 如果执行过程中没有异常，future.get()正常返回,如果出现异常，future.get()会抛出异常
+ 如果执行过程中没有异常，future.get()正常返回,如果出现异常，future.get()会抛出异常
 
 ##### Fork/Join
-&emsp;&emsp; fork能创建新的线程来执行，join会阻塞，这就实现了并行，下面是100的阶乘模998244353
+ fork能创建新的线程来执行，join会阻塞，这就实现了并行，下面是100的阶乘模998244353
 ```java
     Logger logger = LoggerFactory.getLogger(RecursiveTaskTest.class);
 
@@ -9913,17 +9913,17 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
 
 #### 异步模式-工作线程
 ##### 线程不足导致饥饿
-&emsp;&emsp; 有两个线程A，B，任务有两种，上菜和做菜，显然上菜要等待做菜，如果AB都在执行上菜，就没有更多的线程做菜了，这就导致了AB在死等，注意这不是死锁，
-&emsp;&emsp; 所以不同的任务类型应该用不同的线程池
+ 有两个线程A，B，任务有两种，上菜和做菜，显然上菜要等待做菜，如果AB都在执行上菜，就没有更多的线程做菜了，这就导致了AB在死等，注意这不是死锁，
+ 所以不同的任务类型应该用不同的线程池
 
 <!--more-->
 
 ##### 创建多少线程
-&emsp;&emsp; 过小导致CPU不充分利用，过大导致上下文切换占用更多内存
+ 过小导致CPU不充分利用，过大导致上下文切换占用更多内存
 ###### CPU密集型运算
-&emsp;&emsp; CPU核数+1个线程最好，+1是当某个线程由于缺页中断导致暂停的时候，额外的线程就能顶上去
+ CPU核数+1个线程最好，+1是当某个线程由于缺页中断导致暂停的时候，额外的线程就能顶上去
 ###### IO密集型运算
-&emsp;&emsp; 核数* 期望CPU利用率 * (CPU计算时间+等待时间) / CPU计算时间
+ 核数* 期望CPU利用率 * (CPU计算时间+等待时间) / CPU计算时间
 
 
 ### java并发编程11-JUC
@@ -9933,43 +9933,43 @@ public ThreadPollExecutor(int corePoolsize,int maximumPoolSize,long keepAliveTim
 
 #### JUC
 ##### AQS
-&emsp;&emsp; AbstractQueuedSynchronizer 是阻塞式的锁和相关的同步器工具的框架
+ AbstractQueuedSynchronizer 是阻塞式的锁和相关的同步器工具的框架
 
 ##### ReentrantLock
 ###### 如何重入
-&emsp;&emsp; 用一个变量记录重入了多少次
+ 用一个变量记录重入了多少次
 ###### NonfairSync
 ####### lock
-&emsp;&emsp; cas ,成功就吧ouner改为自己，否则acquire，把自己放进链表中
+ cas ,成功就吧ouner改为自己，否则acquire，把自己放进链表中
 ####### acquire
-&emsp;&emsp; tryacquire，成功就结束，失败的话还会尝试几次，然后才park，并为前驱标记，让前驱记得唤醒自己,如果曾经被打断的话，会被忽略，再次进入aqs队列，得到锁以后会打断自己来再次重新打断
+ tryacquire，成功就结束，失败的话还会尝试几次，然后才park，并为前驱标记，让前驱记得唤醒自己,如果曾经被打断的话，会被忽略，再次进入aqs队列，得到锁以后会打断自己来再次重新打断
 <!--more-->
 ####### unlock
-&emsp;&emsp; 调用release
+ 调用release
 ####### release
-&emsp;&emsp; 如果成功，unpark唤醒后继，为什么是非公平呢？因为被唤醒以后，可能会有不在链表中线程来跟自己竞争，所以这不公平
+ 如果成功，unpark唤醒后继，为什么是非公平呢？因为被唤醒以后，可能会有不在链表中线程来跟自己竞争，所以这不公平
 ####### acquireInterruptibly
-&emsp;&emsp; 不忽略打断，抛出异常即可
+ 不忽略打断，抛出异常即可
 ###### FairSync
-&emsp;&emsp; 区别再也tryAccquire，如果c=0,即没人占用锁，他还会去检测AQS队列是否为空，其实就是看一下链表队列首部是否为自己，或者链表队列是否为空
+ 区别再也tryAccquire，如果c=0,即没人占用锁，他还会去检测AQS队列是否为空，其实就是看一下链表队列首部是否为自己，或者链表队列是否为空
 ###### Condition 
-&emsp;&emsp; 条件变量又是一个链表，当我们调用await的时候，当前线程的节点会被放进其中，然后把节点状态设为CONDITION,
+ 条件变量又是一个链表，当我们调用await的时候，当前线程的节点会被放进其中，然后把节点状态设为CONDITION,
 ####### fullrelease
-&emsp;&emsp; 拿到锁的重数，然后一次性释放，在唤醒后面的节点，然后park自己
+ 拿到锁的重数，然后一次性释放，在唤醒后面的节点，然后park自己
 ####### signal
-&emsp;&emsp; 当调用的时候讲条件变量的链表中第一个元素取出并加入到锁的等待链表中。
+ 当调用的时候讲条件变量的链表中第一个元素取出并加入到锁的等待链表中。
 ##### ReentrantReadWriteLock
 - ReentrantReadWriteLock rw = new ReentrantReadWriteLock()
 - rw.readLock();
 - rw.writeLock();
 ###### 锁升级
-&emsp;&emsp; 下面的代码会写锁永久等待
+ 下面的代码会写锁永久等待
 ```java
 rw.readLock().lock();
 rw.writeLock().lock();
 ```
 ###### 锁降级
-&emsp;&emsp; 你可以把写锁转化为读锁
+ 你可以把写锁转化为读锁
 ```java
 // 获得写锁
 rw.writeLock().lock();
@@ -9982,19 +9982,19 @@ rw.writeLock().unlock();
 rw.readLock().unlock();
 ```
 ###### 缓存问题
-&emsp;&emsp; 我们可以把对数据库的某些操作缓存到内存中，来降低数据库的压力
+ 我们可以把对数据库的某些操作缓存到内存中，来降低数据库的压力
 ####### query
-&emsp;&emsp; 先在缓存中找，找不到就加锁进数据库找，然后更新缓存,可以考虑双重检查锁
+ 先在缓存中找，找不到就加锁进数据库找，然后更新缓存,可以考虑双重检查锁
 ####### update
-&emsp;&emsp; 先更新数据库,后清除缓存
+ 先更新数据库,后清除缓存
 ####### 缓存更新策略
 ######## 先删缓存，后更新数据库
-&emsp;&emsp; A删了缓存，准备更新，结果B来了，B一查缓存没用，去数据找数据，就找到了旧值。
+ A删了缓存，准备更新，结果B来了，B一查缓存没用，去数据找数据，就找到了旧值。
 ######## 先更新数据库，后删缓存
-&emsp;&emsp; A更新数据库的时候，B去查了缓存的旧
+ A更新数据库的时候，B去查了缓存的旧
 ####### 保证强一致性
-&emsp;&emsp; query查缓存套读锁，查数据库更新缓存加写锁
-&emsp;&emsp; update直接加写锁
+ query查缓存套读锁，查数据库更新缓存加写锁
+ update直接加写锁
 ####### 没有考虑到的问题
 - 上面的操作时候读多写少
 - 没有考虑缓存容量
@@ -10002,44 +10002,44 @@ rw.readLock().unlock();
 - 只适合单机
 - 并发度还是太低， 可以降低锁粒度
 ###### 读写锁原理
-&emsp;&emsp; 写锁就是简单加锁，注意照顾读锁的情况就可以了
-&emsp;&emsp; 源码太复杂了，我说不清了，留个坑吧
+ 写锁就是简单加锁，注意照顾读锁的情况就可以了
+ 源码太复杂了，我说不清了，留个坑吧
 ##### StampedLock
-&emsp;&emsp; 乐观读，每个操作都可以返回一个戳，解锁的时候可以吧戳还回去，如果这中间有人进行了修改，会返回失败，否则成功
+ 乐观读，每个操作都可以返回一个戳，解锁的时候可以吧戳还回去，如果这中间有人进行了修改，会返回失败，否则成功
 - stamp = tryOptimisticRead() 乐观读
 - validate(stamp)  校验是否被修改
 - stamp = readLock() 读锁
 - stamp = writeLock() 写锁
 - unlockRead(stamp) 释放
 - unlockWriteLock() 释放
-&emsp;&emsp; 不支持条件变量，不支持重入
+ 不支持条件变量，不支持重入
 ##### Semaphore
-&emsp;&emsp; acquire、release，和PV有点像
+ acquire、release，和PV有点像
 ###### 应用
-&emsp;&emsp; 可以限流，在高峰区让线程阻塞，比如数据库连接池，
+ 可以限流，在高峰区让线程阻塞，比如数据库连接池，
 ###### 原理
-&emsp;&emsp; state存信号量的值
-&emsp;&emsp; acquire 用cas，如果不成功但是位置还够就一直尝试，如果位置不够的话就吧当前线程节点加入AQS队列
-&emsp;&emsp; release依然是先cas，失败就一直尝试，绝对会成功，成功以后，依然是改状态，然后唤醒后面的线程，
+ state存信号量的值
+ acquire 用cas，如果不成功但是位置还够就一直尝试，如果位置不够的话就吧当前线程节点加入AQS队列
+ release依然是先cas，失败就一直尝试，绝对会成功，成功以后，依然是改状态，然后唤醒后面的线程，
 ##### CountdownLatch
-&emsp;&emsp; 可以用来同步，等待n个线程countDown以后，await的线程才会开始运行
+ 可以用来同步，等待n个线程countDown以后，await的线程才会开始运行
 ###### 原理
-&emsp;&emsp; 维护一个值，每当一个线程执行完成，就让他减少1，当减少为0的时候唤醒await的线程
+ 维护一个值，每当一个线程执行完成，就让他减少1，当减少为0的时候唤醒await的线程
 ###### 为什么不用join？
-&emsp;&emsp; 在线程池中，线程都不带停下来的，join没用
+ 在线程池中，线程都不带停下来的，join没用
 ###### 应用1
-&emsp;&emsp; 在游戏中，每个玩家都自己加载自己的数据，当他们都加载完成的时候，游戏才能开始，
-&emsp;&emsp; 我们设置10的倒计时，当10个玩家执行完的时候，让他们各自调用countdount，然后就能唤醒游戏开始线程
+ 在游戏中，每个玩家都自己加载自己的数据，当他们都加载完成的时候，游戏才能开始，
+ 我们设置10的倒计时，当10个玩家执行完的时候，让他们各自调用countdount，然后就能唤醒游戏开始线程
 ###### 应用2
-&emsp;&emsp; 在微服务中，我们可能需要请求多个信息，当信息都请求完成才能返回，如果串行，效率太低了，我们考虑并发，这里也是个倒计时
+ 在微服务中，我们可能需要请求多个信息，当信息都请求完成才能返回，如果串行，效率太低了，我们考虑并发，这里也是个倒计时
 ###### 返回结果？
-&emsp;&emsp; 如果线程需要返回结果，还是用fature更为合适，CountdownLatch不太适合
+ 如果线程需要返回结果，还是用fature更为合适，CountdownLatch不太适合
 
 ##### cyclicbarrier
-&emsp;&emsp; CountdownLatch 不能用多次，要多次用的话，只能反复创建才行。
-&emsp;&emsp; await()即为CountdownLatch的countDown
-&emsp;&emsp; cyclicbarrier 构造的时候可以传进一个Runnable，当信号值降低为0的时候，运行Runnable，然后信号量再次赋值为n达到重用的效果
-&emsp;&emsp; 千万要注意nthreads和线程数要相等，不要搞骚操作,不是说不行，是不太好。
+ CountdownLatch 不能用多次，要多次用的话，只能反复创建才行。
+ await()即为CountdownLatch的countDown
+ cyclicbarrier 构造的时候可以传进一个Runnable，当信号值降低为0的时候，运行Runnable，然后信号量再次赋值为n达到重用的效果
+ 千万要注意nthreads和线程数要相等，不要搞骚操作,不是说不行，是不太好。
 
 
 
@@ -10049,36 +10049,36 @@ rw.readLock().unlock();
 
 #### 集合的线程安全类
 ##### 遗留的线程安全类
-&emsp;&emsp; Hashtable，Vector直接把同步加到方法上
+ Hashtable，Vector直接把同步加到方法上
 ##### 修饰的安全集合
-&emsp;&emsp; 装饰器模式，Syncronize*
+ 装饰器模式，Syncronize*
 ##### JUC安全集合
 ###### Blocking型
-&emsp;&emsp; 大部分实现基于锁并提供阻塞的方法
+ 大部分实现基于锁并提供阻塞的方法
 <!--more-->
 ###### CopyOnWrite
-&emsp;&emsp; 在修改的时候会拷贝一份
+ 在修改的时候会拷贝一份
 ###### Concurrent
-&emsp;&emsp; 使用CAS优化，使用多个锁，但是是弱一致性，如迭代的时候得到的内容是旧的，求大小未必100%准确，读取也是弱一致性
+ 使用CAS优化，使用多个锁，但是是弱一致性，如迭代的时候得到的内容是旧的，求大小未必100%准确，读取也是弱一致性
 ##### ConcurrentHashMap
-&emsp;&emsp; 细粒度锁
+ 细粒度锁
 ```java
 LongAdder value = concurrentHashMap.computeIfAbsent(word,(key)->new LongAdder());
 value.increment();
 ```
 ###### HashMap
 ###### 并发死链
-&emsp;&emsp; 在jdk7中链表是头插法，插入16，35，1,得到了1->35->16
-&emsp;&emsp; 线程A准备扩容 e 1->35->16->null ,  next 35->16->null,然后被中断
-&emsp;&emsp; 线程B扩容完成， 导致链表成了 head->35->1->null， 然后中断
-&emsp;&emsp; 线程A继续扩容 e 1->null, next 35->1->null, 把e插入到next新的位置,得到了head->1->35->1->
-&emsp;&emsp; 继续扩容 e = 35->1-> next = 1->35-> ，把e插入，得到了head->35->1->35, 这里已经死循环了
+ 在jdk7中链表是头插法，插入16，35，1,得到了1->35->16
+ 线程A准备扩容 e 1->35->16->null ,  next 35->16->null,然后被中断
+ 线程B扩容完成， 导致链表成了 head->35->1->null， 然后中断
+ 线程A继续扩容 e 1->null, next 35->1->null, 把e插入到next新的位置,得到了head->1->35->1->
+ 继续扩容 e = 35->1-> next = 1->35-> ，把e插入，得到了head->35->1->35, 这里已经死循环了
 ###### 丢失数据
-&emsp;&emsp; jdk8扩容会丢失数据
+ jdk8扩容会丢失数据
 
 ###### ConcurrentHashMap 源码
-&emsp;&emsp; ForwardingNode, 当扩容的时候，我们搬运一次就把老位置上连接ForwardingNode， 当查询来临的时候，就会知道去新的table里面找了，
-&emsp;&emsp; TreeBin， 是红黑树来替换链表,添加值优先考虑扩容而不是转化为红黑树
+ ForwardingNode, 当扩容的时候，我们搬运一次就把老位置上连接ForwardingNode， 当查询来临的时候，就会知道去新的table里面找了，
+ TreeBin， 是红黑树来替换链表,添加值优先考虑扩容而不是转化为红黑树
 [???怎么不讲了??](https://www.bilibili.com/video/BV16J411h7Rd?p=281)
 
 
@@ -10115,10 +10115,10 @@ value.increment();
 
 
 ###### what's that
-&emsp;&emsp;这是学习《深入理解Java虚拟机》周志明 著. 的笔记
+这是学习《深入理解Java虚拟机》周志明 著. 的笔记
 
 ###### Java 的优点
-&emsp;&emsp;结构严谨、面向对象、脱平台、相对安全的内存管理和访问机制、热点代码检测和运行时编译及优化、拥有完善的应用程序接口及第三方类库......
+结构严谨、面向对象、脱平台、相对安全的内存管理和访问机制、热点代码检测和运行时编译及优化、拥有完善的应用程序接口及第三方类库......
 
 ###### JDK,JRE,Java SE API 的区别
 ![](/images/JDK,JRE,Java-SE-API的区别.png)
@@ -10131,66 +10131,66 @@ Java SE: 支持面向桌面级应用的平台，有完整的Java核心API
 Java EE:支持多层架构的企业应用的平台，出Java核心API外还做了大量补充
 
 ###### Sun HotSpot VM
-&emsp;&emsp;这是Sun JDK和OpenJDK中所带的虚拟机
+这是Sun JDK和OpenJDK中所带的虚拟机
 
 ### understanding the JVM - Java内存区域于内存溢出异常
 
 
 
 ###### Java运行时的数据区域
-&emsp;&emsp;方法区、虚拟机栈、本地方法栈、堆、程序计数器
+方法区、虚拟机栈、本地方法栈、堆、程序计数器
 
 ####### 程序计数器
-&emsp;&emsp;线程私有
-&emsp;&emsp;为了支持多线程，Java虚拟机为每个线程设置独立的程序计数器，各条线程之间计数器互不影响，独立储存。
-&emsp;&emsp;如果线程执行的是Java方法，计数器指向正在执行的字节码指令地址，如果线程执行的是Native方法，这个计数器则为空
-&emsp;&emsp;程序计数器区域是唯一一个没有任何OutOfMemoryError情况的区域。
+线程私有
+为了支持多线程，Java虚拟机为每个线程设置独立的程序计数器，各条线程之间计数器互不影响，独立储存。
+如果线程执行的是Java方法，计数器指向正在执行的字节码指令地址，如果线程执行的是Native方法，这个计数器则为空
+程序计数器区域是唯一一个没有任何OutOfMemoryError情况的区域。
 
 ####### Java虚拟机栈
-&emsp;&emsp;线程私有
-&emsp;&emsp;每个方法在执行的同时都会向虚拟机栈申请一个栈帧用于储存局部变量表、操作数栈、动态链接、方法出口等信息，每个方法的调用直到执行完成，对应一个栈帧在虚拟机栈中入栈到出栈的过程，局部变量表存放了方法执行过程中的所有局部变量，编译期间就确定了。所以，这个栈帧的大小是完全固定的。
-&emsp;&emsp;虚拟机栈会有StackOverflowError和OutOfMemoryError，前者在固定长度的虚拟机栈中出现，后者在变长虚拟机栈中出现。这要看虚拟机是哪一种虚拟机。
+线程私有
+每个方法在执行的同时都会向虚拟机栈申请一个栈帧用于储存局部变量表、操作数栈、动态链接、方法出口等信息，每个方法的调用直到执行完成，对应一个栈帧在虚拟机栈中入栈到出栈的过程，局部变量表存放了方法执行过程中的所有局部变量，编译期间就确定了。所以，这个栈帧的大小是完全固定的。
+虚拟机栈会有StackOverflowError和OutOfMemoryError，前者在固定长度的虚拟机栈中出现，后者在变长虚拟机栈中出现。这要看虚拟机是哪一种虚拟机。
 
 ####### 本地方法栈
-&emsp;&emsp;类似于Java方法使用Java虚拟机的栈,这一区域是本地方法使用的栈。
-&emsp;&emsp;有StackOverflowError和OutOfMemoryError。
+类似于Java方法使用Java虚拟机的栈,这一区域是本地方法使用的栈。
+有StackOverflowError和OutOfMemoryError。
 
 ####### Java堆
-&emsp;&emsp;线程共享
-&emsp;&emsp;此内存唯一目的是存放对象实例，Java虚拟机规范中描述到:所有对象实例以及数组都要在堆上分配。但是随着JIT编译器等技术等发展，所有对象都分配在堆上也渐渐不那么绝对了。
-&emsp;&emsp;Java堆允许不连续
-&emsp;&emsp;Java堆有OutOfMemoryError
+线程共享
+此内存唯一目的是存放对象实例，Java虚拟机规范中描述到:所有对象实例以及数组都要在堆上分配。但是随着JIT编译器等技术等发展，所有对象都分配在堆上也渐渐不那么绝对了。
+Java堆允许不连续
+Java堆有OutOfMemoryError
 
 
 ####### 方法区
-&emsp;&emsp;线程共享
-&emsp;&emsp;储存虚拟机加载的类信息，常量，静态变量，即时编译后的代码等数据
-&emsp;&emsp;可以选择不进行垃圾回收，但这不明智
-&emsp;&emsp;有OutOfMemoryError
+线程共享
+储存虚拟机加载的类信息，常量，静态变量，即时编译后的代码等数据
+可以选择不进行垃圾回收，但这不明智
+有OutOfMemoryError
 
 
 ####### 运行时常量池
-&emsp;&emsp;是方法区的一部分
-&emsp;&emsp;允许在程序运行时创建常量
-&emsp;&emsp;有OutOfMemoryError
+是方法区的一部分
+允许在程序运行时创建常量
+有OutOfMemoryError
 
 ####### 直接内存
-&emsp;&emsp;不是虚拟机的一部分，在NIO类中，允许Native函数库向操作系统申请内存，提供一些方式访问，使得在一些场景提高性能，
-&emsp;&emsp;有OutOfMemoryError
+不是虚拟机的一部分，在NIO类中，允许Native函数库向操作系统申请内存，提供一些方式访问，使得在一些场景提高性能，
+有OutOfMemoryError
 
 ###### HotSpot VM
 ####### 对象的创建
-&emsp;&emsp;当虚拟机碰到new的时候，会先检查类是否被加载、解析、初始化，如果没有，则先执行相应的加载过程，当类检查通过以后，会为对象分配内存，这个内存大小是完全确定的，虚拟机会从虚拟机堆中分配这块内存并将这块内存初始化为0,然后执行init方法。
-&emsp;&emsp;因为Java需要支持多线程，所以这里实际需要同步处理，还有一种解决方案叫做TLAB（Thread Local Allocation Buffer）预先为每个线程分配一小块内存，就不会受到多线程影响，当TLAB用完以后，需要分配新的TLAB，这时才需要同步锁定，在TLAB分配时即可提前初始化这块内存为0,当然也可以不提前。
+当虚拟机碰到new的时候，会先检查类是否被加载、解析、初始化，如果没有，则先执行相应的加载过程，当类检查通过以后，会为对象分配内存，这个内存大小是完全确定的，虚拟机会从虚拟机堆中分配这块内存并将这块内存初始化为0,然后执行init方法。
+因为Java需要支持多线程，所以这里实际需要同步处理，还有一种解决方案叫做TLAB（Thread Local Allocation Buffer）预先为每个线程分配一小块内存，就不会受到多线程影响，当TLAB用完以后，需要分配新的TLAB，这时才需要同步锁定，在TLAB分配时即可提前初始化这块内存为0,当然也可以不提前。
 
 
 ####### 对象的内存布局
-&emsp;&emsp;内存中储存的布局可以分为3块区域: 对象头、实例数据和对齐填充。
-&emsp;&emsp;对象头分为两部分，第一部分储存了哈希码、GC分代年龄、锁状态、线程持有锁、偏向线程ID等等这部分在32位机器上为32bit，在64位机器上为64bit，第二部分可有可无，储存类型指针，指向类元数据。另外对于Java数组，就还有第三部分用于记录数组长度。
-&emsp;&emsp;对齐填充就是为了让对象大小变成8字节的整数倍
+内存中储存的布局可以分为3块区域: 对象头、实例数据和对齐填充。
+对象头分为两部分，第一部分储存了哈希码、GC分代年龄、锁状态、线程持有锁、偏向线程ID等等这部分在32位机器上为32bit，在64位机器上为64bit，第二部分可有可无，储存类型指针，指向类元数据。另外对于Java数组，就还有第三部分用于记录数组长度。
+对齐填充就是为了让对象大小变成8字节的整数倍
 
 ####### 对象的访问定位
-&emsp;&emsp;Java程序通过栈上的reference数据来操作堆上的具体对象，主流的对象访问方式有两种，第一种是句柄访问，Java堆会划分出一块内存用作句柄池，reference储存句柄地址，句柄储存对象实例和类型各自的具体地址；第二种是直接访问，这种情况Java对象的布局中就要考虑储存类型数据，reference就储存对象的直接地址。前者在垃圾收集时移动时快，后者访问速度快。
+Java程序通过栈上的reference数据来操作堆上的具体对象，主流的对象访问方式有两种，第一种是句柄访问，Java堆会划分出一块内存用作句柄池，reference储存句柄地址，句柄储存对象实例和类型各自的具体地址；第二种是直接访问，这种情况Java对象的布局中就要考虑储存类型数据，reference就储存对象的直接地址。前者在垃圾收集时移动时快，后者访问速度快。
 
 
 ### understanding the JVM - 垃圾收集器与内存分配策略
@@ -10199,59 +10199,59 @@ Java EE:支持多层架构的企业应用的平台，出Java核心API外还做�
 
 ###### 如何判断对象已死
 ####### 引用计数算法
-&emsp;&emsp;为对象添加引用计数器，每当有一个地方引用他的时候计数器的值+1，当引用失效的时候计数器的值-1,当任何时刻计数器为0的对象就是不可能再被使用了。此算法效率高，但是无法解决相互引用的问题。
+为对象添加引用计数器，每当有一个地方引用他的时候计数器的值+1，当引用失效的时候计数器的值-1,当任何时刻计数器为0的对象就是不可能再被使用了。此算法效率高，但是无法解决相互引用的问题。
 ####### 可达性分析算法
-&emsp;&emsp;利用有向图可达性表示对象生死，作为GC Roots的对象有虚拟机栈（本地变量表）中引用的对象，方法区中类静态属性引用的对象，方法区中常量引用的对象，本地方法栈中JNI引用的对象。若不能从根达到的对象，则对象死亡。
+利用有向图可达性表示对象生死，作为GC Roots的对象有虚拟机栈（本地变量表）中引用的对象，方法区中类静态属性引用的对象，方法区中常量引用的对象，本地方法栈中JNI引用的对象。若不能从根达到的对象，则对象死亡。
 ####### 引用分类
-&emsp;&emsp;强引用: 类似“Object obj = new Object()”的引用
-&emsp;&emsp;软引用: 有用但并非必需的对象，在系统将要发生内存溢出异常前，会对这些对象进行第二次回收。
-&emsp;&emsp;弱引用: 弱引用只能活到下一次垃圾回收之前。
-&emsp;&emsp;虚引用: 完全不会影响该对象是否被回收，用于在该对象被回收时收到一个系统消息。
+强引用: 类似“Object obj = new Object()”的引用
+软引用: 有用但并非必需的对象，在系统将要发生内存溢出异常前，会对这些对象进行第二次回收。
+弱引用: 弱引用只能活到下一次垃圾回收之前。
+虚引用: 完全不会影响该对象是否被回收，用于在该对象被回收时收到一个系统消息。
 ####### 生存还是死亡
-&emsp;&emsp;当可达性分析算法中某个对象不可达时，他会进入缓刑阶段，如果他覆盖finalize()方法且finalize()方法没有被调用过，他就会进入F-Queue队列中，虚拟机会在一个很慢的线程Finalizer中执行他。在finalize()中对象可以通过把自己赋给某个活着的类变量或对象的成员变量来拯救自己，拯救了自己的对象不会被回收，其他的对象都会被回收掉。
+当可达性分析算法中某个对象不可达时，他会进入缓刑阶段，如果他覆盖finalize()方法且finalize()方法没有被调用过，他就会进入F-Queue队列中，虚拟机会在一个很慢的线程Finalizer中执行他。在finalize()中对象可以通过把自己赋给某个活着的类变量或对象的成员变量来拯救自己，拯救了自己的对象不会被回收，其他的对象都会被回收掉。
 ####### 回收方法区
-&emsp;&emsp;Java虚拟机规范中可以不要求实现该部分。
-&emsp;&emsp;回收内容包括两部分，一是废弃常量，即当前没有被引用的常量，二是无用的类，这需要满足3个条件： 1.该类的实例都被回收，2.加载该类的ClassLoader被回收，3.该类对应的java.lang.Class对象没有被引用，无法在任何地方通过反射访问该类的方法。
+Java虚拟机规范中可以不要求实现该部分。
+回收内容包括两部分，一是废弃常量，即当前没有被引用的常量，二是无用的类，这需要满足3个条件： 1.该类的实例都被回收，2.加载该类的ClassLoader被回收，3.该类对应的java.lang.Class对象没有被引用，无法在任何地方通过反射访问该类的方法。
 
 ###### 垃圾收集算法
 ####### 标记-清除算法
-&emsp;&emsp;统一标记然后统一回收，这样效率不高并产生了很多内存碎片
+统一标记然后统一回收，这样效率不高并产生了很多内存碎片
 ####### 复制算法
-&emsp;&emsp;把内存分为相同的两块，使用其中一块，当使用完后，将有用的内存移到另外一块上，然后回收整块内存，这样效率很高，但是内存利用率低，他的一种改进是把内存分三块，一块大，两块小，每次使用一块大+一块小，整理时把有用的部分移动到另一块小的，然后清理之前的两块。这个算法在新生代中表现非常出色。但是我们总会碰到整理的时候放不下的情况，这时我们通过内存担保机制，为多余的对象分配内存，并直接进入老年代。
+把内存分为相同的两块，使用其中一块，当使用完后，将有用的内存移到另外一块上，然后回收整块内存，这样效率很高，但是内存利用率低，他的一种改进是把内存分三块，一块大，两块小，每次使用一块大+一块小，整理时把有用的部分移动到另一块小的，然后清理之前的两块。这个算法在新生代中表现非常出色。但是我们总会碰到整理的时候放不下的情况，这时我们通过内存担保机制，为多余的对象分配内存，并直接进入老年代。
 ####### 标记-整理算法
-&emsp;&emsp;在老生代中一般不能使用复制算法，因为他们存活率太高了。我们可以改进标记-清除算法，回收的时候顺便将有用的对象向内存的一端移动，这样就避免了内存碎片的产生。
+在老生代中一般不能使用复制算法，因为他们存活率太高了。我们可以改进标记-清除算法，回收的时候顺便将有用的对象向内存的一端移动，这样就避免了内存碎片的产生。
 ####### 分代收集算法
-&emsp;&emsp;把Java堆分为新生代和老生代，根据个个年代的特点选择适当的方法。
+把Java堆分为新生代和老生代，根据个个年代的特点选择适当的方法。
 
 
 ###### HotSpot的GC
 ####### 枚举根节点
-&emsp;&emsp;根节点很多，有的应用仅方法区就有数百兆，逐个寻找引用会很花费时间，这里使用OopMap来直接记录下一些引用的位置。就省去了寻找的过程，变成了直接定位。
+根节点很多，有的应用仅方法区就有数百兆，逐个寻找引用会很花费时间，这里使用OopMap来直接记录下一些引用的位置。就省去了寻找的过程，变成了直接定位。
 ####### 安全点
-&emsp;&emsp;GC的时候，Java的其他线程必须处于安全的位置，以保证引用链不发生变化。虚拟机会适当标记某些安全点，GC的时候其他线程就在这些安全点上。为了保证这一点，有两种中断方式，抢先式中断和主动式中断，抢先式中断指的是首先中断全部线程，如果发现某些线程不在安全点，则让其恢复，运行到安全点在停下来。主动式中断是当GC需要中断时，设置一个标志，让其他线程主动轮流访问，发现标志为真的时候，就主动中断，这里只需要保证进程在安全点访问标志即可。
+GC的时候，Java的其他线程必须处于安全的位置，以保证引用链不发生变化。虚拟机会适当标记某些安全点，GC的时候其他线程就在这些安全点上。为了保证这一点，有两种中断方式，抢先式中断和主动式中断，抢先式中断指的是首先中断全部线程，如果发现某些线程不在安全点，则让其恢复，运行到安全点在停下来。主动式中断是当GC需要中断时，设置一个标志，让其他线程主动轮流访问，发现标志为真的时候，就主动中断，这里只需要保证进程在安全点访问标志即可。
 ####### 安全区域
-&emsp;&emsp;有些Sleep或者Blocked状态的进程无法主动响应JVM的中断请求，运行到安全的地方。我们引入安全区域，在这个区域内，每个地方都是安全点，当线程执行到安全区域时，标记自己进入了安全区域，这段时间JVM可以GC，不用管这些线程，当这些线程离开安全区域的时候，线程检查JVM是否完成GC即可。
+有些Sleep或者Blocked状态的进程无法主动响应JVM的中断请求，运行到安全的地方。我们引入安全区域，在这个区域内，每个地方都是安全点，当线程执行到安全区域时，标记自己进入了安全区域，这段时间JVM可以GC，不用管这些线程，当这些线程离开安全区域的时候，线程检查JVM是否完成GC即可。
 
 ###### 垃圾收集器
 ####### serial收集器
-&emsp;&emsp;单线程收集，GC时暂停所有用户进程,新生代采取复制算法，老生代采取标记-整理算法
+单线程收集，GC时暂停所有用户进程,新生代采取复制算法，老生代采取标记-整理算法
 ####### ParNew收集器
-&emsp;&emsp;GC时暂停所有用户进程,新生代采取多线程复制算法，老生代采取单线程标记-整理算法
+GC时暂停所有用户进程,新生代采取多线程复制算法，老生代采取单线程标记-整理算法
 ####### Parallel Scavenge收集器
-&emsp;&emsp;这个收集器和ParNew收集器很像，但是Parallel Scavenge收集器更加关注两个信息，停顿时间和吞吐量，停顿时间指的是GC造成的停顿时间，吞吐量指的是单位时间内不停顿的比率。Parallel Scavenge还支持自动调参。
+这个收集器和ParNew收集器很像，但是Parallel Scavenge收集器更加关注两个信息，停顿时间和吞吐量，停顿时间指的是GC造成的停顿时间，吞吐量指的是单位时间内不停顿的比率。Parallel Scavenge还支持自动调参。
 ####### CMS收集器
-&emsp;&emsp;这个收集器强调服务的响应速度，希望停顿时间最短。
-&emsp;&emsp;他的过程分四个步骤: 初始标记、并发标记、重新标记、并发清除。初始标记的时候要暂停所有用户进程，然后标记GC ROOT直接关联的对象，这个步骤很快就能结束，然后就可以启动用户进程和GC ROOT Tracing一起并发执行。在并发期间会导致可达性链发生变化，这需要第三个步骤：重新标记，这也会暂停用户进程。最后并发清除即可。
-&emsp;&emsp;CMS收集器清理的时候采用的是标记-清理算法
+这个收集器强调服务的响应速度，希望停顿时间最短。
+他的过程分四个步骤: 初始标记、并发标记、重新标记、并发清除。初始标记的时候要暂停所有用户进程，然后标记GC ROOT直接关联的对象，这个步骤很快就能结束，然后就可以启动用户进程和GC ROOT Tracing一起并发执行。在并发期间会导致可达性链发生变化，这需要第三个步骤：重新标记，这也会暂停用户进程。最后并发清除即可。
+CMS收集器清理的时候采用的是标记-清理算法
 ####### G1收集器
-&emsp;&emsp;G1收集器要先把Java堆分成多个大小相等的独立区域，新生代和老生代都是一部分独立区域，为了避免全盘扫描，对每一个独立区域都引入Remembered Set来记录引用关系，这可以加速GC。G1步骤和CMS一样，但是Remembered Set的存在，让重新标记可以并行完成。
+G1收集器要先把Java堆分成多个大小相等的独立区域，新生代和老生代都是一部分独立区域，为了避免全盘扫描，对每一个独立区域都引入Remembered Set来记录引用关系，这可以加速GC。G1步骤和CMS一样，但是Remembered Set的存在，让重新标记可以并行完成。
 
 ###### 内存分配与回收策略
-&emsp;&emsp;对象优先分配在Eden中，Eden就是堆中的大块，若不能分，则进行新生代都GC
-&emsp;&emsp;大对象直接进入老年代
-&emsp;&emsp;对象每存活于一次新生代GC，则年龄增长一岁，达到15岁的时候便进入了老年代。
-&emsp;&emsp;如果所有年龄相同的对象所占空间超过了一半，则此年龄以上的对象全部进入老年代。
-&emsp;&emsp;在新生代GC的时候会碰到空间不够的情况，这时需要空间分配担保机制，根据概率论设置阈值，在新生代GC的时候根据以往晋升到老年代的对象内存大小的均值和方差计算阈值，若老年代剩余空间小于阈值，则会先进行老年代GC腾出空间，若老年代剩余空间大于阈值，则直接进行新生代GC，这时会有非常小的概率，GC失败，然后出发老年代GC。这里和TCP协议中动态滑动窗口大小协议有点类似。
+对象优先分配在Eden中，Eden就是堆中的大块，若不能分，则进行新生代都GC
+大对象直接进入老年代
+对象每存活于一次新生代GC，则年龄增长一岁，达到15岁的时候便进入了老年代。
+如果所有年龄相同的对象所占空间超过了一半，则此年龄以上的对象全部进入老年代。
+在新生代GC的时候会碰到空间不够的情况，这时需要空间分配担保机制，根据概率论设置阈值，在新生代GC的时候根据以往晋升到老年代的对象内存大小的均值和方差计算阈值，若老年代剩余空间小于阈值，则会先进行老年代GC腾出空间，若老年代剩余空间大于阈值，则直接进行新生代GC，这时会有非常小的概率，GC失败，然后出发老年代GC。这里和TCP协议中动态滑动窗口大小协议有点类似。
 
 
 ### understanding the JVM - Java内存模型与线程
@@ -10261,31 +10261,31 @@ Java EE:支持多层架构的企业应用的平台，出Java核心API外还做�
 
 
 ###### 硬件间速度的差距
-&emsp;&emsp;因为计算机各种硬件之间速度的差距实在是太大了，这严重地影响了计算机的整体效率，很多时候软件并不能够充分地利用计算机的资源，让处理器去等待内存，一种解决方案就是在内存和处理器之间引入一个缓存，来尽量减轻这个速度的差距。在多处理器系统中，往往对应着多个缓存。
+因为计算机各种硬件之间速度的差距实在是太大了，这严重地影响了计算机的整体效率，很多时候软件并不能够充分地利用计算机的资源，让处理器去等待内存，一种解决方案就是在内存和处理器之间引入一个缓存，来尽量减轻这个速度的差距。在多处理器系统中，往往对应着多个缓存。
 ###### 缓存一致性
-&emsp;&emsp;往往这些缓存都储存着和内存一样的数据，他们互为拷贝，我们必须保证他们的数据是同步修改的。这有很多种协议来维护。
+往往这些缓存都储存着和内存一样的数据，他们互为拷贝，我们必须保证他们的数据是同步修改的。这有很多种协议来维护。
 ###### 乱序执行
-&emsp;&emsp;为了更好的利用处理器的运算单元，处理器可能会对输入的代码片段进行乱序执行优化，Java虚拟机也是如此。
+为了更好的利用处理器的运算单元，处理器可能会对输入的代码片段进行乱序执行优化，Java虚拟机也是如此。
 ###### Java内存模型
-&emsp;&emsp;Java内存模型中有两种内存，第一种是一个主内存，第二种是多个线程工作内存，线程私有。
+Java内存模型中有两种内存，第一种是一个主内存，第二种是多个线程工作内存，线程私有。
 ###### 内存间的互相操作
-&emsp;&emsp;Java内存模型有8种原子操作
-&emsp;&emsp;lock:作用与主内存中的变量，让其变为线程独占
-&emsp;&emsp;unlock:和lock相反
-&emsp;&emsp;read:把主内存中的变量传输到工作内存，准备load
-&emsp;&emsp;load:把read的值放入线程工作内存的变量副本中
-&emsp;&emsp;use:把线程工作内存中的值拿到执行引擎中
-&emsp;&emsp;assign:从执行引擎中获得值写入工作内存
-&emsp;&emsp;store:把工作内存中的变量传输到主内存，准备write
-&emsp;&emsp;write:把store得到的值写入主内存。
-&emsp;&emsp;这些操作的相互执行关系很复杂，但都能推导出，这里不赘述
-&emsp;&emsp;long和double是64位数据，Java内存模型不强制但推荐把他们也实现为原子操作
+Java内存模型有8种原子操作
+lock:作用与主内存中的变量，让其变为线程独占
+unlock:和lock相反
+read:把主内存中的变量传输到工作内存，准备load
+load:把read的值放入线程工作内存的变量副本中
+use:把线程工作内存中的值拿到执行引擎中
+assign:从执行引擎中获得值写入工作内存
+store:把工作内存中的变量传输到主内存，准备write
+write:把store得到的值写入主内存。
+这些操作的相互执行关系很复杂，但都能推导出，这里不赘述
+long和double是64位数据，Java内存模型不强制但推荐把他们也实现为原子操作
 ###### volatile型变量
-&emsp;&emsp;volatile类型有两种特点，第一是保证对所有线程的可见行，即所有线程使用其前都要在工作内存中刷新他的值，但是这些操作并非原子性，所以不能保证并发安全。第二是禁止语义重排。他前面的代码不能排到他后面去，他后面的代码不能重排到他前面。
+volatile类型有两种特点，第一是保证对所有线程的可见行，即所有线程使用其前都要在工作内存中刷新他的值，但是这些操作并非原子性，所以不能保证并发安全。第二是禁止语义重排。他前面的代码不能排到他后面去，他后面的代码不能重排到他前面。
 ###### Java线程调度
-&emsp;&emsp;Java有10种优先级，但是操作系统却不一定是10种，若&lt;10则导致Java线程某些级别无差距，若&gt;10则导致有些系统线程优先级无法使用。
+Java有10种优先级，但是操作系统却不一定是10种，若&lt;10则导致Java线程某些级别无差距，若&gt;10则导致有些系统线程优先级无法使用。
 ###### Java线程状态
-&emsp;&emsp;新建、运行、无限期等待(不能主动苏醒，能被唤醒)、期限等待、阻塞、结束
+新建、运行、无限期等待(不能主动苏醒，能被唤醒)、期限等待、阻塞、结束
 
 ### understanding the JVM - Java线程安全与锁优化
 
@@ -10373,11 +10373,11 @@ false
 
 
 ###### 解释器与编译器
-&emsp;&emsp;Java在运行的时候，他的解释器和编译器会同时工作，解释器解释运行代码，编译器有选择性地编译部分代码为机器代码，以加速Java代码的执行过程
+Java在运行的时候，他的解释器和编译器会同时工作，解释器解释运行代码，编译器有选择性地编译部分代码为机器代码，以加速Java代码的执行过程
 
 
 ###### 编译器
-&emsp;&emsp;Java编译器有两种，一种是客户端编译器，他进行简单的可靠的优化，并适时加入性能检测的逻辑，另一种是服务器编译器，他进行耗时较长的优化，甚至根据性能检测信息，加入一些不可靠的激进的优化
+Java编译器有两种，一种是客户端编译器，他进行简单的可靠的优化，并适时加入性能检测的逻辑，另一种是服务器编译器，他进行耗时较长的优化，甚至根据性能检测信息，加入一些不可靠的激进的优化
 
 ###### 编译器编译的对象
 - 被多次调用的方法
@@ -10390,23 +10390,23 @@ false
 
 
 ####### 循环体
-&emsp;&emsp;和上文的计数器热点探测相似，但计数器永远不会变小。若超过一个阈值，整个方法都会被编译成机器码
+和上文的计数器热点探测相似，但计数器永远不会变小。若超过一个阈值，整个方法都会被编译成机器码
 
 ###### 编译优化
 ####### 各语言通用优化
-&emsp;&emsp;内联、冗余访问清除、复写传播、无用代码清除、公共子表达式消除
+内联、冗余访问清除、复写传播、无用代码清除、公共子表达式消除
 ####### Java编译器优化
 - 隐式异常优化: 使用Segment Fault信号的异常处理器代替数组越界异常、空指针异常、除0异常等
 - 方法内联: 由于Java基本都是虚函数，这导致方法内联不太容易实现，对于非虚函数，直接内联，对于虚函数，CHA(类型继承关系分析)会检测，当前程序的这个方法是否对应了多个版本，若没有，则进行激进优化，强行内联并预留一个逃生门，以便在新类加载的时候，抛弃此代码，使用解释器，如果CHA查出有多个版本，也会为进行一个缓存处理，保留上一次的信息，若下一次进来的版本相同，则内联可以继续使用，否则就只能回到解释器了。
 
 ###### 逃逸分析
-&emsp;&emsp;逃逸分析是一种分析技术，而不是直接优化代码的手段。
+逃逸分析是一种分析技术，而不是直接优化代码的手段。
 ####### 栈上分配
-&emsp;&emsp;如果分析出一个对象不会被他被定义的方法以外的方法用到,那个这个对象会被分配到栈上。
+如果分析出一个对象不会被他被定义的方法以外的方法用到,那个这个对象会被分配到栈上。
 ####### 同步消除
-&emsp;&emsp;如果分析出一个对象不会被他被定义的所在线程以外的线程用到，那么这个对象的同步指令会被清除。
+如果分析出一个对象不会被他被定义的所在线程以外的线程用到，那么这个对象的同步指令会被清除。
 ####### 标量替换
-&emsp;&emsp;如果分析出一个对象不会被外部访问，他甚至会被拆成多个基本数据类型，分配到栈上，甚至被虚拟机直接分配到物理机的高速寄存器中
+如果分析出一个对象不会被外部访问，他甚至会被拆成多个基本数据类型，分配到栈上，甚至被虚拟机直接分配到物理机的高速寄存器中
 
 
 ## Spring
@@ -10418,19 +10418,19 @@ false
 [学习](https://www.bilibili.com/video/BV1Sb411s7vP?p=59)
 
 #### spring 是一个轻量级框架
-&emsp;&emsp; 他最重要的地方时AOP和IOC，他的目的是降低耦合度，减少代码量
+ 他最重要的地方时AOP和IOC，他的目的是降低耦合度，减少代码量
 
 #### AOP
-&emsp;&emsp; 面向切面编程，
+ 面向切面编程，
 
 #### IOC
-&emsp;&emsp; 控制反转，即将对象的创建交给spring,配置文件+注解
+ 控制反转，即将对象的创建交给spring,配置文件+注解
 ##### 耦合问题
-&emsp;&emsp; 比方说我们要在B类中使用A类，就会在B类中A a=new A();然后这样就导致了B依赖A
+ 比方说我们要在B类中使用A类，就会在B类中A a=new A();然后这样就导致了B依赖A
 ###### 工厂模式解决耦合
-&emsp;&emsp; 用工厂来控制A类，在B中就能 A a=factory.getA(); 这又导致了B和工厂耦合。
+ 用工厂来控制A类，在B中就能 A a=factory.getA(); 这又导致了B和工厂耦合。
 ##### ioc方案
-&emsp;&emsp; 解析xml配置文件中的类，在工厂类中利用反射创建类的对象，这就降低了类的耦合度，我们想要换类的时候，只要将xml中的类名称改掉就可以了。
+ 解析xml配置文件中的类，在工厂类中利用反射创建类的对象，这就降低了类的耦合度，我们想要换类的时候，只要将xml中的类名称改掉就可以了。
 
 
 #### 一站式框架
@@ -10443,19 +10443,19 @@ springMVC+ioc+jdbcTemplate
 
 
 #### Spring 模块
-&emsp;&emsp;  Spring有六大模块，测试、容器、面向切面编程、instrumentation、数据访问与集成、Web与远程调用。
+  Spring有六大模块，测试、容器、面向切面编程、instrumentation、数据访问与集成、Web与远程调用。
 - 测试: Test
 - 容器: Beans,Core,Context,Expression,ContextSupport
 - 面向切面编程: AOP,Aspects
 - instrumentation: instrument,instrumentTomcat
 - 数据访问与集成: JDBC,Transaction,ORM,OXM,Messaging,JMS
 - Web与远程调用: Web,WebServlet,WebPortlet,WebSocket
-&emsp;&emsp; 但是Spring远不止这些
+ 但是Spring远不止这些
 
 #### Spring配置
-&emsp;&emsp; Spring有三种配置方式，第一是通过XML配置，第二是通过JAVA配置，第三是隐式的bean返现机制和自动装配。建议优先使用三，而后是二，最后是一
+ Spring有三种配置方式，第一是通过XML配置，第二是通过JAVA配置，第三是隐式的bean返现机制和自动装配。建议优先使用三，而后是二，最后是一
 ##### 自动化装配bean
-&emsp;&emsp; 有两种方法，组件扫描和自动装配，
+ 有两种方法，组件扫描和自动装配，
 
 
 ### spring3-耦合
@@ -10463,26 +10463,26 @@ springMVC+ioc+jdbcTemplate
 
 
 #### 耦合
-&emsp;&emsp; 我们考虑一个web应用，使用三层架构: 视图层+业务层+持久层，
-&emsp;&emsp; 视图层依赖业务层，业务层依赖持久层，这是非常不好的现象，当我们的持久层需要改变的时候，整个项目都要改变，项目非常不稳定。
+ 我们考虑一个web应用，使用三层架构: 视图层+业务层+持久层，
+ 视图层依赖业务层，业务层依赖持久层，这是非常不好的现象，当我们的持久层需要改变的时候，整个项目都要改变，项目非常不稳定。
 
 #### 怎么解决
-&emsp;&emsp; 工厂！
+ 工厂！
 <!-- more -->
 
 #### Bean
-&emsp;&emsp; Bean就是可重用组件
+ Bean就是可重用组件
 
 #### JavaBean
-&emsp;&emsp; JavaBean不是实体类，JavaBean远大于实体类，JavaBean是Java语言编写的可重用组件
+ JavaBean不是实体类，JavaBean远大于实体类，JavaBean是Java语言编写的可重用组件
 
 ####  解决
-&emsp;&emsp; 使用配置文件来配置service和dao，通过读取配置文件，反射创建对象，这样程序就不会在编译器发生错误了。
-&emsp;&emsp; 考虑用一个BeanFactory来实现读取配置文件和反射
-&emsp;&emsp; 但是注意到我们实现的时候，如果每次都去创建一个新的对象，我们的BeanFactory可能会非常大，所以我们需要在工厂中用一个字典来保存对象，这就成了一个容器。 
+ 使用配置文件来配置service和dao，通过读取配置文件，反射创建对象，这样程序就不会在编译器发生错误了。
+ 考虑用一个BeanFactory来实现读取配置文件和反射
+ 但是注意到我们实现的时候，如果每次都去创建一个新的对象，我们的BeanFactory可能会非常大，所以我们需要在工厂中用一个字典来保存对象，这就成了一个容器。 
 
 #### IOC
-&emsp;&emsp; 控制反转，我们不需要自己new了，让工厂给我们提供服务，这就是IOC，把对象的控制权交给工厂。
+ 控制反转，我们不需要自己new了，让工厂给我们提供服务，这就是IOC，把对象的控制权交给工厂。
 
 ### spring4-创建IOC容器
 
@@ -10490,7 +10490,7 @@ springMVC+ioc+jdbcTemplate
 
 #### 创建IOC容器
 ##### ApplicationContest
-&emsp;&emsp; 单例对象适用
+ 单例对象适用
 - ClassPathXmlApplicationContext 可以加载类路径下的配置文件，要求配置文件在类路径下
 - FileSystemXmlApplicationContext 可以加载任意路径下的配置文件(要有访问权限)
 - AnnotationConfigApplicationContext 读取注解创建容器
@@ -10499,7 +10499,7 @@ springMVC+ioc+jdbcTemplate
 - 当加载配置文件的时候就创建了对象
 <!-- more -->
 ##### BeanFactory
-&emsp;&emsp; 多例对象适用
+ 多例对象适用
 - XmlBeanFactory 使用的时候才创建对象
 
 ### spring5-XML配置IOC
@@ -10509,7 +10509,7 @@ springMVC+ioc+jdbcTemplate
 
 #### XML配置IOC
 ##### 使用默认构造函数创建Bean
-&emsp;&emsp; 在spring的配置文件中使用Bean标签, 只配置id个class属性
+ 在spring的配置文件中使用Bean标签, 只配置id个class属性
 ```xml
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -10519,7 +10519,7 @@ springMVC+ioc+jdbcTemplate
 ```
 <!-- more -->
 ##### 使用某个类中的方法创建
-&emsp;&emsp; 加入一个方法
+ 加入一个方法
 ```xml
 <bean id="myfactory" factory-bean="com.wsx.spring.Myfactory"
     factory-method="function"></bean>
@@ -10540,15 +10540,15 @@ springMVC+ioc+jdbcTemplate
 
 ##### Bean的生命周期
 ###### 单例
-&emsp;&emsp; 当容器创建对象出生，当容器存在，对象活着，当容器销毁，对象消亡
-&emsp;&emsp; init-method 是创建以后调用的， destory-method是销毁之前调用的的
+ 当容器创建对象出生，当容器存在，对象活着，当容器销毁，对象消亡
+ init-method 是创建以后调用的， destory-method是销毁之前调用的的
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass"
     scope="singleton" init-method="init"
     destory-method="destory"></bean>
 ```
 ###### 多例
-&emsp;&emsp; 当我们使用的时候spring为我们创建，当我们一直使用，对象就一直活着，对象等着被垃圾回收机制删掉
+ 当我们使用的时候spring为我们创建，当我们一直使用，对象就一直活着，对象等着被垃圾回收机制删掉
 
 
 ### spring6-依赖注入
@@ -10558,15 +10558,15 @@ springMVC+ioc+jdbcTemplate
 
 
 #### sprint的依赖注入
-&emsp;&emsp; dependency injection
-&emsp;&emsp; IOC是降低程序之间的依赖关系的，我们把依赖关系交给spring维护，依赖关系的维护就叫做依赖注入
-&emsp;&emsp; 注入的类型 基本类型和Sring、 bean类型、集合类型
-&emsp;&emsp; 注入的方法 构造函数、set、注解
+ dependency injection
+ IOC是降低程序之间的依赖关系的，我们把依赖关系交给spring维护，依赖关系的维护就叫做依赖注入
+ 注入的类型 基本类型和Sring、 bean类型、集合类型
+ 注入的方法 构造函数、set、注解
 <!-- more -->
 ##### 构造函数注入
-&emsp;&emsp; 使用constructor-arg标签
+ 使用constructor-arg标签
 ###### type标签
-&emsp;&emsp; 我们很容易想到
+ 我们很容易想到
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass">
     <constructor-arg type="java.lang.String" value="wsx"></constructor-arg>
@@ -10574,21 +10574,21 @@ springMVC+ioc+jdbcTemplate
 ```
 
 ###### index 标签
-&emsp;&emsp; 使用下标，位置从0开始
+ 使用下标，位置从0开始
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass">
     <constructor-arg index="0" value="wsx"></constructor-arg>
 </bean>
 ```
 ###### name 标签
-&emsp;&emsp; 使用参数的名称
+ 使用参数的名称
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass">
     <constructor-arg name="name" value="wsx"></constructor-arg>
 </bean>
 ```
 ###### 使用ref
-&emsp;&emsp; 使用其他的bean
+ 使用其他的bean
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass">
     <constructor-arg name="myobj" ref="myobj"></constructor-arg>
@@ -10596,7 +10596,7 @@ springMVC+ioc+jdbcTemplate
 ```
 
 ##### set方法注入
-&emsp;&emsp; property标签
+ property标签
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass">
     <property name="name" value="wsx"></property>
@@ -10605,10 +10605,10 @@ springMVC+ioc+jdbcTemplate
 ```
 
 ###### 构造函数注入和set方法注入
-&emsp;&emsp; set注入可以有选择性地注入，构造函数强制了必要的数据
+ set注入可以有选择性地注入，构造函数强制了必要的数据
 
 ##### 集合的注入
-&emsp;&emsp; 当我们碰到集合的时候，使用ref就不合适了，我们发现property内部还有标签
+ 当我们碰到集合的时候，使用ref就不合适了，我们发现property内部还有标签
 ```xml
 <bean id="myclass" class="com.wsx.spring.Myclass">
     <property name="mylist">
@@ -10622,15 +10622,15 @@ springMVC+ioc+jdbcTemplate
     </property>
 </bean>
 ```
-&emsp;&emsp; 注意上面的<list> 我们甚至可以使用其他的例如<set> <array>
-&emsp;&emsp; 同理<map> 和<prop>也可以互换
+ 注意上面的<list> 我们甚至可以使用其他的例如<set> <array>
+ 同理<map> 和<prop>也可以互换
 
 ### spring7-注解配置IOC
 
 
 
 #### 注解配置IOC
-&emsp;&emsp; 先总结一下之前的东西，曾经的XML配置，有标签id和class用于构造，有scope用来表示作用范围，有init-method和destroy-method用来表示生命周期，有property用来表示依赖注入
+ 先总结一下之前的东西，曾经的XML配置，有标签id和class用于构造，有scope用来表示作用范围，有init-method和destroy-method用来表示生命周期，有property用来表示依赖注入
 
 ##### 告知spring去扫描
 ```xml
@@ -10651,7 +10651,7 @@ springMVC+ioc+jdbcTemplate
 ```
 <!-- more -->
 ##### @Component
-&emsp;&emsp; 讲当前类的对象存入spring的容器，有一个value表示id，如果不写的话会让当前类名的首字母变小写作为id
+ 讲当前类的对象存入spring的容器，有一个value表示id，如果不写的话会让当前类名的首字母变小写作为id
 ```java
 @Component(value = "myclass")
 public class Myclass {
@@ -10678,10 +10678,10 @@ public class Myclass {
 ```
 
 ##### @Controller @Service @Repository
-&emsp;&emsp; 他们和Component的作用一样，但是分别用于表现层、业务层、持久层当然你乱用也不要紧
+ 他们和Component的作用一样，但是分别用于表现层、业务层、持久层当然你乱用也不要紧
 
 ##### @Autowired
-&emsp;&emsp; 自动注入，如果容器中有唯一一个bean对象，就可以成功注入,如果一个都没有就报错，如果有多个，先用类型匹配，再用变量名字(首字母变大些)去匹配，
+ 自动注入，如果容器中有唯一一个bean对象，就可以成功注入,如果一个都没有就报错，如果有多个，先用类型匹配，再用变量名字(首字母变大些)去匹配，
 ```java
 @Component
 class Node{
@@ -10704,10 +10704,10 @@ public class Myclass {
 ```
 
 ##### @Qualifier
-&emsp;&emsp; 必须和@Autowired配合使用，在Qualifier的value中写类型就可以了，注意首字母小写。
+ 必须和@Autowired配合使用，在Qualifier的value中写类型就可以了，注意首字母小写。
 
 ##### @Resource
-&emsp;&emsp; 用name表示id
+ 用name表示id
 ```java
 @Component
 class Node{
@@ -10731,26 +10731,26 @@ public class Myclass {
 ```
 
 ##### @Value
-&emsp;&emsp; 注入基本类型和string类型 $(表达式)，需要有配置文件properties，详细的后面会讲
+ 注入基本类型和string类型 $(表达式)，需要有配置文件properties，详细的后面会讲
 
 ##### @Scope
-&emsp;&emsp; 写在类的上面， 常常取值singleton prototype
+ 写在类的上面， 常常取值singleton prototype
 
 ##### @PreDestory
-&emsp;&emsp; 指定destroy方法
+ 指定destroy方法
 
 ##### @PostConstruct
-&emsp;&emsp; 写在init方法的上面
+ 写在init方法的上面
 
 
 ##### spring中的新注解
 ###### @Configuration
-&emsp;&emsp;用于指定当前类是一个配置类，当配置类作为AnnotationConfigApplication的参数时候,可以不写，其他的配置类要写
+用于指定当前类是一个配置类，当配置类作为AnnotationConfigApplication的参数时候,可以不写，其他的配置类要写
 ###### @ComponentScan
-&emsp;&emsp; 用于指定spring在创建容器时要扫描的包
+ 用于指定spring在创建容器时要扫描的包
 
 ###### @Bean
-&emsp;&emsp; 把当前方法的返回值作为bean对象存入spring的ioc容器中 ，属性为name表示ioc容器中的键，当我们使用注解配置方法的时候，如果方法有参数，spring会去容器中寻找，和Autowired一样
+ 把当前方法的返回值作为bean对象存入spring的ioc容器中 ，属性为name表示ioc容器中的键，当我们使用注解配置方法的时候，如果方法有参数，spring会去容器中寻找，和Autowired一样
 ```java
 @Configuration
 public class MyAppConfig{
@@ -10766,16 +10766,16 @@ ApplicationContext ac = new AnnotationConfigApplication(SpringConfiguration.clas
 ```
 
 ###### @Import
-&emsp;&emsp; 如果我们有多个配置类的时候，有很多做法，一是在使用AnnotationConfigApplication创建对象的时候把类都加进去，二是在主配置类的@ComponentScan中加入配置类(这个类需要使用@Configuration)，三是在主配置类中使用@Import直接导入
+ 如果我们有多个配置类的时候，有很多做法，一是在使用AnnotationConfigApplication创建对象的时候把类都加进去，二是在主配置类的@ComponentScan中加入配置类(这个类需要使用@Configuration)，三是在主配置类中使用@Import直接导入
 
 ###### @PropertySource
-&emsp;&emsp; 还记得前面说的@Value注解吗，那里需要一个properties配置文件，这里我们在主类中使用PropertySource就可以指定properties配置文件了
+ 还记得前面说的@Value注解吗，那里需要一个properties配置文件，这里我们在主类中使用PropertySource就可以指定properties配置文件了
 ```
 @PropertySource(classpath:jdbconfig.properties)
 ```
 
 ##### 总结
-&emsp;&emsp; 没有选择以公司为主，全xml配置复杂，全注解也不太好，所以xml+注解更方便，自己写的类用注解，导入的类用xml
+ 没有选择以公司为主，全xml配置复杂，全注解也不太好，所以xml+注解更方便，自己写的类用注解，导入的类用xml
 
 
 ### spring8-spring整合junit
@@ -10785,9 +10785,9 @@ ApplicationContext ac = new AnnotationConfigApplication(SpringConfiguration.clas
 
 #### spring整合junit
 ##### @RunWith
-&emsp;&emsp; 我们需要切换junit的main
+ 我们需要切换junit的main
 ##### @ContextConfiguration
-&emsp;&emsp; 指定配置类或者配置文件
+ 指定配置类或者配置文件
 ```xml
 <dependency>
     <groupId>org.springframework</groupId>
@@ -10818,30 +10818,30 @@ public class MainTest {
 
 
 #### account案例
-&emsp;&emsp; 我们有一个转账方法: 根据名称找到账户，转出账户减钱，转入账户加钱，更新转出账户，更新转入账户，这个方法没有事务的控制，可能出现问题
+ 我们有一个转账方法: 根据名称找到账户，转出账户减钱，转入账户加钱，更新转出账户，更新转入账户，这个方法没有事务的控制，可能出现问题
 ##### 案例问题
-&emsp;&emsp; 实际上我们需要维护一个和线程绑定的数据库连接，我们做一个工具类，让其支持回滚，于是我们在上诉案例中可以使用trycatch，一旦碰到问题，在catch中回滚即可,这个可以解决问题，但是太复杂了。
+ 实际上我们需要维护一个和线程绑定的数据库连接，我们做一个工具类，让其支持回滚，于是我们在上诉案例中可以使用trycatch，一旦碰到问题，在catch中回滚即可,这个可以解决问题，但是太复杂了。
 <!-- more -->
 #### 动态代理
-&emsp;&emsp; 字节码随用随创建，随用随加载，不修改远么的基础上对方法增强，
-&emsp;&emsp; 有两种，基于接口的动态代理和基于类的动态代理
+ 字节码随用随创建，随用随加载，不修改远么的基础上对方法增强，
+ 有两种，基于接口的动态代理和基于类的动态代理
 ###### 基于接口的动态代理
-&emsp;&emsp; Proxy.newProxyInstance
-&emsp;&emsp; 参数1 类加载器： 固定写法 是被代理对象的类加载器
-&emsp;&emsp; 参数2 字节码数组： 固定写法 让代理对象和被代理对象有相同的方法
-&emsp;&emps; 参数3 增强的代码 ，是一个匿名内部类
+ Proxy.newProxyInstance
+ 参数1 类加载器： 固定写法 是被代理对象的类加载器
+ 参数2 字节码数组： 固定写法 让代理对象和被代理对象有相同的方法
+&emps; 参数3 增强的代码 ，是一个匿名内部类
 ####### 内部类
-&emsp;&emsp; 实现一个invoke(proxy,method,args); method.invoke(producer,args);
-&emsp;&emsp; 如果被代理的类没有实现任何接口，则此方法无用
+ 实现一个invoke(proxy,method,args); method.invoke(producer,args);
+ 如果被代理的类没有实现任何接口，则此方法无用
 ##### 动态代理的另一种实现方式
-&emsp;&emsp; cglib
+ cglib
 ###### 基于子类的动态代理
-&emsp;&emsp; Enhancer.create(class,callback);
-&emsp;&emps; 要求类不能是最终类
-&emsp;&emsp; class是被代理对象的字节码，
-&emsp;&emsp; 第二个参数是MethodInterceptor是一个内部匿名类
+ Enhancer.create(class,callback);
+&emps; 要求类不能是最终类
+ class是被代理对象的字节码，
+ 第二个参数是MethodInterceptor是一个内部匿名类
 ###### 动态代理的作用
-&emsp;&emps; 用动态代理增强connect，让其加回连接池
+&emps; 用动态代理增强connect，让其加回连接池
 ####
 
 ### spring10-配置AOP
@@ -10849,21 +10849,21 @@ public class MainTest {
 
 
 #### spring中的AOP
-&emsp;&emsp; 连接点，被拦截到的点，在spring中指的是方法
-&emsp;&emsp; 切入点，被增强的连接点
-&emsp;&emsp; 通知 在调用方法前的是前置通知，在后面的是后置通知，在catch中的是异常通知，在final中的是最终通知，整个invoke方法就是环绕通知
-&emsp;&emsp; Target 被代理的对象
+ 连接点，被拦截到的点，在spring中指的是方法
+ 切入点，被增强的连接点
+ 通知 在调用方法前的是前置通知，在后面的是后置通知，在catch中的是异常通知，在final中的是最终通知，整个invoke方法就是环绕通知
+ Target 被代理的对象
 <!-- more -->
-&emsp;&emsp; proxy 代理对象
-&emsp;&emsp; 织入 把被代理对象增强的过程
-&emsp;&emsp; 切面  通知+切入点
+ proxy 代理对象
+ 织入 把被代理对象增强的过程
+ 切面  通知+切入点
 ###### spring中的AOP要明确的事情
-&emsp;&emsp; 编写核心代码，抽取公共代码制作为通知，在配置文件中声明切入点和通知之间的关系
+ 编写核心代码，抽取公共代码制作为通知，在配置文件中声明切入点和通知之间的关系
 ##### spring中AOP的配置
 ###### XML配置AOP
-&emsp;&emsp; aop:config 表明aop配置开始,
-&emsp;&emsp; aop:aspect 切面配置开始 id是切面的名字，ref是通知类bean
-&emsp;&emsp; aop:before 前置通知 method用于指定中的方法 pointcut是切入点
+ aop:config 表明aop配置开始,
+ aop:aspect 切面配置开始 id是切面的名字，ref是通知类bean
+ aop:before 前置通知 method用于指定中的方法 pointcut是切入点
 ```xml
 <bean id='logger' class="com.wsx.utils.logger"></bean>
 <aop:config>
@@ -10873,12 +10873,12 @@ public class MainTest {
 </aop:config>
 ```
 ####### 通配写法
-&emsp;&emsp; 访问修饰符可以省略 如public
-&emsp;&emsp; 返回值可以是通配符，表示任意返回值
-&emsp;&emsp; 包名可以是通配符表示任意包，几个包就有几个\*， 可以用..\*表示当前包的所有子包
-&emsp;&emsp; 方法可以用\*
-&emsp;&emsp; 参数可以用通配符，或者类型名
-&emsp;&emsp;  \* \*..\*\*.\*(..)
+ 访问修饰符可以省略 如public
+ 返回值可以是通配符，表示任意返回值
+ 包名可以是通配符表示任意包，几个包就有几个\*， 可以用..\*表示当前包的所有子包
+ 方法可以用\*
+ 参数可以用通配符，或者类型名
+  \* \*..\*\*.\*(..)
 ```xml
 <bean id='logger' class="com.wsx.utils.logger"></bean>
 <aop:config>
@@ -10888,7 +10888,7 @@ public class MainTest {
 </aop:config>
 ```
 ####### 实际开发怎么写呢
-&emsp;&emsp;  \* com.wsx.wsx.wsx.\*.\*(..)
+  \* com.wsx.wsx.wsx.\*.\*(..)
 
 ####### 各种通知都加进来
 ```xml
@@ -10903,7 +10903,7 @@ public class MainTest {
 </aop:config>
 ```
 ####### 配置切点
-&emsp;&emsp; 减少代码量，写在aop:aspect外可以所有切面都可以使用(写在aspect之前)，写在aop:aspect内只在内部有用
+ 减少代码量，写在aop:aspect外可以所有切面都可以使用(写在aspect之前)，写在aop:aspect内只在内部有用
 ```xml
 <bean id='logger' class="com.wsx.utils.logger"></bean>
 <aop:config>
@@ -10918,7 +10918,7 @@ public class MainTest {
 ```
 
 ####### 配置环绕通知
-&emsp;&emsp; 当我们配置了环绕通知以后，spring就不自动帮我们调用被代理对象了
+ 当我们配置了环绕通知以后，spring就不自动帮我们调用被代理对象了
 ```xml
 <aop:around method="?" pointcut-ref="pt1"></aop:around>
 ```
@@ -10940,24 +10940,24 @@ public Object arroundPringLog(ProceedingJoinPoint pjp){
 <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 ```
 ####### @Aspect
-&emsp;&emsp; 表明当前类是一个切面类
+ 表明当前类是一个切面类
 ####### @Pointcut
-&emsp;&emsp; 切入点表达式
+ 切入点表达式
 ```java
 @pointcut("execution(public void com.wsx.wsx.wsx.saveAccount())")
 private void pt1(){}
 ```
 ####### @Before
-&emsp;&emsp; 表明当前方法是一个前置通知， AfterReturning、AfterThrowing、After、Arount同理
+ 表明当前方法是一个前置通知， AfterReturning、AfterThrowing、After、Arount同理
 ```java
 @Before("pt1()")
 public void f(){}
 ```
 ####### 注解调用顺序的问题
-&emsp;&emsp; 前置、最终、后置/异常
+ 前置、最终、后置/异常
 
 ####### 纯注解
-&emsp;&emsp; 加在类的前面即可
+ 加在类的前面即可
 ```java
 @Configuration
 @ComponentScan(..)
@@ -10984,7 +10984,7 @@ jt.update("delete from account where id=?",8);
 List<Account> account = jt.query("select * from account where money>?",new BeanPropertyRowMapper<Account>(Account.class),1000f);
 ```
 ##### DAO中的JdbcTemplate
-&emsp;&emsp; 上面的代码实际上只能用于简单的测试，我们正确的做法应该还是使用DAO实现，注意到使用DAO实现的时候肯定要在类中创建jdbcTemplate，如果我们有多个DAO就会导致份重复的代码，这时可以让他们继承一个JdbcDaoSupport来实现，而这个类spring又恰好为我们提供了。但是只能通过xml注入，你想要用注解注入的话就只能自己写一个。
+ 上面的代码实际上只能用于简单的测试，我们正确的做法应该还是使用DAO实现，注意到使用DAO实现的时候肯定要在类中创建jdbcTemplate，如果我们有多个DAO就会导致份重复的代码，这时可以让他们继承一个JdbcDaoSupport来实现，而这个类spring又恰好为我们提供了。但是只能通过xml注入，你想要用注解注入的话就只能自己写一个。
 
 
 
@@ -10994,9 +10994,9 @@ List<Account> account = jt.query("select * from account where money>?",new BeanP
 
 
 #### spring支持的事务
-&emsp;&emsp; 似乎都是关于数据库的，可能也是我的水平问题，不知道其他的东西
-&emsp;&emsp; 大概需要实现两个，一个commit，另一个是rollback
-&emsp;&emsp; 事务是基于AOP实现的
+ 似乎都是关于数据库的，可能也是我的水平问题，不知道其他的东西
+ 大概需要实现两个，一个commit，另一个是rollback
+ 事务是基于AOP实现的
 
 <!--more-->
 
@@ -11111,9 +11111,9 @@ public class AccountService implements IAccountService {
 
 
 #### SpringBoot与Web
-&emsp;&emsp; 先在idea中选择场景
-&emsp;&emsp; springboot已经默认将这些常见配置好了，我们只需要在配置文件中指定少量配置就可以运行起来
-&emsp;&emsp; 然后我们可以开始编写业务代码了
+ 先在idea中选择场景
+ springboot已经默认将这些常见配置好了，我们只需要在配置文件中指定少量配置就可以运行起来
+ 然后我们可以开始编写业务代码了
 
 
 
@@ -11124,7 +11124,7 @@ public class AccountService implements IAccountService {
 
 
 #### 微服务
-&emsp;&emsp; 讲大应用拆分成多个小应用
+ 讲大应用拆分成多个小应用
 
 #### springboot介绍
 ##### 创建maven工程
@@ -11198,16 +11198,16 @@ Hello World!
         </plugins>
     </build>
 ```
-&emsp;&emsp; 然后再maven中点击package,有如下输出
+ 然后再maven中点击package,有如下输出
 ```
 Building jar: /Users/s/Documents/untitled/target/untitled-1.0-SNAPSHOT.jar
 ```
-&emsp;&emsp; 然后点击这个jar就开始跑了
-&emsp;&emsp; 如果你想要关闭他就在终端中输入
+ 然后点击这个jar就开始跑了
+ 如果你想要关闭他就在终端中输入
 ```sh
 ps -ef | grep /Users/s/Desktop/untitled-1.0-SNAPSHOT.jar
 ```
-&emsp;&emsp; 然后看左边的进程号
+ 然后看左边的进程号
 ```sh
 kill -9 pid
 ```
@@ -11215,7 +11215,7 @@ kill -9 pid
 
 #### 分析
 ##### pom
-&emsp;&emsp; parent父项目,他管理springboot的所有依赖，又叫做springboot版本仲裁中心，以后我们导入依赖默认不需要添加版本号
+ parent父项目,他管理springboot的所有依赖，又叫做springboot版本仲裁中心，以后我们导入依赖默认不需要添加版本号
 ```xml
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -11224,28 +11224,28 @@ kill -9 pid
     </parent>
 ```
 ##### spring-boot-starter-web
-&emsp;&emsp; spring-boot-starter 是spring-boot场景启动器，他帮我们导入了web模块正常运行所依赖的组件
-&emsp;&emsp; SpringBoot将所有的功能场景都抽取出来，做成一个starters启动器，只需要在项目中引入这些 starter，相关场景的所有依赖都会被导入进来，要什么功能就导入什么场景启动器。
+ spring-boot-starter 是spring-boot场景启动器，他帮我们导入了web模块正常运行所依赖的组件
+ SpringBoot将所有的功能场景都抽取出来，做成一个starters启动器，只需要在项目中引入这些 starter，相关场景的所有依赖都会被导入进来，要什么功能就导入什么场景启动器。
 
 ##### 主类
-&emsp;&emsp; @SpringBootApplication ，SpringBoot应用标注在某个类上说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的main方法来启动SpringBoot应用
+ @SpringBootApplication ，SpringBoot应用标注在某个类上说明这个类是SpringBoot的主配置类，SpringBoot就应该运行这个类的main方法来启动SpringBoot应用
 ###### @SpringBootConfiguration
-&emsp;&emsp; Spring Boot 的配置类，标注在某个类上，表示这是一个SpringBoot的配置类
+ Spring Boot 的配置类，标注在某个类上，表示这是一个SpringBoot的配置类
 ####### Configuration 
-&emsp;&emsp; 配置类上来标识这个注解，配置类和配置文件差不多，用于注入，这是个spring的注解,
+ 配置类上来标识这个注解，配置类和配置文件差不多，用于注入，这是个spring的注解,
 ####### EnableAutoConfiguration
-&emsp;&emsp; 开启自动配置，SpringBoot帮我们自动配置
+ 开启自动配置，SpringBoot帮我们自动配置
 ######## @AutoConfigurationPackage
-&emsp;&emsp; 自动配置包
+ 自动配置包
 ######### @import(AutoConfigurationPackage.Registrar.class)
-&emsp;&emsp; Spring的注解@import，给容器中导入一个组件，导入的组件由AutoConfigurationPackage.Registrar.class 指定
-&emsp;&emsp; 把主配置类的所在包的所有子包的所有组件扫描到Spring容器中
+ Spring的注解@import，给容器中导入一个组件，导入的组件由AutoConfigurationPackage.Registrar.class 指定
+ 把主配置类的所在包的所有子包的所有组件扫描到Spring容器中
 ######## @import(EnableAutoConfigurationImportSelect.class)
-&emsp;&emsp; EnableAutoConfigurationImportSelect: 导入的选择性，讲所有需要导入的组件一全类名的方式返回，这些组件会被添加到容器中，最终会给容器中导入非常多的自动配置类***AutoConfiguration，就是导入场景所需要的组件。有了自动配置类，就免去了我们手动编写配置注入等功能组件的工作，
-&emsp;&emsp; SpringFactoryLoader.loadFactoryNames(EnableAutoConfiguration.class,classLoader); 从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值,将这些值作为自动配置类导入到容器中，自动配置类就生效了，帮我们进行自动配置工作,以前我们需要自己配置的东西，自动配置类帮我们做了，都在spring-boot-autoconfigure下,见spring.factories和org.springframework.boot.autoconfigure
+ EnableAutoConfigurationImportSelect: 导入的选择性，讲所有需要导入的组件一全类名的方式返回，这些组件会被添加到容器中，最终会给容器中导入非常多的自动配置类***AutoConfiguration，就是导入场景所需要的组件。有了自动配置类，就免去了我们手动编写配置注入等功能组件的工作，
+ SpringFactoryLoader.loadFactoryNames(EnableAutoConfiguration.class,classLoader); 从类路径下的META-INF/spring.factories中获取EnableAutoConfiguration指定的值,将这些值作为自动配置类导入到容器中，自动配置类就生效了，帮我们进行自动配置工作,以前我们需要自己配置的东西，自动配置类帮我们做了，都在spring-boot-autoconfigure下,见spring.factories和org.springframework.boot.autoconfigure
 
 #### SpringInitial
-&emsp;&emsp; idea中选择SpringInitial，点继续，选择Springweb，生成，然后加入下面的代码,就可以启动了
+ idea中选择SpringInitial，点继续，选择Springweb，生成，然后加入下面的代码,就可以启动了
 ```java
 package com.wsx.springboothelloworld.controller;
 
@@ -11264,7 +11264,7 @@ public class HelloController {
     }
 }
 ```
-&emsp;&emsp; resources中目录结构的static保存静态资源，如css、js、images，templates保存所以的模版页面(spring boot默认jar包使用嵌入式tomcat，默认不支持jsp)，但我们可以使用模版引擎(freemarker,thymeleaf), application.properties中放了springboot的默认配置文件，比如你想换web的端口
+ resources中目录结构的static保存静态资源，如css、js、images，templates保存所以的模版页面(spring boot默认jar包使用嵌入式tomcat，默认不支持jsp)，但我们可以使用模版引擎(freemarker,thymeleaf), application.properties中放了springboot的默认配置文件，比如你想换web的端口
 ```properties
 server.port=8081
 ```
@@ -11277,18 +11277,18 @@ server.port=8081
 
 #### springboot配置
 ##### 配置文件
-&emsp;&emsp; 配置文件的名字是固定的
+ 配置文件的名字是固定的
 ###### application.properties
 ###### applicstion.yml
-&emsp;&emsp; YAML 是一个标记语言，不是一个标记语言
+ YAML 是一个标记语言，不是一个标记语言
 ####### 标记语言
-&emsp;&emsp; 以前的配置文件大多是xml文件，yaml以数据为中心，比json、xml等更适合做配置文件 
-&emsp;&emsp; 这是yml
+ 以前的配置文件大多是xml文件，yaml以数据为中心，比json、xml等更适合做配置文件 
+ 这是yml
 ```yml
 server:
   port: 8081
 ```
-&emsp;&emsp; 这个是xml
+ 这个是xml
 ```xml
 <server>
     <port>8081</port>
@@ -11297,8 +11297,8 @@ server:
 <!-- more -->
 ###### yml语法
 ####### 基本语法
-&emsp;&emsp; k:(空格)v 表示一对键值对
-&emsp;&emsp; 用空格锁进来控制层级关系，只要左对齐就都是一个层级的，属性和值也是大小写敏感的
+ k:(空格)v 表示一对键值对
+ 用空格锁进来控制层级关系，只要左对齐就都是一个层级的，属性和值也是大小写敏感的
 ```yml
 server:
   port: 8081
@@ -11306,42 +11306,42 @@ server:
 ```
 ####### 值的写法
 ######## 字面量： 普通的值、字符串、bool,
-&emsp;&emsp; 字符串默认不用加上双引号和单引号
+ 字符串默认不用加上双引号和单引号
 ```yml
 s1: 'a\nb'
 s2: "a\nb"
 ```
-&emsp;&emsp; 等加于下面等js
+ 等加于下面等js
 ```js
 {s1: 'a\\nb',s2: 'a\nb'}
 ```
 ######## 对象、map
-&emsp;&emsp; 对象的写法
+ 对象的写法
 ```yml
 friends:
   lastName: zhangsan
   age: 20
 ```
-&emsp;&emsp; 行内写法
+ 行内写法
 ```yml
 friends: {lastName: zhangsan,age: 18}
 ```
 ######## 数组 list set
-&emsp;&emsp; 用-表示数组中的元素
+ 用-表示数组中的元素
 ```yml
 pets:
  - cat
  - dog
  - pig
 ```
-&emsp;&emsp; 行内写法
+ 行内写法
 ```yml
 pest: [cat,dog,pig]
 ```
 
 ###### 配置文件注入
-&emsp;&emsp; @ConfigurationProperties 告诉springboot将本类中的所有属性和配置文件中相关的配置进行绑定， prefix = "person"： 配置文件中哪个下面的所有属性一一映射
-&emsp;&emsp; @Data 来自动生成tostring，@Component来把这个类放到容器中，@ConfigurationProperties来从配置文件注入数据
+ @ConfigurationProperties 告诉springboot将本类中的所有属性和配置文件中相关的配置进行绑定， prefix = "person"： 配置文件中哪个下面的所有属性一一映射
+ @Data 来自动生成tostring，@Component来把这个类放到容器中，@ConfigurationProperties来从配置文件注入数据
 ```java
 @Data
 @Component
@@ -11357,7 +11357,7 @@ public class Person {
     private Dog dog;
 }
 ```
-&emsp;&emsp; Dog同理
+ Dog同理
 ```java
 @Data
 @Component
@@ -11366,7 +11366,7 @@ public class Dog {
     private Integer age;
 }
 ```
-&emsp;&emsp; 导入依赖
+ 导入依赖
 ```xml
  <!--        导入配置文件处理器，配置文件进行绑定就会有提示-->
         <dependency>
@@ -11375,7 +11375,7 @@ public class Dog {
             <optional>true</optional>
         </dependency>
 ```
-&emsp;&emsp; 开始测试
+ 开始测试
 ```java
 @SpringBootTest
 class SpringBootHelloworldApplicationTests {
@@ -11390,11 +11390,11 @@ class SpringBootHelloworldApplicationTests {
 
 }
 ```
-&emsp;&emsp; 我们看到输出
+ 我们看到输出
 ```sh
 Person(lastName=zhangsan, age=18, boss=false, birth=Tue Dec 12 00:00:00 CST 2017, maps={k1=v1, k2=v2}, lists=[lisi, zhaoliu], dog=Dog(name=dogname, age=2))
 ```
-&emsp;&emsp; 改写为properties
+ 改写为properties
 ```properties
 person.last-name=zhangsan
 person.age=18
@@ -11407,15 +11407,15 @@ person.dog.name=dog
 person.dog.age=15
 ```
 ###### 注解注入
-&emsp;&emsp; 详见@Value
-&emsp;&emsp; @Value("$(person.last-name)") 从环境变量和配置文件中获得值
-&emsp;&emsp; @Value("#{11*12*13}") 从表达式中获得值
-&emsp;&emsp; @Value("true") 
+ 详见@Value
+ @Value("$(person.last-name)") 从环境变量和配置文件中获得值
+ @Value("#{11*12*13}") 从表达式中获得值
+ @Value("true") 
 
 ###### @PropertySource和@ImportResource
-&emsp;&emsp; @PropertySource可以指定配置文件，还可以写数组加载多个配置文件，
-&emsp;&emsp; @ImportResource导入Spring的配置文件，让配置文件中的内容生效，即我们以前写的spring的那些东西springboot是不会识别的，必须通过ImportResource才能成功,springboot不推荐这个注解
-&emsp;&emsp; springboot推荐全注解形式，使用@Configuration,这个配置类就是来替代spring的配置文件的，当然这个就是spring的注解，然后在方法上加入@Bean注解就能吧这个方法的返回值注入到容器中，注意这里的都是spring中的注解
+ @PropertySource可以指定配置文件，还可以写数组加载多个配置文件，
+ @ImportResource导入Spring的配置文件，让配置文件中的内容生效，即我们以前写的spring的那些东西springboot是不会识别的，必须通过ImportResource才能成功,springboot不推荐这个注解
+ springboot推荐全注解形式，使用@Configuration,这个配置类就是来替代spring的配置文件的，当然这个就是spring的注解，然后在方法上加入@Bean注解就能吧这个方法的返回值注入到容器中，注意这里的都是spring中的注解
 ```java
 @Configuration
 public class MyAppConfig{
@@ -11427,7 +11427,7 @@ public class MyAppConfig{
 ```
 
 ###### 配置文件占位符
-&emsp;&emsp; ${random.value},${random.int},${random.long},${random.int[1024,65536]}表示随机数，${..}中间写之前配置的值可以取出来
+ ${random.value},${random.int},${random.long},${random.int[1024,65536]}表示随机数，${..}中间写之前配置的值可以取出来
 ```properties
 person.last-name=zhangsan${random.uuid}
 person.age=${random.int}
@@ -11440,13 +11440,13 @@ person.dog.name=${person.last-name}_dog
 person.dog.age=15
 ```
 ###### 多profile
-&emsp;&emsp; 创建多个配置文件application-{profile}.properties/yml
+ 创建多个配置文件application-{profile}.properties/yml
 
 ####### 激活profile
-&emsp;&emsp; 在主配置文件中写 spring.profile.active = dev, 就可以激活application-dev.properties
+ 在主配置文件中写 spring.profile.active = dev, 就可以激活application-dev.properties
 
 ####### yml多文档块
-&emsp;&emsp; 下面定义了三个文档块,并激活了第三个文档块
+ 下面定义了三个文档块,并激活了第三个文档块
 ```
 server:
   port: 8081
@@ -11464,11 +11464,11 @@ server:
 spring:
   profiles: prod
 ```
-&emsp;&emsp; 用命令行激活
+ 用命令行激活
 ```sh
 --spring.properties.active=dev
 ```
-&emsp;&emsp; 用虚拟机参数激活
+ 用虚拟机参数激活
 ```sh
 -Dspring.properties.active=dev
 ```
@@ -11477,21 +11477,21 @@ spring:
 2 file:./
 3 classpath:/config
 4 classpath:/
-&emsp;&emsp; 从上到下，优先级从高到低，高优先级的会覆盖低优先级的内容，注意是覆盖，而不是看了高优先级的配置以后就不看低优先级的配置了，还可以通过命令行参数设置--spring.config.localtion指定配置文件路径,这里也是互补配置
+ 从上到下，优先级从高到低，高优先级的会覆盖低优先级的内容，注意是覆盖，而不是看了高优先级的配置以后就不看低优先级的配置了，还可以通过命令行参数设置--spring.config.localtion指定配置文件路径,这里也是互补配置
 ####### 外部配置文件
-&emsp;&emsp; 优先加载profile的，由外部到内部加载
+ 优先加载profile的，由外部到内部加载
 
 ####### 自动配置原理
-&emsp;&emsp; 去查官方文档
-&emsp;&emsp; SpringBoot启动的时候加载主配置类，开启了自动配置功能@EnableAutoConfiguration ,利用EnableAutoConfigurationImportSelect导入组件，每一个xxxAutoConfiguration都是容器中的一个组件，都加入到容器中，用他们来做自动配置，每一个自动配置类进行自动配置功能
+ 去查官方文档
+ SpringBoot启动的时候加载主配置类，开启了自动配置功能@EnableAutoConfiguration ,利用EnableAutoConfigurationImportSelect导入组件，每一个xxxAutoConfiguration都是容器中的一个组件，都加入到容器中，用他们来做自动配置，每一个自动配置类进行自动配置功能
 ######## HttpEncodingAutoConfiguration
-&emsp;&emsp; 根据当前不同的条件判断，决定当前这个配置类是否生效  
-&emsp;&emsp; Configuration 表明配置类
-&emsp;&emsp; EnableConfigurationProperties 启动指定类的ConfigurationProperties功能,到HttpProperties中看到这个类上有ConfigurationProperties
-&emsp;&emsp; ConditionalOnWebApplication Conditionalxx是spring中的注解，根据不同的条件，如果满足指定条件，整个配置类中的配置才会生效，这里判断当前应用是否为web应用
-&emsp;&emsp; ConditionalOnClass 判断当前项目中有没有这个类, 
-&emsp;&emsp; CharacterEncodingFilter SpringMVC中进行乱码解决的过滤器
-&emsp;&emsp; ConditionalOnProperties 判断配置文件中是否存在某个配置
+ 根据当前不同的条件判断，决定当前这个配置类是否生效  
+ Configuration 表明配置类
+ EnableConfigurationProperties 启动指定类的ConfigurationProperties功能,到HttpProperties中看到这个类上有ConfigurationProperties
+ ConditionalOnWebApplication Conditionalxx是spring中的注解，根据不同的条件，如果满足指定条件，整个配置类中的配置才会生效，这里判断当前应用是否为web应用
+ ConditionalOnClass 判断当前项目中有没有这个类, 
+ CharacterEncodingFilter SpringMVC中进行乱码解决的过滤器
+ ConditionalOnProperties 判断配置文件中是否存在某个配置
 ```java
 @Configuration(proxyBeanMethods = false)
 @EnableConfigurationProperties(HttpProperties.class)
@@ -11500,15 +11500,15 @@ spring:
 @ConditionalOnProperty(prefix = "spring.http.encoding", value = "enabled", matchIfMissing = true)
 public class HttpEncodingAutoConfiguration {
 ```
-&emsp;&emsp; 所有在配置文件中能配置的属性都是在xxxProperties中封装着
+ 所有在配置文件中能配置的属性都是在xxxProperties中封装着
 ```java
 @ConfigurationProperties(prefix = "spring.http")
 public class HttpProperties {
 ```
 ######## xxxAutoConfiguration 
-&emsp;&emsp; 自动配置类
+ 自动配置类
 ######## xxxProperties
-&emsp;&emsp; 封装配置文件中相关属性
+ 封装配置文件中相关属性
 
 ####### Condition
 
@@ -11528,8 +11528,8 @@ public class HttpProperties {
 | @ConditionalOnJndi              | JNDI存在指定项                               |
 
 ####### 自动配置生效
-&emsp;&emsp; 只有在特定的条件下才能生效
-&emsp;&emsp; 启用debug=true让控制台打印自动配置报告
+ 只有在特定的条件下才能生效
+ 启用debug=true让控制台打印自动配置报告
 ```properties
 debug=true
 ```
@@ -11541,32 +11541,32 @@ debug=true
 
 
 #### Springboot和日志
-&emsp;&emsp; 考虑和jdbc和数据库驱动一样，我们抽象出一个日志的接口
+ 考虑和jdbc和数据库驱动一样，我们抽象出一个日志的接口
 ##### 常见的java日志
-&emsp;&emsp; JUL,JCL,JBoss-logging,logback,log4j,log4j2,slf4j
+ JUL,JCL,JBoss-logging,logback,log4j,log4j2,slf4j
 ###### Java抽象
-&emsp;&emsp; JCL,SLF4j,Jboss-logging
+ JCL,SLF4j,Jboss-logging
 ###### Java实现
-&emsp;&emsp; Log4j,JUL,Log4j2,logback
+ Log4j,JUL,Log4j2,logback
 ###### 怎么选择
-&emsp;&emsp;选择SLF4j+Logback
+选择SLF4j+Logback
 <!-- more -->
 ###### SpringBoot怎么搞？
-&emsp;&emsp; Spring选择了JUL，SpringBoot选择了SLF4j+Logback
+ Spring选择了JUL，SpringBoot选择了SLF4j+Logback
 ##### SLF4j使用
-&emsp;&emsp; 调用日志抽象层的方法，而不是实现
+ 调用日志抽象层的方法，而不是实现
 ```java
 Logger logger = LoggerFactory.getLogger(?.class);
 logger.info("hello world")
 ```
 ###### log4j
-&emsp;&emsp; log4j出现的早，没想过会有slf4j的出现，那我们要怎么用它呢？实际上是实现了一个适配器，用适配器调用log4j，用slf4j调用适配器，这里是一个设计模式
+ log4j出现的早，没想过会有slf4j的出现，那我们要怎么用它呢？实际上是实现了一个适配器，用适配器调用log4j，用slf4j调用适配器，这里是一个设计模式
 ###### 遗留问题
-&emsp;&emsp; 我们用了多个框架，这些框架有用了不同的日志系统，我们该怎么办？
+ 我们用了多个框架，这些框架有用了不同的日志系统，我们该怎么办？
 ####### 统一日志记录
-&emsp;&emsp; 偷天换日，你趁框架不注意，把jar包换一下，如Commons loggingAPI就用jcl-over-slf4j.jar, 如log4jAPI就用log4j-over-slf4j.jar来替换，就可以了，这些jar其实调用了slf4j。
+ 偷天换日，你趁框架不注意，把jar包换一下，如Commons loggingAPI就用jcl-over-slf4j.jar, 如log4jAPI就用log4j-over-slf4j.jar来替换，就可以了，这些jar其实调用了slf4j。
 ######## 具体操作
-&emsp;&emsp; 先排除日志框架，然后用中间包替换原用的日志框架，最后导入slf4j其他的实现。
+ 先排除日志框架，然后用中间包替换原用的日志框架，最后导入slf4j其他的实现。
 ##### SpringBoot和日志
 ```txt
 spring-boot-starter-logging
@@ -11576,9 +11576,9 @@ jul-to-slf4j
 log4j-ober-slf4j
 jcl-ober-slf4j
 ```
-&emsp;&emsp; Springboot给我们做好了偷梁换柱，所以我们在引入其他框架的时候一定要把这个框架的默认日志依赖移除掉。
+ Springboot给我们做好了偷梁换柱，所以我们在引入其他框架的时候一定要把这个框架的默认日志依赖移除掉。
 ##### 使用日志
-&emsp;&emsp; springboot都集成了这些
+ springboot都集成了这些
 ```properties
 logging.level.com.wsx.springboothelloworld = debug
 logging.path= log
@@ -11596,8 +11596,8 @@ logging.pattern.console=%d{yyyy-MM-dd:HH:mm:ss.SSS} [%thread] %-5level %logger{5
         logger.trace("trace hi");
     }
 ```
-&emsp;&emsp; 想用自己的配置文件直接把它放到resources文件夹下面就可以了，推荐使用xxx-spring.xml,
-&emsp;&emsp; 比如你使用了logback.xml, 那么这个xml就直接被日志框架识别了，绕开了spring,如果你是用logback-spring.xml, 那么日志框架无法加载，有springboot接管，springboot就可以根据环境来安排不同的配置，在开发环境和非开发环境使用不同的配置。
+ 想用自己的配置文件直接把它放到resources文件夹下面就可以了，推荐使用xxx-spring.xml,
+ 比如你使用了logback.xml, 那么这个xml就直接被日志框架识别了，绕开了spring,如果你是用logback-spring.xml, 那么日志框架无法加载，有springboot接管，springboot就可以根据环境来安排不同的配置，在开发环境和非开发环境使用不同的配置。
 
 
 
@@ -12935,7 +12935,7 @@ ModelAndView 可以在储存数据的同时，设置返回的逻辑视图(几乎
 
 
 ### maven依赖管理
-&emsp;&emsp; maven工程可以帮助我们管理jar包的依赖，他有一个jar包仓库，这导致我们自己的项目会非常小。
+ maven工程可以帮助我们管理jar包的依赖，他有一个jar包仓库，这导致我们自己的项目会非常小。
 
 ### maven启动
 ```sh
@@ -12943,10 +12943,10 @@ mvn tomcat:run
 ```
 
 ### maven仓库启动
-&emsp;&emsp; 先本地，然后私服，然后中央仓库
+ 先本地，然后私服，然后中央仓库
 
 ### Java代码
-&emsp;&emsp; 核心代码+配置文件+测试代码+测试配置文件
+ 核心代码+配置文件+测试代码+测试配置文件
 #### 传统项目
 ```dir
 workspace
@@ -12978,10 +12978,10 @@ mvn package # 编译+测试+打包
 mvn install # 编译+测试+打包+放入本地仓库
 ```
 ### pom.xml
-&emsp;&emsp; 自身信息，依赖的jar包信息，运行环境信息
+ 自身信息，依赖的jar包信息，运行环境信息
 
 ### 依赖管理
-&emsp;&emsp; 公司名,项目名,版本号
+ 公司名,项目名,版本号
 ```xml
 <dependency>
   <groupld>javax.servlet.jsp</groupld>
@@ -12992,11 +12992,11 @@ mvn install # 编译+测试+打包+放入本地仓库
 
 ### maven生命周期(一键构建)
 #### 清理生命周期
-&emsp;&emsp; 清除
+ 清除
 #### 默认生命周期
-&emsp;&emsp;编译-测试-打包-安装-发布
+编译-测试-打包-安装-发布
 #### 站点生命周期
-&emsp;&emsp; 用的不多
+ 用的不多
 
 ### 使用骨架
 ```sh
@@ -13045,7 +13045,7 @@ cd ..
 
 
 ### linux运行级别
-&emsp;&emsp; linux一共有7个级别，分别为
+ linux一共有7个级别，分别为
 0关机、
 1单用户、
 2无网多用户、
@@ -13055,7 +13055,7 @@ cd ..
 6重启。
 在文件/etc/inittab中指定了级别。
 ### 查看运行级别
-&emsp;&emsp; 查看文件/etc/inittab 
+ 查看文件/etc/inittab 
 
 ### 修改运行级别
 ```
@@ -13063,8 +13063,8 @@ init 3
 ```
 
 ### 如何找回root密码
-&emsp;&emsp; 进入单用户模式，然后修改密码，因为进入单用户模式不需要密码就可以登陆。
-&emsp;&emsp; 进入grub中，按e编辑指令，修改kernel，输入1进入单用户级别，输入b启动,用passwd root修改密码
+ 进入单用户模式，然后修改密码，因为进入单用户模式不需要密码就可以登陆。
+ 进入grub中，按e编辑指令，修改kernel，输入1进入单用户级别，输入b启动,用passwd root修改密码
 
 
 
@@ -13074,21 +13074,21 @@ init 3
 
 ### mkdir
 
-&emsp;&emsp; 在用户文件夹下创建hello
+ 在用户文件夹下创建hello
 ```
 mkdir ~/hello 
 ```
-&emsp;&emsp; 多级目录需要加上-p参数
+ 多级目录需要加上-p参数
 ```
 mkdir ~/h/h/h
 ```
 
 ### rmdir
-&emsp;&emsp; 删除空文件夹
+ 删除空文件夹
 ```
 rmdir ~/hello
 ```
-&emsp;&emsp; 删除非空文件夹
+ 删除非空文件夹
 ```
 rm -rf
 ```
@@ -13099,22 +13099,22 @@ rm -rf
 
 
 ### touch
-&emsp;&emsp; 创建文件，我常用vim
+ 创建文件，我常用vim
 ```
 touch a.txt b.txt c.txt 
 ```
 
 
 ### cp
-&emsp;&emsp; 将a.txt拷贝到用户目录下
+ 将a.txt拷贝到用户目录下
 ```
 cp a.txt ~/
 ```
-&emsp;&emsp; 将a这个文件夹全部拷贝到用户目录，-r指的是递归
+ 将a这个文件夹全部拷贝到用户目录，-r指的是递归
 ```
 cp -r a/ ~/
 ```
-&emsp;&emsp; \cp可以强制覆盖不提示，在mac中直接覆盖了，不需要\cp
+ \cp可以强制覆盖不提示，在mac中直接覆盖了，不需要\cp
 
 
 
@@ -13125,24 +13125,24 @@ cp -r a/ ~/
 
 
 ### rm
-&emsp;&emsp; 删除a.txt，
+ 删除a.txt，
 ```
 rm a.txt
 ```
-&emsp;&emsp; 删除目录a, -r为递归
+ 删除目录a, -r为递归
 ```
 rm -r a/
 ```
-&emsp;&emsp; 删除目录a，-f为不提示 可与-r合并为-rf
+ 删除目录a，-f为不提示 可与-r合并为-rf
 ```
 rm -r -f a/
 ```
 ### mv
-&emsp;&emsp; 将a.txt重命名为b.txt
+ 将a.txt重命名为b.txt
 ```
 mv a.txt b.txt
 ```
-&emsp;&emsp; 将a.txt一定到用户目录，如果那有的话，mac不提示是否替换，直接替换，有点不人道了。
+ 将a.txt一定到用户目录，如果那有的话，mac不提示是否替换，直接替换，有点不人道了。
 ```
 mv a.txt ~/
 ```
@@ -13154,29 +13154,29 @@ mv a.txt ~/
 
 
 ### cat
-&emsp;&emsp; cat是浏览文件
-&emsp;&emsp; 就能看到配置文件了
+ cat是浏览文件
+ 就能看到配置文件了
 ```
 cat ~/.vimrc
 ```
-&emsp;&emsp; -n 能够显示行号
+ -n 能够显示行号
 ```
 cat -n ~/.vimrc
 ```
-&emsp;&emsp; more是一个类似于vim的东西，能够把文件分页，用空格看下一行，用enter看下一页，用&lt;C-F&gt;和&lt;C-B&gt;翻页，用=输出行号，用fb也可以翻页。
+ more是一个类似于vim的东西，能够把文件分页，用空格看下一行，用enter看下一页，用&lt;C-F&gt;和&lt;C-B&gt;翻页，用=输出行号，用fb也可以翻页。
 ```
 cat -n ~/.vimrc | more
 ```
 
 ### more
-&emsp;&emsp; 直接完成
+ 直接完成
 ```
 more ~/.vimrc 
 ```
 
 ### less
-&emsp;&emsp; 基于显示的懒加载方案，打开文件非常快
-&emsp;&emsp; 几乎和more一样，就是开大文件快一点，可以用来打开日志。
+ 基于显示的懒加载方案，打开文件非常快
+ 几乎和more一样，就是开大文件快一点，可以用来打开日志。
 ```
 less ~/.vimrc
 ```
@@ -13187,33 +13187,33 @@ less ~/.vimrc
 
 
 ### &gt; 和&gt;&gt;
-&emsp;&emsp; &gt;是输出重定向，会覆盖内容，&gt;&gt;是追加，不会覆盖
+ &gt;是输出重定向，会覆盖内容，&gt;&gt;是追加，不会覆盖
 
 ### 例子
-&emsp;&emsp; ls -l 会输出一些内容，这些叫输出，&gt;a.txt会写入a.txt，当然也可以用&gt;&gt;来追加,后面只演示&gt;,不演示&gt;&gt;了
+ ls -l 会输出一些内容，这些叫输出，&gt;a.txt会写入a.txt，当然也可以用&gt;&gt;来追加,后面只演示&gt;,不演示&gt;&gt;了
 ```
 ls -l > a.txt
 ```
 
 ### 例子2
-&emsp;&emsp; 将cat的输出重定向到b.txt中
+ 将cat的输出重定向到b.txt中
 ```
 cat a.txt > b.txt
 ```
 
 ### echo
-&emsp;&emsp; 输出 abcde
+ 输出 abcde
 ```
 echo "abcde"
 ```
-&emsp;&emsp; 将abcde写入a.txt
+ 将abcde写入a.txt
 ```
 echo "abcde" > a.txt
 ```
 
 ### cal
-&emsp;&emsp; cal显示日历
-&emsp;&emsp; 将日历输出到a.txt
+ cal显示日历
+ 将日历输出到a.txt
 ```
 cal > a.txt 
 ```
@@ -13224,29 +13224,29 @@ cal > a.txt
 
 
 ### echo 
-&emsp;&emsp; 一般用于输出信息，
-&emsp;&emsp; 输出了abc
+ 一般用于输出信息，
+ 输出了abc
 ```
 echo "abc"
 ```
-&emsp;&emsp; 输出环境变量， 
+ 输出环境变量， 
 ```
 echo $PATH
 ```
 ### head
-&emsp;&emsp; 查看文件的前几行
-&emsp;&emsp; 看vim配置文件前10行
+ 查看文件的前几行
+ 看vim配置文件前10行
 ```
 head ~/.vimrc
 ```
-&emsp;&emsp; 看vim配置文件的前20行，-n表示行数
+ 看vim配置文件的前20行，-n表示行数
 ```
 head -n 20 ~/.vimrc
 ```
 
 ### tail
-&emsp;&emsp; 查看结尾几行，同上
-&emsp;&emsp; 监控a.txt,当他被追加的时候，输出追加的信息
+ 查看结尾几行，同上
+ 监控a.txt,当他被追加的时候，输出追加的信息
 ```
 tail -f a.txt
 ```
@@ -13256,21 +13256,21 @@ tail -f a.txt
 
 
 ### ln
-&emsp;&emsp; 建立软链接(快捷方式)
-&emsp;&emsp; 创建一个用户目录的软链接到当前目录，这个软链接叫mylink
+ 建立软链接(快捷方式)
+ 创建一个用户目录的软链接到当前目录，这个软链接叫mylink
 ```
 ln -s ~ mylink
 ```
 
 
 ### history
-&emsp;&emsp; 查看最近执行的指令
-&emsp;&emsp; mac中不太一样，history 10 表示查看第10条指令到现在的指令
-&emsp;&emsp; 查看最近执行的10条指令
+ 查看最近执行的指令
+ mac中不太一样，history 10 表示查看第10条指令到现在的指令
+ 查看最近执行的10条指令
 ```
 history 10
 ```
-&emsp;&emsp;执行第10调指令
+执行第10调指令
 ```
 !10
 ```
@@ -13280,21 +13280,21 @@ history 10
 
 
 ### date
-&emsp;&emsp; date可以看到时间,后面是格式设置
+ date可以看到时间,后面是格式设置
 ```
 date "+%Y-%m-%d 星期%w %H:%M:%S"
 ```
 
 
 #### 设置日期
-&emsp;&emsp; -s 表示设置时间
+ -s 表示设置时间
 ```
 date -s "2021-1-1 1:1:1"
 ```
 
 ### cal
-&emsp;&emsp; cal直接查看当前月的日历
-&emsp;&emsp; 看2020n年的日历
+ cal直接查看当前月的日历
+ 看2020n年的日历
 ```
 cal 2020 
 ```
@@ -13306,36 +13306,36 @@ cal 2020
 
 ### find
 
-&emsp;&emsp; 在用户文件夹下找名为.vimrc的文件
+ 在用户文件夹下找名为.vimrc的文件
 ```
 find ~ -name .vimrc
 ```
-&emsp;&emsp; 在用户文件夹下找名为.vimrc属于用户s的文件
+ 在用户文件夹下找名为.vimrc属于用户s的文件
 
 ```
 find ~ -user s -name .vimrc
 ```
 
-&emsp;&emsp; 在用户文件夹下找大于100M的文件
+ 在用户文件夹下找大于100M的文件
 ```
 find ~ -size +100M
 ```
-&emsp;&emsp; 在用户文件夹下找小于100M的文件
+ 在用户文件夹下找小于100M的文件
 ```
 find ~ -size -100M
 ```
-&emsp;&emsp; 在用户文件夹下找等于100M的文件
+ 在用户文件夹下找等于100M的文件
 ```
 find ~ -size 100M
 ```
-&emsp;&emsp; 通配符
+ 通配符
 ```
 find ~ -name *.txt
 ```
 
 
 ### locate
-&emsp;&emsp; 根据数据库快速定位文件的位置，
+ 根据数据库快速定位文件的位置，
 更新数据库
 ```
 updatedb
@@ -13346,18 +13346,18 @@ locate a.txt
 ```
 
 ### 管道
-&emsp;&emsp; 将前一个指令的输出传递给后一个指令处理
+ 将前一个指令的输出传递给后一个指令处理
 ```
 |
 ```
 
 ### grep
 
-&emsp;&emsp; 寻找let，并输出行号和行数据，-n表示输出行号，-i表示不区分大小写，
+ 寻找let，并输出行号和行数据，-n表示输出行号，-i表示不区分大小写，
 ```
 grep -n -i let ~/.vimrc
 ```
-&emsp;&emsp; 通过管道将cat的结果传递给grep，同上
+ 通过管道将cat的结果传递给grep，同上
 ```
 cat ~/.vimrc | grep -ni let
 ```
@@ -13368,43 +13368,43 @@ cat ~/.vimrc | grep -ni let
 
 
 ### gzip gunzip
-&emsp;&emsp; 将hello.txt压缩为hello.txt.gz
+ 将hello.txt压缩为hello.txt.gz
 ```
 gzip hello.txt 
 ```
-&emsp;&emsp; 将hello.txt.gz解压为hello.txt
+ 将hello.txt.gz解压为hello.txt
 ```
 gunzip hello.txt.gz
 ```
 
 ### zip 与 unzip
-&emsp;&emsp; 把用户目录下的所有文件压缩到res.zip中
+ 把用户目录下的所有文件压缩到res.zip中
 ```
 zip -r res.zip ~
 ```
-&emsp;&emsp; 把res.zip解压到~/res中
+ 把res.zip解压到~/res中
 ```
 unzip -d ~/res res.zip
 ```
 
 ### rar 与 unrar
-&emsp;&emsp; 有这东西，很少用
+ 有这东西，很少用
 
 ### tar
-&emsp;&emsp; -z是打包同时压缩，-c是产生.tar文件，-v是显示详细信息，-f是指定压缩后的文件名 res.tar.gz是打包后的文件，其后为打包文件
+ -z是打包同时压缩，-c是产生.tar文件，-v是显示详细信息，-f是指定压缩后的文件名 res.tar.gz是打包后的文件，其后为打包文件
 
 ```
 -zcvf res.tar.gz a.txt b.txt
 ```
-&emsp;&emsp; 对a文件夹打包
+ 对a文件夹打包
 ```
 -zcvf res.tar.gz a/
 ```
-&emsp;&emsp; 解压到当前目录
+ 解压到当前目录
 ```
 -zxvf res.tar.gz 
 ```
-&emsp;&emsp;  指定解压到~中
+  指定解压到~中
 ```
 -zxvf res.tar.gz -c ~ 
 ```
@@ -13414,10 +13414,10 @@ unzip -d ~/res res.zip
 
 
 ### Git安装
-&emsp;&emsp; 官网下去[git官网](https://git-scm.com)
+ 官网下去[git官网](https://git-scm.com)
 
 ### 创建工作空间
-&emsp;&emsp; 我们先创建一个工作空间myGit，在其中创建一个项目project，植入两个文件a.txt和b.txt，并分别写入"a"和"b"
+ 我们先创建一个工作空间myGit，在其中创建一个项目project，植入两个文件a.txt和b.txt，并分别写入"a"和"b"
 ```
 cd ~ 
 mkdir -p myGit/project
@@ -13427,19 +13427,19 @@ echo "a" >> a.txt
 echo "b" >> b.txt
 ```
 ### 初始化git
-&emsp;&emsp; 紧接着我们用git初始化这个项目
+ 紧接着我们用git初始化这个项目
 ```
 git init
 ```
-&emsp;&emsp; 我们看到了输出,他的意思是我们创建了一个空的git仓库
+ 我们看到了输出,他的意思是我们创建了一个空的git仓库
 ```
 Initialized empty Git repository in /Users/s/myGit/project/.git/
 ```
-&emsp;&emsp; 他的意思是说我们的git没有追踪任何一个文件，我们可以通过下面对指令来查看git的状态
+ 他的意思是说我们的git没有追踪任何一个文件，我们可以通过下面对指令来查看git的状态
 ```
 git status
 ```
-&emsp;&emsp; 紧接着我们得到了反馈,他说没有提交过，并且a.txt和b.txt没有被追踪，他让我们使用add来添加追踪。
+ 紧接着我们得到了反馈,他说没有提交过，并且a.txt和b.txt没有被追踪，他让我们使用add来添加追踪。
 ```
 On branch master
 
@@ -13453,12 +13453,12 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
-&emsp;&emsp; 我们尝试使用下面的指令为a.txt追踪,然后再查看状态
+ 我们尝试使用下面的指令为a.txt追踪,然后再查看状态
 ```
 git add a.txt
 git status
 ```
-&emsp;&emsp; 这时候我们的反馈就不一样了，他说我们的a.txt已经进入了git的暂存区
+ 这时候我们的反馈就不一样了，他说我们的a.txt已经进入了git的暂存区
 ```
 On branch master
 
@@ -13477,20 +13477,20 @@ Untracked files:
 ```
 ### git的结构和状态
 #### git的三层结构
-&emsp;&emsp; 工作区，即我们文件默认的地方，暂存区，即git暂时保留文件的地方，版本库，git保存文件版本的地方
+ 工作区，即我们文件默认的地方，暂存区，即git暂时保留文件的地方，版本库，git保存文件版本的地方
 #### git中文件的状态
-&emsp;&emsp; 文件分为4个状态，untracked未被追踪，modified工作区修改了文件，但没有添加进暂存区，staged添加到了暂存区但是没有提交到版本库，conmitted数据安全的储存在了本地库中。
+ 文件分为4个状态，untracked未被追踪，modified工作区修改了文件，但没有添加进暂存区，staged添加到了暂存区但是没有提交到版本库，conmitted数据安全的储存在了本地库中。
 #### 配置git
 ```
 git config --global user.email "246553278@qq.com"
 git config --global user.name "fightinggg"
 ```
 #### 查看git配置
-&emsp;&emsp; 我们可以输入如下指令来查看当前的git配置情况
+ 我们可以输入如下指令来查看当前的git配置情况
 ```
 git config --list
 ```
-&emsp;&emsp; 之后我们就会看到下面的输出
+ 之后我们就会看到下面的输出
 ```
 credential.helper=osxkeychain
 user.name=fightinggg
@@ -13515,22 +13515,22 @@ core.precomposeunicode=true
 
 
 ### 提交
-&emsp;&emsp; 然后我们就可以尝试去提交我们的
+ 然后我们就可以尝试去提交我们的
 ```
 git commit -m 'first commit'
 ```
-&emsp;&emsp; 我们得到了如下输出
+ 我们得到了如下输出
 ```
 [master (root-commit) 913bc88] first commit
  1 file changed, 1 insertion(+)
  create mode 100644 a.txt
 ```
-&emsp;&emsp; 查看git日志
+ 查看git日志
 ```
 git log
 ```
 
-&emsp;&emsp; 得到了输出
+ 得到了输出
 ```
 commit 913bc886088dabee0af5b06351450cad60102c23 (HEAD -> master)
 Author: fightinggg <246553278@qq.com>
@@ -13538,12 +13538,12 @@ Date:   Sun Mar 29 16:45:19 2020 +0800
 
     first commit
 ```
-&emsp;&emsp; 我们尝试将b.txt也提交上去
+ 我们尝试将b.txt也提交上去
 ```
 git add b.txt
 git commit -m 'second commit'
 ```
-&emsp;&emsp; 再次查看log
+ 再次查看log
 ```
 commit fbdd818849343a78d0e6ccd8d5ce0f35d9d8b123 (HEAD -> master)
 Author: fightinggg <246553278@qq.com>
@@ -13558,17 +13558,17 @@ Date:   Sun Mar 29 16:45:19 2020 +0800
     first commit
 ```
 ### 更多的文件
-&emsp;&emsp; 加入更多的文件
+ 加入更多的文件
 ```
 touch a2.txt a3.txt a4.txt a5.txt
 ```
-&emsp;&emsp; 将他们全部提交
+ 将他们全部提交
 ```
 git add .
 git commit -m 'third commit'
 git log
 ```
-&emsp;&emsp; 我们现在看到有了3次提交
+ 我们现在看到有了3次提交
 ```
 commit 9d1f0b1c3ecd11e5c629c0dd0bfdf4118ad4e999 (HEAD -> master)
 Author: fightinggg <246553278@qq.com>
@@ -13590,12 +13590,12 @@ Date:   Sun Mar 29 16:45:19 2020 +0800
 ```
 
 ### 修改后的文件
-&emsp;&emsp; 如果我们修改了一个文件
+ 如果我们修改了一个文件
 ```
 echo "hellp" >> a.txt
 git status
 ```
-&emsp;&emsp; 我们看到了git提示有文件被修改了
+ 我们看到了git提示有文件被修改了
 ```
 On branch master
 Changes not staged for commit:
@@ -13606,11 +13606,11 @@ Changes not staged for commit:
 
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
-&emsp;&emsp; 将它提交
+ 将它提交
 ```
 git commit -am 'modified a.txt'
 ```
-&emsp;&emsp; 看到了输出
+ 看到了输出
 ```
 commit 2e625b6f5de426675e4d2edf8ce86a75acc360de (HEAD -> master)
 Author: fightinggg <246553278@qq.com>
@@ -13638,12 +13638,12 @@ Date:   Sun Mar 29 16:45:19 2020 +0800
 ```
 
 ### 追加提交
-&emsp;&emsp; 如果我们发现上一次的提交是没有用的，或者说不想让它出现，又或者说想把它删了，我们使用如下指令
+ 如果我们发现上一次的提交是没有用的，或者说不想让它出现，又或者说想把它删了，我们使用如下指令
 ```
 echo "b" >> b.txt
 git commit --amend
 ```
-&emsp;&emsp; 我们发现我们进入到了vim中
+ 我们发现我们进入到了vim中
 ```
 modified a.txt
 
@@ -13660,7 +13660,7 @@ modified a.txt
 ### 	modified:   b.txt
 ###
 ```
-&emsp;&emsp; 我们将它修改为
+ 我们将它修改为
 ```
 modified a.txt b.txt
 
@@ -13677,11 +13677,11 @@ modified a.txt b.txt
 ### 	modified:   b.txt
 ###
 ```
-&emsp;&emsp; 最后再次查看log
+ 最后再次查看log
 ```
 git log --oneline
 ```
-&emsp;&emsp; 我们得到了下面的输出，上一次的提交被现在的提交覆盖了
+ 我们得到了下面的输出，上一次的提交被现在的提交覆盖了
 ```
 105a02a (HEAD -> master) modified a.txt b.txt
 9d1f0b1 third commit
@@ -13695,15 +13695,15 @@ fbdd818 second commit
 
 
 ### 撤销
-&emsp;&emsp; 假设你犯了一个严重的错误
+ 假设你犯了一个严重的错误
 ```
 rm *.txt
 ```
-&emsp;&emsp; 代码没了我们来看看git的状态
+ 代码没了我们来看看git的状态
 ```
 git status
 ```
-&emsp;&emsp; 看到了如下的输出
+ 看到了如下的输出
 ```
 On branch master
 Changes not staged for commit:
@@ -13720,11 +13720,11 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-&emsp;&emsp; check
+ check
 ```
 git checkout
 ```
-&emsp;&emsp;  看到了这些输出,他说我们删了很多东西，其实和git status的一样
+  看到了这些输出,他说我们删了很多东西，其实和git status的一样
 ```
 D	a.txt
 D	a2.txt
@@ -13733,30 +13733,30 @@ D	a4.txt
 D	a5.txt
 D	b.txt
 ```
-&emsp;&emsp; 从暂存区恢复指定文件
+ 从暂存区恢复指定文件
 ```
 git checkout -- a.txt
 cat a.txt
 ```
-&emsp;&emsp; 我们发现a.txt已经恢复了,输出如下
+ 我们发现a.txt已经恢复了,输出如下
 ```
 a.txt
 ```
-&emsp;&emsp; 恢复所有文件
+ 恢复所有文件
 ```
 git checkout -- .
 ls 
 ```
-&emsp;&emsp; 看到了输出,终于我们的文件全部恢复，
+ 看到了输出,终于我们的文件全部恢复，
 ```
 a.txt	a2.txt	a3.txt	a4.txt	a5.txt	b.txt
 ```
-&emsp;&emsp; 恢复更老的版本？使用reset将暂存区的文件修改为版本913bc886088dabee0af5b06351450cad60102c23的a.txt
+ 恢复更老的版本？使用reset将暂存区的文件修改为版本913bc886088dabee0af5b06351450cad60102c23的a.txt
 ```
 git reset 913bc886088dabee0af5b06351450cad60102c23 a.txt
 git status
 ```
-&emsp;&emsp; 我们注意下面的输出,有两条提示，第一条说改变没有被提交，是因为暂存区和版本区的文件不一致，第二条说修改没有储存到暂存区，这是因为工作区和暂存区的文件不一致造成的。
+ 我们注意下面的输出,有两条提示，第一条说改变没有被提交，是因为暂存区和版本区的文件不一致，第二条说修改没有储存到暂存区，这是因为工作区和暂存区的文件不一致造成的。
 ```
 On branch master
 Changes to be committed:
@@ -13770,13 +13770,13 @@ Changes not staged for commit:
 
 	modified:   a.txt
 ```
-&emsp;&emsp; 这时候我们就可以使用checkout将暂存区的文件拿出来放到工作区，
+ 这时候我们就可以使用checkout将暂存区的文件拿出来放到工作区，
 ```
 git checkout -- a.txt
 cat a.txt
 git status
 ```
-&emsp;&emsp; 我们发现a.txt已经恢复到初始的版本的了。我们查看状态发现工作区和暂存区的差异已经消失了，这就已经达到了恢复文件的目的。
+ 我们发现a.txt已经恢复到初始的版本的了。我们查看状态发现工作区和暂存区的差异已经消失了，这就已经达到了恢复文件的目的。
 ```
 On branch master
 Changes to be committed:
@@ -13792,36 +13792,36 @@ Changes to be committed:
 
 
 ### git删除
-&emsp;&emsp; 将文件删除
+ 将文件删除
 ```
 git rm a.txt
 ```
-&emsp;&emsp; 我们看到了如下的输出,我们看到他说文件被修改了，即暂存区和版本库中的文件不一致
+ 我们看到了如下的输出,我们看到他说文件被修改了，即暂存区和版本库中的文件不一致
 ```
 error: the following file has changes staged in the index:
     a.txt
 (use --cached to keep the file, or -f to force removal)
 ```
-&emsp;&emsp; 我们提交,然后删除,这里就直接成功了
+ 我们提交,然后删除,这里就直接成功了
 ```
 git commit -m 'recover a.txt'
 git rm a.txt
 ```
 
-&emsp;&emsp; 下面考虑另外一种情况，我们先撤销这次删除,并对a.txt进行修改,然后再次删除
+ 下面考虑另外一种情况，我们先撤销这次删除,并对a.txt进行修改,然后再次删除
 ```
 git reset -- a.txt
 git checkout a.txt
 echo "add">> a.txt
 git rm a.txt
 ```
-&emsp;&emsp; 又遇到问题了，我们的暂存区和工作区的文件不一致
+ 又遇到问题了，我们的暂存区和工作区的文件不一致
 ```
 error: the following file has local modifications:
     a.txt
 (use --cached to keep the file, or -f to force removal)
 ```
-&emsp;&emsp; 这些的删除本身就是危险的，不建议删除，但我们依然可以使用-f来强制删除
+ 这些的删除本身就是危险的，不建议删除，但我们依然可以使用-f来强制删除
 ```
 git rm a.txt -f
 ```
@@ -13832,81 +13832,81 @@ git rm a.txt -f
 
 
 ### git分支
-&emsp;&emsp; 先看看如何查看分支
+ 先看看如何查看分支
 ```
 git branch
 ```
-&emsp;&emsp; 得到了输出
+ 得到了输出
 ```
 * master
 ```
-&emsp;&emsp; 创建分支
+ 创建分支
 ```
 git branch dev
 ```
-&emsp;&emsp;  得到下面的输出，其中\*表示当前分支
+  得到下面的输出，其中\*表示当前分支
 ```
   dev
 * master
 ```
 
-&emsp;&emsp; 切换分支,再次查看分支
+ 切换分支,再次查看分支
 ```
 git checkout dev
 git branch
 ```
-&emsp;&emsp; 我们发现dev现在成为了当前分支了
+ 我们发现dev现在成为了当前分支了
 ```
 * dev
   master
 ```
-&emsp;&emsp; 删除dev分支,直接报错了，因为当前分支是dev分支
+ 删除dev分支,直接报错了，因为当前分支是dev分支
 ```
 git branch -d dev
 ```
-&emsp;&emsp; 切换分支并删除dev
+ 切换分支并删除dev
 ```
 git checkout master
 git branch -d dev
 ```
-&emsp;&emsp; 创建分支，然后修改分支名
+ 创建分支，然后修改分支名
 ```
 git branch b1
 git branch -m b1 b2
 ```
-&emsp;&emsp; 注意到执行两次这个操作后,报错了，他说名字不能重复
+ 注意到执行两次这个操作后,报错了，他说名字不能重复
 ```
 fatal: A branch named 'b2' already exists.
 ```
-&emsp;&emsp; 现在我们的分支为
+ 现在我们的分支为
 ```
   b1
   b2
 * master
 ```
-&emsp;&emsp; 创建分支并切换
+ 创建分支并切换
 ```
 git checkout -b b3  
 ```
 
 ### 分支控制
-&emsp;&emsp; 比较工作区和暂存区
+ 比较工作区和暂存区
 ```
 git diff
 ```
-&emsp;&emsp; 比较暂存区和版本库
+ 比较暂存区和版本库
 ```
 git diff --staged
 ```
-&emsp;&emsp; 比较版本
+ 比较版本
 ```
 git diff 0923131  105a02a
 ```
-&emsp;&emsp; 比较分支
+ 比较分支
 ```
 git diff b1 b2
 ```
-&emsp;&emsp; 合并分支
+ 合并分支
 ```
 git merge b1
 ```
@@ -13917,20 +13917,20 @@ git merge b1
 
 
 ### 保存
-&emsp;&emsp; 将工作区和暂存区的资料保存到栈
+ 将工作区和暂存区的资料保存到栈
 ```
 git stash
 ```
-&emsp;&emsp; 查看栈保存的资料
+ 查看栈保存的资料
 ```
 git stash list
 ```
-&emsp;&emsp; 从栈恢复资料
+ 从栈恢复资料
 ```
 git stash apply 0
 
 ```
-&emsp;&emsp; 删除栈中的资料
+ 删除栈中的资料
 ```
 git stash drop 0
 ```
@@ -13943,22 +13943,22 @@ git stash drop 0
 
 
 ### 推入远程仓库
-&emsp;&emsp; 先建立一个快捷访问
+ 先建立一个快捷访问
 ```
 git remote add unimportant git@github.com:fightinggg/unimportant.git
 git remote -v
 ```
-&emsp;&emsp; 看到了输出
+ 看到了输出
 ```
 unimportant	git@github.com:fightinggg/unimportant.git (fetch)
 unimportant	git@github.com:fightinggg/unimportant.git (push)
 ```
-&emsp;&emsp; 推入
+ 推入
 ```
 git push unimportant master
 ```
 
-&emsp;&emsp; 看到是成功了的
+ 看到是成功了的
 ```
 Enumerating objects: 13, done.
 Counting objects: 100% (13/13), done.
@@ -13970,11 +13970,11 @@ remote: Resolving deltas: 100% (2/2), done.
 To github.com:fightinggg/unimportant.git
  * [new branch]      master -> master
 ```
-&emsp;&emsp; 拉回
+ 拉回
 ```
 git pull unimportant master
 ```
-&emsp;&emsp; 也看到成功了
+ 也看到成功了
 ```
 From github.com:fightinggg/unimportant
  * branch            master     -> FETCH_HEAD
@@ -13987,7 +13987,7 @@ mkdir /wsx.com.git
 cd wsx.com.git
 git init --bare
 ```
-&emsp;&emsp; 使用方式
+ 使用方式
 ```
 git push ssh://root@<IP>/wsx.com.git master
 ```
@@ -13997,16 +13997,16 @@ git push ssh://root@<IP>/wsx.com.git master
 
 
 ### netstat
-&emsp;&emsp; netstat可以显示网络状态，
+ netstat可以显示网络状态，
 ```shell script
 netstat -a
 ```
-&emsp;&emsp; netstat可以显示网卡
+ netstat可以显示网卡
 ```shell script
 netstat -i
 ```
 <!--more-->
-&emsp;&emsp; 我们看到了输出
+ 我们看到了输出
 ```shell script
 Name       Mtu   Network       Address            Ipkts Ierrs    Opkts Oerrs  Coll
 lo0   16384 <Link#1>                        529008     0   529008     0     0
@@ -14037,11 +14037,11 @@ utun2 1380  s-2.local   fe80:f::d494:4c0e        2     -       36     -     -
 utun3 1380  <Link#16>                            0     0        4     0     0
 utun3 1380  s-2.local   fe80:10::b7d4:8de        0     -        4     -     -
 ```
-&emsp;&emsp; netstat查看udp连接
+ netstat查看udp连接
 ```shell script
 netstat -a -p udp
 ```
-&emsp;&emsp; 看到了如下输出
+ 看到了如下输出
 ```shell script
 Active Internet connections (including servers)
 Proto Recv-Q Send-Q  Local Address          Foreign Address        (state)
@@ -14070,10 +14070,10 @@ udp4       0      0  *.63490                *.*
 
 
 ### 用户分组
-&emsp;&emsp; linux中每个文件和目录都有访问权限，分别是只读、只写、可执行
+ linux中每个文件和目录都有访问权限，分别是只读、只写、可执行
 
 ### 权限分类
-&emsp;&emsp; 用户权限即自己的权限，用户组权限即同组人的权限，其他权限即和自己不同组的人的权限，所有人的权限即所有人的权限
+ 用户权限即自己的权限，用户组权限即同组人的权限，其他权限即和自己不同组的人的权限，所有人的权限即所有人的权限
 
 <!--more-->
 
@@ -14091,7 +14091,7 @@ udp4       0      0  *.63490                *.*
 
 
 ### chmodu
-&emsp;&emsp; 修改文件的权限
+ 修改文件的权限
 
 
 ### 参考
@@ -14103,14 +14103,14 @@ udp4       0      0  *.63490                *.*
 
 
 
-&emsp;&emsp;给你两个分数,让你找一个分数在他们俩之间,要求分母最小,
-&emsp;&emsp;这个问题很显然，我们应该转移到Stern Brocot Tree上面去做,对于给定的两个分数，我们把他们在树上标记出来，可能他们不再树的同一层，但是我们可以找到一个合适的层数，并且把他们标记在这一层，可能标记后，他们之间没有其他分数，那我们就选择更深的一层，直到他们在同一层，且中间有其他数字。
-&emsp;&emsp;这时我们来分析答案在哪，首先很容易证明答案就在他们俩之间的那些分数之间，因为这些分数已经满足了值在他们俩之间，对于另一个要求-分母最小，这就要求我们在这些分数中取出一个分母最小的。
-&emsp;&emsp;有一个很简单的做法可以帮助我们找到答案，那就是，把这些可能的答案全部标记为红色，真正的答案就是这些标记的lca。
-&emsp;&emsp;当我们发现答案是lca的时候，我们也发现了另一个现象，分子分母具有轮换对称性当分母取到最小值的时候，分子可能有多个解，如果我们选择了最小的分子，我们将得到一个分数 $\frac{a1}{b1}$ 我们发现如果不考虑分母最小，此时的分子也是所有解中最小的分子。
-&emsp;&emsp;换句话说，在$(\frac{u}{v},\frac{x}{y})$中所有分母最小的分数中选择一个分子最小的分数和$(\frac{u}{v},\frac{x}{y})$中所有分子最小的分数中选择一个分母最小的分数，选出的结果一定是相同的。
-&emsp;&emsp;于是我们就可以利用此特征来解决上诉问题了，代码如下，若区间包含了一个整数z，那么答案一定是$\frac{z}{1}$,否则我们可以将区间向左移动，理由是，尽管分子变了，但是区间移动不影响分母的大小，再根据分母最小时的分子最小的答案 等于 分子最小时分母最小的答案 即分母能唯一确定分子，通过区间移动后的分母的最小值推出区间移动前的分母最小值，进而推出区间移动前的分子的最小值，我们就能解决这个问题了。
-&emsp;&emsp;用辗转相除加速。
+给你两个分数,让你找一个分数在他们俩之间,要求分母最小,
+这个问题很显然，我们应该转移到Stern Brocot Tree上面去做,对于给定的两个分数，我们把他们在树上标记出来，可能他们不再树的同一层，但是我们可以找到一个合适的层数，并且把他们标记在这一层，可能标记后，他们之间没有其他分数，那我们就选择更深的一层，直到他们在同一层，且中间有其他数字。
+这时我们来分析答案在哪，首先很容易证明答案就在他们俩之间的那些分数之间，因为这些分数已经满足了值在他们俩之间，对于另一个要求-分母最小，这就要求我们在这些分数中取出一个分母最小的。
+有一个很简单的做法可以帮助我们找到答案，那就是，把这些可能的答案全部标记为红色，真正的答案就是这些标记的lca。
+当我们发现答案是lca的时候，我们也发现了另一个现象，分子分母具有轮换对称性当分母取到最小值的时候，分子可能有多个解，如果我们选择了最小的分子，我们将得到一个分数 $\frac{a1}{b1}$ 我们发现如果不考虑分母最小，此时的分子也是所有解中最小的分子。
+换句话说，在$(\frac{u}{v},\frac{x}{y})$中所有分母最小的分数中选择一个分子最小的分数和$(\frac{u}{v},\frac{x}{y})$中所有分子最小的分数中选择一个分母最小的分数，选出的结果一定是相同的。
+于是我们就可以利用此特征来解决上诉问题了，代码如下，若区间包含了一个整数z，那么答案一定是$\frac{z}{1}$,否则我们可以将区间向左移动，理由是，尽管分子变了，但是区间移动不影响分母的大小，再根据分母最小时的分子最小的答案 等于 分子最小时分母最小的答案 即分母能唯一确定分子，通过区间移动后的分母的最小值推出区间移动前的分母最小值，进而推出区间移动前的分子的最小值，我们就能解决这个问题了。
+用辗转相除加速。
 ```cpp
 void solve(ll u1,ll u2,ll&r1,ll&r2,ll v1,ll v2){ // u1/u2<r1/r2<v1/v2
     if((u1+u2-1)/u2<=v1/v2) r1=(u1+u2-1)/u2,r2=1;
@@ -14808,11 +14808,11 @@ $$
 
 
 ### min25筛是什么
-&emsp;&emsp;min25筛是一种筛法，他能以亚线性的时间复杂度筛出一类函数的前缀和  
+min25筛是一种筛法，他能以亚线性的时间复杂度筛出一类函数的前缀和  
 
 ### 定义一部分符号
-&emsp;&emsp;$M(x) x\gt1$代表$x$的最小质因子  
-&emsp;&emsp;我们再设$P_j$为第$j$小的质数, $P_1=2,P_2=3,P_3=5...$  
+$M(x) x\gt1$代表$x$的最小质因子  
+我们再设$P_j$为第$j$小的质数, $P_1=2,P_2=3,P_3=5...$  
 
 ### 先看最简单的第一类函数
 $$
@@ -14823,14 +14823,14 @@ x^k&x\in primes\\
 \end{matrix}\right.
 \end{aligned}
 $$
-&emsp;&emsp;对于这个函数我们可以利用min25筛来达到$O(\frac{n^\frac{3}{4}}{lg(n)})$的时间复杂度，我们没有办法直接求这个函数的前缀和，但是我们可以另外设一个相对好求的函数$h(x)=x^k$，通过h来求f，因为$\begin{aligned}\sum_{i=2}^nh(i)[i\in primes]=\sum_{i=2}^nf(i)[i\in primes]\end{aligned}$
-&emsp;&emsp;设
+对于这个函数我们可以利用min25筛来达到$O(\frac{n^\frac{3}{4}}{lg(n)})$的时间复杂度，我们没有办法直接求这个函数的前缀和，但是我们可以另外设一个相对好求的函数$h(x)=x^k$，通过h来求f，因为$\begin{aligned}\sum_{i=2}^nh(i)[i\in primes]=\sum_{i=2}^nf(i)[i\in primes]\end{aligned}$
+设
 $$
 \begin{aligned}
 g(n,j)=\sum_{i=2}^nh(i)[i \in primes或M(i)\gt P_j]
 \end{aligned}
 $$
-&emsp;&emsp;即 i要么是质数，要么i的最小质因子大于$P_j$。对g函数的理解，我们甚至可以回忆埃式筛,每一轮都会选择一个最小的质数，然后筛掉他的所有倍数，最终唯有所有的质数不会被筛掉，我们的这个函数就是那些没有被筛掉的数的函数值的和。  
+即 i要么是质数，要么i的最小质因子大于$P_j$。对g函数的理解，我们甚至可以回忆埃式筛,每一轮都会选择一个最小的质数，然后筛掉他的所有倍数，最终唯有所有的质数不会被筛掉，我们的这个函数就是那些没有被筛掉的数的函数值的和。  
 $$
 \begin{aligned}
 g(n,j)=\left\{\begin{matrix}
@@ -14839,7 +14839,7 @@ g(n,j-1)& M(n)\gt P_j
 \end{matrix}\right.
 \end{aligned}
 $$
-&emsp;&emsp;x处是什么呢?第j-1次的结果和第j次的结果有什么不同呢？第j次埃式筛筛掉了$P_j$的倍数，他们的最小质因子都是$P_j$,所以  
+x处是什么呢?第j-1次的结果和第j次的结果有什么不同呢？第j次埃式筛筛掉了$P_j$的倍数，他们的最小质因子都是$P_j$,所以  
 $$
 \begin{aligned}
 x&=\sum_{i=2P_j}^nh(i)[M(i)=P_j]
@@ -14851,7 +14851,7 @@ x&=\sum_{i=2P_j}^nh(i)[M(i)=P_j]
 \end{aligned}
 $$
 
-&emsp;&emsp;最后就成了这个  
+最后就成了这个  
 $$
 \begin{aligned}
 g(n,j)=\left\{\begin{matrix}
@@ -14860,24 +14860,24 @@ g(n,j-1)& M(n)\gt P_j
 \end{matrix}\right.
 \end{aligned}
 $$
-&emsp;&emsp;到这里就已经可以记忆化递归解决了,但是递归比较慢,我们考虑把它变成非递归,我们观察这个式子。  
-&emsp;&emsp;我们发现我们可以先枚举j因为$g(n,j)$是由$g(?,j-1)$推导过来的，然后从大到小枚举n，来更新数组，又因为n的前一项可能与$\frac{n}{P_j}$有关，所以我们可以把他们都用map映射一下，再进一步分析，根据整除分块的传递性，$\frac{\frac{a}{b}}{c}=\frac{a}{bc}$我们可以得出所有$g(x,y)$中x构成的集合，恰好是集合$\{x|x=\frac{n}{t},t\in [1,n]\}$,最后预处理一下$\sum^{j-1}_{i=1}h(P_i)$即可，对于整除分块的映射，我们又可以加速到O(1)此处不做过多分析。  
-&emsp;&emsp;最后我们得到了这个$O(\frac{n^{\frac{3}{4}}}{lg(n)})$算法  
+到这里就已经可以记忆化递归解决了,但是递归比较慢,我们考虑把它变成非递归,我们观察这个式子。  
+我们发现我们可以先枚举j因为$g(n,j)$是由$g(?,j-1)$推导过来的，然后从大到小枚举n，来更新数组，又因为n的前一项可能与$\frac{n}{P_j}$有关，所以我们可以把他们都用map映射一下，再进一步分析，根据整除分块的传递性，$\frac{\frac{a}{b}}{c}=\frac{a}{bc}$我们可以得出所有$g(x,y)$中x构成的集合，恰好是集合$\{x|x=\frac{n}{t},t\in [1,n]\}$,最后预处理一下$\sum^{j-1}_{i=1}h(P_i)$即可，对于整除分块的映射，我们又可以加速到O(1)此处不做过多分析。  
+最后我们得到了这个$O(\frac{n^{\frac{3}{4}}}{lg(n)})$算法  
 ### 再看复杂一些的第二类函数
-&emsp;&emsp;第二类函数是抽象的积性函数$f$。  
-&emsp;&emsp;如果我们能够通过一些方法求出$\sum_{i=1}^{n}f(P_i)$和$f(P_i^k)$,那么我们就能够很简单得推出f的前缀和。我们这样来求，比如说f(x)在x是一个质数的时候能表示为某个简单多项式，那么我们就可以通过将多项式函数看做某些幂函数的线形组合，先求出幂函数各自的质数前缀和，然后相加就可以得到f的质数前缀和。而对于另外一个$f(P_i^k)$则需要通过函数的定义来求了。  
-&emsp;&emsp;现在假设我们已经预处理出了$\sum_{i=1}^xf(P_i)(x \in n的数论分块即x=\frac{n}{?})其实就是g(x,\infty)$。  
-&emsp;&emsp;我们设$\begin{aligned}S(n,j)=\sum_{i=2}^nf(i)[M(i)\ge P_j]\end{aligned}$注意和$g(n,j)$对比。  
+第二类函数是抽象的积性函数$f$。  
+如果我们能够通过一些方法求出$\sum_{i=1}^{n}f(P_i)$和$f(P_i^k)$,那么我们就能够很简单得推出f的前缀和。我们这样来求，比如说f(x)在x是一个质数的时候能表示为某个简单多项式，那么我们就可以通过将多项式函数看做某些幂函数的线形组合，先求出幂函数各自的质数前缀和，然后相加就可以得到f的质数前缀和。而对于另外一个$f(P_i^k)$则需要通过函数的定义来求了。  
+现在假设我们已经预处理出了$\sum_{i=1}^xf(P_i)(x \in n的数论分块即x=\frac{n}{?})其实就是g(x,\infty)$。  
+我们设$\begin{aligned}S(n,j)=\sum_{i=2}^nf(i)[M(i)\ge P_j]\end{aligned}$注意和$g(n,j)$对比。  
 $$
 \begin{aligned}
 &S(n,j)
 \\=&\sum_{i=j}^{P_i\le n}f(P_i)+f(P_i)S(\frac{n}{P_j},j+1)+f(P_i^2)S(\frac{n}{P_i^2},j+1)+f(P_i^3)S(\frac{n}{P_i^3},j+1)+...
 \end{aligned}
 $$
-&emsp;&emsp;这里已经可以了，第一项可以通过两个前缀和相减得到，后边的递归。这就是min25筛的灵魂所在。  
-&emsp;&emsp;我们现在好好来分析一下这个递归式子。我们发现第一项是最好求的，就是第一类函数，但是后边的几项必须要求积性函数。这也是min25筛只能对积性函数起作用的地方。
+这里已经可以了，第一项可以通过两个前缀和相减得到，后边的递归。这就是min25筛的灵魂所在。  
+我们现在好好来分析一下这个递归式子。我们发现第一项是最好求的，就是第一类函数，但是后边的几项必须要求积性函数。这也是min25筛只能对积性函数起作用的地方。
 ### min25筛能处理更多的函数吗？
-&emsp;&emsp;我们暂定这些函数为f，显然我们必须要能够求出g和s，这就是min25筛,对于g，这里不对此作过多分析，没有这个必要，我们假定都是一类与幂函数线形组合有关的函数，抑或是某几项与幂函数有关，反正只要能够找到完全积性函数h在质数自变量和f函数存在相等关系即可。s的话，第一项简单差分，后边的看似要求f是积性函数，其实不然，我们仔细分析，其实他要求的是这样的要求: 假定y是x的最小质因子，$z=y^k且z｜x且k最大$，我们只要能够通过$f(z)和f(\frac{x}{z})$这两项能够推出f(x)即可，这里并没有强制要求$f(x)=f(z)*f(\frac{x}{z})即f(x)=f(M(x))$。举个例子，若$f(x)=f(z)=f(y)=y$，我们也是可以求的。  
+我们暂定这些函数为f，显然我们必须要能够求出g和s，这就是min25筛,对于g，这里不对此作过多分析，没有这个必要，我们假定都是一类与幂函数线形组合有关的函数，抑或是某几项与幂函数有关，反正只要能够找到完全积性函数h在质数自变量和f函数存在相等关系即可。s的话，第一项简单差分，后边的看似要求f是积性函数，其实不然，我们仔细分析，其实他要求的是这样的要求: 假定y是x的最小质因子，$z=y^k且z｜x且k最大$，我们只要能够通过$f(z)和f(\frac{x}{z})$这两项能够推出f(x)即可，这里并没有强制要求$f(x)=f(z)*f(\frac{x}{z})即f(x)=f(M(x))$。举个例子，若$f(x)=f(z)=f(y)=y$，我们也是可以求的。  
 
 
 贴一个求$f(a^b)=a \bigotimes b$和$f(x)=M(x)$的代码
@@ -15111,10 +15111,10 @@ $L_2范数$是欧几里得距离
 
 
 ##### kernel functions
-&emsp;&emsp;核函数是一个函数,他能够把低纬空间映射到高维空间,他的输入是低维空间的两个点，他的输出是这两个点在高维空间上的内积。
+核函数是一个函数,他能够把低纬空间映射到高维空间,他的输入是低维空间的两个点，他的输出是这两个点在高维空间上的内积。
 
 ##### why kernel functions
-&emsp;&emsp;某些在低维空间无法使用超平面分割的点集，他们被某些函数映射到高维空间以后，能够被超平面分割。并且在高维空间中计算他们的内积很容易(就是核函数)
+某些在低维空间无法使用超平面分割的点集，他们被某些函数映射到高维空间以后，能够被超平面分割。并且在高维空间中计算他们的内积很容易(就是核函数)
 ![](/images/1.png)
 
 ##### 应用
@@ -15233,23 +15233,23 @@ $$
 
 
 ##### 实矩阵
-&emsp;&emsp;常见的几种实矩阵有: 实对称矩阵、实反对称矩阵、厄米特矩阵、反厄米特矩阵、正交矩阵、对角矩阵、酉矩阵、正规矩阵
+常见的几种实矩阵有: 实对称矩阵、实反对称矩阵、厄米特矩阵、反厄米特矩阵、正交矩阵、对角矩阵、酉矩阵、正规矩阵
 
 ##### 实对称矩阵
 ###### 定义
-&emsp;&emsp;若$A$为对称矩阵、则：
+若$A$为对称矩阵、则：
 $$
 \begin{aligned}
 A = A^{T}
 \end{aligned}
 $$
-&emsp;&emsp;这里左边为矩阵本身，右边为矩阵的转置
+这里左边为矩阵本身，右边为矩阵的转置
 ###### 性质
-&emsp;&emsp;对称矩阵必然有$n$个实特征向量，并两两正交
+对称矩阵必然有$n$个实特征向量，并两两正交
 
 ##### 实反对称矩阵
 ###### 定义
-&emsp;&emsp;若$A$为对称矩阵,则：
+若$A$为对称矩阵,则：
 $$
 \begin{aligned}
 A = -A^{T}
@@ -15257,17 +15257,17 @@ A = -A^{T}
 $$
 ##### 厄米特矩阵
 ###### 定义
-&emsp;&emsp;若$A$为厄米特矩阵，则
+若$A$为厄米特矩阵，则
 $$
 \begin{aligned}
 A = A^H
 \end{aligned}
 $$
-&emsp;&emsp;右边是矩阵的转置共轭矩阵
+右边是矩阵的转置共轭矩阵
 
 ##### 反厄米特矩阵
 ###### 定义
-&emsp;&emsp;若$A$为反厄米特矩阵，则
+若$A$为反厄米特矩阵，则
 $$
 \begin{aligned}
 A = -A^H
@@ -15275,23 +15275,23 @@ A = -A^H
 $$
 ##### 正交矩阵
 ###### 定义
-&emsp;&emsp;若$A$为正交矩阵,则
+若$A$为正交矩阵,则
 $$
 \begin{aligned}
 A * A^{T} = \lambda E
 \end{aligned}
 $$
-&emsp;&emsp;这里右边为单位矩阵乘一个常数
+这里右边为单位矩阵乘一个常数
 
 ##### 对角矩阵
 ###### 定义
-&emsp;&emsp;若$A$为对角矩阵，则矩阵仅仅在对角线上对值非零
+若$A$为对角矩阵，则矩阵仅仅在对角线上对值非零
 ###### 性质
-&emsp;&emsp;对角矩阵一定是对称矩阵，对角矩阵的特征值即为对角线上的元素
+对角矩阵一定是对称矩阵，对角矩阵的特征值即为对角线上的元素
 
 ##### 酉矩阵
 ###### 定义
-&emsp;&emsp;若$A$为酉矩阵，则
+若$A$为酉矩阵，则
 $$
 \begin{aligned}
 AA^H = A^HA = E
@@ -15299,13 +15299,13 @@ AA^H = A^HA = E
 $$
 ##### 正规矩阵
 ###### 定义
-&emsp;&emsp;若$A$为正规矩阵，则
+若$A$为正规矩阵，则
 $$
 \begin{aligned}
 AA^H = A^HA
 \end{aligned}
 $$
-&emsp;&emsp;实对称矩阵、实反对称矩阵、厄米特矩阵、反厄米特矩阵、正交矩阵、对角矩阵、酉矩阵都是正规矩阵，但正规矩阵远不止这些
+实对称矩阵、实反对称矩阵、厄米特矩阵、反厄米特矩阵、正交矩阵、对角矩阵、酉矩阵都是正规矩阵，但正规矩阵远不止这些
 
 
 ##### 矩阵的相似
@@ -15318,7 +15318,7 @@ A = B^{-1}CB
 $$
 则AC相似
 ###### 性质
-&emsp;&emsp; 若两个矩阵相似，则他们的特征值相同
+ 若两个矩阵相似，则他们的特征值相同
 
 
 
@@ -15329,10 +15329,10 @@ $$
 
 
 ##### 矩阵的分解
-&emsp;&emsp;矩阵的分解非常重要，很多时候我们都需要使用到矩阵的分解，这会给我们提供极大的方便,笔者学习这一类问题花费了很多时间,想要看懂这一章，需要先看{% post_link 矩阵的类型及性质 %}
+矩阵的分解非常重要，很多时候我们都需要使用到矩阵的分解，这会给我们提供极大的方便,笔者学习这一类问题花费了很多时间,想要看懂这一章，需要先看{% post_link 矩阵的类型及性质 %}
 ##### 矩阵的特征值分解
-&emsp;&emsp;**要求$n*n$矩阵拥有$n$个线性无关的特征向量**
-&emsp;&emsp;矩阵的特征值分解指的是利用特征值构造的矩阵进行分解。特征值与特征向量是这样定义的
+**要求$n*n$矩阵拥有$n$个线性无关的特征向量**
+矩阵的特征值分解指的是利用特征值构造的矩阵进行分解。特征值与特征向量是这样定义的
 $$
 \begin{aligned}
 &若矩阵A，列向量X，常数\lambda满足
@@ -15341,7 +15341,7 @@ $$
 \end{aligned}
 $$
 <!--more-->
-&emsp;&emsp;这里我们注意到如果$n*n$的矩阵$A$拥有$n$个线性无关的特征向量，我们很容易就可以列出下面的式子:
+这里我们注意到如果$n*n$的矩阵$A$拥有$n$个线性无关的特征向量，我们很容易就可以列出下面的式子:
 $$
 \begin{aligned}
 \\&AX_1 = \lambda_1X_1
@@ -15366,19 +15366,19 @@ $$
 $$
 这就是矩阵的特征值分解了
 ##### 矩阵的QR分解
-&emsp;&emsp;要求矩阵列满秩
-&emsp;&emsp;我们通过Gram-Schmidt正交化手段，可以得到一个所有列向量正交的矩阵,这个过程叫矩阵的正交化
-&emsp;&emsp;Gram-Schmidt在正交化矩阵A第i个列向量的时候，使用前i-1个已经正交化了的列向量对其进行消除分量，这个过程逆过来看待就是从正交化矩阵到原始矩阵的过程，原始矩阵到正交化矩阵的时候，原始矩阵的前i个列向量线性组合能够得到正交矩阵的第i个列向量，那么，正交矩阵的前i个向量线性组合能够得到原始矩阵的第i个列向量，我们把正交矩阵得到原始矩阵的组合方式用矩阵来表示的话，这个矩阵显然是一个上三角矩阵。那个正交矩阵叫做$Q$,上三角矩阵叫做$R$，我们就有了$A=QR$,$Q$其实就是Gram-Schmidt的结果，R不好计算，但是原理都懂，不好模拟，但是在A是方阵的时候，$R$我们偷个懒,我们可以这样得到$R=Q^{-1}A=Q^TA$
+要求矩阵列满秩
+我们通过Gram-Schmidt正交化手段，可以得到一个所有列向量正交的矩阵,这个过程叫矩阵的正交化
+Gram-Schmidt在正交化矩阵A第i个列向量的时候，使用前i-1个已经正交化了的列向量对其进行消除分量，这个过程逆过来看待就是从正交化矩阵到原始矩阵的过程，原始矩阵到正交化矩阵的时候，原始矩阵的前i个列向量线性组合能够得到正交矩阵的第i个列向量，那么，正交矩阵的前i个向量线性组合能够得到原始矩阵的第i个列向量，我们把正交矩阵得到原始矩阵的组合方式用矩阵来表示的话，这个矩阵显然是一个上三角矩阵。那个正交矩阵叫做$Q$,上三角矩阵叫做$R$，我们就有了$A=QR$,$Q$其实就是Gram-Schmidt的结果，R不好计算，但是原理都懂，不好模拟，但是在A是方阵的时候，$R$我们偷个懒,我们可以这样得到$R=Q^{-1}A=Q^TA$
 ##### 矩阵的LU分解
-&emsp;&emsp;矩阵的LU分解要求,可逆方阵
-&emsp;&emsp;即将矩阵A分解为LU，L是下三角矩阵，U是上三角矩阵，大家手动模拟一下就知道怎么处理了，这里开个头，A(0,0)只能有L(0,0)*U(0,0)得到，通常我们假设L(0,0)=1,然后类似于这种，再考虑L的第二行和R的第二列,这时候，所有的值都是固定的了。。。这个过程中如果A对角线出现了0，记录初等行互换就行了，这时候我们的行互换会构成一个矩阵P，即$PA = LU$ ， 即$A = P^TLU$
+矩阵的LU分解要求,可逆方阵
+即将矩阵A分解为LU，L是下三角矩阵，U是上三角矩阵，大家手动模拟一下就知道怎么处理了，这里开个头，A(0,0)只能有L(0,0)*U(0,0)得到，通常我们假设L(0,0)=1,然后类似于这种，再考虑L的第二行和R的第二列,这时候，所有的值都是固定的了。。。这个过程中如果A对角线出现了0，记录初等行互换就行了，这时候我们的行互换会构成一个矩阵P，即$PA = LU$ ， 即$A = P^TLU$
 ##### 矩阵的LR分解
-&emsp;&emsp;无要求
-&emsp;&emsp; 通过初等行变化，将矩阵A变为Hermite型(阶梯矩阵)R，这个过程中，我们可以在A右边增广一个单位阵L，当算法结束的时候R是阶梯型，L也是，我们只保留R的非零行和L相应的列即可，最终$A=LR$，且L为列满秩，R为行满秩
+无要求
+ 通过初等行变化，将矩阵A变为Hermite型(阶梯矩阵)R，这个过程中，我们可以在A右边增广一个单位阵L，当算法结束的时候R是阶梯型，L也是，我们只保留R的非零行和L相应的列即可，最终$A=LR$，且L为列满秩，R为行满秩
 ##### 矩阵的SVD分解
-&emsp;&emsp; 现在有个$n\*m$的矩阵$A$，注意到矩阵$A^HA$是一个厄米特矩阵，且是半正定矩阵，由正规矩阵的性质我们不难得出一个式子$V^HA^HAV = D_2$,其中$V$是$A^HA$的特征向量构成的酉矩阵，$D_2$是对角矩阵，根据半正定矩阵的性质，我们得出$D_2$中的元素非负，进而我们可以构建$n\*m$矩阵$D$，$D$只在对角线上的值非零,且$D(i,i)=\sqrt{D_2(i,i)}$,使得的$D\*D^H=D_2$,进而我们得到了分解$V^HA^HAV = D^HD$,对$AV$来说他的前r个列向量间正交,取出他们$\{v_1,v_2...,v_r\}$，这些其实就是$A^HA$的特征向量，对应的特征值是$\sigma_i^2$,我们构造$u_i = \frac{Av_i}{\sigma_i}$得到了$\{u_1,u_2,...u_r\}$加0扩充为$\{u_1,u_2,...u_n\}$这就是一个酉矩阵U，不难发现$AV=UD$,即我们得到了分解$A = UDV^H$,这就是$SVD$分解。
+ 现在有个$n\*m$的矩阵$A$，注意到矩阵$A^HA$是一个厄米特矩阵，且是半正定矩阵，由正规矩阵的性质我们不难得出一个式子$V^HA^HAV = D_2$,其中$V$是$A^HA$的特征向量构成的酉矩阵，$D_2$是对角矩阵，根据半正定矩阵的性质，我们得出$D_2$中的元素非负，进而我们可以构建$n\*m$矩阵$D$，$D$只在对角线上的值非零,且$D(i,i)=\sqrt{D_2(i,i)}$,使得的$D\*D^H=D_2$,进而我们得到了分解$V^HA^HAV = D^HD$,对$AV$来说他的前r个列向量间正交,取出他们$\{v_1,v_2...,v_r\}$，这些其实就是$A^HA$的特征向量，对应的特征值是$\sigma_i^2$,我们构造$u_i = \frac{Av_i}{\sigma_i}$得到了$\{u_1,u_2,...u_r\}$加0扩充为$\{u_1,u_2,...u_n\}$这就是一个酉矩阵U，不难发现$AV=UD$,即我们得到了分解$A = UDV^H$,这就是$SVD$分解。
 ##### 方阵的极分解
-&emsp;&emsp; 根据矩阵的$SVD$分解我们不妨设$P=UDU^H$和$Q=UV^H$，不难发现，现在$A=PQ$，这是一个非常好的性质，P是半正定矩阵，Q是酉矩阵。
+ 根据矩阵的$SVD$分解我们不妨设$P=UDU^H$和$Q=UV^H$，不难发现，现在$A=PQ$，这是一个非常好的性质，P是半正定矩阵，Q是酉矩阵。
 ##### 其实矩阵还有很多很多其他的分解，这里先留一个坑
 
 ## 矩阵的特征值与特征向量
@@ -15388,17 +15388,17 @@ $$
 {% post_link 矩阵分解%}
 
 ##### 矩阵特征值的与特征向量
-&emsp;&emsp;若矩阵$A$，列向量$X$，常数$\lambda$满足$AX=\lambda X$,则我们称$\lambda$是$A$的一个特征值，$X$是$A$的一个特征向量
+若矩阵$A$，列向量$X$，常数$\lambda$满足$AX=\lambda X$,则我们称$\lambda$是$A$的一个特征值，$X$是$A$的一个特征向量
 
 ##### 解析解
-&emsp;&emsp;一元高次方程$det(X-\lambda E)=0$,这在X的阶很高的时候，几乎是无用的。
+一元高次方程$det(X-\lambda E)=0$,这在X的阶很高的时候，几乎是无用的。
 
 ##### 近似解
-&emsp;&emsp; 因为我们难以得到矩阵特征值的解析解，所以这里使用近似解来逼近。
+ 因为我们难以得到矩阵特征值的解析解，所以这里使用近似解来逼近。
 
 
 ##### Given变换
-&emsp;&emsp;Given变换是一种旋转变换，他的变换矩阵与单位矩阵相比只有四个元素不一样,变换矩阵如下
+Given变换是一种旋转变换，他的变换矩阵与单位矩阵相比只有四个元素不一样,变换矩阵如下
 $$
 \begin{aligned}
 \left[\begin{matrix}
@@ -15419,10 +15419,10 @@ $$
 \end{matrix}\right]
 \end{aligned}
 $$
-&emsp;&emsp;不难证明这个矩阵是正交矩阵，不难证明左乘这个变换只会改变两行,右乘这个矩阵只会改变两列
+不难证明这个矩阵是正交矩阵，不难证明左乘这个变换只会改变两行,右乘这个矩阵只会改变两列
 
 ##### Hessenberg矩阵
-&emsp;&emsp;次对角线下方元素为0
+次对角线下方元素为0
 $$
 \begin{aligned}
 \left[\begin{matrix}
@@ -15434,31 +15434,31 @@ $$
 \end{matrix}\right]
 \end{aligned}
 $$
-&emsp;&emsp;任何一个方阵都有上海森伯格形式的相似矩阵，
+任何一个方阵都有上海森伯格形式的相似矩阵，
 
 
 ##### 幂法
-&emsp;&emsp; 幂法是最基础的算法，我们先来描述一下这个过程
-&emsp;&emsp; 我们随机选择一个初始列向量$Y$，假设它能够被矩阵A的特征向量线性组合出来，则$$\begin{aligned}\lim_{N\to\infty}A^NY\end{aligned}=一个特征向量$$
-&emsp;&emsp; 这里使用快速幂算法就亏大了快速幂迭代一次$O(N^3)$，普通迭代一次$O(N^2)$，所以普通迭代就行了，
-&emsp;&emsp; 证明: 对于大部分$Y$来说，如果它能够被组合出来即$Y=k_1X_1+K_2X_2+K_3X_3+...$，且满足特征值满足条件$\lambda_1>\lambda_2>...$
-&emsp;&emsp; 则有$A^NY=k_1A^NX_1+k_2A^NX_2+...=k_1\lambda_1^NX_1+k_2\lambda_2^NX_2+...$，所以这个极限是显然趋近于特征值绝对值最大的特征向量的。
-&emsp;&emsp; 所以这个算法在大多数情况下都能成功。考虑到幂法会增长很快，我们可以在迭代过程中单位化。
+ 幂法是最基础的算法，我们先来描述一下这个过程
+ 我们随机选择一个初始列向量$Y$，假设它能够被矩阵A的特征向量线性组合出来，则$$\begin{aligned}\lim_{N\to\infty}A^NY\end{aligned}=一个特征向量$$
+ 这里使用快速幂算法就亏大了快速幂迭代一次$O(N^3)$，普通迭代一次$O(N^2)$，所以普通迭代就行了，
+ 证明: 对于大部分$Y$来说，如果它能够被组合出来即$Y=k_1X_1+K_2X_2+K_3X_3+...$，且满足特征值满足条件$\lambda_1>\lambda_2>...$
+ 则有$A^NY=k_1A^NX_1+k_2A^NX_2+...=k_1\lambda_1^NX_1+k_2\lambda_2^NX_2+...$，所以这个极限是显然趋近于特征值绝对值最大的特征向量的。
+ 所以这个算法在大多数情况下都能成功。考虑到幂法会增长很快，我们可以在迭代过程中单位化。
 
 ##### 反幂法 
-&emsp;&emsp; 求逆以后在用幂法，我们会得到特征值最小的特征向量,这很容易证明。
+ 求逆以后在用幂法，我们会得到特征值最小的特征向量,这很容易证明。
 
 ##### jacobi迭代法
-&emsp;&emsp;只能处理对称矩阵
-&emsp;&emsp; 这个算法使用相似矩阵，每次使用一个Given变换，让绝对值最大的非对角线上的元素变为0，这导致了整体势能的下降，最终相似矩阵的非对角线元素会趋近于0，Given变换是一个稀疏矩阵，他和单位矩阵只有四个元素不同，是一种旋转矩阵，加上相似变换以后，这导致他只会改变两行和两列,最终我们就得出了特征值。
+只能处理对称矩阵
+ 这个算法使用相似矩阵，每次使用一个Given变换，让绝对值最大的非对角线上的元素变为0，这导致了整体势能的下降，最终相似矩阵的非对角线元素会趋近于0，Given变换是一个稀疏矩阵，他和单位矩阵只有四个元素不同，是一种旋转矩阵，加上相似变换以后，这导致他只会改变两行和两列,最终我们就得出了特征值。
 
 
 ##### QR迭代法
-&emsp;&emsp; 还是先说做法，再给出证明，根据QR分解我们有$A=QR$，构造$A_2 = RQ = Q^{-1}AQ$,我们就不难发现$A_2$与$A$相似,我们用同样的办法，从$A_1$得到$A_2$,从$A_2$得到$A_3$...不断的迭代下去，最终$A_i$对角线一下的元素会趋近于0，这是特征值就算出来了.QR算法的本质其实还是幂法，
-&emsp;&emsp; 我们考虑幂法的过程，他可以求出一个特征向量，如果我们在幂法结束以后，得到了$X_1$，然后我们再随机选择一个$Y_2$,把$Y_2$中$X_1$的分量去掉，然后进行幂法迭代，这时候我们会得到特征值第二大的特征向量，因为$Y_2$再去掉$X_1$方向上的分量以后，已经不再包含$X_1$方向上的值了，也即$k_1$为0,这时候幂法得到的极限是第二大特征向量，随后我们可以顺序得到第三大、第四大、、、,这样太蠢了，我们考虑一次性把他们呢求出来，我们一次性就选择n个随机向量构成矩阵Z，然后用A左乘得到AZ，然后对AZ
+ 还是先说做法，再给出证明，根据QR分解我们有$A=QR$，构造$A_2 = RQ = Q^{-1}AQ$,我们就不难发现$A_2$与$A$相似,我们用同样的办法，从$A_1$得到$A_2$,从$A_2$得到$A_3$...不断的迭代下去，最终$A_i$对角线一下的元素会趋近于0，这是特征值就算出来了.QR算法的本质其实还是幂法，
+ 我们考虑幂法的过程，他可以求出一个特征向量，如果我们在幂法结束以后，得到了$X_1$，然后我们再随机选择一个$Y_2$,把$Y_2$中$X_1$的分量去掉，然后进行幂法迭代，这时候我们会得到特征值第二大的特征向量，因为$Y_2$再去掉$X_1$方向上的分量以后，已经不再包含$X_1$方向上的值了，也即$k_1$为0,这时候幂法得到的极限是第二大特征向量，随后我们可以顺序得到第三大、第四大、、、,这样太蠢了，我们考虑一次性把他们呢求出来，我们一次性就选择n个随机向量构成矩阵Z，然后用A左乘得到AZ，然后对AZ
 使用斯密斯正交化得到$Z_2$，可以证明$Z_n$将趋近于A的所有特征向量构成的矩阵。证明很多细节地方没有处理，这也就是为什么QR算法会失败的原因，但QR算法在大多数情况下是能够成功的，
-&emsp;&emsp; 即我们得到了算法迭代$Y_i=GramSchmidt(AY_{i-1})$,这个算法叫归一化算法，和上面那个算法优点小区别,但本质上是一样的，只是标记不一样而已。
-&emsp;&emsp; 如果我们能够提前把矩阵变为上海森伯格形式，QR算法的速度将大大提高。
+ 即我们得到了算法迭代$Y_i=GramSchmidt(AY_{i-1})$,这个算法叫归一化算法，和上面那个算法优点小区别,但本质上是一样的，只是标记不一样而已。
+ 如果我们能够提前把矩阵变为上海森伯格形式，QR算法的速度将大大提高。
 
 
 
@@ -15468,20 +15468,20 @@ $$
 
 
 ### 总览
-&emsp;&emsp; 这篇博客用于记录数学库的实现，
+ 这篇博客用于记录数学库的实现，
 
 ### 项目地址
 [链接](https://github.com/fightinggg/fightinggg.github.io/tree/master/cpp/perfect)
 
 ### 先介绍我们的数学函数库 math_function
-&emsp;&emsp; 这里记录了很多数学函数，
+ 这里记录了很多数学函数，
 <details>
 <summary> math_function代码 </summary>
 {% include_code tree lang:cpp cpp/perfect/math/math_function.h %}
 </details> 
 
 #### 重大问题
-&emsp;&emsp; 这些算法的复杂度感觉都是$lgc$级别的,应该是可以通过倍增来达到$lg(lgc)$的复杂度，我下次再仔细思考思考。
+ 这些算法的复杂度感觉都是$lgc$级别的,应该是可以通过倍增来达到$lg(lgc)$的复杂度，我下次再仔细思考思考。
 
 #### 介绍我们的牛顿迭代法求$\sqrt{c}$
 $$
@@ -15492,14 +15492,14 @@ $$
 &g(x) = x-\frac{f(x)}{f'(x)} = x-\frac{x^2-c}{2x} =\frac{x^2+c}{2x}
 \end{aligned}
 $$
-&emsp;&emsp; 按照$x_i=g(x_{i-1})$进行迭代即可求出结果。
-&emsp;&emsp; 更新: 我下次找个机会用下面求$e^c$的方法实现一下先让c变小，看看能不能加速。
+ 按照$x_i=g(x_{i-1})$进行迭代即可求出结果。
+ 更新: 我下次找个机会用下面求$e^c$的方法实现一下先让c变小，看看能不能加速。
 
 #### 介绍我们的泰勒展开求$e^c$
-&emsp;&emsp; 首先根据公式$e^{-t}=\frac{1}{e^t}$，可以递归为c恒非负
-&emsp;&emsp; 然后根据公式$e^t=(e^\frac{t}{2})^2$, 可以递归为c在范围$[0,0.001]$上
-&emsp;&emsp; 最后使用泰勒展开，$e^x=1+x+\frac{x^2}{2!}+...$，这里我们取前10项就能够达到很高的精度了。
-&emsp;&emsp; 为什么要用第二步将c保证在范围$[0,0.001]$上？ 因为如果c过大，我们的第三部需要展开更多的项才够，这在c达到10000这种，你至少要展开10000项，这不现实。
+ 首先根据公式$e^{-t}=\frac{1}{e^t}$，可以递归为c恒非负
+ 然后根据公式$e^t=(e^\frac{t}{2})^2$, 可以递归为c在范围$[0,0.001]$上
+ 最后使用泰勒展开，$e^x=1+x+\frac{x^2}{2!}+...$，这里我们取前10项就能够达到很高的精度了。
+ 为什么要用第二步将c保证在范围$[0,0.001]$上？ 因为如果c过大，我们的第三部需要展开更多的项才够，这在c达到10000这种，你至少要展开10000项，这不现实。
 
 #### 介绍我们的牛顿迭代法求$ln(c)$
 $$
@@ -15510,9 +15510,9 @@ $$
 \\&g(x)=x-\frac{f(x)}{f'(x)} = x-1+\frac{c}{e^x}
 \end{aligned}
 $$
-&emsp;&emsp; 还是一样的，为了减少迭代次数，我们先对c进行变小，根据公式$ln(x)=ln(\frac{x}{e})+1$,我们可以保证c的值在e附近，
-&emsp;&emsp; 最后使用迭代，$x_i=g(x_{i-1})$,
-&emsp;&emsp; 更新： 我刚刚突然想到如果第二步使用泰勒展开而不是牛顿迭代，可能会快很多，考虑到这一点，我们有时间去实现一下泰勒展开求对数函数。
+ 还是一样的，为了减少迭代次数，我们先对c进行变小，根据公式$ln(x)=ln(\frac{x}{e})+1$,我们可以保证c的值在e附近，
+ 最后使用迭代，$x_i=g(x_{i-1})$,
+ 更新： 我刚刚突然想到如果第二步使用泰勒展开而不是牛顿迭代，可能会快很多，考虑到这一点，我们有时间去实现一下泰勒展开求对数函数。
 
 
 
@@ -15560,12 +15560,12 @@ $$
 - 断开TCP连接
 
 #### PLT
-&emsp;&emsp; page load time ,从按下到看见页面的时间，与页面内容有关，与HTTP协议有关、与网络的RTT(Round Trip Time)和带宽有关。
+ page load time ,从按下到看见页面的时间，与页面内容有关，与HTTP协议有关、与网络的RTT(Round Trip Time)和带宽有关。
 
 #### 早期的HTTP
-&emsp;&emp; 早期HTTP/1.0使用单个TCP连接获取一个WEB资源，然后就断开TCP，很容易实现，但性能堪忧。
-&emsp;&emsp; 尽管是访问同一个服务器的不同资源，也要串行，建立了多个TCP，断开了多个TCP，这是很耗时间的。并没有高效使用网络。
-&emsp;&emsp; 每次TCP的连接都将导致三次握手和慢启动，在高RTT的时候，三次握手很慢，在传输大文件的时候慢启动很耗时。
+&emp; 早期HTTP/1.0使用单个TCP连接获取一个WEB资源，然后就断开TCP，很容易实现，但性能堪忧。
+ 尽管是访问同一个服务器的不同资源，也要串行，建立了多个TCP，断开了多个TCP，这是很耗时间的。并没有高效使用网络。
+ 每次TCP的连接都将导致三次握手和慢启动，在高RTT的时候，三次握手很慢，在传输大文件的时候慢启动很耗时。
 
 #### HTTP基本优化
 - 利用缓存和代理来避免传输相同的内容(DNS缓存和网页缓存)
@@ -15598,16 +15598,16 @@ $$
 
 
 #### 并行连接
-&emsp;&emsp; 让浏览器并行HTTP实例，但这导致了网络对突发带宽及丢包率
+ 让浏览器并行HTTP实例，但这导致了网络对突发带宽及丢包率
 
 #### 持久连接
-&emsp;&emsp; 用一个连接处理多个HTTP请求,这时候的多个HTTP请求又可以使用流水线。这个技术被用于HTTP/1.1
+ 用一个连接处理多个HTTP请求,这时候的多个HTTP请求又可以使用流水线。这个技术被用于HTTP/1.1
 
 #### 持久连接的问题
-&emsp;&emsp; 保持TCP连接多长时间？可能导致更慢。????????????
+ 保持TCP连接多长时间？可能导致更慢。????????????
 
 #### 网页缓存
-&emsp;&emsp; 询问服务器时间戳是否过时。
+ 询问服务器时间戳是否过时。
 
 #### 网页代理
 - 大缓存+安全检查
@@ -15618,7 +15618,7 @@ $$
 - 大量不常用信息在缓存中
 
 #### CDN
-&emsp;&emsp; 内容分发网络，我感觉服务器就像树根，客户端就像树的叶子，CDN就是中间的东西，从服务器向客户端传输文件的时候，没有必要每次都从根向叶子传输，可能叶子的父亲就拥有正确的文件，直接让他给你传就完事了。如下图，客户端4和客户端5先后要一个文件，我们从服务器1传个文件给CDN2，CDN2传给客户端4，当客户端5请求同一个文件的时候，服务器1没有必要再传文件给CDN2了，直接让CDN2给客户端5文件就行了。
+ 内容分发网络，我感觉服务器就像树根，客户端就像树的叶子，CDN就是中间的东西，从服务器向客户端传输文件的时候，没有必要每次都从根向叶子传输，可能叶子的父亲就拥有正确的文件，直接让他给你传就完事了。如下图，客户端4和客户端5先后要一个文件，我们从服务器1传个文件给CDN2，CDN2传给客户端4，当客户端5请求同一个文件的时候，服务器1没有必要再传文件给CDN2了，直接让CDN2给客户端5文件就行了。
 ```mermaid
 graph TB
 1((服务器1))--> 2((2))
@@ -15635,51 +15635,51 @@ graph TB
 
 
 ### DNS服务器
-&emsp;&emsp; 往往我们访问的网站是www.baidu.com，这个叫名字，他对应的IP为36.152.44.96,这个过程可以使用ping得到，名字到IP是谁为我们在提供服务呢？这时候就出现了DNS服务器，将名字映射为IP，
+ 往往我们访问的网站是www.baidu.com，这个叫名字，他对应的IP为36.152.44.96,这个过程可以使用ping得到，名字到IP是谁为我们在提供服务呢？这时候就出现了DNS服务器，将名字映射为IP，
 
 #### 分布式DNS服务器
-&emsp;&emsp; 这个必须分布式
+ 这个必须分布式
 
 #### 层次化
-&emsp;&emsp; DNS服务器就像一棵决策树一样，每一层都在分类，最顶层是Zone,他知道.com, .edu, .net 等DNS服务器在哪， .edu服务器又知道 .washington.edu ， .cug.edu , .tingshua.edu在哪， 这样一层一层向下
+ DNS服务器就像一棵决策树一样，每一层都在分类，最顶层是Zone,他知道.com, .edu, .net 等DNS服务器在哪， .edu服务器又知道 .washington.edu ， .cug.edu , .tingshua.edu在哪， 这样一层一层向下
 
 
 #### 本地DNS服务器
-&emsp;&emsp; 就是学校、公司的DNS服务器
+ 就是学校、公司的DNS服务器
 
 #### 一个例子
-&emsp;&emsp; 比方一个地大的要找gaia.cs.umass.edu, 他就先找地大的DNS服务器dns.cug.edu.cn， 然后找到Zone，然后找到.edu服务器, 然后去找.umass.edu服务器, 然后去找.cs.umass.edu服务器，最后就找到了gaia.cs.umass.edu，然后就找到IP了。
+ 比方一个地大的要找gaia.cs.umass.edu, 他就先找地大的DNS服务器dns.cug.edu.cn， 然后找到Zone，然后找到.edu服务器, 然后去找.umass.edu服务器, 然后去找.cs.umass.edu服务器，最后就找到了gaia.cs.umass.edu，然后就找到IP了。
 
 #### 递归还是非递归
-&emsp;&emsp; 即我问了A，A替我去问B，B回答A，A回答我，这就是递归
-&emsp;&emsp; 我问A，A说不知道并让我去问B，我去问B，B回答我，这就是非递归
-&emsp;&emsp; 显然本地服务器采取递归，其他服务器采取非递归好。
+ 即我问了A，A替我去问B，B回答A，A回答我，这就是递归
+ 我问A，A说不知道并让我去问B，我去问B，B回答我，这就是非递归
+ 显然本地服务器采取递归，其他服务器采取非递归好。
 
 #### DNS缓存
-&emsp;&esmp; 缓存两天
+&esmp; 缓存两天
 
 #### DNS插入新值
-&emsp;&emsp; 花钱买域名
+ 花钱买域名
 
 #### 负载均衡
-&emsp;&emsp; 多个IP地址对应一个名字，即服务端有多个IP，他们共用一个名字，这时候DNS服务器收到询问会轮流指向这些IP地址。
+ 多个IP地址对应一个名字，即服务端有多个IP，他们共用一个名字，这时候DNS服务器收到询问会轮流指向这些IP地址。
 
 ### P2P
-&emsp;&emsp; 没有服务器，自组织传输，当规模庞大以后会遇到问题
+ 没有服务器，自组织传输，当规模庞大以后会遇到问题
 
 #### 发布内容很快
-&emsp;&emsp; 当一个文件要发给所有客户端的时候，这个速度是呈现指数增长的。
+ 当一个文件要发给所有客户端的时候，这个速度是呈现指数增长的。
 
 #### 动机
-&emsp;&emsp; 上传助人，下载助己。你传给我，我就传给你，这样就能合作
+ 上传助人，下载助己。你传给我，我就传给你，这样就能合作
 
 #### 分布式哈希表
-&emsp;&emsp; 每个节点只储存一部分数据，从而在整个网络上寻址和储存，这样我们就能找到我们要的文件储存在哪。
+ 每个节点只储存一部分数据，从而在整个网络上寻址和储存，这样我们就能找到我们要的文件储存在哪。
 
 #### BitTorrent协议
-&emsp;&emsp; 将文件划分为小块，利用并行机制快速传输数据。
-&emsp;&emsp; 首先联系分布式哈希表，把自己加入其中，然后会得到一堆端(peers),与不同的端并行传输数据，优先和快的端传输
-&emsp;&emsp; 本身拥有文件但不给别的端传输的端，我们也不给他传文件。
+ 将文件划分为小块，利用并行机制快速传输数据。
+ 首先联系分布式哈希表，把自己加入其中，然后会得到一堆端(peers),与不同的端并行传输数据，优先和快的端传输
+ 本身拥有文件但不给别的端传输的端，我们也不给他传文件。
  
 
 ## 计算机网络3-可靠传输
@@ -15687,11 +15687,11 @@ graph TB
 
 
 ### UDP 
-&emsp;&emsp; 不可靠传输，Voice-over-IP、DNS、RPC、DHCP??????
+ 不可靠传输，Voice-over-IP、DNS、RPC、DHCP??????
 ### UDP头
-&emsp;&emsp; 16位源端口，16位目标端口，16位UDP长度，16位checksum
+ 16位源端口，16位目标端口，16位UDP长度，16位checksum
 ### UDP问题
-&emsp;&emsp; 长度受限制了，我们要将大文件分割成小文件，哪一层来负责？为什么要分为小块？更可靠，但是可能导致后发送的先到达。
+ 长度受限制了，我们要将大文件分割成小文件，哪一层来负责？为什么要分为小块？更可靠，但是可能导致后发送的先到达。
 
 ### 不可靠传输的包的问题
 - 丢失
@@ -15705,43 +15705,43 @@ graph TB
 
 
 ### 正确
-&emsp;&emsp; 不丢失、不损坏、不乱序
+ 不丢失、不损坏、不乱序
 
 ### 丢失
 
 #### 包丢失解决方案1
 -   频繁而快速地发送单个包
-&emsp;&emsp; 正确，但效率差，缺乏接收端的反馈，不知道何时停止。
+ 正确，但效率差，缺乏接收端的反馈，不知道何时停止。
 
 #### 反馈
-&emsp;&emsp; ACK:收到包了，
-&emsp;&emsp; NACK: 没有收到包(你确定？别人给你发包了吗？) —> 当损坏的时候使用
+ ACK:收到包了，
+ NACK: 没有收到包(你确定？别人给你发包了吗？) —> 当损坏的时候使用
 #### 包丢失解决方案2
-&emsp;&emsp; 收到ACK以前，一直重复发包，好吗？ 优化了时间效率，但浪费了带宽。特别是长延时网络。
+ 收到ACK以前，一直重复发包，好吗？ 优化了时间效率，但浪费了带宽。特别是长延时网络。
 
 #### 包丢失解决方案3
-&emsp;&emsp; 发送包以后设置时钟，在这段时间内收到ACK则结束，否则重发，但是时间设置为多少？？？？
+ 发送包以后设置时钟，在这段时间内收到ACK则结束，否则重发，但是时间设置为多少？？？？
 
 #### 多个包的问题
-&emsp;&emsp; 单包方案在局域网不会出现问题，因为距离近，但是在更大的网络呢？效率非常差，带宽利用率过低。
+ 单包方案在局域网不会出现问题，因为距离近，但是在更大的网络呢？效率非常差，带宽利用率过低。
 
 #### 多包的解决方案
-&emsp;&emsp; 使用流水线+滑动窗口，用窗口大小控制链路上包的数量
-&emsp;&emsp; 窗口的目的 限制带宽、限制接收端的缓冲区数量
-&emsp;&emsp; 为什么要限制带宽？ 用来拥塞控制
+ 使用流水线+滑动窗口，用窗口大小控制链路上包的数量
+ 窗口的目的 限制带宽、限制接收端的缓冲区数量
+ 为什么要限制带宽？ 用来拥塞控制
 
 #### 多包的反馈
-&emsp;&emsp; 累加ACK，ACK的时候回馈未收到的包的最小序号
-&emsp;&emsp; 完全ACK，回馈所有未收到的包序号，这个不常用,可能会与累加ACK一起使用
+ 累加ACK，ACK的时候回馈未收到的包的最小序号
+ 完全ACK，回馈所有未收到的包序号，这个不常用,可能会与累加ACK一起使用
 
 #### 如何检测丢包
-&emsp;&emsp; 累加ACK多次返回同一个值的时候，那个包就丢包了，
+ 累加ACK多次返回同一个值的时候，那个包就丢包了，
 
 #### 如何响应丢包
-&emsp;&emsp; 检测到5号包丢失的时候，包5肯定要重发，包6呢？
+ 检测到5号包丢失的时候，包5肯定要重发，包6呢？
 
 #### GO-BACK-N算法
-&emsp;&emsp; 当检测到5号包丢失的时候，把窗口滑向5，然后重新发送窗口中所有的包。
+ 当检测到5号包丢失的时候，把窗口滑向5，然后重新发送窗口中所有的包。
 
 ##### GO-BACK-N缺点
 - 丢失
@@ -15751,10 +15751,10 @@ graph TB
 - 重复
 
 #### 完全应答ACK
-&emsp;&emsp; 基于窗口，在超时或者多次ACK用一个值后重发。
+ 基于窗口，在超时或者多次ACK用一个值后重发。
 
 ### 公正
-&emsp;&emsp; 基于窗口的AIMD,发现丢包以后滑动窗口减半，成功收到ACK后窗口增大1
+ 基于窗口的AIMD,发现丢包以后滑动窗口减半，成功收到ACK后窗口增大1
 
 
 ## 计算机网络4-TCP
@@ -15762,7 +15762,7 @@ graph TB
 
 
 ### TCP
-&emsp;&emsp; TCP传输是一种可靠传输的实现
+ TCP传输是一种可靠传输的实现
 
 ### 不可靠传输的问题
 - 包丢失
@@ -15772,65 +15772,65 @@ graph TB
 - 包重复
 
 ### 建立TCP连接
-&emsp;&emsp; 为什么TCP连接需要建立呢? 为了确保网络的可达性。
+ 为什么TCP连接需要建立呢? 为了确保网络的可达性。
 
 #### 如何建立连接，为什么是三次握手
-&emsp;&emsp; 考虑这样一个场景，有个人叫C在河边散步，他记得河对面有个人叫S，但是河上雾太大了，他看不清对面。他想和对面的人对话。
-&emsp;&emsp; 既然是你想和对面的人说话，你首先得喊一声吧: "喂喂喂！河对面的S在吗？"，这时候可能有多种情况发生，见1，2，3，4
-&emsp;&emsp; 1. 突然河面上跳出一条大鱼，把你的声音盖住了，S没有听到你的声音。于是对话结束了吗？不你得多试几次。再去喊他，要是每次都被这条该死的鱼给盖住了，那就意味着你的消息无法送达到河对面。对不起，网络连接可能有问题。
-&emsp;&emsp; 2. 你的声音传了过去，但是被河中间的河神偷偷改变了，于是对面听到"喂喂喂！河对面的S死了吗？"，这时候S可能就不高兴了，他尽量分析你的句子的意思，这时候如果他分析出来你想说"喂喂喂！河对面的S在吗？"，那就好这等价于下面的情况4，若分析不出，他可能就当你是个傻子说骚话了，就不管你了。
-&emsp;&emsp; 3. 你的声音传了过去，对面不在，哦豁，这时你可能会再叫他，叫的次数多了就知道叫不通了。
-&emsp;&emsp; 4. 你的声音传了过去，对面听到了，作为一个礼貌的人，S要回答你的话。他对你说"我S在河对面！"，这时候又得看大鱼跳还是不跳了和河神干不干坏事了,如5，6，7,8
-&emsp;&emsp; 5. 大鱼跳了，S一看自己说话了半天，你不回答他，S就要再次说"我S在河对面！"，这就又重复到情况4去了，要是S说了多次你还不回答他,S就不理你了，而你可能还会以为他没有听到你说的"喂喂喂！对面的S在吗？"在不断的尝试。
-&emsp;&emsp; 6. 河神干坏事了，结果你听到了"我lbw真的没有开挂！"，你就得发挥你机智的头脑，把这句话分析为"我S在河对面"。要是分析不出来，和情况5没啥区别，要是分析出来了就进入7,8
-&emsp;&emsp; 7. 你的声音传了过去，对面听到了，给你说了"我S在河对面！"，你也听到了，很多人这就结束了，你是过瘾了，喊S说话，S理了你，但S呢，莫名其妙的有个人叫了自己，自己给他回了话，然后对面就不说话了，这是S可能就在担心，"哎！他听到我说我在河对面了吗？"，然后他为了验证自己的担心不是多余的，就一直继续说"我S在河对面！",时间长了S就会想，对面怕不会是个聋子吧。这个交流显然是失败的。
-&emsp;&emsp; 8. 你的声音传了过去，对面听到了，给你说了"我S在河对面！"，你也听到了，这时候为了防止对面认为你是个聋子，你得再给他说一句，"很好很好，我知道你在河对面了"，这是有可能发生很多情况，就得看鱼和河神了。
-&emsp;&emsp; 9.要是他俩又干坏事，S要么听不到你说话，认为你是个聋子，要么听见你说骚话，认为你是个傻子，这两种情况他都会不断地多次对你说，"我S在河对面"，要不就分析出你说"很好很好，我知道你在河对面了",认为你是个正常人。现在你们都认为对面是正常人了。谈话很愉快。
+ 考虑这样一个场景，有个人叫C在河边散步，他记得河对面有个人叫S，但是河上雾太大了，他看不清对面。他想和对面的人对话。
+ 既然是你想和对面的人说话，你首先得喊一声吧: "喂喂喂！河对面的S在吗？"，这时候可能有多种情况发生，见1，2，3，4
+ 1. 突然河面上跳出一条大鱼，把你的声音盖住了，S没有听到你的声音。于是对话结束了吗？不你得多试几次。再去喊他，要是每次都被这条该死的鱼给盖住了，那就意味着你的消息无法送达到河对面。对不起，网络连接可能有问题。
+ 2. 你的声音传了过去，但是被河中间的河神偷偷改变了，于是对面听到"喂喂喂！河对面的S死了吗？"，这时候S可能就不高兴了，他尽量分析你的句子的意思，这时候如果他分析出来你想说"喂喂喂！河对面的S在吗？"，那就好这等价于下面的情况4，若分析不出，他可能就当你是个傻子说骚话了，就不管你了。
+ 3. 你的声音传了过去，对面不在，哦豁，这时你可能会再叫他，叫的次数多了就知道叫不通了。
+ 4. 你的声音传了过去，对面听到了，作为一个礼貌的人，S要回答你的话。他对你说"我S在河对面！"，这时候又得看大鱼跳还是不跳了和河神干不干坏事了,如5，6，7,8
+ 5. 大鱼跳了，S一看自己说话了半天，你不回答他，S就要再次说"我S在河对面！"，这就又重复到情况4去了，要是S说了多次你还不回答他,S就不理你了，而你可能还会以为他没有听到你说的"喂喂喂！对面的S在吗？"在不断的尝试。
+ 6. 河神干坏事了，结果你听到了"我lbw真的没有开挂！"，你就得发挥你机智的头脑，把这句话分析为"我S在河对面"。要是分析不出来，和情况5没啥区别，要是分析出来了就进入7,8
+ 7. 你的声音传了过去，对面听到了，给你说了"我S在河对面！"，你也听到了，很多人这就结束了，你是过瘾了，喊S说话，S理了你，但S呢，莫名其妙的有个人叫了自己，自己给他回了话，然后对面就不说话了，这是S可能就在担心，"哎！他听到我说我在河对面了吗？"，然后他为了验证自己的担心不是多余的，就一直继续说"我S在河对面！",时间长了S就会想，对面怕不会是个聋子吧。这个交流显然是失败的。
+ 8. 你的声音传了过去，对面听到了，给你说了"我S在河对面！"，你也听到了，这时候为了防止对面认为你是个聋子，你得再给他说一句，"很好很好，我知道你在河对面了"，这是有可能发生很多情况，就得看鱼和河神了。
+ 9.要是他俩又干坏事，S要么听不到你说话，认为你是个聋子，要么听见你说骚话，认为你是个傻子，这两种情况他都会不断地多次对你说，"我S在河对面"，要不就分析出你说"很好很好，我知道你在河对面了",认为你是个正常人。现在你们都认为对面是正常人了。谈话很愉快。
 
 #### 三次握手携带更多的信息
-&emsp;&emsp; 通常我们在握手的时候，就告诉对面自己的初始包号，然后第二次和第三次握手的时候就能携带ACK数据了。
+ 通常我们在握手的时候，就告诉对面自己的初始包号，然后第二次和第三次握手的时候就能携带ACK数据了。
 
 ### 如何关闭连接，为什么是四次挥手
-&emsp;&emsp; 原理一样的，我们忽略丢包和包损坏，不妨设C要准备去吃饭了，这时候S还在滔滔不绝的讲着他的故事，C对S说，"我要吃饭了"，S听到后说"好的，我听到你说你要去吃饭了，但是你先等我把这故事讲完再走"，这是C能离开吗？显然不能，他得等着，知道S说"我讲完了"，这时候已经挥手了三次了，你还不能走，你得根S说，"我听到你说讲完了"之后才能离开，为什么呢?因为你要是不说的话，对面可能以为你没听到他说的“我讲完了"，说一共是挥手4次。
+ 原理一样的，我们忽略丢包和包损坏，不妨设C要准备去吃饭了，这时候S还在滔滔不绝的讲着他的故事，C对S说，"我要吃饭了"，S听到后说"好的，我听到你说你要去吃饭了，但是你先等我把这故事讲完再走"，这是C能离开吗？显然不能，他得等着，知道S说"我讲完了"，这时候已经挥手了三次了，你还不能走，你得根S说，"我听到你说讲完了"之后才能离开，为什么呢?因为你要是不说的话，对面可能以为你没听到他说的“我讲完了"，说一共是挥手4次。
 
 ### 滑动窗口超时问题
-&emsp;&emsp; 多久没有收到ACK才代表着所有的包全部丢失？这个很难确定，我们可以让他自适应
+ 多久没有收到ACK才代表着所有的包全部丢失？这个很难确定，我们可以让他自适应
 
 #### 自适应RTT
-&emsp;&emsp;$$SRTT_n = 0.9*SRTT_{n-1} + 0.1*RTT_n$$ 这个代表RTT的期望
-&emsp;&emsp;$$SVAR_n = 0.9*SVAR_{n-1} + 0.1*|RTT_n-SRTT_n|$$ 这个代表RTT的方差
-&emsp;&emsp; 当一个包超过期望+3倍的方差仍未回应ACK，视为丢包
+$$SRTT_n = 0.9*SRTT_{n-1} + 0.1*RTT_n$$ 这个代表RTT的期望
+$$SVAR_n = 0.9*SVAR_{n-1} + 0.1*|RTT_n-SRTT_n|$$ 这个代表RTT的方差
+ 当一个包超过期望+3倍的方差仍未回应ACK，视为丢包
 
 ### 滑动窗口丢包问题
-&emsp;&emsp; 3次ACK，则丢包
+ 3次ACK，则丢包
 
 ### 流控制
-&emsp;&emsp; 我们一直在想办法加速我们的网络，用到了发送端滑动窗口，但是如果接收端的内存太小，受不起如此快的传输，就只能丢弃后面收到的包，尽管已经收到了，这时候我们常常让接收端告诉发送端自己还剩下多少缓存取，来放慢传输速率，高效利用网络。
+ 我们一直在想办法加速我们的网络，用到了发送端滑动窗口，但是如果接收端的内存太小，受不起如此快的传输，就只能丢弃后面收到的包，尽管已经收到了，这时候我们常常让接收端告诉发送端自己还剩下多少缓存取，来放慢传输速率，高效利用网络。
 
 
 ### 拥塞控制
-&emsp;&emsp; 由于网络上各个线路的带宽不同，可能导致拥堵，TCP协议是闭环，通过反馈信息来判断是否拥堵。
+ 由于网络上各个线路的带宽不同，可能导致拥堵，TCP协议是闭环，通过反馈信息来判断是否拥堵。
 #### AIMD
-&emsp;&emsp; 没有阻塞的时候，滑动窗口大小+1，阻塞的时候除以2，
+ 没有阻塞的时候，滑动窗口大小+1，阻塞的时候除以2，
 
 ### ACK时钟启动
-&emsp;&emsp; 发送端一次性发送大量的包，然后开始等待ACK，等到一个ACK就发下一个包，这样就能降低丢包和延时？？，刚开始会有网络的爆发，后面会平滑
+ 发送端一次性发送大量的包，然后开始等待ACK，等到一个ACK就发下一个包，这样就能降低丢包和延时？？，刚开始会有网络的爆发，后面会平滑
 
 ### TCP慢启动
-&emsp;&emsp; 使用指数的方式，先发一个包，然后每收到一个ACK，(滑动窗口增大1)发两个包，当拥塞的时候滑动窗口减半。
+ 使用指数的方式，先发一个包，然后每收到一个ACK，(滑动窗口增大1)发两个包，当拥塞的时候滑动窗口减半。
 
 ### 超时控制
-&emsp;&emsp; 超时以后使用慢启动(AIMD),更好的检测丢包能保证更好的AIMD
+ 超时以后使用慢启动(AIMD),更好的检测丢包能保证更好的AIMD
 
 ### 快速重传快速恢复
-&emsp;&emsp; 当3次ACK检测丢包后，认为丢包，重传一个段,然后积性减少滑动窗口
+ 当3次ACK检测丢包后，认为丢包，重传一个段,然后积性减少滑动窗口
 #### 为什么是3次
-&emsp;&emsp; 顺序重排也会导致多次ACK
+ 顺序重排也会导致多次ACK
 #### 为什么积性减少
-&emsp;&emsp; 消除超时或丢失后的慢启动，因为重传了一个段，可能后面会收到大量的ACK，预先减少滑动窗口，防止拥塞
+ 消除超时或丢失后的慢启动，因为重传了一个段，可能后面会收到大量的ACK，预先减少滑动窗口，防止拥塞
 
 ### ECN(Explicit Congestion Notification)
-&emsp;&emsp; 显示拥塞通知,路由器通过队列检测拥塞，标记收影响的包，被标记的包送达时，接收端视为丢失，然后反馈给发送端拥塞消息。
+ 显示拥塞通知,路由器通过队列检测拥塞，标记收影响的包，被标记的包送达时，接收端视为丢失，然后反馈给发送端拥塞消息。
 
 
 ## 计算机网络5-IP
@@ -15838,13 +15838,13 @@ graph TB
 
 
 ### IPv4与IPv6
-&emsp;&emsp; IPv4使用32位地址,IPv6使用128位地址
+ IPv4使用32位地址,IPv6使用128位地址
 
 ### 早期的地址
-&emsp;&emsp; 前八位为网络地址，后24位为主机地址，人们认为256个网络就足够了
+ 前八位为网络地址，后24位为主机地址，人们认为256个网络就足够了
 
 ### 类地址
-&emsp;&emsp; 接下来人们设计了ABCDE类的地址
+ 接下来人们设计了ABCDE类的地址
 
 |类别|IP|
 |--|--|
@@ -15855,8 +15855,8 @@ graph TB
 | E类 | 11110\*\*\* \*\*\*\*\*\*\*\* \*\*\*\*\*\*\*\* \*\*\*\*\*\*\*\* |
 
 
-&emsp;&emsp; 其中的E是不使用的，D是多播的
-&emsp;&emsp; C类地址太多了，路由器存不下
+ 其中的E是不使用的，D是多播的
+ C类地址太多了，路由器存不下
 
 ### 现在的路由表
 - CIDR = 无类别域间路由
@@ -15870,37 +15870,37 @@ graph TB
 | 192.24.12.0/22 | B |
 
 #### 如何寻路？ 
-&emsp;&emsp; 匹配LCP(最长公共前缀),常用X快速前缀树这个数据结构，链接在这{% post_link X快速前缀树 %}, 通过最佳匹配项，找到应该走的路径即可。
+ 匹配LCP(最长公共前缀),常用X快速前缀树这个数据结构，链接在这{% post_link X快速前缀树 %}, 通过最佳匹配项，找到应该走的路径即可。
 
 #### 碰到环路
-&emsp;&emsp; 为每一个IP包设置TTL，每一次寻路就让其减少1，减少到0的时候就丢掉这个包。
+ 为每一个IP包设置TTL，每一次寻路就让其减少1，减少到0的时候就丢掉这个包。
 
 ##### Traceroute
-&emsp;&emsp; 发送TTL从1开始的包，可以用于网络检测
+ 发送TTL从1开始的包，可以用于网络检测
 
 
 #### 包太大怎么办
-&emsp;&emsp; 又的路由器low一点，只能收小包,但是到底多大的包才是最合适的？分包会增加丢包率
-&emsp;&emsp; 发现路径的最大传输单位，主机先发一个大包，路由器传输，若出错，返回最大支持的包大小。
+ 又的路由器low一点，只能收小包,但是到底多大的包才是最合适的？分包会增加丢包率
+ 发现路径的最大传输单位，主机先发一个大包，路由器传输，若出错，返回最大支持的包大小。
 
 #### ICMP
-&emsp;&emsp; 是IP的伴侣协议，提供转发时发生的错误信息，当路由器遇到错误，就发送一个ICMP给IP源地址
+ 是IP的伴侣协议，提供转发时发生的错误信息，当路由器遇到错误，就发送一个ICMP给IP源地址
 
 #### 发送拥塞信号
-&emsp;&emsp; 为包打标记，告知主机发生拥塞
+ 为包打标记，告知主机发生拥塞
 
 ### 如何获得IP地址
-&emsp;&emsp; 过去手动配置，现在使用DHCP
+ 过去手动配置，现在使用DHCP
 
 #### DHCP
-&emsp;&emsp; 向其他节点发放IP地址，提供网络前缀，提供本地路由器地址，提供DNS服务器、时间服务器等
-&emsp;&emsp; 节点只需要在网络上广播，DHCP服务器便会回应。
+ 向其他节点发放IP地址，提供网络前缀，提供本地路由器地址，提供DNS服务器、时间服务器等
+ 节点只需要在网络上广播，DHCP服务器便会回应。
 
 ### IPV6
-&emsp;&emsp; 从根本上而言，IPv6不与IPv4兼容，那我们怎么在IPv4网络中发送IPv6的包呢？我们在其包外封装一层IPv4头即可。
+ 从根本上而言，IPv6不与IPv4兼容，那我们怎么在IPv4网络中发送IPv6的包呢？我们在其包外封装一层IPv4头即可。
 
 ### NAT
-&emsp;&emsp; 本质上就是将内网地址+端口映射到外网地址+端口
+ 本质上就是将内网地址+端口映射到外网地址+端口
 
 | Internal IP:port | External IP: port| 
 |--|--|
@@ -15914,42 +15914,42 @@ graph TB
 
 ### 解决路由器环路
 #### flood 
-&emsp;&emsp; 泛洪，由一个节点开始，向四周扩散，flood包最终会发给每个其他节点，于是大家都知道了如何到达第一个节点的路径
+ 泛洪，由一个节点开始，向四周扩散，flood包最终会发给每个其他节点，于是大家都知道了如何到达第一个节点的路径
 #### 学习型交换机
-&emsp;&emsp; 当包到达，查看源ID，已经进入的端口，将其存入路由表，并设置着一项的存活时间，如果不知道要怎么走，就发给所有相邻路由器
+ 当包到达，查看源ID，已经进入的端口，将其存入路由表，并设置着一项的存活时间，如果不知道要怎么走，就发给所有相邻路由器
 
 ### 解决最短路径问题
-&emsp;&esmp;分布式bellman-ford算法，记录一个矩阵，D(X,Y,Z)代表从X到Y经过Z的最佳距离，然后跑bellman-ford算法就可以了
+&esmp;分布式bellman-ford算法，记录一个矩阵，D(X,Y,Z)代表从X到Y经过Z的最佳距离，然后跑bellman-ford算法就可以了
 
 
 ### 毒性逆转
-&emsp;&emsp; 有点复杂了，溜溜球
+ 有点复杂了，溜溜球
 
 
 ### 多径路由
-&emsp;&emsp; 保存最短路dag，转发的时候就能选择多个后继节点发送，进行负载均衡
+ 保存最短路dag，转发的时候就能选择多个后继节点发送，进行负载均衡
 
 ### 层次路由
-&emsp;&emsp; 路由到一个区域而不是单个节点，先路由到区域，然后到区域内的IP前缀
+ 路由到一个区域而不是单个节点，先路由到区域，然后到区域内的IP前缀
 
 ### 策略路由
-&emsp;&emsp; ISP为客户提供路由服务，客户为ISP付费，ISP内的客户互相路由不付费
+ ISP为客户提供路由服务，客户为ISP付费，ISP内的客户互相路由不付费
 
 ## 计算机网络6-链路层
 
 
 
 ### 帧
-&emsp;&emsp; 就是一串数字
+ 就是一串数字
 
 #### 字节计数
-&emsp;&emsp; 每一帧的第一个数字记录了这一帧的长度,很辣鸡，错位就凉凉
+ 每一帧的第一个数字记录了这一帧的长度,很辣鸡，错位就凉凉
 
 #### 字节填充
-&emsp;&emsp; 前后加上特殊flag，就像字符串的写法一样，如abc"abc就写成了"abc\"abc",这样做导致flag要转码。
+ 前后加上特殊flag，就像字符串的写法一样，如abc"abc就写成了"abc\"abc",这样做导致flag要转码。
 #### 位填充
-&emsp;&emsp; flag为6个连续的1，发送数据的时候五个连续的1后插入一个0，原理是什么?
-&emsp;&emsp; 编码？下图是一个正常的编码。他只能识别00，01，10，11
+ flag为6个连续的1，发送数据的时候五个连续的1后插入一个0，原理是什么?
+ 编码？下图是一个正常的编码。他只能识别00，01，10，11
 ```mermaid
 graph TB
 s((.))--0--> 0((.))
@@ -15959,7 +15959,7 @@ s((.))--1--> 1((.))
 0((.)) --0--> 00((00))
 0((.)) --1--> 01((01))
 ```
-&emsp;&emsp; 这样改进一下呢?（我太菜了mermaid用不好，第一层的1居然在左边)
+ 这样改进一下呢?（我太菜了mermaid用不好，第一层的1居然在左边)
 ```mermaid
 graph TB
 s((.))--0--> 0((.))
@@ -15971,24 +15971,24 @@ s((.))--1--> 1((.))
 11((.)) --0--> 110((110))
 11((.)) --1--> 111((111))
 ```
-&emsp;&emsp; 然后就能识别00，01，10，110，111,我们让111作文分割符，110表示11即可。
-&emsp;&emsp; 为了能让这个更加棒，我们可以把树的高度弄大一点。这里我就不画了。
+ 然后就能识别00，01，10，110，111,我们让111作文分割符，110表示11即可。
+ 为了能让这个更加棒，我们可以把树的高度弄大一点。这里我就不画了。
 
 ### 如何侦错
-&emsp;&emsp; 搞两个拷贝，不同即错。太low了
-&emsp;&emsp; 搞hash check sum，这个很棒
-&emsp;&emsp; internet校验和 定义函数f(x) = x>=n?f(x%n+x/n):x，n为一个二的幂， check = n-f(sum)-1, 验证： f(check+sum)=n-1，这个是显然的
-&emsp;&emsp; 循环冗余校验 这个就是使用多项式在系数膜2的剩余体系下的除法运算，将得到的模数添加到最后面用于侦错。
+ 搞两个拷贝，不同即错。太low了
+ 搞hash check sum，这个很棒
+ internet校验和 定义函数f(x) = x>=n?f(x%n+x/n):x，n为一个二的幂， check = n-f(sum)-1, 验证： f(check+sum)=n-1，这个是显然的
+ 循环冗余校验 这个就是使用多项式在系数膜2的剩余体系下的除法运算，将得到的模数添加到最后面用于侦错。
 
 ### 如何纠错
-&emsp;&emsp; 汉明码 通常使用二的幂-1对齐，如果我们放入k个检验位，则在最多出现一个错误的情况下可以保护2^k-1个位，为什么？二分！我们讲检验位放在1，2，4，8...等地方，然后使用二进制分类的方式对整个序列进行异或即可。解码的时候重新计算检验位，本质上就是在二分。得到的值位0，表示无错误，否则翻转后的位就是错误位。
-&emsp;&emsp; 卷积码。
+ 汉明码 通常使用二的幂-1对齐，如果我们放入k个检验位，则在最多出现一个错误的情况下可以保护2^k-1个位，为什么？二分！我们讲检验位放在1，2，4，8...等地方，然后使用二进制分类的方式对整个序列进行异或即可。解码的时候重新计算检验位，本质上就是在二分。得到的值位0，表示无错误，否则翻转后的位就是错误位。
+ 卷积码。
 
 ### 侦错还是纠错？
-&emsp;&emsp; 需要根据错误率来选择
+ 需要根据错误率来选择
 
 ### 多路复用
-&emsp;&emsp; 时分和频分
+ 时分和频分
 
 
 ## 计算机网络7-安全
@@ -15996,96 +15996,96 @@ s((.))--1--> 1((.))
 
 
 ### 安全
-&emsp;&emsp; 加密，有两种，对称加密和非对称加密，先用非对称加密，然后用对称加密
-&emsp;&emsp; 加密 = 正确的发送者和完整性
+ 加密，有两种，对称加密和非对称加密，先用非对称加密，然后用对称加密
+ 加密 = 正确的发送者和完整性
 
 ### RSA加密
-&emsp;&emsp; 两个大素数p,q相乘得到N，显然$$\phi(N)=\phi(p)*\phi(q)=(p-1)*(q-1)$$,找到两个数e,d满足$$ed\%\phi(N)=1$$,这里可以先随便生成一个e，然后利用exgcd算出d，显然e需要与$$\phi(N)$$互质，否则无解。
-&emsp;&emsp; 其中(e,N)为公钥，(d,N)为私钥。
-&emsp;&emsp; 证明$x^{ed}\%N=x$,如果x与N互质，显然成立，如果x与N不互质，不是一般性，假设$x=kp$， 则$$x^{ed}\%q=x\%q$$, 于是$$x^{ed}=x+tq$$,这一步很细节，都知道$$=x\%q+tq$$成立，为什么这样也成立？则$$x^{ed}\%p=(x+tq)\%p=tq\%p=0$$，即tq同时是p和q的倍数，于是$$x^{ed}\%N=(x+tq)\%N=x$$
+ 两个大素数p,q相乘得到N，显然$$\phi(N)=\phi(p)*\phi(q)=(p-1)*(q-1)$$,找到两个数e,d满足$$ed\%\phi(N)=1$$,这里可以先随便生成一个e，然后利用exgcd算出d，显然e需要与$$\phi(N)$$互质，否则无解。
+ 其中(e,N)为公钥，(d,N)为私钥。
+ 证明$x^{ed}\%N=x$,如果x与N互质，显然成立，如果x与N不互质，不是一般性，假设$x=kp$， 则$$x^{ed}\%q=x\%q$$, 于是$$x^{ed}=x+tq$$,这一步很细节，都知道$$=x\%q+tq$$成立，为什么这样也成立？则$$x^{ed}\%p=(x+tq)\%p=tq\%p=0$$，即tq同时是p和q的倍数，于是$$x^{ed}\%N=(x+tq)\%N=x$$
 
 ### 数字签名
-&emsp;&emsp; 和信息一起发送，让别人知道这条信息是自己发的，因为公钥解密后是签名
+ 和信息一起发送，让别人知道这条信息是自己发的，因为公钥解密后是签名
 
 #### 加速签名
-&emsp;&emsp; RSA性能不佳，只对摘要签名，摘要是校验和加认证加上时间戳，要不然别人拿着老消息断章取义
+ RSA性能不佳，只对摘要签名，摘要是校验和加认证加上时间戳，要不然别人拿着老消息断章取义
 
 ### 无线网安全
-&emsp;&emsp; 防监听，防蹭网
+ 防监听，防蹭网
 
 
 #### WPA2
 
 ### WEB安全
-&emsp;&emsp; 监听c/s流量，篡改c/s消息，假冒web服务器
+ 监听c/s流量，篡改c/s消息，假冒web服务器
 
 #### SSL/TLS
-&emsp;&emsp;~~浏览器通知服务器自己支持的加密协议，服务器选择协议并告诉浏览器证书，浏览器用CA的公钥鉴别证书，浏览器用公钥加密一个随机数发给服务器，服务器解密后把随机数和加密后的新的对称密钥返回给浏览器，双方开始对称加密。~~
-&emsp;&emsp; 客户端请求SSL连接，发送一个随机数和客户端支持的加密算法，
-&emsp;&emsp; 服务端回复加密算法，一个随机数，CA证书和签名，公钥
-&emsp;&emsp; 客户端验证CA证书和签名，再生成一个随机数，并用公钥加密，返回给服务端
-&emsp;&emsp; 服务端用私钥解密随机数，现在他应该知道3个随机数，用他们通过一定算法生产对称加密的密钥，然后尝试用这个给客户端发送一个消息来测试密钥
+~~浏览器通知服务器自己支持的加密协议，服务器选择协议并告诉浏览器证书，浏览器用CA的公钥鉴别证书，浏览器用公钥加密一个随机数发给服务器，服务器解密后把随机数和加密后的新的对称密钥返回给浏览器，双方开始对称加密。~~
+ 客户端请求SSL连接，发送一个随机数和客户端支持的加密算法，
+ 服务端回复加密算法，一个随机数，CA证书和签名，公钥
+ 客户端验证CA证书和签名，再生成一个随机数，并用公钥加密，返回给服务端
+ 服务端用私钥解密随机数，现在他应该知道3个随机数，用他们通过一定算法生产对称加密的密钥，然后尝试用这个给客户端发送一个消息来测试密钥
 
 ### DNS安全
-&emsp;&emsp; DNS伪装,使用加密。
+ DNS伪装,使用加密。
 
 
 ### 防火墙
-&emsp;&emsp; 防火墙对每个包，作出决策，接受或丢弃
+ 防火墙对每个包，作出决策，接受或丢弃
 #### 无状态防火墙
-&emsp;&emsp; 拒绝某些服务、端口、目标
+ 拒绝某些服务、端口、目标
 #### 有状态防火墙
-&emsp;&emsp; 允许内部主机连接后接受TCP包
+ 允许内部主机连接后接受TCP包
 #### 应用层防火墙
-&emsp;&emsp; 查看包内容，进行安全检测
+ 查看包内容，进行安全检测
 
 ### VPN
 #### 隧道
-&emsp;&emsp; IP in IP，在IP外再次封装一层IP实现虚拟链路封包
+ IP in IP，在IP外再次封装一层IP实现虚拟链路封包
 
 ### DoS
-&emsp;&emsp; 畸形包、发送TCP连接请求但不发送接下来的，
+ 畸形包、发送TCP连接请求但不发送接下来的，
 #### IP伪装
-&emsp;&emsp; 将假的源地址放到包上，ISP要干一些事情来预防这种事件
+ 将假的源地址放到包上，ISP要干一些事情来预防这种事件
 
 ## 计算机网络8-加密算法
 
 
 
 ### MD5算法和SHA1算法
-&emsp;&emsp; 这是一个哈希函数，他很复杂，取了很多奇怪的数字，然后对数据分段，然后疯狂的加减和各种位运算，这导致了他不可逆
+ 这是一个哈希函数，他很复杂，取了很多奇怪的数字，然后对数据分段，然后疯狂的加减和各种位运算，这导致了他不可逆
 
 ### CRC算法
-&emsp;&emsp; 把数据看为一个二进制串，进而把每一位看作系数，于是成了一个多项式f(x)，让这个多项式乘以$x^k$,然后模上g(x),得到余数h(x), 我们传输的时候传输$F(x)=f(x)*x^k+h(x)$,验证的时候F(x)模g(x)为0即可
+ 把数据看为一个二进制串，进而把每一位看作系数，于是成了一个多项式f(x)，让这个多项式乘以$x^k$,然后模上g(x),得到余数h(x), 我们传输的时候传输$F(x)=f(x)*x^k+h(x)$,验证的时候F(x)模g(x)为0即可
 
 ### 置换
-&emsp;&emsp; 这个东西嘿嘿嘿，不是这篇博客的重点，了解一小下叫置换群：）
-&emsp;&emsp; 只要知道置换是可逆的就行了
+ 这个东西嘿嘿嘿，不是这篇博客的重点，了解一小下叫置换群：）
+ 只要知道置换是可逆的就行了
 
 ### AES算法
-&emsp;&emsp; 把明文分组，每组128位即16字节
-&emsp;&emsp; 先把一维的message做成一个二维的列优先矩阵[4\*4], 然后进行很多轮下述操作
+ 把明文分组，每组128位即16字节
+ 先把一维的message做成一个二维的列优先矩阵[4\*4], 然后进行很多轮下述操作
 - 字节置换， 把矩阵的每一个元素查表替换为另一个元素
 - 行位移， 第一行不变，第二行向右移动一个单位，第三行移动两个，以此类推
 - 列混淆，在模群下，让自己乘上一个矩阵A(确保A存在逆元)， 
 - 轮密钥加，就是异或另一个矩阵B即可
-&emsp;&emsp; 不难发现第四步可以再次异或B复原，第三步可以乘上A的逆复原，第二步可以向左移位复原，第一步可以查表复原，第
+ 不难发现第四步可以再次异或B复原，第三步可以乘上A的逆复原，第二步可以向左移位复原，第一步可以查表复原，第
 
 ### DES算法
-&emsp;&emsp; 把明文分组，每组64位即8字节
+ 把明文分组，每组64位即8字节
 - 初始置换， 通过查表的方式，把每一位上的元素替换为另一个位上的元素
 - 加密处理，共16轮，先把64位的数据拆为两个32位的数据L和R，$L_i=R_{i-1},R_i=L_{i-1}^f(R_{i-1],k_{n-1}})$ k是一个密钥
 - 函数f 第一步，密钥置换 ， 用64位的密钥生成16个48位的子密钥，每一轮使用不同的子密钥，使用循环左移生成
 - 函数f 第二步，拓展置换 ， 讲32位的R改变位的次序并重复某些位，拓展为48位，
 - 函数f 第三步，S盒替换 ， 把48位的R分割为8个6位的小段，对每一个段使用S盒来替换，输出是4位，故而最终R又从48位变成了32位，
 - 函数f 第四步，P盒置换 , 把32位的R再次和初始置换类似的方法置换即可
-&emsp;&emsp; 解密一样的啦
+ 解密一样的啦
 
 ### RSA算法
-&emsp;&emsp; 基于大合数难以分解的原理，达到难以破解，基于模群的性质达到加密和解密
+ 基于大合数难以分解的原理，达到难以破解，基于模群的性质达到加密和解密
 
 ### ECC算法
-&emsp;&emsp; 一个基于圆锥曲线的算法，非对称加密算法
+ 一个基于圆锥曲线的算法，非对称加密算法
 
 
 ## 计算机网络9-HPACK压缩算法
@@ -16142,14 +16142,14 @@ graph TB;
 
 
 ### 操作系统是什么
-&emsp;&emsp; 是一个控制软件，能管理应用程序，为应用程序提供服务，杀死应用程序，能够分配资源，能够管理外部设备，承上启下，硬件之上，应用程序之下，
+ 是一个控制软件，能管理应用程序，为应用程序提供服务，杀死应用程序，能够分配资源，能够管理外部设备，承上启下，硬件之上，应用程序之下，
 ### Kernel
-&emsp;&emsp; CPU调度,物理内存管理，虚拟内存管理，文件系统管理，中断处理和设备驱动
+ CPU调度,物理内存管理，虚拟内存管理，文件系统管理，中断处理和设备驱动
 ### Kernel特征
-&emsp;&emsp; 并发，共享(1在一个时间点，只有一个程序能够访问2同时访问)，虚拟（利用多到程序设计技术，让每个用户都觉得有一个计算机为他服务），异步(程序走走停停，而不是一直走)
+ 并发，共享(1在一个时间点，只有一个程序能够访问2同时访问)，虚拟（利用多到程序设计技术，让每个用户都觉得有一个计算机为他服务），异步(程序走走停停，而不是一直走)
 <!-- more -->
 ### 操作系统实例
-&emsp;&emsp; Unix,Linux,Windows等
+ Unix,Linux,Windows等
 
 
 
@@ -16161,27 +16161,27 @@ graph TB;
 
 
 ### 操作系统的启动
-&emsp;&emsp; DISK中放操作系统，BIOS是基本的IO系统，检测外设，Bootloader能够加载OS，BIOS从CS段寄存器;IP指令寄存器开始执行，然后BIOS会POST(加电自检)，然后BIOS找到bootloader加载Bootloader，并传递控制权,然后Bootloader找到OS，读到内存吧控制权交给OS
+ DISK中放操作系统，BIOS是基本的IO系统，检测外设，Bootloader能够加载OS，BIOS从CS段寄存器;IP指令寄存器开始执行，然后BIOS会POST(加电自检)，然后BIOS找到bootloader加载Bootloader，并传递控制权,然后Bootloader找到OS，读到内存吧控制权交给OS
 ### 操作系统的中断、系统调用、异常
-&emsp;&emsp; 系统调用是应用程序主动想操作系统发出服务请求，
-&emsp;&emsp; 异常是来源于不良的应用程序的非法指令
-&emsp;&emsp; 中断是来自不同硬件设备到额计时器和网络的中断
-&emsp;&emsp; 我们不能让应用程序直接访问外设，这不安全，另外OS可以提供更好的借口，通用可移植
+ 系统调用是应用程序主动想操作系统发出服务请求，
+ 异常是来源于不良的应用程序的非法指令
+ 中断是来自不同硬件设备到额计时器和网络的中断
+ 我们不能让应用程序直接访问外设，这不安全，另外OS可以提供更好的借口，通用可移植
 ### 中断处理
-&emsp;&emsp; 保存现场、查表、中断处理、清楚中断标志、恢复现场
+ 保存现场、查表、中断处理、清楚中断标志、恢复现场
 <!-- more -->
 ### 异常处理
-&emsp;&emsp; 保存现场、查表、异常处理(杀死程序或者重新执行异常指令)、恢复现场
+ 保存现场、查表、异常处理(杀死程序或者重新执行异常指令)、恢复现场
 ### 系统调用
-&emsp;&emsp; printf(..); 会触发系统调用write(); 程序主要是用高层次API而不是系统调用，用户是不知道系统调用怎么实现的。
+ printf(..); 会触发系统调用write(); 程序主要是用高层次API而不是系统调用，用户是不知道系统调用怎么实现的。
 ### 用户态
-&emsp;&emsp; 是一个cpu状态，有一部分权限
+ 是一个cpu状态，有一部分权限
 ### 内核态
-&emsp;&emsp; 有更多权限
+ 有更多权限
 ### 系统调用
-&emsp;&emsp; 会发生用户态到内核态的转化
+ 会发生用户态到内核态的转化
 ### 操作系统的开销
-&emsp;&emsp; 建立中断、异常、系统调用号与相印服务的开销，建立内核堆栈的开销，验证用户程序发出的参数的开销，内核态映射用户态的时候页面映射权限更新的开销，TLB的开销
+ 建立中断、异常、系统调用号与相印服务的开销，建立内核堆栈的开销，验证用户程序发出的参数的开销，内核态映射用户态的时候页面映射权限更新的开销，TLB的开销
 
 
 
@@ -16194,42 +16194,42 @@ graph TB;
 
 
 ### CPU内存
-&emsp;&emsp; CPU-L1cache-L2cache-memery-disk
+ CPU-L1cache-L2cache-memery-disk
 ### 逻辑地址空间
-&emsp;&emsp; 抽象、隔离、保护、共享、虚拟化(临时放入disk)
+ 抽象、隔离、保护、共享、虚拟化(临时放入disk)
 ### 内存管理
-&emsp;&emsp; 程序重定向，分段，分页，虚拟内存，按需分叶虚拟内存
+ 程序重定向，分段，分页，虚拟内存，按需分叶虚拟内存
 ### 地址空间和地址生成
-&emsp;&emsp; C程序用变量表示地址，汇编还是用符号，机器码就开始使用逻辑地址了，CPU的MMU中有一段区域来映射逻辑地址到物理地址
+ C程序用变量表示地址，汇编还是用符号，机器码就开始使用逻辑地址了，CPU的MMU中有一段区域来映射逻辑地址到物理地址
 ### 约束程序的内存
-&emsp;&emsp; 程序只可以访问他自己的内存，当他访问其他地方的时候，操作系统应该使用安全检测
+ 程序只可以访问他自己的内存，当他访问其他地方的时候，操作系统应该使用安全检测
 ### 内存碎片
-&emsp;&emsp; 外部碎片，是分配单元之间的内存碎片
-&emsp;&emsp; 内部碎片，已经分配给了应用程序，但是应用程序没法使用它
+ 外部碎片，是分配单元之间的内存碎片
+ 内部碎片，已经分配给了应用程序，但是应用程序没法使用它
 ### 连续内存分配
-&emsp;&emsp; 程序启动的时候要分配，运行的时候要分配
+ 程序启动的时候要分配，运行的时候要分配
 <!-- more -->
 ### 第一匹配分配算法
-&emsp;&emsp; 一个一个找，第一个碰到的合法的就分出去，
-&emsp;&emsp; 需要按地址排序，分配的时候需要寻找合适的分区，还有看自由分区能否与相邻空闲分区合并
-&emsp;&emsp; 简单，容易产生更大的空闲块，
-&emsp;&emsp;容易产生外碎片
+ 一个一个找，第一个碰到的合法的就分出去，
+ 需要按地址排序，分配的时候需要寻找合适的分区，还有看自由分区能否与相邻空闲分区合并
+ 简单，容易产生更大的空闲块，
+容易产生外碎片
 ### 最优分配算法
-&emsp;&emsp; 找差值最小的分区，分过去
-&emsp;&emsp; 按尺寸排序，分配需要查找，也要合并相邻空闲分区
-&emsp;&emsp; 避免分割大空间块，当大部分分配的是小尺寸的时候非常有效，
-&emsp;&emsp; 容易产生外部碎片，合并空闲分区慢，容易产生大量微小碎片
+ 找差值最小的分区，分过去
+ 按尺寸排序，分配需要查找，也要合并相邻空闲分区
+ 避免分割大空间块，当大部分分配的是小尺寸的时候非常有效，
+ 容易产生外部碎片，合并空闲分区慢，容易产生大量微小碎片
 ### 最差匹配分配
-&emsp;&emsp; 找最大的分区分过去
-&emsp;&emsp; 按尺寸排序，分配快，也要合并
-&emsp;&emsp; 分配中等尺寸有效
-&emsp;&emsp; 合并慢，外部碎片，破碎空间没有大空间了
+ 找最大的分区分过去
+ 按尺寸排序，分配快，也要合并
+ 分配中等尺寸有效
+ 合并慢，外部碎片，破碎空间没有大空间了
 ### 压缩式碎片整理
-&emsp;&emsp; 挪动已经分配过的空间，
-&emsp;&emsp; 什么时候挪动？销量？
+ 挪动已经分配过的空间，
+ 什么时候挪动？销量？
 ### 交换式碎片整理
-&emsp;&emsp; 和硬盘交换，使用虚拟内存的方法。
-&emsp;&emsp; 把哪个换出去？什么时候换？
+ 和硬盘交换，使用虚拟内存的方法。
+ 把哪个换出去？什么时候换？
 
 
 
@@ -16242,28 +16242,28 @@ graph TB;
 
 
 ### 非连续内存分配
-&emsp;&emsp;优点: 一个程序的物理空间是非连续的，更好的内存利用，允许共享代码与数据(共享库等),支持动态加载和动态链接
+优点: 一个程序的物理空间是非连续的，更好的内存利用，允许共享代码与数据(共享库等),支持动态加载和动态链接
 ### 分段机制
-&emsp;&emsp; 程序等栈段、堆段、数据段、等等分散到多个物理空间，
+ 程序等栈段、堆段、数据段、等等分散到多个物理空间，
 ### 硬件堆分段寻址方案
-&emsp;&emsp; 段号+偏移量，高位为段号，低位为偏移量，用段表来映射，段表中存了起始地址和长度信息，CPU可以在访问前做安全检测，
+ 段号+偏移量，高位为段号，低位为偏移量，用段表来映射，段表中存了起始地址和长度信息，CPU可以在访问前做安全检测，
 ### 分页机制
-&emsp;&emsp; 让段的长度固定，就成了分页机制。
+ 让段的长度固定，就成了分页机制。
 ### 页帧
-&emsp;&emsp; 物理内存被分割为大小相等的帧
+ 物理内存被分割为大小相等的帧
 ### 页表
-&emsp;&emsp; dirtybit+residentbit+clockbit+页帧号
+ dirtybit+residentbit+clockbit+页帧号
 ### 分页机制的性能
-&emsp;&emsp; 访问一个内存单元需要两次访问： 页表+数据
-&emsp;&emsp;  页表太大怎么办，多个程序多个页表，更大了，这个不能放到cpu，放到内存又会很慢
+ 访问一个内存单元需要两次访问： 页表+数据
+  页表太大怎么办，多个程序多个页表，更大了，这个不能放到cpu，放到内存又会很慢
 
 <!-- more -->
 ### TLB快表
-&emsp;&emsp; 本质上是页表的缓存，容量有限，速度快
+ 本质上是页表的缓存，容量有限，速度快
 ### 多级页表
-&emsp;&emsp; 多了一次查找，但是空间占用更加低了，就像一个字典树一样，当然省空间
+ 多了一次查找，但是空间占用更加低了，就像一个字典树一样，当然省空间
 ### 反向页表
-&emsp;&emsp; 那么页表项的数量就只和物理内存大小有关了，和虚拟大小无关了，但是查找就很慢了，第一张方法是使用关联内存，并行查找，但是这个东西的设计成本太高了，第二种方法是Hash查找，用硬件加速，
+ 那么页表项的数量就只和物理内存大小有关了，和虚拟大小无关了，但是查找就很慢了，第一张方法是使用关联内存，并行查找，但是这个东西的设计成本太高了，第二种方法是Hash查找，用硬件加速，
 
 
 
@@ -16278,20 +16278,20 @@ graph TB;
 
 ### 虚拟内存
 ### 覆盖技术
-&emsp;&emsp; 把一些不会相互调用的函数分配到相同的地址空间，当需要调用的时候覆盖内存就可以了。
-&emsp;&emsp; 需要程序员来设计，费时费力，模块的覆盖是时间换空间
+ 把一些不会相互调用的函数分配到相同的地址空间，当需要调用的时候覆盖内存就可以了。
+ 需要程序员来设计，费时费力，模块的覆盖是时间换空间
 ### 交换技术
-&emsp;&emsp; 让暂时不运行的程序交换到磁盘中，当使用的时候换回内存。
-&emsp;&emsp; 只在内存不够的时候交换，磁盘的交换区的空间必须足够大，换出然后换入的时候物理内存不一定一样了，但是我们可以用虚地址解决这个问题。
+ 让暂时不运行的程序交换到磁盘中，当使用的时候换回内存。
+ 只在内存不够的时候交换，磁盘的交换区的空间必须足够大，换出然后换入的时候物理内存不一定一样了，但是我们可以用虚地址解决这个问题。
 ### 虚存技术
-&emsp;&emsp; 像覆盖技术一样不把程序所有的内容都放入内存，想交换技术那样，只对进程的部分内容进行交换，
+ 像覆盖技术一样不把程序所有的内容都放入内存，想交换技术那样，只对进程的部分内容进行交换，
 <!-- more -->
 ### 虚存技术的页表项
-&emsp;&emsp; 逻辑页号+访问位+修改位+保护位+驻留位+物理页号
-&emsp;&emsp; 驻留位表示页面是否在内存中，保护位表示权限，修改位表示这个页是否被写过用于支持内存硬盘的一致性，访问位表示这个页面最近是否被访问过
-&emsp;&emsp; 如果我们发现驻留位为0，则触发缺页中断，操作系统把页面读入，然后修改页表，最后跳回发生缺页中断的位置继续执行
+ 逻辑页号+访问位+修改位+保护位+驻留位+物理页号
+ 驻留位表示页面是否在内存中，保护位表示权限，修改位表示这个页是否被写过用于支持内存硬盘的一致性，访问位表示这个页面最近是否被访问过
+ 如果我们发现驻留位为0，则触发缺页中断，操作系统把页面读入，然后修改页表，最后跳回发生缺页中断的位置继续执行
 ### 后备存储
-&emsp;&emsp; 可以映射到已有的二进制文件中，可以映射到同台调用的库文件中，
+ 可以映射到已有的二进制文件中，可以映射到同台调用的库文件中，
 
 
 
@@ -16305,36 +16305,36 @@ graph TB;
 
 
 ### 页面置换算法
-&emsp;&emsp; 当缺页中断发生的时候，需要做交换，我们需要尽量减少交换的次数。
+ 当缺页中断发生的时候，需要做交换，我们需要尽量减少交换的次数。
 ### 最优页面置换算法
-&emsp;&emsp; 将等待下一层的访问时间最长的那个页面置换出去，这个算法不可能实现，但是可作为评价其他算法的标准
+ 将等待下一层的访问时间最长的那个页面置换出去，这个算法不可能实现，但是可作为评价其他算法的标准
 ### 先进先出页面置换算法
-&emsp;&emsp; 维护一个队列，FIFO即可
-&emsp;&emsp; 性能很差，被调出的页面可能是要经常访问的页面
+ 维护一个队列，FIFO即可
+ 性能很差，被调出的页面可能是要经常访问的页面
 ### 最近最久未使用算法 LRU
-&emsp;&emsp; 这个算法基于空间局部性
-&emsp;&emsp; 维护一个页面链表，将刚刚使用过的页面作为首节点，那么缺页中断的时候淘汰链表尾部即可
+ 这个算法基于空间局部性
+ 维护一个页面链表，将刚刚使用过的页面作为首节点，那么缺页中断的时候淘汰链表尾部即可
 <!-- more -->
 ### 时钟页面置换算法
-&emsp;&emsp; 让页表组织成一个环形链表，把指针指向最老的页面，当发生缺页中断的时候，从老页面开始扫描，对碰到的访问位为0的页表置换出去，如果都是1以后，把他们清0
+ 让页表组织成一个环形链表，把指针指向最老的页面，当发生缺页中断的时候，从老页面开始扫描，对碰到的访问位为0的页表置换出去，如果都是1以后，把他们清0
 ### 二次机会法
-&emsp;&emsp; 同时利用修改位和访问位来指导置换，当访问位位0修改位为1的时候，将它保留下来，并把修改位改为0，这里改为0以后还要写回内存。给这个页面第二次机会。
+ 同时利用修改位和访问位来指导置换，当访问位位0修改位为1的时候，将它保留下来，并把修改位改为0，这里改为0以后还要写回内存。给这个页面第二次机会。
 ### 最不常用法 LFU
-&emsp;&emsp; 淘汰掉访问次数最少的那个，对每个页面都增加一个访问计数器，当访问后计数器+1，注意到这个算法新页很吃亏，我们尝试定期将计数器除以2，又是ADMI和式增加积式减少的手段。
+ 淘汰掉访问次数最少的那个，对每个页面都增加一个访问计数器，当访问后计数器+1，注意到这个算法新页很吃亏，我们尝试定期将计数器除以2，又是ADMI和式增加积式减少的手段。
 ### Belady现象
-&emsp;&emsp; 在FIFO算法中，会出现分配物理页面数增加缺页率反而提高的异常现象。
+ 在FIFO算法中，会出现分配物理页面数增加缺页率反而提高的异常现象。
 ### 工作集替换算法
-&emsp;&emsp; 工作集大小 单位时间内访问的页面总类，
-&emsp;&emsp; 将不再工作集中的页面换走
+ 工作集大小 单位时间内访问的页面总类，
+ 将不再工作集中的页面换走
 ### 缺页率页面置换算法
-&emsp;&emsp; 缺页率: 缺页次数除以内存访问次数
-&emsp;&emsp; 基于缺页率来动态调整常驻集的大小
-&emsp;&emsp; 常驻集大小 当前实际驻内存的页面种类，
+ 缺页率: 缺页次数除以内存访问次数
+ 基于缺页率来动态调整常驻集的大小
+ 常驻集大小 当前实际驻内存的页面种类，
 ### 抖动问题
-&emsp;&emsp; 随着驻留内存的进程数目不断增加，分配给每个进程的物理页面数不断减少，缺页率上升，造成频繁的替换，这就是抖动
+ 随着驻留内存的进程数目不断增加，分配给每个进程的物理页面数不断减少，缺页率上升，造成频繁的替换，这就是抖动
 ### 量化抖动
-&emsp;&emsp; 缺页频度： 两次缺页的平均间隔时间，
-&emsp;&emsp; 工作集大小
+ 缺页频度： 两次缺页的平均间隔时间，
+ 工作集大小
 
 
 
@@ -16351,34 +16351,34 @@ graph TB;
 
 ### 进程管理
 ### 进程的组成
-&emsp;&emsp; 代码+数据+程序计数器中的值，堆和栈，一组资源(打开的文件)
+ 代码+数据+程序计数器中的值，堆和栈，一组资源(打开的文件)
 ### 进程的特点
-&emsp;&emsp; 动态创建，并发或者并行，独立(执行的正确性不受其他进程影响)
+ 动态创建，并发或者并行，独立(执行的正确性不受其他进程影响)
 ### 进程控制块(PCB)
-&emsp;&emsp; 操作系统为每个进程维护了一个进程控制块，用来保存与该进程有关的各种状态信息。是进程存在的唯一标示。
-&emsp;&emsp; 包含了进程标识信息(父进程，用户标识)， 处理器状态信息保存区(用户可见寄存器，PC寄存器，程序状态字，栈指针)， 进程控制信息(调度和状态信息、进程键通讯信息，储存管理信息，进程所用资源信息，数据结构连接信息)
-&emsp;&emsp; PCB的组织方式： 链表或者索引表
+ 操作系统为每个进程维护了一个进程控制块，用来保存与该进程有关的各种状态信息。是进程存在的唯一标示。
+ 包含了进程标识信息(父进程，用户标识)， 处理器状态信息保存区(用户可见寄存器，PC寄存器，程序状态字，栈指针)， 进程控制信息(调度和状态信息、进程键通讯信息，储存管理信息，进程所用资源信息，数据结构连接信息)
+ PCB的组织方式： 链表或者索引表
 ### 进程的创建的时机
-&emsp;&emsp; 系统初始化, 用户的请求，进程的请求
+ 系统初始化, 用户的请求，进程的请求
 <!-- more -->
 ### 进程的运行
-&emsp;&emsp; 由操作系统调度执行
+ 由操作系统调度执行
 ### 进程的等待
-&emsp;&emsp; 请求并等待系统服务，启动某种操作，需要的数据没有到达
+ 请求并等待系统服务，启动某种操作，需要的数据没有到达
 ### 进程的唤醒
-&emsp;&emsp; 被阻塞的进程需要的资源得到满足，等待的事件到达，PCB被插入到就绪队列。
+ 被阻塞的进程需要的资源得到满足，等待的事件到达，PCB被插入到就绪队列。
 ### 进程的退出
-&emsp;&emsp; 正常退出、错误退出、致命错误导致被强制退出，被其他进程杀掉
+ 正常退出、错误退出、致命错误导致被强制退出，被其他进程杀掉
 ### 进程的状态
-&emsp;&emsp; 运行 就绪 阻塞
+ 运行 就绪 阻塞
 ### 进程挂起
-&emsp;&emsp; 当进程被刮起的时候，他将没有占用内存空间,阻塞、就绪、运行都可能被挂起。
+ 当进程被刮起的时候，他将没有占用内存空间,阻塞、就绪、运行都可能被挂起。
 ### 阻塞挂起
-&emsp;&emsp; 进程在外存并等待某事件的出现
+ 进程在外存并等待某事件的出现
 ### 就绪挂起
-&emsp;&emsp; 进程在外存，只要进入内存就可以运行。
+ 进程在外存，只要进入内存就可以运行。
 ### 状态队列
-&emsp;&emsp; 不同的状态分别用不同的队列维护
+ 不同的状态分别用不同的队列维护
 
 
 
@@ -16392,44 +16392,44 @@ graph TB;
 
 ### 线程管理
 ### 线程控制块 TCB
-&emsp;&emsp; 类似PCB
+ 类似PCB
 ### 线程优点
-&emsp;&emsp; 一个进程可以同时存在多个线程，各个线程之间可以并发执行，各个线程之间可以恭喜那个地址空间和文件资源。
+ 一个进程可以同时存在多个线程，各个线程之间可以并发执行，各个线程之间可以恭喜那个地址空间和文件资源。
 ### 线程缺点
-&emsp;&emsp; 一个线程崩溃会导致所属进程的所有线程崩溃。
+ 一个线程崩溃会导致所属进程的所有线程崩溃。
 ### 进程与线程
-&emsp;&emsp; 进程是资源分配单位，线程是CPU调度单位
-&emsp;&emsp;  进程拥有完整的资源平台，线程只独享其中的寄存器和栈
-&emsp;&emsp;  线程也有就绪阻塞执行三种状态和状态转化关系
-&emsp;&emsp; 线程能减少并发执行的时间和空间开销,线程创建终止块，切换快，共享资源可直接进行不依赖内核通信。
+ 进程是资源分配单位，线程是CPU调度单位
+  进程拥有完整的资源平台，线程只独享其中的寄存器和栈
+  线程也有就绪阻塞执行三种状态和状态转化关系
+ 线程能减少并发执行的时间和空间开销,线程创建终止块，切换快，共享资源可直接进行不依赖内核通信。
 ### 用户线程和内核线程
-&emsp;&emsp; 用户线程操作系统看不到，内核线程操作系统看得到
+ 用户线程操作系统看不到，内核线程操作系统看得到
 ### 用户线程
-&emsp;&emsp; 线程的创建终止同步和调度都是线程库实现的。TCB在进程内部
+ 线程的创建终止同步和调度都是线程库实现的。TCB在进程内部
 ### 用户线程的缺点
-&emsp;&emsp; 当一个线程阻塞以后，整个进程都阻塞了，因为操作系统看不到用户心线程，只能看到进程。
+ 当一个线程阻塞以后，整个进程都阻塞了，因为操作系统看不到用户心线程，只能看到进程。
 <!-- more -->
 ### 内核线程
-&emsp;&emsp; 内核线程是操作系统看得到的，他的TCB在和PCB放在一起
-&emsp;&emsp; 内核线程的创建终止等都是通过系统调用或内核函数的方式来进行，有内核完成，开销较大，如果内核线程阻塞了，不会影响其他内核线程。时间片分给线程，多线程的进程可以获得更多的CPU时间。
+ 内核线程是操作系统看得到的，他的TCB在和PCB放在一起
+ 内核线程的创建终止等都是通过系统调用或内核函数的方式来进行，有内核完成，开销较大，如果内核线程阻塞了，不会影响其他内核线程。时间片分给线程，多线程的进程可以获得更多的CPU时间。
 ### 轻量级进程
-&emsp;&emsp; 一个进程可以有多个轻量级进程，每个轻量级进程由一个单独的内核线程来支持。
+ 一个进程可以有多个轻量级进程，每个轻量级进程由一个单独的内核线程来支持。
 ### 上下文切换
-&emsp;&emsp; 把进程的资源的上下文(CPU状态)放入PCB中，然后才能安全的调度
+ 把进程的资源的上下文(CPU状态)放入PCB中，然后才能安全的调度
 ### exec()
-&emsp;&emsp; 加载程序取代当前进程。
+ 加载程序取代当前进程。
 ### fork()
-&emsp;&emsp; 完全拷贝一份进程，pid不同, 99%的情况，fork()后马上exec()
+ 完全拷贝一份进程，pid不同, 99%的情况，fork()后马上exec()
 ### vfork()
-&emsp;&emsp; 轻量级fork，不创建内存映像，然后调用用exec的时候就比fork+exec快多了。
+ 轻量级fork，不创建内存映像，然后调用用exec的时候就比fork+exec快多了。
 ### cow技术 copy on write
-&emsp;&emsp; 当fork的时候不拷贝内存，只有当写的时候才拷贝内存
+ 当fork的时候不拷贝内存，只有当写的时候才拷贝内存
 ### wait()
-&emsp;&emsp;常常父进程需要等待子进程结束。wait()等待子进程的exit()的返回值，然后回收子进程的PCB。
+常常父进程需要等待子进程结束。wait()等待子进程的exit()的返回值，然后回收子进程的PCB。
 ### exit()
-&emsp;&emsp; 当子进程exit,但是父进程没有做完wait的时候，他就成了僵尸态。
+ 当子进程exit,但是父进程没有做完wait的时候，他就成了僵尸态。
 ### 父进程比子进程先死掉怎么办
-&emsp;&emsp; root进程会在定期扫描进程，寻找僵尸态进程,并终结他们。
+ root进程会在定期扫描进程，寻找僵尸态进程,并终结他们。
 
 
 
@@ -16442,39 +16442,39 @@ graph TB;
 
 ### CPU调度
 ### 调度指标
-&emsp;&emsp; CPU使用率(CPU忙状态所占的时间比例)，吞吐量(单位时间内完成的进程数量)，周转时间(一个进程从初始化到结束，花费的所有时间), 等待时间(进程在就绪队列中等待的总时间)， 响应时间(一个请求从提交到产生相应所花费的时间)
+ CPU使用率(CPU忙状态所占的时间比例)，吞吐量(单位时间内完成的进程数量)，周转时间(一个进程从初始化到结束，花费的所有时间), 等待时间(进程在就绪队列中等待的总时间)， 响应时间(一个请求从提交到产生相应所花费的时间)
 ### FCFS 
-&emsp;&emsp; first come first served
-&emsp;&emsp; 先来先服务
+ first come first served
+ 先来先服务
 ### SPN
-&emsp;&emsp; Shortest Process Next
-&emsp;&emsp; 短进程优先 （抢占或者不抢占）
-&emsp;&emsp; 导致长任务饥饿
+ Shortest Process Next
+ 短进程优先 （抢占或者不抢占）
+ 导致长任务饥饿
 ### HRRN
-&emsp;&emsp; Highest Response Ratio Next
-&emsp;&emsp; 最高响应比优先，等待时间/执行时间
-&emsp;&emsp; 不可抢占，关注等待，防止无期限推迟。
+ Highest Response Ratio Next
+ 最高响应比优先，等待时间/执行时间
+ 不可抢占，关注等待，防止无期限推迟。
 <!-- more -->
 ### Round Robin
-&emsp;&emsp; 时间片轮循
-&emsp;&emsp; 时间片太长导致退化为FCFS，太短导致吞吐量受影响
+ 时间片轮循
+ 时间片太长导致退化为FCFS，太短导致吞吐量受影响
 ### Multilevel Feedback Queue
-&emsp;&emsp; 优先级队列中的轮循，把所有就绪进程分为不同的级别队列，分为交互性和后台，每个队列有自己的调度方法，一个进程可以在不同队列中移动，时间片大小随优先级增加而减少，如果一个认为在当前时间片没有完成，则降级,获得更多的时间片
+ 优先级队列中的轮循，把所有就绪进程分为不同的级别队列，分为交互性和后台，每个队列有自己的调度方法，一个进程可以在不同队列中移动，时间片大小随优先级增加而减少，如果一个认为在当前时间片没有完成，则降级,获得更多的时间片
 ### Fair Share Scheduling
-&emsp;&emsp; 公平共享调度
+ 公平共享调度
 ### 实时调度
-&emsp;&emsp; 强实时系统，保证在时间内完成，
-&emsp;&emsp; 弱实时系统，尽量在时间内完成，
+ 强实时系统，保证在时间内完成，
+ 弱实时系统，尽量在时间内完成，
 ### 静态优先级调度
-&emsp;&emsp; 在任务前就确定了优先级,如RM(Rate Monotonic)速率单调调度，周期越短优先级越高
+ 在任务前就确定了优先级,如RM(Rate Monotonic)速率单调调度，周期越短优先级越高
 ### 动态优先级调度
-&emsp;&emsp; 在运行期间确定优先级，EDF(Earliest Deadline First)最早期限调度，Dealine越早就越先调度。
+ 在运行期间确定优先级，EDF(Earliest Deadline First)最早期限调度，Dealine越早就越先调度。
 ### 多处理器调度
-&emsp;&emsp; 主要考虑负载均衡，
+ 主要考虑负载均衡，
 ### 优先级反转
-&emsp;&emsp; 先给3个任务，T1&gt;T2&gt;T3, 如果T3先出现，则调度T3，T3访问了一个共享资源，后来T1来了，T1优先级最高，所以抢占，但是共享资源被T3锁住了，于是阻塞，T1开始执行，但是这时候T2横插一手，导致T1有不能执行，最终导致T1不能正常完成，
-&emsp;&emsp; 我们应该设计优先级继承，即当T1在等待T3执行完成的时候，将T3的优先级提升到和T1一样，让T2插不进来，才能保证T3的完成，进而释放资源好让T1完成。
-&emsp;&emsp; 这个方法又叫优先级天花板
+ 先给3个任务，T1&gt;T2&gt;T3, 如果T3先出现，则调度T3，T3访问了一个共享资源，后来T1来了，T1优先级最高，所以抢占，但是共享资源被T3锁住了，于是阻塞，T1开始执行，但是这时候T2横插一手，导致T1有不能执行，最终导致T1不能正常完成，
+ 我们应该设计优先级继承，即当T1在等待T3执行完成的时候，将T3的优先级提升到和T1一样，让T2插不进来，才能保证T3的完成，进而释放资源好让T1完成。
+ 这个方法又叫优先级天花板
 
 
 
@@ -16485,8 +16485,8 @@ graph TB;
 [n个进程互斥，留坑](https://www.bilibili.com/video/BV1js411b7vg?p=61)
 
 ### 禁用中断
-&emsp;&emsp; 进入临界区以后禁用中断，离开临界区以后开启中断
-&emsp;&emsp; 一但禁用了中断，整个系统都停止，可能导致饥饿，要是临界区有个死循环就完蛋，多个CPU无法解决问题。
+ 进入临界区以后禁用中断，离开临界区以后开启中断
+ 一但禁用了中断，整个系统都停止，可能导致饥饿，要是临界区有个死循环就完蛋，多个CPU无法解决问题。
 
 <!-- more -->
 
@@ -16516,11 +16516,11 @@ do{
 ```
 
 #### n个进程的互斥
-&emsp;&emsp; Bakery算法， 进入临界区以前，进程接受一个数字，得到最小数字的进入临界区，如果数字相同，id小的进去
+ Bakery算法， 进入临界区以前，进程接受一个数字，得到最小数字的进入临界区，如果数字相同，id小的进去
 
 ### 基于硬件解决
-&emsp;&emsp; 优点: 简单，适用于多CPU中任意数量的进程，支持多临界区，开销小
-&emsp;&emsp; 可能发生饥饿，可能死锁，如果低优先级进程拥有锁，高优先级进程拥有CPU，还在忙等待，就死锁了
+ 优点: 简单，适用于多CPU中任意数量的进程，支持多临界区，开销小
+ 可能发生饥饿，可能死锁，如果低优先级进程拥有锁，高优先级进程拥有CPU，还在忙等待，就死锁了
 #### Test and Set
 ```cpp
 bool testAndSet(bool*p){ 
@@ -16547,7 +16547,7 @@ void swap(bool *a,bool*b){
 
 
 ### 信号量
-&emsp;&emsp; 就是一个整型加上一个队列
+ 就是一个整型加上一个队列
 ```cpp
 class Semaphore{
   int sem;
@@ -16556,7 +16556,7 @@ class Semaphore{
 ```
 
 ### P操作
-&emsp;&emsp; 让信号量减少1，如果&lt;0，把自己挂起
+ 让信号量减少1，如果&lt;0，把自己挂起
 ```cpp
 // 有原子性
 P(){
@@ -16571,7 +16571,7 @@ P(){
 <!-- more -->
 
 ### V操作
-&emsp;&emsp; 让信号量加1，如果&le;0，唤醒挂起的一个线程
+ 让信号量加1，如果&le;0，唤醒挂起的一个线程
 ```cpp
 // 有原子性
 V(){
@@ -16584,18 +16584,18 @@ V(){
 ```
 
 ### 简单的同步
-&emsp;&emsp; 这是A的代码
+ 这是A的代码
 ```cpp
 do a1
 do a2
 ```
-&emsp;&emsp; 这是B的代码
+ 这是B的代码
 ```cpp
 do b1
 do b2
 ```
-&emsp;&emsp;我们需要保证a2在b1之后执行，应该怎么办？
-&emsp;&emsp; 我们可以让信号量设为0，如果A先执行完a1，则P()导致阻塞，当B执行完b1以后，A被唤醒，代码如下
+我们需要保证a2在b1之后执行，应该怎么办？
+ 我们可以让信号量设为0，如果A先执行完a1，则P()导致阻塞，当B执行完b1以后，A被唤醒，代码如下
 ```cpp
 do a1
 P()
@@ -16608,16 +16608,16 @@ do b2
 ```
 
 ### 生产者与消费者
-&emsp;&emsp; 任何时间只有一个线程操作缓冲区(互斥)
-&emsp;&emsp; 当缓冲区空，消费者要等待生产者(同步)
-&emsp;&emsp; 当缓冲区满，生产者等待消费者(同步)
-&emsp;&emsp; 所以我们需要一个互斥量，两个个信号量
+ 任何时间只有一个线程操作缓冲区(互斥)
+ 当缓冲区空，消费者要等待生产者(同步)
+ 当缓冲区满，生产者等待消费者(同步)
+ 所以我们需要一个互斥量，两个个信号量
 ```cpp
 mutex = 1; // 互斥量
 fullBuffers = 0; // 缓冲区满的信号量
 emptyBuffers = n; // 缓存区空的信号量
 ```
-&emsp;&emsp; 生产者
+ 生产者
 ```cpp
 emptyBuffers.P(); // 我们要生产之前需要判断空缓冲区的信号量，如果空间不足就要阻塞
 mutex.P(); // 进入临界区
@@ -16626,7 +16626,7 @@ mutex.V(); // 退出临界区
 fullBuffers.V(); // 释放
 ```
 
-&emsp;&emsp; 消费者
+ 消费者
 ```cpp
 fullBuffers.P(); 
 mutex.P(); 
@@ -16635,10 +16635,10 @@ mutex.V();
 emptyBuffers.V(); 
 ```
 
-&emsp;&emsp; mutex.V和fullBuffers.V可以交换，但是P不行，会死锁
+ mutex.V和fullBuffers.V可以交换，但是P不行，会死锁
 
 ### 管程
-&emsp;&emsp; 包含了一个锁，包含了很多条件变量
+ 包含了一个锁，包含了很多条件变量
 ```cpp
 class Condition{
   int numWaiting=0; // 队列中的元素个数
@@ -16659,8 +16659,8 @@ class Condition{
   }
 }
 ```
-&emsp;&emsp; 想想如何用管程实现生产者消费者
-&emsp;&emsp; 一个锁lock+两个条件变量notFull和notEmpty+一个计数器记录缓冲区的食物数量
+ 想想如何用管程实现生产者消费者
+ 一个锁lock+两个条件变量notFull和notEmpty+一个计数器记录缓冲区的食物数量
 ```cpp
 // 生产者
 lock.require();
@@ -16678,15 +16678,15 @@ notFull.Signal();
 lock.Release();
 ```
 
-&emsp;&emsp; 注意到消费者的Signal后,有两种选择，第一是继续执行，直到release，第二是将CPU交给被唤醒的线程去执行管程，
-&emsp;&emsp; 我们先考虑第一种方案，当唤醒线程以后，自己的release执行完以前，没有任何其他线程能够进入临界区，当自己release以后，我们来考虑所有的生产者，有若干个被唤醒的线程已经在临界区里面了，可能还有一些生产者也在临界区中然而没有被唤醒，这种我们不用管他，还有一种在临界区外正准备争夺临界区的控制，所以，为了避免那些临界区外和若干个临界区内被唤醒的线程发生冲突，我们必须用while来保证只有一个线程再次获得控制权。
-&emsp;&emsp; 为什么会有若干个未被唤醒的线程出现在临界区中? 我们考虑这样一种情况,此时缓冲区食物满了，一个生产者进入了临界区，发现count=n,于是开始wait,这导致了锁被释放，之后就有两个分支了，要么是又来了一个生产者争夺了锁，要么来了一个消费者开始消费，如果来的是生产者，他发现count=n,又会开始wait,这就是为什么会出现多个未被唤醒的生产者出现在临界区中。
-&emsp;&emsp; 为什么会有若干个被唤醒的线程出现在临界区中，我们先考虑现在只有一个未被唤醒的生产者在临界区，此时cpu在消费者手中，当消费者signal以后，会唤醒生产者，但是生产者不见得能拿到CPU，当消费者release以后，临界区的那个生产者跃跃欲试，然后临界区外面还有一群生产者也在等着呢，要是他们拿到了，临界区中的生产者虽然被唤醒，但是还是会被require阻塞,这种情况下，被唤醒的生产者就一个接一个的被阻塞了。
-&emsp;&emsp; 如果我们改进CPU，使用第二种方法，让被唤醒的线程去执行管程，那就不会发生上面的问题，我们的while可以换位if，但是这样的CPU难以设计。
+ 注意到消费者的Signal后,有两种选择，第一是继续执行，直到release，第二是将CPU交给被唤醒的线程去执行管程，
+ 我们先考虑第一种方案，当唤醒线程以后，自己的release执行完以前，没有任何其他线程能够进入临界区，当自己release以后，我们来考虑所有的生产者，有若干个被唤醒的线程已经在临界区里面了，可能还有一些生产者也在临界区中然而没有被唤醒，这种我们不用管他，还有一种在临界区外正准备争夺临界区的控制，所以，为了避免那些临界区外和若干个临界区内被唤醒的线程发生冲突，我们必须用while来保证只有一个线程再次获得控制权。
+ 为什么会有若干个未被唤醒的线程出现在临界区中? 我们考虑这样一种情况,此时缓冲区食物满了，一个生产者进入了临界区，发现count=n,于是开始wait,这导致了锁被释放，之后就有两个分支了，要么是又来了一个生产者争夺了锁，要么来了一个消费者开始消费，如果来的是生产者，他发现count=n,又会开始wait,这就是为什么会出现多个未被唤醒的生产者出现在临界区中。
+ 为什么会有若干个被唤醒的线程出现在临界区中，我们先考虑现在只有一个未被唤醒的生产者在临界区，此时cpu在消费者手中，当消费者signal以后，会唤醒生产者，但是生产者不见得能拿到CPU，当消费者release以后，临界区的那个生产者跃跃欲试，然后临界区外面还有一群生产者也在等着呢，要是他们拿到了，临界区中的生产者虽然被唤醒，但是还是会被require阻塞,这种情况下，被唤醒的生产者就一个接一个的被阻塞了。
+ 如果我们改进CPU，使用第二种方法，让被唤醒的线程去执行管程，那就不会发生上面的问题，我们的while可以换位if，但是这样的CPU难以设计。
 
 
 ### 读者与写者
-&emsp;&emsp; 两个信号量countMutex和writeMutex，一个整形Rcount
+ 两个信号量countMutex和writeMutex，一个整形Rcount
 ### 读者优先
 ```cpp
 // write
@@ -16712,7 +16712,7 @@ unlock(CountMutex);
 ```
 
 ### 写者优先
-&emsp;&emsp; 使用管程实现
+ 使用管程实现
 ```cpp
 void read(){
   wait until no writers; // 等待所有的活跃的读者和等待的读者
@@ -16728,8 +16728,8 @@ void write(){
 
 
 ### 哲学家进餐
-&emsp;&emsp; 错误： 先拿左边，再拿右边，如果右边没拿到则放下左边的，然后等待一段时间, 可能导致饥饿
-&emsp;&emsp; 错误： 让筷子变成互斥的，导致只有一个人能够吃面条
+ 错误： 先拿左边，再拿右边，如果右边没拿到则放下左边的，然后等待一段时间, 可能导致饥饿
+ 错误： 让筷子变成互斥的，导致只有一个人能够吃面条
 ```cpp
 if(state[i]==HUNGRY&&state[LEFT]!=EATING&&state[RIGHT]!=EATING){
   state[i]=EATING;
@@ -16759,153 +16759,153 @@ V(mutex);
 
 
 ### 资源分配图
-&emsp;&emsp; 有两个集合，一个是进程集合，另一个是资源集合，如果进程i需要某资源j的一部分，则连边$i\to j$, 如果一个资源j的一部分被分配给了进程i，则连边$j\to i$,
-&emsp;&emsp; 资源分配图出现了有向环是发生了死锁的必要不充分条件。因为边只表示一部分资源的分配，而不是全部资源
+ 有两个集合，一个是进程集合，另一个是资源集合，如果进程i需要某资源j的一部分，则连边$i\to j$, 如果一个资源j的一部分被分配给了进程i，则连边$j\to i$,
+ 资源分配图出现了有向环是发生了死锁的必要不充分条件。因为边只表示一部分资源的分配，而不是全部资源
 
 ### 死锁的必要条件
-&emsp;&emsp; 互斥、持有并等待、无抢占、循环等待
+ 互斥、持有并等待、无抢占、循环等待
 
 <!-- more -->
 
 ### 死锁预防
-&emsp;&emsp; 破坏互斥不现实，破快占用并等待不实现，因为资源无法动态预判，可能发生饥饿，破坏抢占也不现实，破坏循环等待有效，将资源排序并让进程按顺序申请。
+ 破坏互斥不现实，破快占用并等待不实现，因为资源无法动态预判，可能发生饥饿，破坏抢占也不现实，破坏循环等待有效，将资源排序并让进程按顺序申请。
 
 ### 死锁避免
-&emsp;&emsp; 判断某个资源的分配是否导致了死锁，需要系统具有额外的先验信息提供，
-&emsp;&emsp; 安全状态: 存在序列$P_1$，$P_2$...，针对每个$P_i$,$P_i$要求的资源能够由当前可用资源+所有的$P_j$持有的资源来满足$j\lt i$
+ 判断某个资源的分配是否导致了死锁，需要系统具有额外的先验信息提供，
+ 安全状态: 存在序列$P_1$，$P_2$...，针对每个$P_i$,$P_i$要求的资源能够由当前可用资源+所有的$P_j$持有的资源来满足$j\lt i$
 
 ### 银行家算法
-&emsp;&emsp; 寻找安全序列是否存在的算法。
+ 寻找安全序列是否存在的算法。
 
 ### 死锁的检测
-&emsp;&emsp; 1简化资源分配图为线程等待图，如果线程等待图出现了环则发生了死锁。
-&emsp;&emsp; 2找到能结束的程序，假设他结束，然后拿走资源，循环。
-&emsp;&emsp; 杀，按照优先级杀掉死锁，剩余运行时间，占用自用资源、完成所需要的资源、需要终止的进程数量等
-&emsp;&emsp; 回滚，重启进程，这有可能导致某个进程一直被重启
+ 1简化资源分配图为线程等待图，如果线程等待图出现了环则发生了死锁。
+ 2找到能结束的程序，假设他结束，然后拿走资源，循环。
+ 杀，按照优先级杀掉死锁，剩余运行时间，占用自用资源、完成所需要的资源、需要终止的进程数量等
+ 回滚，重启进程，这有可能导致某个进程一直被重启
 
 ### IPC 进程间的通信
-&emsp;&emsp; 通信有两种模型，第一是直接通信，第二是通过内核间接通信
-&emsp;&emsp; 通信可以是阻塞或者非阻塞的
-&emsp;&emsp; 通信缓存区的大小可以是有限的或者无限的
+ 通信有两种模型，第一是直接通信，第二是通过内核间接通信
+ 通信可以是阻塞或者非阻塞的
+ 通信缓存区的大小可以是有限的或者无限的
 
 ### 信号
-&emsp;&emsp; 发出通知信息，软件中断和事件处理，收到信号的时候可以指定信号处理函数被调用或者依靠操作系统的默认操作，
-&emsp;&emsp; 应用程序要先注册信号处理函数，当收到信号的时候，在内核态修改应用程序的堆栈，然后跳回用户态执行，即操作系统来帮助跳转到信号处理函数执行，然后返回之前的现场
+ 发出通知信息，软件中断和事件处理，收到信号的时候可以指定信号处理函数被调用或者依靠操作系统的默认操作，
+ 应用程序要先注册信号处理函数，当收到信号的时候，在内核态修改应用程序的堆栈，然后跳回用户态执行，即操作系统来帮助跳转到信号处理函数执行，然后返回之前的现场
 
 ### 管道
 ```
 ls | more
 ```
-&emsp;&emsp; 发送数据 shell -> ls -> 管道 -> more, 注意管道是有限的，可能会阻塞。
+ 发送数据 shell -> ls -> 管道 -> more, 注意管道是有限的，可能会阻塞。
 
 ### 消息队列
-&emsp;&emsp; 管道是字节流，不是结构化数据。 
-&emsp;&emsp; Message是一个字节序列储存，Message Queues是消息数组，然后FIFO或者FILO实现。
+ 管道是字节流，不是结构化数据。 
+ Message是一个字节序列储存，Message Queues是消息数组，然后FIFO或者FILO实现。
 
 ### 共享内存
-&emsp;&emsp; 方便、快速、高效、但是需要同步, 将同一块物理内存映射到不同的逻辑页面.
+ 方便、快速、高效、但是需要同步, 将同一块物理内存映射到不同的逻辑页面.
 
 ### socket
-&emsp;&emsp; 套接字
+ 套接字
 
 ## 操作系统13-文件系统
 
 
 
 ### 文件系统和文件
-&emsp;&emsp; 一种持久性存储的系统抽象。
+ 一种持久性存储的系统抽象。
 
 ### 文件头
-&emsp;&emsp; 储存文件信息，保存文件属性，跟踪那一块储存块属于逻辑上文件结构的哪一个偏移。
+ 储存文件信息，保存文件属性，跟踪那一块储存块属于逻辑上文件结构的哪一个偏移。
 
 ### 需要哪些元数据来管理打开的文件
-&emsp;&emsp; 文件指针，文件打开计数，文件储存位置，访问权限
+ 文件指针，文件打开计数，文件储存位置，访问权限
 
 ### 访问2-12字节的空间
-&emsp;&emsp; 读一个或者多个扇区，然后返回
+ 读一个或者多个扇区，然后返回
 
 ### 访问方式
-&emsp;&emsp; 基于顺序一次读取，随机访问，基于内容查找的访问
+ 基于顺序一次读取，随机访问，基于内容查找的访问
 
 <!-- more -->
 ### 文件类型
-&emsp;&emsp; 操作系统不关心
+ 操作系统不关心
 
 ### 文件的锁
-&emsp;&emsp; 锁粒度？操作系统提供了不同的锁
+ 锁粒度？操作系统提供了不同的锁
 
 ### 目录
-&emsp;&emsp; 目录是特殊的文件，每个目录都有一张表
+ 目录是特殊的文件，每个目录都有一张表
 
 ### 目录如何存
-&emsp;&emsp; 数组、链表、hash、其他数据结构都可以
+ 数组、链表、hash、其他数据结构都可以
 
 ### 名字解析
-&emsp;&emsp; 一层一层解析，为了提高效率，可以使用当前工作目录(缓冲)
+ 一层一层解析，为了提高效率，可以使用当前工作目录(缓冲)
 
 ### 文件系统挂载
-&emsp;&emsp; mount和unmount
+ mount和unmount
 
 ### 文件别名
-&emsp;&emsp; 硬链接: 多个文件项指向一个文件
-&emsp;&emsp; 软链接: 存路径，
+ 硬链接: 多个文件项指向一个文件
+ 软链接: 存路径，
 
 ### 删除文件
-&emsp;&emsp; 引用计数 stat指令
-&emsp;&emsp; 间接层，目录项数据结构存指针，根据指针来定位
+ 引用计数 stat指令
+ 间接层，目录项数据结构存指针，根据指针来定位
 
 ### 如何避免目录死循环
-&emsp;&emsp; 通过检测来避免死循环
+ 通过检测来避免死循环
 
 ### 文件系统的类别
-&emsp;&emsp; 磁盘文件系统 FAT,NTFS,ext2/3/4,ISO9660等
-&emsp;&emsp; 数据库文件系统 WinFs
-&emsp;&emsp; 日志文件系统 journaling file system
-&emsp;&emsp; 网络文件系统 NFS，SMB(局域网方便)，
-&emsp;&emsp; 分布式文件系统 GFS(google的集群，高吞吐，容错，高可靠，大量数据，server，网络中心，数据中心，计算中心)，AFS
-&emsp;&emsp; 虚拟文件系统 proc(内核信息通过文件的方式来展现)
+ 磁盘文件系统 FAT,NTFS,ext2/3/4,ISO9660等
+ 数据库文件系统 WinFs
+ 日志文件系统 journaling file system
+ 网络文件系统 NFS，SMB(局域网方便)，
+ 分布式文件系统 GFS(google的集群，高吞吐，容错，高可靠，大量数据，server，网络中心，数据中心，计算中心)，AFS
+ 虚拟文件系统 proc(内核信息通过文件的方式来展现)
 
 ### 分布式文件系统
-&emsp;&emsp; 读写一致性，可靠性，安全性，访问延迟都要考虑，是当前研究的热点
+ 读写一致性，可靠性，安全性，访问延迟都要考虑，是当前研究的热点
 
 ### 虚拟文件系统
-&emsp;&emsp; 通过虚拟文件系统层屏蔽了底层不同的物理文件系统，
-&emsp;&emsp; 卷 - 目录节点 - 文件节点
+ 通过虚拟文件系统层屏蔽了底层不同的物理文件系统，
+ 卷 - 目录节点 - 文件节点
 
 ### 数据块缓存
-&emsp;&emsp; 将磁盘缓存到内存，可以按需读取，推迟写入，
+ 将磁盘缓存到内存，可以按需读取，推迟写入，
 
 ### 打开文件的数据结构
-&emsp;&emsp; 找到文件，放入文件表，通过index找到文件头，通过offset找到扇区，
+ 找到文件，放入文件表，通过index找到文件头，通过offset找到扇区，
 
 ### 文件大小
-&emsp;&emsp; 大部分文件小，少部分文件大，
+ 大部分文件小，少部分文件大，
 
 ### 文件的连续分配
-&emsp;&emsp; 文件头指定起始块和长度，高效的顺序和随机访问，当文件增长的时候不好分配，可能需要预分配，
-&emsp;&emsp; 分配策略有最先、最佳、最大分配方法
+ 文件头指定起始块和长度，高效的顺序和随机访问，当文件增长的时候不好分配，可能需要预分配，
+ 分配策略有最先、最佳、最大分配方法
 
 #### 文件链式分配
-&emsp;&emsp; 用链表组织，创建增大缩小很容易，没有碎片，不可能实现高效的随机访问，不可靠，链断了以后很严重
+ 用链表组织，创建增大缩小很容易，没有碎片，不可能实现高效的随机访问，不可靠，链断了以后很严重
 
 #### 文件索引分配
-&emsp;&emsp; 将索引放入文件头，创建增大缩小容易，没有碎片，可以直接访问，但是小文件的话索引开销太大。
+ 将索引放入文件头，创建增大缩小容易，没有碎片，可以直接访问，但是小文件的话索引开销太大。
 
 #### 多级索引块
-&emsp;&emsp; 对索引分层，但是会引入更多的时间开销
+ 对索引分层，但是会引入更多的时间开销
 
 ### 空闲空间
-&emsp;&emsp; 位图，如何解决一致性问题，先将bit设为1，然后分配，最后在内存中将bit设为1 ， 如果这里断电以后会导致那一部分磁盘空间无法使用
+ 位图，如何解决一致性问题，先将bit设为1，然后分配，最后在内存中将bit设为1 ， 如果这里断电以后会导致那一部分磁盘空间无法使用
 
 ### 多磁盘管理
-&emsp;&emsp; 用多个便宜的磁盘，通过并行来增加吞吐量和可靠性可用性，即冗余磁盘阵列，可以让硬件实现，也可以让软件实现。
+ 用多个便宜的磁盘，通过并行来增加吞吐量和可靠性可用性，即冗余磁盘阵列，可以让硬件实现，也可以让软件实现。
 
 ### 奇偶校验磁盘
-&emsp;&emsp; 我们使用纠错码，将纠错码存到另一个磁盘里面，用于纠错，但是这就导致了奇偶校验磁盘的压力太大了，大家都要来访问他，我们其实可以让奇偶校验的块均匀分布到所有的阵列当中，就提高了效率
+ 我们使用纠错码，将纠错码存到另一个磁盘里面，用于纠错，但是这就导致了奇偶校验磁盘的压力太大了，大家都要来访问他，我们其实可以让奇偶校验的块均匀分布到所有的阵列当中，就提高了效率
 
 
 ### 磁盘调度
-&emsp;&emsp; 先进先出，最少移动优先(导致饥饿)，磁壁仅向一个方向移动(到达最边缘的之后立刻反转)，磁盘分区(区内部使用单向移动，区之间使用先进先出)
+ 先进先出，最少移动优先(导致饥饿)，磁壁仅向一个方向移动(到达最边缘的之后立刻反转)，磁盘分区(区内部使用单向移动，区之间使用先进先出)
 
 
 ## 操作系统IO
@@ -17222,13 +17222,13 @@ SRS是软件需求规格说明书<br>
 
 
 ### 博客崩溃了
-&emsp;&emsp; 我很难受，重新开始配置一下，然后我记录一下过程
+ 我很难受，重新开始配置一下，然后我记录一下过程
 
 ### 初始化博客
 ```shell script
 hexo init
 ```
-&emsp;&emsp; 然后我碰到了第一个问题
+ 然后我碰到了第一个问题
 ```shell script
 INFO  Cloning hexo-starter https://github.com/hexojs/hexo-starter.git
 Cloning into '/Users/s/Documents/debug'...
@@ -17263,7 +17263,7 @@ found 1 low severity vulnerability
 INFO  Start blogging with Hexo!
 ```
 <!--more-->
-&emsp;&emsp; 修复他
+ 修复他
 ```shell script
 npm audit fix
 ```
@@ -17271,18 +17271,18 @@ npm audit fix
 ### 下载next主题
 [github下载地址](https://github.com/iissnan/hexo-theme-next/releases)
 ![](http://q8awr187j.bkt.clouddn.com/hexo-next%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.png)
-&emsp;&emsp; 下载完成以后得到了这个，我们把它放到主题文件夹下
+ 下载完成以后得到了这个，我们把它放到主题文件夹下
 ![](http://q8awr187j.bkt.clouddn.com/hexo-next%E4%B8%BB%E9%A2%98%E4%B8%8B%E8%BD%BD%E7%BB%93%E6%9E%9C.png)
 
 ### 使用next主题
-&emsp;&emsp 修改主配置文件_config.yml
+&emsp 修改主配置文件_config.yml
 ```text
 ### Extensions
 #### Plugins: https://hexo.io/plugins/
 #### Themes: https://hexo.io/themes/
 theme: landscape
 ```
-&emsp;&emsp; 改为
+ 改为
 ```text
 ### Extensions
 #### Plugins: https://hexo.io/plugins/
@@ -17294,7 +17294,7 @@ theme: hexo-theme-next-5.1.4
 ```shell script
 hexo s
 ```
-&emsp;&esmp; 发现了新版本
+&esmp; 发现了新版本
 ```shell script
 INFO  Start processing
 WARN  ===============================================================
@@ -17305,21 +17305,21 @@ WARN  ===============================================================
 WARN   It's rebase to v6.0.0 and future maintenance will resume there
 WARN  ===============================================================
 ```
-&emsp;&esmp; [新版本地址](https://github.com/theme-next/hexo-theme-next)
+&esmp; [新版本地址](https://github.com/theme-next/hexo-theme-next)
 
 ### 下载新版本
 ```shell script
 git clone https://github.com/theme-next/hexo-theme-next themes/next
 ```
-&emsp;&emsp; 查看版本,发现是7.8.0
+ 查看版本,发现是7.8.0
 ```shell script
 cd themes/next
 git tag -l
 ```
-&emsp;&emsp;同上再次修改主题为next，然后启动，发现启动成功了
+同上再次修改主题为next，然后启动，发现启动成功了
 
 ### 主配置文件
-&emsp;&emsp;
+
 ```shell script
 ### Hexo Configuration
 #### Docs: https://hexo.io/docs/configuration.html
@@ -17464,7 +17464,7 @@ menu:
 ```
 
 #### 数学公式
-&emsp;&emsp; 打开数学公式
+ 打开数学公式
 ```shell script
 math:
   # Default (true) will load mathjax / katex script on demand.
@@ -17484,12 +17484,12 @@ math:
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
 ```
-&emsp;&emsp; 切换数学公式引擎
+ 切换数学公式引擎
 ```shell script
 npm uninstall hexo-renderer-marked --save
 npm install hexo-renderer-kramed --save
 ```
-&emsp;&emsp; 碰到未知问题，修复他npm audit fix
+ 碰到未知问题，修复他npm audit fix
 ```shell script
 audited 449 packages in 2.108s
 
@@ -17500,7 +17500,7 @@ found 1 low severity vulnerability
   run `npm audit fix` to fix them, or `npm audit` for details
 ```
 
-&emsp;&emsp; 解决正则表达式的冲突 /node_modules/kramed/lib/rules/inline.js 
+ 解决正则表达式的冲突 /node_modules/kramed/lib/rules/inline.js 
 ```js
 var inline = {
   escape: /^\\([`*\[\]()#$+\-.!_>])/, 
@@ -17525,7 +17525,7 @@ var inline = {
 ```shell script
 npm install hexo-filter-mermaid-diagrams
 ```
-&emsp;&emsp; 出错了，修复
+ 出错了，修复
 ```shell script
 + hexo-filter-mermaid-diagrams@1.0.5
 added 3 packages from 2 contributors and audited 472 packages in 46.646s
@@ -17536,7 +17536,7 @@ added 3 packages from 2 contributors and audited 472 packages in 46.646s
 found 1 low severity vulnerability
   run `npm audit fix` to fix them, or `npm audit` for details
 ```
-&emsp;&emsp; 然后在next的配置文件中打开mermaid
+ 然后在next的配置文件中打开mermaid
 ```shell script
 ### Mermaid tag
 mermaid:
@@ -17546,7 +17546,7 @@ mermaid:
 ```
 
 ### 评论
-&emsp;&emsp; 去填充appid和appkey
+ 去填充appid和appkey
 ```shell script
 ### Valine
 ### You can get your appid and appkey from https://leancloud.cn
@@ -17573,7 +17573,7 @@ valine:
 ```shell script
 npm install hexo-symbols-count-time --save
 ```
-&emsp;&emsp; 在主题配置文件中加入
+ 在主题配置文件中加入
 ```shell script
 ### Post wordcount display settings
 ### Dependencies: https://github.com/theme-next/hexo-symbols-count-time
@@ -17590,13 +17590,13 @@ symbols_count_time:
 ```shell script
 npm install hexo-abbrlink --save
 ```
-&emsp;&emsp; 修改主配置文件
+ 修改主配置文件
 ```shell script
 permalink: :abbrlink/
 ```
 
 ### 网站运行时间
-&emsp;&emsp; /themes/next/layout/_partials/footer.swig 
+ /themes/next/layout/_partials/footer.swig 
 ```shell script
 <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
 <script>
@@ -17619,7 +17619,7 @@ setInterval("createtime()",250);
 
 
 ### fork me
-&emsp;&emsp; 放到themes/next/layout/_layout.swig的headband下面
+ 放到themes/next/layout/_layout.swig的headband下面
 ```shell script
 <a href="https://github.com/fightinggg" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: ab    solute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7     120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class=    "octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0     C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0     205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentCol    or" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rota    te(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>  
 ```
@@ -17631,17 +17631,17 @@ npm install hexo-generator-baidu-sitemap --save
 ```
 
 ### enhancder
-&emsp;&emsp; 这个插件完美的避开了date、title、categories、tags、abbrlink
-&emsp;&emsp; date、title就是文件名
-&emsp;&emsp; categories就是文目录
-&emsp;&emsp; abbrlink是文件名的crc加密
-&emsp;&emsp; tags是主题词分析
-&emsp;&emsp; [中文博客](https://sulin.me/2019/Z726F8.html)
+ 这个插件完美的避开了date、title、categories、tags、abbrlink
+ date、title就是文件名
+ categories就是文目录
+ abbrlink是文件名的crc加密
+ tags是主题词分析
+ [中文博客](https://sulin.me/2019/Z726F8.html)
 ```sh
 npm uninstall hexo-abbrlink --save
 npm install hexo-enhancder --save
 ```
-&emsp;&emsp; 安装完成后会碰到一些小问题，其实只需要修改这里即可hexo/node_modules/hexo-enhancer/index.js
+ 安装完成后会碰到一些小问题，其实只需要修改这里即可hexo/node_modules/hexo-enhancer/index.js
 ```js
 if (metadata.title) {
 data.title = metadata.title;
@@ -17650,13 +17650,13 @@ log.i("Generate title [%s] for post [%s]", metadata.title, data.source);
 ```
 
 ### 404.html
-&emsp;&emsp; 在目录/hexo/source下创建404.md,随便东西你就可以使用了
+ 在目录/hexo/source下创建404.md,随便东西你就可以使用了
 
 ### 本地搜索
 ```
 npm install hexo-generator-searchdb --save
 ```
-&emsp;&emsp; 然后配置全局config
+ 然后配置全局config
 ```
 search:
   path: search.xml
@@ -17664,7 +17664,7 @@ search:
   format: html
   limit: 10000
 ```
-&emsp;&emsp; 最后修改next的主题配置
+ 最后修改next的主题配置
 ```
 local_search: true
 ```
@@ -17919,8 +17919,8 @@ For each test, output a line containing N integers, representing the lexicograph
 4 4 7
 
 ##### toturial
-&emsp;&emsp;对于每一个数来说，能够与他匹配最优的数个数可能很多，但是值肯定只有一个，我们以这种关系建图，把数组a的数放在左边，数组b的数放在右边，建立出来的图一定是二分图。
-&emsp;&emsp;易证此二分图中可能存在环，若有环，可能有多个数，但必定只有两个值，且这两个值一定是最佳匹配，我们将所有的最佳匹配去掉以后，剩下的是dag图，我们对此图逆拓扑排序，得到的结果即为答案，用栈模拟，字典树加速即可
+对于每一个数来说，能够与他匹配最优的数个数可能很多，但是值肯定只有一个，我们以这种关系建图，把数组a的数放在左边，数组b的数放在右边，建立出来的图一定是二分图。
+易证此二分图中可能存在环，若有环，可能有多个数，但必定只有两个值，且这两个值一定是最佳匹配，我们将所有的最佳匹配去掉以后，剩下的是dag图，我们对此图逆拓扑排序，得到的结果即为答案，用栈模拟，字典树加速即可
 
 ##### code
 ```cpp
@@ -18081,7 +18081,7 @@ NIE——如果不存在。
 NIE
 
 ##### toturial
-&emsp;&emsp;建立ac自动机后，判断trans是否构成环即可
+建立ac自动机后，判断trans是否构成环即可
 
 ##### code
 ```cpp
@@ -18307,7 +18307,7 @@ L = [3, 2 ,4, 1, 7]
 R = [4, 8, 8, 3, 9]
 
 ##### toturial
-&emsp;&emsp;离散化区间后用权值线段树维护区间和,直接在树上二分答案
+离散化区间后用权值线段树维护区间和,直接在树上二分答案
 
 ##### code
 ```cpp
@@ -18430,7 +18430,7 @@ For each test case, the only line contains an integer that is the number of pair
 31
 
 ##### toturial
-&emsp;&emsp;可以直接dfs搜索，然后记忆化加速，写起来很复杂，但是能过
+可以直接dfs搜索，然后记忆化加速，写起来很复杂，但是能过
 
 ##### code
 ```cpp
@@ -18559,7 +18559,7 @@ int main(){
 ```
 
 ##### toturial2
-&emsp;&emsp;考虑数位dp
+考虑数位dp
 
 ##### code
 ```cpp
@@ -18635,7 +18635,7 @@ For each test case, print a single line containing n integers, where the i-th in
 1 1 2 3 3
 
 ##### toturial
-&emsp;&emsp;lis单调不减，所以我们可以直接采取倍增的思路，去尝试计算，即若存在ans[i]=ans[j]则所有ij之间的数，ans[k]=ans[i]=ans[j]他们都相等。可惜用树状数组写常数太大炸了，改正常写法才过
+lis单调不减，所以我们可以直接采取倍增的思路，去尝试计算，即若存在ans[i]=ans[j]则所有ij之间的数，ans[k]=ans[i]=ans[j]他们都相等。可惜用树状数组写常数太大炸了，改正常写法才过
 
 ##### code
 ```cpp
@@ -21934,7 +21934,7 @@ the instructions of the third test case are :
 1 2    , in format 1 and pos=2
 
 ##### toturial1
-&emsp;&emsp;先不考虑修改，若只有查询，我们发现每次都是前缀的查询，这里显然是可以使用主席树用log的复杂度完成的，然后我们考虑修改，我们发现修改等价于删除数字，那么这样一来，又因为每个数都是独一无二的，删除只会让答案变得更小，且恰好变成删掉的数字，我们可以尝试用一个集合记录所有删掉的数字，然后用lower_bound来查询，和主席树得到的答案取得最小值，就是真正的答案。证明过程很简单，分类证明即可。
+先不考虑修改，若只有查询，我们发现每次都是前缀的查询，这里显然是可以使用主席树用log的复杂度完成的，然后我们考虑修改，我们发现修改等价于删除数字，那么这样一来，又因为每个数都是独一无二的，删除只会让答案变得更小，且恰好变成删掉的数字，我们可以尝试用一个集合记录所有删掉的数字，然后用lower_bound来查询，和主席树得到的答案取得最小值，就是真正的答案。证明过程很简单，分类证明即可。
 
 ##### code1
 ```cpp
@@ -21992,7 +21992,7 @@ int main(){
 ```
 
 ##### toturial2
-&emsp;&emsp;逆向思维，反转键值，题目让我们在键区间[1,r]上找到最小的不小于k的值，我们反转后变成了在值区间[k,n+1]上找到值最小的键，其键不小于k，修改操作就成了把值所对的键修改为无穷大，这个问题用普通最值线段树很轻松就能解决
+逆向思维，反转键值，题目让我们在键区间[1,r]上找到最小的不小于k的值，我们反转后变成了在值区间[k,n+1]上找到值最小的键，其键不小于k，修改操作就成了把值所对的键修改为无穷大，这个问题用普通最值线段树很轻松就能解决
 
 ##### code2
 ```cpp
@@ -22373,19 +22373,19 @@ int main() {
 
 
 ### 题目描述
-&emsp;&emsp;小敏和小燕是一对好朋友。
-&emsp;&emsp;他们正在玩一种神奇的游戏，叫 Minecraft。
-&emsp;&emsp;他们现在要做一个由方块构成的长条工艺品。但是方块现在是乱的，而且由于机器的要求，他们只能做到把这个工艺品最左边的方块放到最右边。
-&emsp;&emsp;他们想，在仅这一个操作下，最漂亮的工艺品能多漂亮。
-&emsp;&emsp;两个工艺品美观的比较方法是，从头开始比较，如果第i 个位置上方块不一样那么谁的瑕疵度小，那么谁就更漂亮，如果一样那么继续比较第i+1 个方块。如果全都一样，那么这两个工艺品就一样漂亮。
+小敏和小燕是一对好朋友。
+他们正在玩一种神奇的游戏，叫 Minecraft。
+他们现在要做一个由方块构成的长条工艺品。但是方块现在是乱的，而且由于机器的要求，他们只能做到把这个工艺品最左边的方块放到最右边。
+他们想，在仅这一个操作下，最漂亮的工艺品能多漂亮。
+两个工艺品美观的比较方法是，从头开始比较，如果第i 个位置上方块不一样那么谁的瑕疵度小，那么谁就更漂亮，如果一样那么继续比较第i+1 个方块。如果全都一样，那么这两个工艺品就一样漂亮。
 
 
 ### 输入格式
-&emsp;&emsp;第一行一个整数 n，代表方块的数目。
-&emsp;&emsp;第二行 n 个整数，每个整数按从左到右的顺序输出方块瑕疵度的值。
+第一行一个整数 n，代表方块的数目。
+第二行 n 个整数，每个整数按从左到右的顺序输出方块瑕疵度的值。
 
 ### 输出格式
-&emsp;&emsp;一行n 个整数，代表最美观工艺品从左到右瑕疵度的值。
+一行n 个整数，代表最美观工艺品从左到右瑕疵度的值。
 
 ### 输入样例
 ```
@@ -22401,7 +22401,7 @@ int main() {
 n&lt;3e5
 
 ### 做法1
-&emsp;&emsp; 维护两个指针i,j让其表示两个子串，开始向后匹配，直到匹配失败，则S[i+k]和S[j+k]不一样了，可以证明如果S[i+k]小，则最小表示法一定不在区间[i,i+k]上，我们可以直接让i=i+k+1;j同理，复杂度On
+ 维护两个指针i,j让其表示两个子串，开始向后匹配，直到匹配失败，则S[i+k]和S[j+k]不一样了，可以证明如果S[i+k]小，则最小表示法一定不在区间[i,i+k]上，我们可以直接让i=i+k+1;j同理，复杂度On
 ```cpp
 ### include <bits/stdc++.h>
 using namespace std;
@@ -22428,7 +22428,7 @@ int main() {
 ```
 
 ### 做法2
-&emsp;&emsp; 后缀数组+倍增字符串
+ 后缀数组+倍增字符串
 ```cpp
 ### include <bits/stdc++.h>
 using namespace std;
@@ -22488,9 +22488,9 @@ int main() {
 ```
 
 ### 做法3
-&emsp;&emsp; 构建后缀自动机,每次走权值最小的边，由于数据范围大，我们需要使用map，导致复杂度增加至nlgn，可过，
+ 构建后缀自动机,每次走权值最小的边，由于数据范围大，我们需要使用map，导致复杂度增加至nlgn，可过，
 #### 优化
-&emsp;&emsp; 手写hash，维护最值，复杂度On,可过
+ 手写hash，维护最值，复杂度On,可过
 ```cpp
 ### include <bits/stdc++.h>
 using namespace std;
@@ -22549,10 +22549,10 @@ int main() {
 
 
 ### 网页
-&emsp;&emsp; 当我们输入网址以后，会建立http(https算了)连接，我们给服务器请求，服务器给我们回应，我们不断发送request,服务器不断返回response,请求又很多种。
+ 当我们输入网址以后，会建立http(https算了)连接，我们给服务器请求，服务器给我们回应，我们不断发送request,服务器不断返回response,请求又很多种。
 
 ### 大量的response
-&emsp;&emsp; 我们要把这些数据存起来，数据库啊啥的都行。
+ 我们要把这些数据存起来，数据库啊啥的都行。
 
 ### 简单的爬虫
 ```py
@@ -22561,7 +22561,7 @@ res = requests.get("http://www.baidu.com")
 res.encoding = 'utf-8'
 print(res.text)
 ```
-&emsp;&emsp; 上面的代码能够得到百度网站
+ 上面的代码能够得到百度网站
 
 ### 分析html
 ```py
@@ -22598,54 +22598,54 @@ for link in soup.select('a'):
 
 
 ##### 前言
-&emsp;&emsp;本文力争用理性分析的手段，来推测此算法发明者的思维过程， 尝试感受其在设计此算法的时所展现出的思维方式， 力求用数学证明的手段，尽可能多的为读者证明相关结论，建议有其他自动机学习的基础，最好已经学会AC自动机和回文自动机，后缀自动机很难，他 和其他自动机不一样，它的状态更加复杂，一个算法的创作过程很 复杂，学起来当然会感到很难。强烈建议看陈立杰的ppt，看一遍肯定看不懂，仔细看，一遍看不懂看多遍，第一次可能只能看懂几面，第二次可 能就能看懂到十几面了，慢慢的就全懂了。 
+本文力争用理性分析的手段，来推测此算法发明者的思维过程， 尝试感受其在设计此算法的时所展现出的思维方式， 力求用数学证明的手段，尽可能多的为读者证明相关结论，建议有其他自动机学习的基础，最好已经学会AC自动机和回文自动机，后缀自动机很难，他 和其他自动机不一样，它的状态更加复杂，一个算法的创作过程很 复杂，学起来当然会感到很难。强烈建议看陈立杰的ppt，看一遍肯定看不懂，仔细看，一遍看不懂看多遍，第一次可能只能看懂几面，第二次可 能就能看懂到十几面了，慢慢的就全懂了。 
 ##### 后缀自动机为什么难？
-&emsp;&emsp;后缀自动机是三个自动机里面最难的一个，难的地方不在与编码，在于他背后的数学推导，
-&emsp;&emsp;想要完全理解后缀自动机，就必须深入理解什么叫自动机，这和AC自动机、回文自动机不同，因为AC自动机、回文自动机背后的数学推导过于简单。
+后缀自动机是三个自动机里面最难的一个，难的地方不在与编码，在于他背后的数学推导，
+想要完全理解后缀自动机，就必须深入理解什么叫自动机，这和AC自动机、回文自动机不同，因为AC自动机、回文自动机背后的数学推导过于简单。
 ##### 自动机
-&emsp;&emsp;百度百科里面说的很清楚，也很抽象。自动机，是一个五元组，包含字符集，状态集合，初始状态，结束状态集合，状态转移函数。
-&emsp;&emsp;五元组中，有四个包含了"状态"这个名词。难以理解的，正是这个状态。
+百度百科里面说的很清楚，也很抽象。自动机，是一个五元组，包含字符集，状态集合，初始状态，结束状态集合，状态转移函数。
+五元组中，有四个包含了"状态"这个名词。难以理解的，正是这个状态。
 ##### 状态是什么
-&emsp;&emsp;此处的状态，其实和动态规划算法中出现的名词"状态"，是同一个东西。状态的 本质就是集合，是满足某种条件的所有元素的一个集合体，当然我们很多 时候不好用计算机来储存这样的一个集合体，很多时候我们也不需要去储存他，更多的时候我们只需要储存这个集合体的某一个或者多个性质即可，
+此处的状态，其实和动态规划算法中出现的名词"状态"，是同一个东西。状态的 本质就是集合，是满足某种条件的所有元素的一个集合体，当然我们很多 时候不好用计算机来储存这样的一个集合体，很多时候我们也不需要去储存他，更多的时候我们只需要储存这个集合体的某一个或者多个性质即可，
 ##### 自动机的状态
-&emsp;&emsp;字符集好理解，状态集合就是自动机中所有的节点，状态转移函数就是自动机中节点之间 的边。初始状态就是自动机中字典树上的根，结束状态就是自动 机之中包含了结束标记的节点。
+字符集好理解，状态集合就是自动机中所有的节点，状态转移函数就是自动机中节点之间 的边。初始状态就是自动机中字典树上的根，结束状态就是自动 机之中包含了结束标记的节点。
 ##### 后缀自动机和后缀数组有关吗？
-&emsp;&emsp;后缀自动机是建立在一颗后缀树上的，当然他不像AC自动机来源于KMP算法，不像回文自动机来源于 manacher算法一样,他并不是后缀数组算法的加强。 
-&emsp;&emsp;一个字符串的后缀树肯定是非常庞大的，n个后缀，如果我们直接把它建立出来，那么空间复杂度和 时间复杂度无疑都是O(n^2),必须优化。
-&emsp;&emsp;我们发现后缀树上的很多节点所代表的状态有某些共同点，毕竟他们都是同一个母串的后缀， AC自动机所定义的节点代表的状态指的是:从根到此节点的路径连接成的字符串以及他的所有后缀。后缀自动机在这一点上 根AC自动机有点类似,此处暂时不先说。
+后缀自动机是建立在一颗后缀树上的，当然他不像AC自动机来源于KMP算法，不像回文自动机来源于 manacher算法一样,他并不是后缀数组算法的加强。 
+一个字符串的后缀树肯定是非常庞大的，n个后缀，如果我们直接把它建立出来，那么空间复杂度和 时间复杂度无疑都是O(n^2),必须优化。
+我们发现后缀树上的很多节点所代表的状态有某些共同点，毕竟他们都是同一个母串的后缀， AC自动机所定义的节点代表的状态指的是:从根到此节点的路径连接成的字符串以及他的所有后缀。后缀自动机在这一点上 根AC自动机有点类似,此处暂时不先说。
 ##### 我们来创建一个最小状态数的后缀自动机
-&emsp;&emsp;我们先假设我们已经建立好了一个后缀自动机,此自动机不一定状态数最少,后缀自动机的存在性就不必证明了。 然后我们尝试分析这个不太完美的后缀自动机，来尝试优化他。
+我们先假设我们已经建立好了一个后缀自动机,此自动机不一定状态数最少,后缀自动机的存在性就不必证明了。 然后我们尝试分析这个不太完美的后缀自动机，来尝试优化他。
 ##### 约定一些符号表示
-&emsp;&emsp;我们称自动机的初始状态为init，转移函数为trans(state,str),表示状态state经过字符串str的转移后得到的新的状态。 因为是术语，此处暂时不对状态做定义。如果某个状态为结束状态，那么我们用end(state)=true来表示。
+我们称自动机的初始状态为init，转移函数为trans(state,str),表示状态state经过字符串str的转移后得到的新的状态。 因为是术语，此处暂时不对状态做定义。如果某个状态为结束状态，那么我们用end(state)=true来表示。
 ##### 将状态形象化，然后造一个暴力的后缀自动机
-&emsp;&emsp;我们假设我们建立的后缀自动机，是一棵究极大的，n^2级别状态数量的自动机。我们先来定义此自动机的状态：某个节点 所代表的状态，就是母串的一个子串。显然这不是一个好状态。显然其中的字典树 的根节点root就是初始状态 。
+我们假设我们建立的后缀自动机，是一棵究极大的，n^2级别状态数量的自动机。我们先来定义此自动机的状态：某个节点 所代表的状态，就是母串的一个子串。显然这不是一个好状态。显然其中的字典树 的根节点root就是初始状态 。
 ##### 想办法来优化这个暴力的自动机
-&emsp;&emsp;我们必须减少状态，然而，一个串的子串数量明显就是平方级别的，根本就没有多余的状态，对此已经无解，必须减少状态数量，我们考虑后缀自动机关心 的是后缀，而不是子串，那么可能存在某些状态，他们在另外一种状态的定义下，是等价的。我们考虑某个状态state,如果存在某个字符串 str,使得end (trans(state,str))=true,那意味着什么？state状态中的元素：子串substring，追加上str，是一个结束状态。
+我们必须减少状态，然而，一个串的子串数量明显就是平方级别的，根本就没有多余的状态，对此已经无解，必须减少状态数量，我们考虑后缀自动机关心 的是后缀，而不是子串，那么可能存在某些状态，他们在另外一种状态的定义下，是等价的。我们考虑某个状态state,如果存在某个字符串 str,使得end (trans(state,str))=true,那意味着什么？state状态中的元素：子串substring，追加上str，是一个结束状态。
 ##### 再具体一点，我们来举例子
-&emsp;&emsp;母串是abcabcde，考虑他的某个子串abc，显然此子串对应的状态trans(root,"abc")在经历串abcde的转移后得到了结束状态，同时此状态在经历串 de的转移后也可以得到结束状态，也就是说，子串abc对应的状态在经历串abcde或de的转移后可以得到结束状态。
+母串是abcabcde，考虑他的某个子串abc，显然此子串对应的状态trans(root,"abc")在经历串abcde的转移后得到了结束状态，同时此状态在经历串 de的转移后也可以得到结束状态，也就是说，子串abc对应的状态在经历串abcde或de的转移后可以得到结束状态。
 ##### 发现了可以优化的地方
-&emsp;&emsp;当我们考虑串bc、串c的时候，我们发此案这两个串能够转移到的结束状态根串abc一摸一样，这可不是开玩笑的。如果可能，我们将可以合并串abc、bc、 和c对应的状态，也就是说，trans(root,"abc"),trans(root,"bc"),trans(root,"c")可以用一个状态来表示。我们来仔细研究研究，为什么会发生这种 事情？如果某两个状态trans(root,str1),trans(root,str2)能够转移的结果是完全一样的，那意味着什么？先考虑trans(root,str)能够转移到某个 结束状态，也就是说str+??？将会成为母串的后缀。
+当我们考虑串bc、串c的时候，我们发此案这两个串能够转移到的结束状态根串abc一摸一样，这可不是开玩笑的。如果可能，我们将可以合并串abc、bc、 和c对应的状态，也就是说，trans(root,"abc"),trans(root,"bc"),trans(root,"c")可以用一个状态来表示。我们来仔细研究研究，为什么会发生这种 事情？如果某两个状态trans(root,str1),trans(root,str2)能够转移的结果是完全一样的，那意味着什么？先考虑trans(root,str)能够转移到某个 结束状态，也就是说str+??？将会成为母串的后缀。
 ##### 约定一些符号表示
-&emsp;&emsp;right(str)表示字符串str在母串中出现时的所有右端点的集合，suf(index)表示从下标为index开始的后缀，
+right(str)表示字符串str在母串中出现时的所有右端点的集合，suf(index)表示从下标为index开始的后缀，
 ##### 继续分析
-&emsp;&emsp;容易证明状态state=trans(root,str)能转移到的结束状态，就是对于所有在right(str)中的元素x，计算出的状态：trans(state，suf(x+1)) 当right(str1)与right(str2)一摸一样的时候，其能够转移到的结束状态是一摸一样的，因为这只受到right集合的影响。既然一摸一样，有什么理由 不去利用这个优点呢？
+容易证明状态state=trans(root,str)能转移到的结束状态，就是对于所有在right(str)中的元素x，计算出的状态：trans(state，suf(x+1)) 当right(str1)与right(str2)一摸一样的时候，其能够转移到的结束状态是一摸一样的，因为这只受到right集合的影响。既然一摸一样，有什么理由 不去利用这个优点呢？
 ##### 开始实现优化
-&emsp;&emsp;我们尝试修改状态的定义，尝试把right集合一摸一样的串用一个状态来表示。让笔者来概括一下这个新状态:我们对母串 的每一个子串都统计一下right集合，将子串按照right集合分类，每一类就是一个状态。如无特殊声明，下文的出现的状态将不再指的是原状态 ，而是表示新状态。
+我们尝试修改状态的定义，尝试把right集合一摸一样的串用一个状态来表示。让笔者来概括一下这个新状态:我们对母串 的每一个子串都统计一下right集合，将子串按照right集合分类，每一类就是一个状态。如无特殊声明，下文的出现的状态将不再指的是原状态 ，而是表示新状态。
 ##### 证明状态数是线性的
-&emsp;&emsp;证明分为两个部分，先证明right集合间的关系只有两种，包含关系和无交集关系，于是right集合间的关系可以用一颗叶子节点最多n个的树来表示。（n是 母串的长度。）再证明此树最多有2n个节点来完成证明。第一部分的证明：考虑串str1，和str2，并假设str2更长，如果str1不是str2的后缀，那么他们的 right集合一定不一样，且没有交集，可以反证，若是后缀，那么str2出现的地方的右端点，也是str1出现的右端点，于是right(str2)是right(str1)的子集 。第二部分的证明很简单，笔者就不再赘述了。
-&emsp;&emsp;既然状态数是线性，转移(边的条数)当然也是线性的。
+证明分为两个部分，先证明right集合间的关系只有两种，包含关系和无交集关系，于是right集合间的关系可以用一颗叶子节点最多n个的树来表示。（n是 母串的长度。）再证明此树最多有2n个节点来完成证明。第一部分的证明：考虑串str1，和str2，并假设str2更长，如果str1不是str2的后缀，那么他们的 right集合一定不一样，且没有交集，可以反证，若是后缀，那么str2出现的地方的右端点，也是str1出现的右端点，于是right(str2)是right(str1)的子集 。第二部分的证明很简单，笔者就不再赘述了。
+既然状态数是线性，转移(边的条数)当然也是线性的。
 ##### 证明状态数是最小的
-&emsp;&emsp;此处笔者由于水平原因，实在是无法证明，罪过罪过。
+此处笔者由于水平原因，实在是无法证明，罪过罪过。
 ##### 增量法构建最小状态
-&emsp;&emsp;所谓增量法，就是一个一个增加的意思，具体一点，如果我们要算f(10),我们先算f(1)，通过f(1)来计算f(2),通过f(2)来算f(3)...最后算出f(10),这就是增量法， 他和数学归纳法有点像。第一步，我们拥有一个初始状态：根，第二步，假设我们已经的到了字符串str的一个后缀自动机SAM(str),x是一个字符，我们怎么得到字符串 str+x的后缀自动机呢?考虑这两个字符串的区别，str+x多了一个x，后缀自动机是来识别后缀的，所以SAM(str)以前能够识别的后缀suf的那些状态全部要改，除此之外 没有其他修改的地方。怎么改呢？那些状态在SAM(str)里面确实是结束状态，但是在SAM(str+x)中却不是。但是他们能够向x字符转移，得到新的结束状态。之前证明过 状态是按照right集合来划分的，而right集合有只有两种关系，于是我们发现了一个新的东西，SAM(str)的所有结束状态在right构成的树上是一条链，也就是说right 构成的树不知可以用来证明状态树是线性的，还可以用来帮助我们建设状态。那么我们就把这棵树取出来，叫做parent树。
-&emsp;&emsp;在parent树上，如果我们知道了状态trans(root,str)在哪，就可以根据parent树上面的边遍历所有的结束状态，因为这些结束状态的right集合一定包含了len(str) 也就是说他们都是状态trans(root,str)在parent树上面的祖先。
+所谓增量法，就是一个一个增加的意思，具体一点，如果我们要算f(10),我们先算f(1)，通过f(1)来计算f(2),通过f(2)来算f(3)...最后算出f(10),这就是增量法， 他和数学归纳法有点像。第一步，我们拥有一个初始状态：根，第二步，假设我们已经的到了字符串str的一个后缀自动机SAM(str),x是一个字符，我们怎么得到字符串 str+x的后缀自动机呢?考虑这两个字符串的区别，str+x多了一个x，后缀自动机是来识别后缀的，所以SAM(str)以前能够识别的后缀suf的那些状态全部要改，除此之外 没有其他修改的地方。怎么改呢？那些状态在SAM(str)里面确实是结束状态，但是在SAM(str+x)中却不是。但是他们能够向x字符转移，得到新的结束状态。之前证明过 状态是按照right集合来划分的，而right集合有只有两种关系，于是我们发现了一个新的东西，SAM(str)的所有结束状态在right构成的树上是一条链，也就是说right 构成的树不知可以用来证明状态树是线性的，还可以用来帮助我们建设状态。那么我们就把这棵树取出来，叫做parent树。
+在parent树上，如果我们知道了状态trans(root,str)在哪，就可以根据parent树上面的边遍历所有的结束状态，因为这些结束状态的right集合一定包含了len(str) 也就是说他们都是状态trans(root,str)在parent树上面的祖先。
 ##### 细节处理
-&emsp;&emsp;现在我们来总结一下，从自动机SAM(str) 增量构建自动机SAM(str+x)，我们需要更改的只是trans(root，str)以及他在parent树上面的所有祖先，容易证明如果状态 q是trans(root，str)的第一个包含字符x转移的状态，那么q的所有祖先都包含了字符x的转移。trans(root,str)到q之间(不包含q)的所有状态都不包含字符x的转移。 可以证明:如果不包含x的转移，我们直接构建一个新的状态p表示trans(root，str+x)状态,此处可以证明他的right集合只有一个元素， 就是len(str+x)。那些不包含x转移的状态，可以直接转移到p，因为那样转移之后的right集合是就是p的right集合。那么我们就一直这样做即可，那么q以及q的祖先呢？他们包含了字符x的转移 但是我们可以直接在那个地方设置一个结束标志吗？这不一定？为什么呢？首先，我们的状态定义是依据right集合的，也就是说right集合一摸一样的，才能用一个状态表示。 如果我们那样做，会造成什么后果呢？节点q向x转移的状态trans(q,x)的right集合是不包含len(str+x)的，我们那样做，会导致right集合扩大。right集合扩大，可能会 导致以前能够用trans(q,x)表示的某些串，不能用trans(q,x)表示了。
-&emsp;&emsp;举个例子,abcxabc+x和abcxbc+x，对于第一个，原本abc拥有向x的转移，当时还不是结束标记，当我们加入字符x后我们强行让这个转移变为结束标记，一点问题都没有，abcx 确实是新的结束标记，然而对于第二个，原本bc拥有向x的转移，当时还不是结束标记，当我们加入字符x后，如果还是强行让这个转移变为结束标记，出现问题了，abcx也可以转移到 那里，可是abcx不是串的结束状态。
+现在我们来总结一下，从自动机SAM(str) 增量构建自动机SAM(str+x)，我们需要更改的只是trans(root，str)以及他在parent树上面的所有祖先，容易证明如果状态 q是trans(root，str)的第一个包含字符x转移的状态，那么q的所有祖先都包含了字符x的转移。trans(root,str)到q之间(不包含q)的所有状态都不包含字符x的转移。 可以证明:如果不包含x的转移，我们直接构建一个新的状态p表示trans(root，str+x)状态,此处可以证明他的right集合只有一个元素， 就是len(str+x)。那些不包含x转移的状态，可以直接转移到p，因为那样转移之后的right集合是就是p的right集合。那么我们就一直这样做即可，那么q以及q的祖先呢？他们包含了字符x的转移 但是我们可以直接在那个地方设置一个结束标志吗？这不一定？为什么呢？首先，我们的状态定义是依据right集合的，也就是说right集合一摸一样的，才能用一个状态表示。 如果我们那样做，会造成什么后果呢？节点q向x转移的状态trans(q,x)的right集合是不包含len(str+x)的，我们那样做，会导致right集合扩大。right集合扩大，可能会 导致以前能够用trans(q,x)表示的某些串，不能用trans(q,x)表示了。
+举个例子,abcxabc+x和abcxbc+x，对于第一个，原本abc拥有向x的转移，当时还不是结束标记，当我们加入字符x后我们强行让这个转移变为结束标记，一点问题都没有，abcx 确实是新的结束标记，然而对于第二个，原本bc拥有向x的转移，当时还不是结束标记，当我们加入字符x后，如果还是强行让这个转移变为结束标记，出现问题了，abcx也可以转移到 那里，可是abcx不是串的结束状态。
 ##### 到底什么时候需要创建新的节点
-&emsp;&emsp;我们来思考一下，什么时候那样做是对的。如果无脑加结束标记是对的，那就意味着，以前能够到达trans(q,x)的串，他们的right集合，现在都能够到达len(str+x),我们再一次 思考状态state的意义，相同right集合的串，用同一个状态表示，这些串之间有什么关系吗？如果我们定义max(state)为这个状态能表达的串的最大长度，min(state)表示这个 状态=能表达的串的最小长度，可以证明，这个state能表达的所有串，恰好为max(state)和min(state)之间的所有串，举个例子:如果max(state)为abcdef,min（state)为 def,实际上，state的所有串是:def,cdef,bcdef,abcdef，还可以证明,min(state)=max(fa(state))-1，fa(state)表示在parent树上state的父亲。
-&emsp;&emsp;我们不难证明在原串中如果max(q+x)=max(q)+1的时候，无脑加入结束标记是对的，这确保没有比max(q)更大的其他状态能够转移到trans(root,q+x)在这种情况下，直接设置一下 fa(p)=trans（root,q+x),可以证明整个更新到此就已经结束了。
-&emsp;&emsp;但是如果不等呢？肯定是不可以那样做的，我们考虑状态到定义，我们发现我们必须重建一个新的状态，来把目前到这个trans(root，q+x)状态分解为两个状态，一个储存串使得max(q'+x)=max（q)+x 另一个储存剩余的，那些东西要移到q'+x去呢？我们发现那些q的祖先中，能够转移到trans(root，q+x)的都要改到q'+x ，如此过后，我们发现现在的情况变得根上一段一摸一样了， 终于，整个后缀自动机构建完成。
+我们来思考一下，什么时候那样做是对的。如果无脑加结束标记是对的，那就意味着，以前能够到达trans(q,x)的串，他们的right集合，现在都能够到达len(str+x),我们再一次 思考状态state的意义，相同right集合的串，用同一个状态表示，这些串之间有什么关系吗？如果我们定义max(state)为这个状态能表达的串的最大长度，min(state)表示这个 状态=能表达的串的最小长度，可以证明，这个state能表达的所有串，恰好为max(state)和min(state)之间的所有串，举个例子:如果max(state)为abcdef,min（state)为 def,实际上，state的所有串是:def,cdef,bcdef,abcdef，还可以证明,min(state)=max(fa(state))-1，fa(state)表示在parent树上state的父亲。
+我们不难证明在原串中如果max(q+x)=max(q)+1的时候，无脑加入结束标记是对的，这确保没有比max(q)更大的其他状态能够转移到trans(root,q+x)在这种情况下，直接设置一下 fa(p)=trans（root,q+x),可以证明整个更新到此就已经结束了。
+但是如果不等呢？肯定是不可以那样做的，我们考虑状态到定义，我们发现我们必须重建一个新的状态，来把目前到这个trans(root，q+x)状态分解为两个状态，一个储存串使得max(q'+x)=max（q)+x 另一个储存剩余的，那些东西要移到q'+x去呢？我们发现那些q的祖先中，能够转移到trans(root，q+x)的都要改到q'+x ，如此过后，我们发现现在的情况变得根上一段一摸一样了， 终于，整个后缀自动机构建完成。
 
 ```cpp
 ### include<bits/stdc++.h>
@@ -22704,19 +22704,19 @@ struct SAM{//下标从1开始，0作为保留位，用于做哨兵
 
 
 ### AC自动机
-&emsp;&emsp;所谓AC自动机，其实是kmp算法与字典树的结合,不懂这两个，是无法学会的。
+所谓AC自动机，其实是kmp算法与字典树的结合,不懂这两个，是无法学会的。
 ### 自动机
-&emsp;&emsp;自动机，是一个五元组，包括了状态的非空有穷集合，符号的有限集合，状态转移函 数， 开始状态，终止状态集合，而在字典树上，增加了两个新的东西，一个标记了终止状态集合，另一个辅助了状态转移函数。 我们利用字典树上 的节点来表示状态，而边则用来表示状态转移函数的一部分。
+自动机，是一个五元组，包括了状态的非空有穷集合，符号的有限集合，状态转移函 数， 开始状态，终止状态集合，而在字典树上，增加了两个新的东西，一个标记了终止状态集合，另一个辅助了状态转移函数。 我们利用字典树上 的节点来表示状态，而边则用来表示状态转移函数的一部分。
 ### 匹配
-&emsp;&emsp;当AC自动机建立好了以后，我们就可以在AC自动机上进行匹配了，我们在自动机上一 个一个 节点忘下跑，一直到失配，即到达AC自动机上某个节点后，此节点所代表的字符串，与母串的当前前缀子串相差刚好只为最后一个 字母，这 时候，我们跳跃到fail指针即可进行后面的继续匹配。
+当AC自动机建立好了以后，我们就可以在AC自动机上进行匹配了，我们在自动机上一 个一个 节点忘下跑，一直到失配，即到达AC自动机上某个节点后，此节点所代表的字符串，与母串的当前前缀子串相差刚好只为最后一个 字母，这 时候，我们跳跃到fail指针即可进行后面的继续匹配。
 ### file指针
-&emsp;&emsp;fail指针当然跳得越深越好，这时候fail所代表的意义到底是什么呢？很明显，此时 要求与母串有 尽可能长得公共前缀，也就是说与失配发生的时候AC自动机所在节点（所表示的状态）表示的字符串的尽可能长的后缀相同的新节点 ， 这里我们明显可以采取树形dp来得到。
+fail指针当然跳得越深越好，这时候fail所代表的意义到底是什么呢？很明显，此时 要求与母串有 尽可能长得公共前缀，也就是说与失配发生的时候AC自动机所在节点（所表示的状态）表示的字符串的尽可能长的后缀相同的新节点 ， 这里我们明显可以采取树形dp来得到。
 ### 内存开销
-&emsp;&emsp;我们用fail[u]表示节点u的失配指针，用nex[u][i]表示节点u的指向 字符i的节点， 于是我们发现 了转移式子： fail[nex[u][i]]= nex[fail[u]][i];如果fail[u]有儿子i的话，但如果没有呢？我们又要不断往上面跳跃对吧。 复杂度不是特别高，能忍受，当然这是在u有节点i的情况下。如果没有节点呢？sorry，这个问题有点复杂，一般的AC自动机不关心这种事情。因为那 会增加很多额外的开销，我们不愿意去给他们建立新节点来储存fail指针的。
+我们用fail[u]表示节点u的失配指针，用nex[u][i]表示节点u的指向 字符i的节点， 于是我们发现 了转移式子： fail[nex[u][i]]= nex[fail[u]][i];如果fail[u]有儿子i的话，但如果没有呢？我们又要不断往上面跳跃对吧。 复杂度不是特别高，能忍受，当然这是在u有节点i的情况下。如果没有节点呢？sorry，这个问题有点复杂，一般的AC自动机不关心这种事情。因为那 会增加很多额外的开销，我们不愿意去给他们建立新节点来储存fail指针的。
 ### 字典图
-&emsp;&emsp;有一种AC自动机，他索性把字典树建成了字典图，如果nex指针指向空节点，他 一定会导致失配，他的nex指针就直接指向了应该是fail指针的地方，很漂亮的做法，但是我们失去了很多，比方说，树没有了，AC自动机不能再加入新 的模式串了。这让我们很难受，抉择产生了，要么选择字典树+好几倍的新空间开销，要么选择字典图。
+有一种AC自动机，他索性把字典树建成了字典图，如果nex指针指向空节点，他 一定会导致失配，他的nex指针就直接指向了应该是fail指针的地方，很漂亮的做法，但是我们失去了很多，比方说，树没有了，AC自动机不能再加入新 的模式串了。这让我们很难受，抉择产生了，要么选择字典树+好几倍的新空间开销，要么选择字典图。
 ### 更好的解决方案
-&emsp;&emsp;笔者对此思考了很久，很久，考虑到我们要么用-1要么用0来表示nex指针指向的 是空节点，也就是说，负数没有被使用到，我们可以这样做，如果一条边在字典树上，我们正常储存，如果他不在字典树，而是在字典图上，那我们存储 他所指向的节点的相反数，一者表示此指针指向空节点，再者表示此指针指向的节点的fail指针，这样的做法集合了上诉两种做法的优点于一身。下面 是我的代码。
+笔者对此思考了很久，很久，考虑到我们要么用-1要么用0来表示nex指针指向的 是空节点，也就是说，负数没有被使用到，我们可以这样做，如果一条边在字典树上，我们正常储存，如果他不在字典树，而是在字典图上，那我们存储 他所指向的节点的相反数，一者表示此指针指向空节点，再者表示此指针指向的节点的fail指针，这样的做法集合了上诉两种做法的优点于一身。下面 是我的代码。
 
 ```cpp
 struct Aho_Corasick_automation{
@@ -22801,21 +22801,21 @@ struct Aho_Corasick_automation{
 
 
 ### 后缀树
-&emsp;&emsp; 一颗后缀树是针对一个字符串而言的，该后缀树能识别这个字符串的所有后缀，能且仅能识别这个字符串的所有字串，
+ 一颗后缀树是针对一个字符串而言的，该后缀树能识别这个字符串的所有后缀，能且仅能识别这个字符串的所有字串，
 ### 后缀树空间压缩
-&emsp;&emsp; 常常我们会在后缀树的边上储存字符串，而不是字符，这样可以避免大量的内存开销，每一条边，我们都记录了两个数据，字符串的起点和终点，这样就实现了后缀树的空间压缩
+ 常常我们会在后缀树的边上储存字符串，而不是字符，这样可以避免大量的内存开销，每一条边，我们都记录了两个数据，字符串的起点和终点，这样就实现了后缀树的空间压缩
 ### 后缀树的构造
-&emsp;&emsp; 后缀树有很多构造算法，这里直讲最简单的，考虑一个字符串的后缀自动机，其上的paerent树便是反串的后缀树。
+ 后缀树有很多构造算法，这里直讲最简单的，考虑一个字符串的后缀自动机，其上的paerent树便是反串的后缀树。
 
 ## 基数树
 
 
 
 ### 基数树
-&emsp;&emsp; 基数树是一种更加节省空间的数据结构，他是字典树的升华，
+ 基数树是一种更加节省空间的数据结构，他是字典树的升华，
 ### 字典树的缺陷
-&emsp;&emsp; 常常字典树会很深，而不胖，这会导致空间的浪费，因为里面的指针很多，往往我们发现，如下列字典树
-&emsp;&emsp; **稍等片刻！正在将字符数据转化为图形**
+ 常常字典树会很深，而不胖，这会导致空间的浪费，因为里面的指针很多，往往我们发现，如下列字典树
+ **稍等片刻！正在将字符数据转化为图形**
 ```mermaid
 graph LR
 start((start))--a--> 1((1))
@@ -22824,7 +22824,7 @@ start((start))--a--> 1((1))
 2((2))--d-->3((end))
 ```
 ### 用基数树改进字典树
-&emsp;&emsp; 我们可以通过压缩字符路径为字符串路径，即将长链压缩为一条边。
+ 我们可以通过压缩字符路径为字符串路径，即将长链压缩为一条边。
 ```mermaid
 graph LR
 start((start))--ab-->2((2))
@@ -22832,18 +22832,18 @@ start((start))--ab-->2((2))
 2((2))--d-->3((end))
 ```
 
-&emsp;&emsp; 当然你甚至还能这样
+ 当然你甚至还能这样
 ```mermaid
 graph LR
 start((start))--abc-->3((end))
 start((start))--abd-->3((end))
 ```
 
-&emsp;&emsp; 这些都是合法的基数树。注意，基数树仍然是字典树，只不过他压缩了路径
+ 这些都是合法的基数树。注意，基数树仍然是字典树，只不过他压缩了路径
 
 
 ### 用基数树加速IP路由检索
-&emsp;&emsp; 路由检索常常是检索一个01字符串，这时候我们可以通过压缩的方式，每两位压缩、或者三位、四位压缩，能够让查找次数更少，当然这样做可能会牺牲空间，但是他依然是基数树优化的字典树。
+ 路由检索常常是检索一个01字符串，这时候我们可以通过压缩的方式，每两位压缩、或者三位、四位压缩，能够让查找次数更少，当然这样做可能会牺牲空间，但是他依然是基数树优化的字典树。
 
 
 # test
@@ -22859,7 +22859,7 @@ start((start))--abd-->3((end))
 <img src="http://q8awr187j.bkt.clouddn.com/%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%951-%E6%B5%81%E7%A8%8B%E5%9B%BE.png" width="50%">
 
 #### 判定覆盖
-&emsp;&emsp; 需要三条路径
+ 需要三条路径
 ##### 第一组：
 - (x,y,z) = (4,0,9)
 - (x,y,z) = (4,0,0)
@@ -22877,7 +22877,7 @@ start((start))--abd-->3((end))
 | x<=3 z<10  | x!=4 y>5   |
 | x>3 z>=10  | x==4 y<=5  |
 | x<=3 z>=10 | x!=4 y<=5  |
-&emsp;&emsp; 所以4个组合
+ 所以4个组合
 - (x,y,z)=(4,6,9)
 - (x,y,z)=(3,6,9)
 - (x,y,z)=(4,5,10)
@@ -22917,31 +22917,31 @@ start((start))--abd-->3((end))
 
 
 ### vim
-&emsp;&emsp; vim是一款强大的文本编辑器,如果配置到位，真的真的非常漂亮，如下图violet主题的浅色和深色
+ vim是一款强大的文本编辑器,如果配置到位，真的真的非常漂亮，如下图violet主题的浅色和深色
 ![](/images/vim学习/violet_light.png)
 
 ![](/images/vim学习/violet_dark.png)
-&emsp;&emsp; 还有经典的molokai配色主题
-&emsp;&emsp; 还有c++高亮配色
+ 还有经典的molokai配色主题
+ 还有c++高亮配色
 ![](/images/vim学习/c++高亮.png)
-&emsp;&emsp; c++补全
+ c++补全
 ![](/images/vim学习/c++补全.png)
-&emsp;&emsp; 多行编辑
+ 多行编辑
 ![](/images/vim学习/多行编辑.png)
 
 
 
 ### 笔者的vim经历
-&emsp;&emsp; 先后尝试vim，笔者已经度过了两年，学到了很多，却也很少，
+ 先后尝试vim，笔者已经度过了两年，学到了很多，却也很少，
 
 ### vim安装
-&emsp;&emsp; 以前笔者使用过linux下的vim，现在正使用的mac下的vim，这里只讲mac如何安装vim，mac本身自带vim,当然mac也可以使用指令
+ 以前笔者使用过linux下的vim，现在正使用的mac下的vim，这里只讲mac如何安装vim，mac本身自带vim,当然mac也可以使用指令
 ```bash
 brew install vim
 ```
 
 ### vim基本配置
-&emsp;&emsp; vim是需要简单配置一下的，对于没有配置的vim而言，会很难受，下面我先发一下我的vim配置
+ vim是需要简单配置一下的，对于没有配置的vim而言，会很难受，下面我先发一下我的vim配置
 ```
 set et "tab用空格替换
 
@@ -22991,7 +22991,7 @@ set matchtime=1
 ```
 
 ### vim的插件
-&emsp;&emsp; 这里推荐vundle，安装vundle后，我们的配置前面就多了一些东西
+ 这里推荐vundle，安装vundle后，我们的配置前面就多了一些东西
 <summary>代码</summary>
 ```
 " Vundle set nocompatible
@@ -23024,42 +23024,42 @@ Plugin 'mhinz/vim-startify'
 call vundle#end()
 filetype plugin indent on
 ```
-&emsp;&emsp; 这里的Plugin "..."指的是使用啥啥啥插件的意思。
+ 这里的Plugin "..."指的是使用啥啥啥插件的意思。
 
 ### vim基础操作
-&emsp;&emsp; 下面我们进入到最核心的地方，vim的快捷操作
+ 下面我们进入到最核心的地方，vim的快捷操作
 #### vim 基本移动操作
 ##### 基本跳转
-&emsp;&emsp; jkhl分别对应了上下左右
+ jkhl分别对应了上下左右
 ##### 字符串跳转
-&emsp;&emsp; b是向前跳转一个单词，w是向后跳转一个单词
+ b是向前跳转一个单词，w是向后跳转一个单词
 ##### 行内跳转
-&emsp;&emsp; $跳转到行末,A跳转到行末并输入,0跳转到行首,^跳转到行首非空字符,I跳转到行首非空字符并输入
-&emsp;&emsp; f+a跳转到后面的第一个a, F+a跳转到前面第一个a
+ $跳转到行末,A跳转到行末并输入,0跳转到行首,^跳转到行首非空字符,I跳转到行首非空字符并输入
+ f+a跳转到后面的第一个a, F+a跳转到前面第一个a
 ##### 行间跳转
-&emsp;&emsp; gg到首行，G到尾行, :100到100行
-&emsp;&emsp; H到屏幕顶，M到屏幕中，L到屏幕底
+ gg到首行，G到尾行, :100到100行
+ H到屏幕顶，M到屏幕中，L到屏幕底
 ##### 屏幕跳转
-&emsp;&emsp; zz把当前行变为屏幕正中间。
-&emsp;&emsp; <C-y>向上移动一行，<C-e>向下移动一行
-&emsp;&emsp; <C-b>向上整个屏幕, <C-f>向下整个屏幕
+ zz把当前行变为屏幕正中间。
+ <C-y>向上移动一行，<C-e>向下移动一行
+ <C-b>向上整个屏幕, <C-f>向下整个屏幕
 ##### 文件跳转
-&emsp;&emsp; :bn到缓冲区下一个文件，bp到前一个
-&emsp;&emsp; :A .c与.h文件跳转
-&emsp;&emsp; :IH 到光标指向文件
+ :bn到缓冲区下一个文件，bp到前一个
+ :A .c与.h文件跳转
+ :IH 到光标指向文件
 
 #### vim 多行操作
-&emsp;&emsp;用插件会卡，这里我们可以<C-v>, 移动,I,写,ESC 
-&emsp;&emsp;指令10,20s/^/#/g
+用插件会卡，这里我们可以<C-v>, 移动,I,写,ESC 
+指令10,20s/^/#/g
 
 
 ##### vim 高质量跳转
-&emsp;&emsp; % 跳转括号
+ % 跳转括号
 
 
 #### vim 高质量组合操作
-&emsp;&emsp; c<space> 删除当前字符并插入
-&emsp;&emsp; caw  change a word删除当前单词并插入 
+ c<space> 删除当前字符并插入
+ caw  change a word删除当前单词并插入 
 ```
 one
 two
@@ -23077,36 +23077,32 @@ one,two,three,four
 
 ## 字节一面
 
----
-mathjax: true
-password: "wsx"
----
 - 自我介绍
 - c++的多态
-&emsp;&emsp; 虚函数，用基类的指针可以访问到对象的相应函数
+ 虚函数，用基类的指针可以访问到对象的相应函数
 - 你这是运行期多态，编译期多态呢？
-&emsp;&emsp; 不知道了(嗝屁)
+ 不知道了(嗝屁)
 - c++内存布局呢
-&emsp;&emsp; 堆和栈(嗝屁)
+ 堆和栈(嗝屁)
 - c++map怎么实现的
-&emsp;&emsp; 红黑树
+ 红黑树
 - c++map线程安全吗
-&emsp;&emsp; 不安全
+ 不安全
 - 怎么改进c++map，让他线程安全
-&emsp;&emsp; 为整个数据结构加一把大锁，或者为内部节点加锁
+ 为整个数据结构加一把大锁，或者为内部节点加锁
 - 开始谈TCP
-&emsp;&emsp; 拥塞控制、流控制，滑动窗口，TCP慢启动，可靠传输，
-&emsp;&emsp; 用UDP建立TCP 项目的细节: 封包: 头+数据+校验和， 如何启动: 收到一个ack发出去两个包，如何拥塞控制：和式增加积式减少，如何流控制： 接收端反馈缓冲区大小，如何ack：前缀ack，或者前缀ack附加当前包序列，如何判断丢包: 3次ack等等
+ 拥塞控制、流控制，滑动窗口，TCP慢启动，可靠传输，
+ 用UDP建立TCP 项目的细节: 封包: 头+数据+校验和， 如何启动: 收到一个ack发出去两个包，如何拥塞控制：和式增加积式减少，如何流控制： 接收端反馈缓冲区大小，如何ack：前缀ack，或者前缀ack附加当前包序列，如何判断丢包: 3次ack等等
 - 线程和进程的区别
-&emsp;&emsp; 线程是进程的一部分，共享进程的资源，进程独享资源
+ 线程是进程的一部分，共享进程的资源，进程独享资源
 - 资源是什么
-&emsp;&emsp; 内存寄存器等
+ 内存寄存器等
 - 进程通信
-&emsp;&emsp; 信号量互斥量，管道，消息队列，socket
+ 信号量互斥量，管道，消息队列，socket
 - 进程的信号量怎么实现
-&emsp;&emsp; 只会线程的信号量，原子操作(嗝屁)
+ 只会线程的信号量，原子操作(嗝屁)
 - 写题,二维01数组，1表示岛屿，0表示海洋，问最大岛屿的面积
-&emsp;&emsp; 并查集，或者targin算法，让我用并查集写。
+ 并查集，或者targin算法，让我用并查集写。
 
 ### 补题
 - 编译器多态是模版和重载
@@ -23116,73 +23112,69 @@ password: "wsx"
 
 ## 阿里一面
 
----
-mathjax: true
-password: "wsx"
----
 
 ### 问题
 - 自我介绍
 - hash_map的hashcode 和equal
-&emsp;&emsp; hashcode是对对象的加密,是equal的必要条件，equal是判断对象是否相等的充要条件
+ hashcode是对对象的加密,是equal的必要条件，equal是判断对象是否相等的充要条件
 - hashcode不同但equal相同导致什么后果。
-&emsp;&emsp; map的contain函数出错
+ map的contain函数出错
 - hash碰撞怎么办
-&emsp;&emsp; hash就是数组，线性探测，二次探测，数组的每个元素是链表,链表过长进化为红黑树
+ hash就是数组，线性探测，二次探测，数组的每个元素是链表,链表过长进化为红黑树
 - 有人在代码中写了hashcode为返回常数会怎样
-&emsp;&emsp; 所有元素发生碰撞，hash_map退化为红黑树，O1变O(lgn)
+ 所有元素发生碰撞，hash_map退化为红黑树，O1变O(lgn)
 - hash_map线程不安全怎么办
-&emsp;&emsp; hash_table为整个数据结构加锁,current_hash_map加分段锁
+ hash_table为整个数据结构加锁,current_hash_map加分段锁
 - current_hash_map 的size函数是否返回正确结果
-&emsp;&emsp; 不一定返回正确结果
+ 不一定返回正确结果
 - java锁
-&emsp;&emsp; synchronized
+ synchronized
 - 乐观锁和悲观锁
-&emsp;&emsp; 悲观锁就是使用互斥量的那一类锁，乐观锁就是使用版本号
+ 悲观锁就是使用互斥量的那一类锁，乐观锁就是使用版本号
 - 乐观锁版本号如何解决ABA问题
-&emsp;&emsp; A1B2A3, A还是那个A，但是版本不同了
+ A1B2A3, A还是那个A，但是版本不同了
 - violate作用
-&emsp;&emsp; 禁止指令重排，JVM保证load和read的有序，violate保证读取的时候和内存同步
+ 禁止指令重排，JVM保证load和read的有序，violate保证读取的时候和内存同步
 - violate有原子性吗
-&emsp;&emsp; 没有
+ 没有
 - 可重用锁知道吗
-&emsp;&emsp; 不知道(嗝屁)
+ 不知道(嗝屁)
 - java Automic了解吗
-&emsp;&emsp; 没有(嗝屁)
+ 没有(嗝屁)
 - 线程死锁的条件
-&emsp;&emsp; 互斥、不可抢占、占有与等待、环路等待
+ 互斥、不可抢占、占有与等待、环路等待
 - 如何解决死锁
-&emsp;&emsp; 破坏死锁的条件之一，忽略死锁，检测并释放死锁
+ 破坏死锁的条件之一，忽略死锁，检测并释放死锁
 - 如何检测死锁
-&emsp;&emsp; 转化为图论，本质是又向图判环，tarjan算法，spfa算法，普通dfs
+ 转化为图论，本质是又向图判环，tarjan算法，spfa算法，普通dfs
 - TCP三次招手和四次挥手
-&emsp;&emsp; (慢慢讲...)
+ (慢慢讲...)
 - TCP慢启动
-&emsp;&emsp; 收到一个包后发送两个包
+ 收到一个包后发送两个包
 - 网络拥塞控制
-&emsp;&emsp; 和式增加积式减少
+ 和式增加积式减少
 - TCP和UDP的区别
-&emsp;&emsp; TCP面向连接，可靠传输，UDP不可靠,会丢失延时重复乱序损坏
+ TCP面向连接，可靠传输，UDP不可靠,会丢失延时重复乱序损坏
 - UDP的作用
-&emsp;&emsp; 电话和电视
+ 电话和电视
 - QQ为什么用不可靠的UDP
-&emsp;&emsp; UDP即使不可靠，但是我们可以通过ack机制让其可靠起来。
+ UDP即使不可靠，但是我们可以通过ack机制让其可靠起来。
 - HTTP1.1/2.0的区别
-&emsp;&emsp; 头部压缩，多路复用，服务器推送(嗝屁)
+ 头部压缩，多路复用，服务器推送(嗝屁)
 - 头部压缩的算法
-&emsp;&emsp; (嗝屁)
+ (嗝屁)
 - HTTP2.0的队头阻塞怎么处理的
-&emsp;&emsp;(嗝屁)
+(嗝屁)
 - HTTPS的四次招手
-&emsp;&emsp; (慢慢讲...)
+ (慢慢讲...)
 - HTTPS如何处理假冒服务器的人
-&emsp;&emsp; CA证书+签名+日期
+ CA证书+签名+日期
 - mysql数据库innodb索引
-&emsp;&emsp; B+树
+ B+树
 - B+树和B树的区别，B+树的优点
-&emsp;&emsp; 叶子结点的双向环状链表
+ 叶子结点的双向环状链表
 - mysql有个联合索引(A,B,C),查询A=1,B&gt;2,C&lt;3能用索引吗?
-&emsp;&emsp; (A,B)可以用，但是C不行，理论上C可行，因为C虽然全局无序，但是局部有序，然而mysql不支持，
+ (A,B)可以用，但是C不行，理论上C可行，因为C虽然全局无序，但是局部有序，然而mysql不支持，
 
 ### 补题
 - 可重用锁就是递归锁
@@ -23193,20 +23185,15 @@ password: "wsx"
 
 ## 腾讯一面
 
----
-mathjax: true
-password: "wsx"
----
-
 ### 感想
-&emsp;&emsp; 面试官的问题太开放了，我还是太菜了
+ 面试官的问题太开放了，我还是太菜了
 
 ### 问题
 - 讲一下你的产学研项目
 - 来个题： 一个矩阵，从左上角向右下角走，只能向右或者向下，问经过的点的权值和最少是多少
-&emsp;&emsp; dp
+ dp
 - 去掉向右或者向下走的限制呢,每个点只能走一次
-&emsp;&emsp; dijkstra,每个点向四周连边就可以了，如果有负数的话需要拆点(这里我说的其实是错的,有负数的情况下应该使用bellman算法或者spfa算法)
+ dijkstra,每个点向四周连边就可以了，如果有负数的话需要拆点(这里我说的其实是错的,有负数的情况下应该使用bellman算法或者spfa算法)
 - 讲一下mysql
 - 再来个题： 一个表[学号,科目,成绩] , 想得到这样的表[学号,语文成绩,数学成绩,英语成绩]怎么写
 - 讲一下spring
@@ -23235,90 +23222,77 @@ from
 
 ## 腾讯二面
 
----
-mathjax: true
-password: "wsx"
----
-
 ### 二面
-&emsp;&emsp; 面试官让我自我介绍，然后就开始做题了，问我哪方面比较强，我说都还好行,然后面试官给了我一个大数据的题目
-&emsp;&emsp; 我还以为说的是算法题呢(我当时应该说图论、字符串、dp)
+ 面试官让我自我介绍，然后就开始做题了，问我哪方面比较强，我说都还好行,然后面试官给了我一个大数据的题目
+ 我还以为说的是算法题呢(我当时应该说图论、字符串、dp)
 - 一个20亿行的数据，第一列是qq号，第二列是手机号，问哪些手机号对应了多个qq号
-&emsp;&emsp; 我没看清到20亿的数据，直接说了一个字典树，然后就被提醒了，然后我就开始想把手机号分成4+7位，按照前4位分成1000组，每组分别是独立的，然后合并答案，面试官问还有没有其他做法，我说可以利用归并排序的思路，将数据随机分成1000组，然后对电话号码排序，最后用堆归并
-&emsp;&emsp; 正解应该是mapreduce分发任务然后合并
+ 我没看清到20亿的数据，直接说了一个字典树，然后就被提醒了，然后我就开始想把手机号分成4+7位，按照前4位分成1000组，每组分别是独立的，然后合并答案，面试官问还有没有其他做法，我说可以利用归并排序的思路，将数据随机分成1000组，然后对电话号码排序，最后用堆归并
+ 正解应该是mapreduce分发任务然后合并
 - 第二题是mysql,给你一个每天的签到表[name,day,sign]你要输出每个员工的到今天的连续签到天数
 - 第三题是写LRU算法，
-&emsp;&emsp; 用链表+map就可以实现，
+ 用链表+map就可以实现，
 - 如果是高并发的LRU呢
-&emsp;&emsp; map改为分段锁
+ map改为分段锁
 
 
 ## 阿里二面
 
----
-mathjax: true
-password: "wsx"
----
 
 ### 问题
 - 自我介绍
 - c++和java各说3个优点
-&emsp;&emsp; c++ 高效、模版元的图灵完全性、多继承
-&emsp;&emsp; java 跨平台、更强的面向对象、更多的框架、社区
+ c++ 高效、模版元的图灵完全性、多继承
+ java 跨平台、更强的面向对象、更多的框架、社区
 <!--more-->
 - java什么时候把代码变成native方法
-&emsp;&emsp; 把热点循环和热点函数变为natine方法
+ 把热点循环和热点函数变为natine方法
 - native方法和c++的效率有区别吗
-&emsp;&emsp; 没区别，都是机器码
+ 没区别，都是机器码
 - 讲spring的特点
-&emsp;&emsp; IOC控制反转和AOP面向切面编程
+ IOC控制反转和AOP面向切面编程
 - 设计模式有23种，但是他们有一些设计原则，讲一下IOC用到了哪个
-&emsp;&emsp; 工厂模式？（不对，是依赖反转)
+ 工厂模式？（不对，是依赖反转)
 - 讲一下设计模式的原则
-&emsp;&emsp; 里氏替换、开闭原则、迪米特原则(掉了依赖反转、单一职责、接口隔离、合成复用)
+ 里氏替换、开闭原则、迪米特原则(掉了依赖反转、单一职责、接口隔离、合成复用)
 - 滑动窗口
-&emsp;&emsp; 讲了个拥塞控制，正准备说流控制，面试官说拥塞是整个网络的状态，而窗口控制的是端到端，IP控制点到点，TCP控制端到端
-&emsp;&emsp; 感觉说的挺对的，我是这样理解的，滑动窗口确实无法直接控制整个网络的拥塞，网络的拥塞是网络上所有的滑动窗口共同控制的,
+ 讲了个拥塞控制，正准备说流控制，面试官说拥塞是整个网络的状态，而窗口控制的是端到端，IP控制点到点，TCP控制端到端
+ 感觉说的挺对的，我是这样理解的，滑动窗口确实无法直接控制整个网络的拥塞，网络的拥塞是网络上所有的滑动窗口共同控制的,
 - 路由器、交换机、hub的区别
-&emsp;&emsp; 没答上来，
+ 没答上来，
 - 讲TCP的优点
-&emsp;&emsp; 我准备从不可靠传输开始讲起，开始说不可靠传输的错误： 包丢失、损坏、重复、乱序、延时，然后面试官开始强调乱序不是错误，他说你点了两个快递，先点的后到，算错误吗？
-&emsp;&emsp; 我说不算，我就开始想错误这个词语该哪什么来替换，最后还是没想到，(应该说不可靠传输的现象)
+ 我准备从不可靠传输开始讲起，开始说不可靠传输的错误： 包丢失、损坏、重复、乱序、延时，然后面试官开始强调乱序不是错误，他说你点了两个快递，先点的后到，算错误吗？
+ 我说不算，我就开始想错误这个词语该哪什么来替换，最后还是没想到，(应该说不可靠传输的现象)
 - 来和我说几句英语
-&emsp;&emsp; ... 瞬间想到了good evening，但我感觉说这话不太好，太low了，然后就全程没说话。
+ ... 瞬间想到了good evening，但我感觉说这话不太好，太low了，然后就全程没说话。
 
 
 ## 腾讯三面
 
----
-mathjax: true
-password: "wsx"
----
 
 ### 前言
-&emsp;&emsp; 面试官说你这是三面了吧，一面二面有没有跟你讲过部门相关的事情
-&emsp;&emsp; 第一次半个小时结束面试，挺突然的。
+ 面试官说你这是三面了吧，一面二面有没有跟你讲过部门相关的事情
+ 第一次半个小时结束面试，挺突然的。
 
 ### 问题
 - 自我介绍 
 - STL源码读过吗
-&emsp;&emsp; 读过
+ 读过
 - Boost源码读过吗
-&emsp;&emsp; 只读了any
+ 只读了any
 <!--more-->
 - Java堆和栈分别存了哪些东西
-&emsp;&emsp; 理论上堆存对象，但是jvm会优化，将一些对象拆分为基本数据类型放到栈中,栈存局部变量表
+ 理论上堆存对象，但是jvm会优化，将一些对象拆分为基本数据类型放到栈中,栈存局部变量表
 - Java垃圾回收器
-&emsp;&emsp; 分为针对老生代的和新生代的，有并行的并发的串行的，标记整理，标记清除，复制的，还有个G1，
+ 分为针对老生代的和新生代的，有并行的并发的串行的，标记整理，标记清除，复制的，还有个G1，
 - 讲一下标记整理、标记清除、复制
 - Java锁了解吗
-&emsp;&emsp; synchronized和lock
+ synchronized和lock
 - Java有哪些锁
-&emsp;&emsp; 偏向锁，CAS，自旋锁，管道实现的重量级锁，逐步升级
+ 偏向锁，CAS，自旋锁，管道实现的重量级锁，逐步升级
 - sql怎么样
-&emsp;&emsp; 能写，但不熟练
+ 能写，但不熟练
 - 线程和进程的区别
-&emsp;&emsp; 线程是调度的基本单位，进程是资源分配的基本单位
+ 线程是调度的基本单位，进程是资源分配的基本单位
 - 做题 比较版本号 1.01 = 1.1， 1.2.1 > 1.1.2,  7.2.0 = 7.2
 - 考研吗
 - 最开心的事情
@@ -23328,10 +23302,6 @@ password: "wsx"
 
 ## 腾讯hr面
 
----
-mathjax: true
-password: "wsx"
----
 
 - 自我介绍
 - 武汉解封没
@@ -23344,21 +23314,17 @@ password: "wsx"
 
 ## 网易一面
 
----
-mathjax: true
-password: "wsx"
----
 
-&emsp;&emsp; 昨天腾讯offer call了，阿里还卡在二面，可我还是想进阿里，
-&emsp;&emsp; 今天早上起的比较早，来面试，开始用的safari,卡了半天进不去，后来改为crome才进去，挺耽误面试官时间的
+ 昨天腾讯offer call了，阿里还卡在二面，可我还是想进阿里，
+ 今天早上起的比较早，来面试，开始用的safari,卡了半天进不去，后来改为crome才进去，挺耽误面试官时间的
 
 - 题目1 给n个矩形，你需要使用最小的矩形覆盖者n个矩形
 - 题目2 算了没看懂，不知道想表达什么意思，后来听yg说可以问面试官，让他解释样例。
 
 
 - C++和Java的优缺点
-&emsp;&emsp; C++高效、模版是编译期多态、有模版元
-&emsp;&emsp; Java跨平台、模版是运行期多态、有注解、有大量企业级别的框架
+ C++高效、模版是编译期多态、有模版元
+ Java跨平台、模版是运行期多态、有注解、有大量企业级别的框架
 
 - Java内存回收策略
 - Java分代策略
@@ -23375,9 +23341,6 @@ password: "wsx"
 
 ## 网易二面
 
----
-password: "wsx"
----
 
 ### 和面试官聊了些杂事
 我的博客、常用的搜索引擎、开发环境
@@ -23404,9 +23367,6 @@ password: "wsx"
 
 ## 美团一面
 
----
-password: "wsx"
----
 
 今天催了一下阿里，然后就挂了，这么秀吗兄弟
 ### 求最长回文子串
@@ -23520,20 +23480,20 @@ int main() {
 
 
 #### 阿里笔试
-&emsp;&emsp; 感觉很难受，笛卡尔树没写出来，气死了，我咋这么菜 
+ 感觉很难受，笛卡尔树没写出来，气死了，我咋这么菜 
 
 #### 第一题
-&emsp;&emsp; 有n个羊圈，第i个羊圈初始有a[i]个羊，每天早上每个羊圈会增加k的羊，每天晚上主人会选出羊圈中羊最多的那个，卖掉一半，变为$\lfloor \frac{a[i]}{2}\rfloor$个羊，问m天后剩下多少只羊。
+ 有n个羊圈，第i个羊圈初始有a[i]个羊，每天早上每个羊圈会增加k的羊，每天晚上主人会选出羊圈中羊最多的那个，卖掉一半，变为$\lfloor \frac{a[i]}{2}\rfloor$个羊，问m天后剩下多少只羊。
 
-&emsp;&emsp; n,k,m,a[i]&lt;1e5 
+ n,k,m,a[i]&lt;1e5 
 
-&emsp;&emsp; 每天增加本质是区间加法，寻找羊最多的是区间最值查询，减半是单点修改，第一想到线段树，但是这么敲也太莽撞了，然后发现区间修改为全区间修改，考虑到可以懒惰化，即增加一个值add用来表示全区间增大的情况。区间加法的时候让add+=k即可，查询的时候是最值查询，修改的时候注意$\lfloor \frac{a[i]+add}{2}-add\rfloor$,这样用一个多重集合维护即可
+ 每天增加本质是区间加法，寻找羊最多的是区间最值查询，减半是单点修改，第一想到线段树，但是这么敲也太莽撞了，然后发现区间修改为全区间修改，考虑到可以懒惰化，即增加一个值add用来表示全区间增大的情况。区间加法的时候让add+=k即可，查询的时候是最值查询，修改的时候注意$\lfloor \frac{a[i]+add}{2}-add\rfloor$,这样用一个多重集合维护即可
 
 
 #### 第二题
-&emsp;&emsp; 给一个长度为n的数组，任意选择一个子串，问最大值的期望, n&lt;1e6
-&emsp;&emsp; 笛卡尔树的板子题，太丢人了，没做出来，考虑建一颗笛卡尔树，那么区间最值就是树根，树形dp维护子树大小，dfs统计答案。
-&emsp;&emsp; 代码祭天,下次一定分情况讨论，先写个暴力偏点分，不然笛卡尔树没搞好，暴力也没写太惨了。
+ 给一个长度为n的数组，任意选择一个子串，问最大值的期望, n&lt;1e6
+ 笛卡尔树的板子题，太丢人了，没做出来，考虑建一颗笛卡尔树，那么区间最值就是树根，树形dp维护子树大小，dfs统计答案。
+ 代码祭天,下次一定分情况讨论，先写个暴力偏点分，不然笛卡尔树没搞好，暴力也没写太惨了。
 ```cpp
 #### include <bits/stdc++.h>
 using namespace std;
@@ -23608,11 +23568,11 @@ int main() {
 
 
 #### 第一题
-&emsp;&emsp;输入一个n，表示n个点的完全图，输入m表示后续有m个操作，输入s表示你站在s点这个位置
-&emsp;&emsp;接下来m行，每行两个数字x,y
-&emsp;&emsp; 如果x=0 表示与y相连的所有边断开
-&emsp;&emsp; 否则 表示边x-y断开
-&emsp;&emsp; 你需要输出一个数x，表示这m个操作的前x个操作可以让s点与其他所有点断开连接
+输入一个n，表示n个点的完全图，输入m表示后续有m个操作，输入s表示你站在s点这个位置
+接下来m行，每行两个数字x,y
+ 如果x=0 表示与y相连的所有边断开
+ 否则 表示边x-y断开
+ 你需要输出一个数x，表示这m个操作的前x个操作可以让s点与其他所有点断开连接
 ```cpp
 set<int>se;
 for(int i=1;i<=m;i++){
@@ -23628,14 +23588,14 @@ for(int i=1;i<=m;i++){
 }
 return 0;
 ```
-&emsp;&emsp; 怎么说呢，我就是这样写的，显然se.size()==n写错了，应该说n-1，跟yg讲这题的时候才想起来，我原地爆炸了，一直怀疑题目有问题，然后只过了10%，到最后都没找到bug
+ 怎么说呢，我就是这样写的，显然se.size()==n写错了，应该说n-1，跟yg讲这题的时候才想起来，我原地爆炸了，一直怀疑题目有问题，然后只过了10%，到最后都没找到bug
 <!--more-->
 
 #### 第二题
-&emsp;&emsp; 输入一个数n表示n个人，输入一个数m表示他们搞了m次聚会,输入一个数f表示f被感染了
-&emsp;&emsp; 他们举办聚会，如果聚会中有一个人被感染,则参加聚会的其他人都会被感染
-&emsp;&emsp; 输入m行，每行行首一个q，表示这一次聚会有q个人参加，q后面跟着q个数，表示这q个人的编号
-&emsp;&emsp; 你需要输出最终多少人被感染了
+ 输入一个数n表示n个人，输入一个数m表示他们搞了m次聚会,输入一个数f表示f被感染了
+ 他们举办聚会，如果聚会中有一个人被感染,则参加聚会的其他人都会被感染
+ 输入m行，每行行首一个q，表示这一次聚会有q个人参加，q后面跟着q个数，表示这q个人的编号
+ 你需要输出最终多少人被感染了
 ```cpp
 for(int i=0;i<m;i++){
   cin>>q;
@@ -23651,11 +23611,11 @@ int ans=0;
 for(bool x:dead) if(x) ans++;
 cout<<ans<<endl;
 ```
-&emsp;&emsp; 这代码能有问题？？？？？？只能过60%，开玩笑呢
+ 这代码能有问题？？？？？？只能过60%，开玩笑呢
 
 #### 第三题
-&emsp;&emsp; 给一个数字字符串S，一个数字m，
-&emsp;&emsp; 你需要计算出S有多少个划分，讲他划分为S1，S2，S3，。。 且每个数都是m的倍数，答案对1e9+7取模
+ 给一个数字字符串S，一个数字m，
+ 你需要计算出S有多少个划分，讲他划分为S1，S2，S3，。。 且每个数都是m的倍数，答案对1e9+7取模
 ```java
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -23689,20 +23649,20 @@ public class Main {
 
 }
 ```
-&emsp;&emsp; java代码在这，我库鸟。这代码TLE，后来跟yg讲的时候发现split(i,j)%mod这句话可以通过字符串hash优化到O1，我真是，为什么笔试的时候没想到呢
+ java代码在这，我库鸟。这代码TLE，后来跟yg讲的时候发现split(i,j)%mod这句话可以通过字符串hash优化到O1，我真是，为什么笔试的时候没想到呢
 
 #### 第四题
-&emsp;&emsp; 太菜了，没看
+ 太菜了，没看
 
 #### 叙述题
-&emsp;&emsp; 50G的文件，每行一个int，你需要在512MB内存的机器上求出TOP100
-&emsp;&emsp; 这个很有意思，显然mapreduce
-&emsp;&emsp; 先说一个常规的做法，抽象为n个int，取出TOP m
-&emsp;&emsp; 我们每次从n个数中选出k个来，求这k个数的TOP m,使用线性时间选择算法
-&emsp;&emsp; 这里一共执行了$$\lceil \frac{n}{k}\rceil$$次，取出了不超过$$\lceil \frac{n}{k}\rceil*m$$个数,于是合并解的时候复杂度为$$O(\lceil \frac{n}{k}\rceil*m)$$,  前面的复杂度为$$O(n)$$, 所以总时间复杂度为$$O(n+\lceil \frac{mn}{k}\rceil)$$<br>
-&emsp;&emsp; 空间复杂度的话就是$$O(k)+O(\lceil \frac{mn}{k}\rceil)$$<br>
-&emsp;&emsp; 我们稍微权衡一下，很容易发现时间复杂度就是$$O(n)$$,空间复杂度当k取到$$\sqrt{mn}$$的时候达到最优为$$O(\sqrt{mn})$$<br>
-&emsp;&emsp; 然后我们来讲mapreduce的做法，我们每份分出去x台机器，map时间复杂度为$$O(n)$$,其他机器上为$$O(\frac{n}{x})$$,然后reduce，我们还有$$x*m$$个数，总共是$$O(n+\frac{n}{x}+x*m)$$
+ 50G的文件，每行一个int，你需要在512MB内存的机器上求出TOP100
+ 这个很有意思，显然mapreduce
+ 先说一个常规的做法，抽象为n个int，取出TOP m
+ 我们每次从n个数中选出k个来，求这k个数的TOP m,使用线性时间选择算法
+ 这里一共执行了$$\lceil \frac{n}{k}\rceil$$次，取出了不超过$$\lceil \frac{n}{k}\rceil*m$$个数,于是合并解的时候复杂度为$$O(\lceil \frac{n}{k}\rceil*m)$$,  前面的复杂度为$$O(n)$$, 所以总时间复杂度为$$O(n+\lceil \frac{mn}{k}\rceil)$$<br>
+ 空间复杂度的话就是$$O(k)+O(\lceil \frac{mn}{k}\rceil)$$<br>
+ 我们稍微权衡一下，很容易发现时间复杂度就是$$O(n)$$,空间复杂度当k取到$$\sqrt{mn}$$的时候达到最优为$$O(\sqrt{mn})$$<br>
+ 然后我们来讲mapreduce的做法，我们每份分出去x台机器，map时间复杂度为$$O(n)$$,其他机器上为$$O(\frac{n}{x})$$,然后reduce，我们还有$$x*m$$个数，总共是$$O(n+\frac{n}{x}+x*m)$$
 
 ### 网易笔试第三题
 
@@ -23717,7 +23677,7 @@ public class Main {
 12|3456
 12|34|56
 
-&emsp;&emsp; 最近发现这题不对劲，有新想法，先上代码
+ 最近发现这题不对劲，有新想法，先上代码
 ```cpp
 string s;
 int m;
